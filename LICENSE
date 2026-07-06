@@ -1,0 +1,87 @@
+LMSCloud Commercial License
+============================
+
+Copyright (C) LMSCloud Limited. All rights reserved.
+
+Licensor:
+  LMSCloud Limited, a company registered in Ireland (Company Registration
+  Number 791062), having its registered office at The Black Church,
+  St. Mary's Place, Dublin 7, D07 P4AX, Ireland ("Licensor", "we", "us").
+
+This software, the "tool_aiagent" plugin for Moodle and all of its source code,
+templates, assets and accompanying materials (the "Software"), is proprietary to
+the Licensor. The Software is licensed, not sold. By installing, copying or
+otherwise using the Software you agree to be bound by the terms of this License.
+If you do not agree to these terms, do not install or use the Software.
+
+1. Grant of Licence
+   Subject to your compliance with this License and, where applicable, payment of
+   the relevant fees and possession of a valid licence key or subscription, the
+   Licensor grants you a limited, non-exclusive, non-transferable, non-
+   sublicensable, revocable licence to install and use the Software on Moodle
+   site(s) that you own or operate, solely for your own internal purposes.
+
+2. Restrictions
+   Except to the extent expressly permitted by this License or by mandatory
+   applicable law, you must not:
+   (a) copy, distribute, resell, rent, lease, lend, sublicense, publish, host for
+       third parties, or otherwise make the Software available to any third party;
+   (b) modify, adapt or create derivative works of the Software for the purpose of
+       distributing or making them available to any third party;
+   (c) remove, obscure or alter any copyright, licence or proprietary notices in
+       the Software;
+   (d) circumvent, disable or tamper with any licence-key, activation, usage-
+       metering or other technical protection or entitlement mechanism, or use the
+       Software beyond the scope of the entitlement you have purchased;
+   (e) use the Software to develop or operate a product or service that competes
+       with the Software or with the Licensor's commercial offerings.
+
+3. Cloud Services and Licence Keys
+   Certain features of the Software require connection to, and a valid licence
+   for, the Licensor's hosted services. Access to those services is governed by
+   the applicable subscription terms and may cease if your licence or subscription
+   lapses. The Software may validate entitlements and report usage to the Licensor
+   for licensing, billing and abuse-prevention purposes.
+
+4. Third-Party Components
+   The Software may include third-party components that are provided under their
+   own licence terms. Those terms (where present in the distribution, e.g. in
+   thirdpartylibs.xml or accompanying notices) govern your use of those components
+   and, in the event of a conflict, take precedence over this License with respect
+   to those components only.
+
+5. Ownership
+   The Software is and remains the exclusive property of the Licensor and its
+   licensors. All intellectual property rights in the Software are reserved. No
+   rights are granted to you other than as expressly set out in this License.
+
+6. Term and Termination
+   This License is effective until terminated. It terminates automatically,
+   without notice, if you breach any of its terms. The Licensor may also terminate
+   it where your licence or subscription ends. On termination you must cease all
+   use of the Software and destroy all copies in your possession or control.
+   Sections 2, 5, 7, 8 and 9 survive termination.
+
+7. Disclaimer of Warranty
+   THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY
+   KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT, TO THE
+   MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.
+
+8. Limitation of Liability
+   TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE
+   LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR
+   PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, DATA OR GOODWILL, ARISING OUT OF
+   OR IN CONNECTION WITH THE SOFTWARE OR THIS License. NOTHING IN THIS License
+   EXCLUDES OR LIMITS LIABILITY THAT CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE
+   LAW.
+
+9. Governing Law
+   This License is governed by the laws of Ireland, and the courts of Ireland have
+   exclusive jurisdiction over any dispute arising out of or in connection with it.
+
+10. Contact
+    LMSCloud Limited — info@lmscloud.io
+
+"Moodle" is a registered trademark of Moodle Pty Ltd. This plugin is an
+independent product and is not endorsed by or affiliated with Moodle Pty Ltd.

@@ -77,6 +77,8 @@ If you expose a `create_X` function, also expose an `update_X` function. Users t
 
 Similarly, if you reference something by ID in your write functions, make sure there is a read function that can resolve IDs from human-readable names (e.g. a `search_X_by_name` or `get_X_by_shortname` alongside `update_X`). The LLM will not know internal numeric IDs otherwise.
 
+Update flows also need a **raw read-back** function that returns text fields exactly as stored. Display-oriented read functions apply filters (multilang, autolink) whose output must never be written back through an update, so a lossless read-modify-write needs an unfiltered source. Name the returned fields the same as the update function's parameters so the caller can copy, modify and send them back.
+
 ### Enumerate all valid values in descriptions
 
 If a parameter accepts a specific set of string values (e.g. `'ASC' | 'DESC'`, or a list of field names), **list every valid value in the description**. LLMs fabricate plausible-looking values that don't exist. Examples:
@@ -136,9 +138,9 @@ Two important details for AI agents specifically:
 - The description of the content field must explain how to reference embedded files (the `@@PLUGINFILE@@/filename.ext` syntax). Without this, the LLM will not know to embed images even if it created the draft area.
 - Separate inline attachments from regular attachments with distinct parameters (`inlineattachmentsid` vs `attachmentsid`).
 
-The AI agent's built-in `upload_files` tool creates draft areas and returns IDs, so the pattern works out of the box — but only if your parameters are documented this way.
+The AI agent's built-in `create_draft_file_area` tool (`upload_files` in Moodle MCP) creates draft areas and returns IDs, so the pattern works out of the box — but only if your parameters are documented this way.
 
-**However, many core functions that should accept files do not.** For example, `core_course_create_courses` accepts a course summary (HTML) but has no way to embed images, and no way to upload a course image. To work around this, the AI agent plugin modifies some core functions to add file support (the plugin's `upload_files` tool together with the corrections file patch the schema). This works, but it is a maintenance burden we would rather not carry.
+**However, many core functions that should accept files do not.** For example, `core_course_create_courses` accepts a course summary (HTML) but has no way to embed images, and no way to upload a course image. To work around this, the AI agent plugin modifies some core functions to add file support (the plugin's `create_draft_file_area` tool together with the corrections file patch the schema). This works, but it is a maintenance burden we would rather not carry.
 
 **Plugin developers: please add draft-area file support to any write function that takes HTML content, or that logically produces a file-bearing entity, from day one.** Don't wait until someone asks. The pattern above is cheap to implement and makes your plugin immediately useful to the AI agent.
 

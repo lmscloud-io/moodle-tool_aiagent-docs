@@ -1,0 +1,416 @@
+<?php
+// phpcs:disable moodle.Files.BoilerplateComment
+//
+// This file is part of the tool_aiagent plugin for Moodle.
+//
+// This software is proprietary and is licensed, not sold. Use, copying,
+// modification and distribution are governed by the LMSCloud Commercial
+// License; see the LICENSE file in the plugin root for the full terms.
+// Unauthorised redistribution or resale is prohibited.
+
+/**
+ * Arabic language pack for AI agent.
+ * Last updated: 2026-08-03
+ *
+ * @package    tool_aiagent
+ * @category   string
+ * @copyright  LMSCloud Limited <info@lmscloud.io>
+ * @author     Marina Glancy
+ * @license    https://lmscloud.io/products/ai-agent/license LMSCloud Commercial License
+ */
+
+defined('MOODLE_INTERNAL') || die();
+
+$string['addon'] = 'إضافة خارجية';
+$string['aiagent:autoapproveall'] = 'اختيار وضع الموافقة التلقائية "الكل"، الذي ينفّذ كل استدعاء لوظيفة دون تأكيد';
+$string['aiagent:usechat'] = 'بدء محادثات مع وكيل الذكاء الاصطناعي (يحدد أين يمكن بدء محادثة، ولا يقيّد البيانات التي يمكن للمحادثة الوصول إليها بعد بدئها)';
+$string['allowfeedback'] = 'السماح بالملاحظات';
+$string['allowfeedback_desc'] = 'عند التمكين، يمكن للمستخدمين تقييم ردود المساعد والإبلاغ عن استدعاءات الوظائف الفاشلة. تُرسَل الملاحظات إلى مطوّري إضافة وكيل الذكاء الاصطناعي (لا إلى أي نموذج لغوي) ليتمكنوا من تحسين التعامل مع وظائف مودل. لا يُرسَل سوى التبادل المُقيَّم، لا المحادثة كاملة، ويمكن للمستخدم تحرير النص قبل الإرسال. يُنصح بتعطيل هذا الخيار في المواقع التي تطبّق سياسات صارمة على حركة البيانات الصادرة.';
+$string['anthropic_heading'] = 'Anthropic (Claude)';
+$string['anthropic_web_fetch'] = 'تمكين أداة web fetch';
+$string['anthropic_web_fetch_desc'] = 'يتيح لـ Claude جلب عناوين خارجية من جانب الخادم عبر أداة web_fetch من Anthropic. مفيد عندما تشير المحادثة إلى صفحات ويب عامة ينبغي للنموذج قراءتها. أما ملفات هذا الموقع فتُعالَج بشكل منفصل عبر الوظيفة read_file (التي ترفعها عند الحاجة إلى Files API من Anthropic)، ولذلك لا يؤثر تعطيل web_fetch في الوصول إلى مصادر المقررات أو المرفقات.';
+$string['attachedfiles'] = 'الملفات المرفقة';
+$string['attachfile'] = 'إرفاق ملف';
+$string['autoapprove'] = 'الموافقة التلقائية';
+$string['autoapprove_all'] = 'الكل (يُستعمل بحذر)';
+$string['autoapprove_all_desc'] = 'تخطّي كل طلبات التأكيد';
+$string['autoapprove_all_disabled'] = 'ليست لديك صلاحية استعمال هذا الوضع.';
+$string['autoapprove_all_short'] = 'الكل';
+$string['autoapprove_header'] = 'الموافقة التلقائية على استدعاءات الوظائف';
+$string['autoapprove_none'] = 'بلا';
+$string['autoapprove_none_desc'] = 'السؤال قبل كل استدعاء لوظيفة';
+$string['autoapprove_readonly'] = 'القراءة فقط';
+$string['autoapprove_readonly_desc'] = 'الموافقة تلقائيًا على القراءة، والسؤال عند الكتابة';
+$string['autoapprove_safe'] = 'آمن';
+$string['autoapprove_safe_desc'] = 'الموافقة تلقائيًا على الإجراءات التي لا تغيّر الموقع';
+$string['autoapprove_safe_examples'] = 'القراءة، وكذلك تغيير حجم المرفقات، وتوليد الصور، وإرسال الملفات إلى النموذج اللغوي، وما إلى ذلك.';
+$string['backtoconfiguration'] = 'العودة إلى تهيئة وكيل الذكاء الاصطناعي';
+$string['builtinfunction'] = 'مضمّنة';
+$string['bulk_disabled'] = 'تم تعطيل الوظائف المحددة ({$a})';
+$string['bulk_disableselected'] = 'تعطيل المحدد';
+$string['bulk_enabled'] = 'تم تمكين الوظائف المحددة ({$a})';
+$string['bulk_enableselected'] = 'تمكين المحدد';
+$string['bulk_withselected'] = 'مع الوظائف المحددة';
+$string['capabilities'] = 'الإمكانيات';
+$string['chat_namelink'] = 'الاسم مع رابط';
+$string['chatfrozen'] = 'لم تعد مهارات هذه المحادثة متاحة، ولذلك لا يمكن متابعتها. يمكن بدء محادثة جديدة بدلًا منها.';
+$string['chathelpcontent'] = '<p>يستطيع وكيل الذكاء الاصطناعي قراءة محتوى هذا الموقع وتعديله نيابة عنك. تطلب معظم الإجراءات موافقتك قبل تنفيذها، ويمكن تغيير وضع الموافقة التلقائية في مربع الكتابة للتخفيف من ذلك أو التشديد فيه.</p>
+<p>يمكن إرفاق الملفات بالسحب والإفلات، أو باللصق، أو بالنقر على أيقونة مشبك الورق. بعد ذلك يمكن كتابة الطلب والضغط على <strong>إرسال</strong>. يؤدي الضغط على Enter إلى الإرسال، والضغط على Shift مع Enter إلى إضافة سطر جديد.</p><p>قد يقع الذكاء الاصطناعي في الخطأ. يُنصح بالتحقق من النتائج.</p>';
+$string['chatnopermission'] = 'بدأت هذه المحادثة في منطقة من الموقع لم يعد لديك فيها وصول إلى وكيل الذكاء الاصطناعي، ولذلك لا يمكن متابعتها.';
+$string['chatnostartpermission'] = 'ليست لديك صلاحية بدء محادثة هنا. يمكن فتح وكيل الذكاء الاصطناعي من صفحة يُتاح فيها.';
+$string['chatretention'] = 'الاحتفاظ بالمحادثات لمدة';
+$string['chatretention_desc'] = 'تُزال المحادثات التي لم يجرِ فيها أي نشاط طوال هذه المدة من سجل محادثات المستخدمين، وتُحذف ملفاتها المرفقة من هذا الموقع، ويُطلب حذف بيانات المحادثة المخزّنة لدى مزوّد الذكاء الاصطناعي (الردود المخزّنة والملفات المرفوعة). الحذف لدى المزوّد يجري قدر المستطاع وغير مضمون، لذا يُنصح بضبط سياسة احتفاظ بالبيانات مماثلة في الحساب لدى المزوّد أيضًا. تُحفظ الرسائل وسجلات الاستعمال لأغراض التقارير حتى انقضاء مدة الاحتفاظ بسجلات المحادثات أدناه. القيمة 0 تعني الاحتفاظ بالمحادثات إلى الأبد.';
+$string['closeconfirm_body'] = 'إغلاق النافذة لا يحذف المحادثة، ويمكن فتحها مجددًا في أي وقت من قائمة "المحادثات السابقة". تُحذف المحادثات تلقائيًا بعد {$a} يومًا.';
+$string['closeconfirm_body_noretention'] = 'إغلاق النافذة لا يحذف المحادثة، ويمكن فتحها مجددًا في أي وقت من قائمة "المحادثات السابقة".';
+$string['closeconfirm_close'] = 'إغلاق المحادثة';
+$string['closeconfirm_dontshowagain'] = 'عدم إظهار هذا مرة أخرى';
+$string['closeconfirm_title'] = 'هل تريد إغلاق هذه المحادثة؟';
+$string['component'] = 'المكوّن';
+$string['component_filesandimages'] = 'عمليات على الملفات والصور';
+$string['configuration'] = 'تهيئة وكيل الذكاء الاصطناعي';
+$string['confirmdeleteskill'] = 'هل تريد بالتأكيد حذف هذه المهارة؟';
+$string['contextevent_opened'] = 'فُتحت من {$a}';
+$string['contextevent_page'] = 'الصفحة · {$a}';
+$string['copyresponse'] = 'نسخ الرد';
+$string['copyurl'] = 'نسخ العنوان';
+$string['datasource_chats'] = 'محادثات وكيل الذكاء الاصطناعي';
+$string['datasource_usage'] = 'استعمال وكيل الذكاء الاصطناعي';
+$string['deletechat_menu'] = 'حذف المحادثة';
+$string['deletechat_named'] = 'حذف المحادثة: {$a}';
+$string['disablefunction'] = 'تعطيل هذه الوظيفة';
+$string['dragtoresize'] = 'السحب لتغيير الحجم';
+$string['dynamicdiscovery'] = 'الاكتشاف الديناميكي للوظائف';
+$string['dynamicdiscovery_automatic'] = 'تلقائي';
+$string['dynamicdiscovery_desc'] = 'ترشيد استعمال الترميزات باكتشاف الوظائف عند الحاجة فقط. يُنصح بهذا إذا كان عدد وظائف خدمات الويب الممكّنة كبيرًا. في الوضع التلقائي، سيُفعَّل هذا إذا كان عدد الوظائف المتاحة أكثر من {$a}. لدى بعض مزوّدي الذكاء الاصطناعي حد لعدد الوظائف (فالحد لدى OpenAI مثلًا هو 128).';
+$string['dynamicdiscovery_off'] = 'إيقاف';
+$string['dynamicdiscovery_on'] = 'تشغيل';
+$string['enabled'] = 'ممكّن';
+$string['enablefunction'] = 'تمكين هذه الوظيفة';
+$string['entity_aiagentfunction'] = 'وظيفة وكيل الذكاء الاصطناعي';
+$string['entity_chat'] = 'محادثة';
+$string['entity_externalfunction'] = 'وظيفة خدمة ويب';
+$string['entity_message'] = 'رسالة';
+$string['entity_placement'] = 'موضع';
+$string['entity_skill'] = 'مهارة';
+$string['entity_usage'] = 'استعمال الترميزات';
+$string['error_interrupted_function'] = 'انقطع استدعاء وظيفة قبل انتهائه، وقد يكون طبّق بعض التغييرات جزئيًا. يُنصح بالتحقق من الحالة قبل إعادة المحاولة.';
+$string['error_interrupted_llm'] = 'انقطع الاتصال بمزوّد الذكاء الاصطناعي. يمكن النقر على "إعادة المحاولة" لإرسال الطلب مرة أخرى.';
+$string['errordetail'] = '{$a}';
+$string['erroremptymessage'] = 'لا يمكن أن تكون الرسالة فارغة.';
+$string['errorfullscreendisabled'] = 'عرض المحادثة بملء الشاشة غير ممكّن في هذا الموقع.';
+$string['errorinvalidchat'] = 'لم يُعثر على المحادثة أو أن الوصول إليها مرفوض.';
+$string['errorinvalidname'] = 'لا يمكن أن يكون الاسم فارغًا.';
+$string['errormissingfeedbackparams'] = 'الرسالة أو نوع الملاحظات مفقود.';
+$string['errornopendingfunction'] = 'لا توجد استدعاءات وظائف بانتظار الموافقة.';
+$string['errornoprovider'] = 'لا يوجد مزوّد ذكاء اصطناعي متاح. يستعمل وكيل الذكاء الاصطناعي إعدادات إجراء "توليد النص"، لذا يجب التأكد من تهيئته وتمكينه لدى مزوّد ذكاء اصطناعي واحد على الأقل في إدارة الموقع.';
+$string['errornoprovider_link'] = 'تهيئة مزوّدي الذكاء الاصطناعي.';
+$string['errornoretryresponse'] = 'لا يوجد رد فاشل يمكن إعادة المحاولة عليه.';
+$string['errorpendingfunctions'] = 'يجب أولًا الموافقة على استدعاءات الوظائف المعلّقة أو رفضها.';
+$string['errorprovider_blocked_prompt'] = 'حظر {$a->provider} النص التلقيني: {$a->reason}';
+$string['errorprovider_blocked_response'] = 'حظر {$a->provider} الرد: {$a->reason}';
+$string['errorprovider_no_content'] = 'لم يُرجِع {$a} أي محتوى.';
+$string['errorprovider_no_content_with_reason'] = 'لم يُرجِع {$a->provider} أي محتوى (سبب الإنهاء: {$a->reason}).';
+$string['errorresponses_endpoint_invalid'] = 'نقطة النهاية الخاصة بالاتصال بمزوّد الذكاء الاصطناعي غير صالحة أو يتعذّر الوصول إليها.';
+$string['errorresponses_endpoint_invalid_config'] = 'حاولت الإضافة استعمال {$a->endpoint} بوصفها نقطة نهاية Responses API من OpenAI، لكن الطلب فشل. يمكن الانتقال إلى {$a->settingslink} والتحقق من نقطة نهاية Responses API، أو تغيير نوع الـ API إلى Chat Completions.';
+$string['errorresponses_endpoint_reply'] = 'رد المزوّد: {$a}';
+$string['errorresponses_provider_switch'] = 'لا يمكن متابعة هذه المحادثة عبر Responses API من OpenAI لأنها بدأت مع مزوّد ذكاء اصطناعي آخر. يمكن بدء محادثة جديدة، أو العودة إلى المزوّد الأصلي (أو إلى Chat Completions من OpenAI) لمتابعة هذه المحادثة.';
+$string['errorrootnotfound'] = 'لم يُعثر على الرسالة الجذر لهذه المحادثة.';
+$string['exportskill'] = 'تصدير';
+$string['feedback_modal_freetextlabel'] = 'هل من شيء آخر؟ (اختياري)';
+$string['feedback_modal_freetextplaceholder_negative'] = 'ما الذي حدث خطأً؟ يمكن التفصيل بالقدر المرغوب.';
+$string['feedback_modal_freetextplaceholder_positive'] = 'ما الذي جرى على ما يُرام؟ (اختياري)';
+$string['feedback_modal_freetextplaceholder_toolerror'] = 'ما الذي حدث خطأً في استدعاء الوظيفة هذا؟';
+$string['feedback_modal_intro_negative'] = 'شكرًا على إبلاغنا. ستُرسَل ملاحظاتك إلى مطوّري إضافة وكيل الذكاء الاصطناعي (لا إلى مزوّد الذكاء الاصطناعي) ليتمكنوا من تحسين التعامل مع وظائف مودل.';
+$string['feedback_modal_intro_positive'] = 'شكرًا لك! ستُرسَل ملاحظاتك إلى مطوّري إضافة وكيل الذكاء الاصطناعي (لا إلى مزوّد الذكاء الاصطناعي) ليتمكنوا من الحفاظ على ما ينجح وتحسين ما لا ينجح.';
+$string['feedback_modal_intro_toolerror'] = 'الإبلاغ عن استدعاء الوظيفة هذا بوصفه مشكلة. ستُرسَل ملاحظاتك إلى مطوّري إضافة وكيل الذكاء الاصطناعي (لا إلى مزوّد الذكاء الاصطناعي) ليتمكنوا من إصلاح خدمة الويب المعنية أو تحسين طريقة استعمال الذكاء الاصطناعي لها.';
+$string['feedback_modal_send'] = 'إرسال الملاحظات';
+$string['feedback_modal_sending'] = 'جارٍ الإرسال...';
+$string['feedback_modal_snapshotlabel'] = 'ما الذي سيُرسَل (يمكن تحريره)';
+$string['feedback_modal_title_positive'] = 'أخبرنا بما نجح';
+$string['feedbackcat_negative_misunderstood'] = 'أساء فهم سؤالي';
+$string['feedbackcat_negative_notfollowed'] = 'لم يتبع التعليمات';
+$string['feedbackcat_negative_other'] = 'شيء آخر';
+$string['feedbackcat_negative_wronginfo'] = 'معلومات خاطئة أو مُختلقة';
+$string['feedbackcat_negative_wrongtoolused'] = 'استعمل الوظيفة الخطأ';
+$string['feedbackcat_positive_accurate'] = 'دقيق';
+$string['feedbackcat_positive_goodexplanation'] = 'شرح واضح';
+$string['feedbackcat_positive_helpful'] = 'مفيد';
+$string['feedbackcat_positive_other'] = 'شيء آخر';
+$string['feedbackcat_positive_welltimed'] = 'الوظيفة المناسبة للمهمة';
+$string['feedbackcat_toolerror_misleadingresult'] = 'كانت النتيجة مضلِّلة';
+$string['feedbackcat_toolerror_other'] = 'شيء آخر';
+$string['feedbackcat_toolerror_toolerror'] = 'أرجعت الوظيفة خطأً';
+$string['feedbackcat_toolerror_wrongargs'] = 'وسائط خاطئة';
+$string['feedbackcat_toolerror_wrongtool'] = 'وظيفة غير مناسبة للمهمة';
+$string['feedbackdisabled'] = 'جمع الملاحظات معطَّل من قِبل مدير الموقع.';
+$string['feedbackfailed'] = 'تعذّر إرسال الملاحظات. يرجى المحاولة مرة أخرى لاحقًا.';
+$string['feedbackflagfunctioncall'] = 'الإبلاغ عن استدعاء الوظيفة هذا';
+$string['feedbacksubmitted'] = 'تم إرسال الملاحظات';
+$string['feedbackthanks'] = 'شكرًا على ملاحظاتك!';
+$string['feedbackthumbdown'] = 'الإبلاغ عن مشكلة في هذا الرد';
+$string['feedbackthumbup'] = 'كان هذا الرد مفيدًا';
+$string['feedbackvalidation_categoryrequired'] = 'يرجى اختيار فئة واحدة على الأقل.';
+$string['functionapprovecount'] = 'الموافقة على الاستدعاءات ({$a})';
+$string['functioncall_actions'] = 'الموافقة على استدعاء الوظيفة أو رفضه';
+$string['functioncall_chip_action'] = 'تغيير وضع الموافقة التلقائية';
+$string['functioncalldetails'] = 'تفاصيل استدعاء الوظيفة';
+$string['functiondeny'] = 'رفض';
+$string['functiondenyall'] = 'رفض الكل';
+$string['functionloopguardbody'] = 'عدد مرات تشغيل هذه الوظيفة بالمدخلات نفسها: {$a}. أُوقفت الموافقة التلقائية مؤقتًا خشية وجود حلقة متكررة، ويمكن الموافقة للمتابعة.';
+$string['functionloopguardheading'] = 'استدعاء متكرر.';
+$string['functionname'] = 'اسم الوظيفة';
+$string['functionparameters'] = 'المعامِلات';
+$string['functionresult'] = 'النتيجة';
+$string['functionresultdiscarded'] = 'كانت النتيجة كبيرة جدًا ({$a}) فجرى تجاهلها. يمكن تضييق الطلب بترشيحه، أو بطلب حقول أقل، أو باستعمال وظيفة أكثر تحديدًا. تكرار الاستدعاء نفسه سيؤدي إلى الخطأ نفسه.';
+$string['functions_intro'] = '<p><b>ليست كل وظيفة من وظائف خدمات الويب مناسبة لوكيل الذكاء الاصطناعي.</b> بعضها بُني للاتصال بين العميل والخادم (المميزة بـ AJAX) أو للمستخدمين غير المصادَق عليهم (بدون مصادقة)، ولبعضها بدائل أفضل. تعمل بعض وظائف AJAX جيدًا مع وكيل الذكاء الاصطناعي، لكن معظمها لا يعمل. تمنح إضافة وكيل الذكاء الاصطناعي درجة ملاءمة (من 1 إلى 10) لوظائف النواة والإضافات القياسية، وتمكّن ما تبلغ درجته 5 فأكثر. أما وظائف الإضافات الخارجية فلا تُمنح درجة، وتُمكَّن جميع وظائفها غير AJAX تلقائيًا بدلًا من ذلك. يمكن استعمال هذه الصفحة لمراجعة الوظائف المتاحة وتمكين كل منها أو تعطيلها.</p><p>عندما تتطلب وظيفة إمكانية واحدة أو أكثر، فإنها لا تكون متاحة للمستخدمين الذين لا يملكون إحداها على الأقل في سياق ما داخل الموقع. تضبط إضافة وكيل الذكاء الاصطناعي هذه الإمكانيات ضبطًا صحيحًا لوظائف النواة والإضافات القياسية. أما في الإضافات الخارجية فتُؤخذ الإمكانيات من تعريف الوظيفة، وقد تكون خاطئة لأن مودل لا يفرض هذا التحقق بنفسه.</p>';
+$string['functions_report'] = 'وظائف وكيل الذكاء الاصطناعي';
+$string['functionstatus_denied'] = 'مرفوض';
+$string['functionstatus_failed'] = 'فشل';
+$string['functionstatus_pending'] = 'بانتظار الموافقة';
+$string['functionstatus_processing'] = 'قيد التنفيذ...';
+$string['functiontype'] = 'النوع';
+$string['functiontype_help'] = 'نوع وظيفة خدمة الويب وخصائصها:
+
+* **قراءة**: تجلب البيانات دون تعديل أي شيء
+* **كتابة**: تنشئ البيانات أو تعدّلها
+* **AJAX**: يستعملها مودل داخليًا للطلبات بين العميل والخادم، وهي أقل ملاءمة لتكون وظيفة لوكيل الذكاء الاصطناعي
+* **بدون مصادقة**: متاحة للمستخدمين غير المصادَق عليهم، وهي أيضًا أقل ملاءمة لتكون وظيفة لوكيل الذكاء الاصطناعي';
+$string['functiontype_read'] = 'قراءة';
+$string['functiontype_write'] = 'كتابة';
+$string['gemini_api_generatecontent'] = 'generateContent (مستقرة)';
+$string['gemini_api_interactions'] = 'Interactions API (بيتا)';
+$string['gemini_api_type'] = 'نوع الـ API';
+$string['gemini_api_type_desc'] = 'أي واجهة API من Gemini تُستعمل في المحادثات متعددة الأدوار. الواجهة generateContent هي نقطة النهاية القياسية عديمة الحالة، وتعيد بناء قائمة الرسائل كاملة في كل دور. أما Interactions API فهي حاليًا في مرحلة بيتا، وتخزّن حالة المحادثة لدى Google (فلا يُرسَل في كل دور سوى المدخلات الجديدة)، لكن مخططها قد يتغير دون إشعار.';
+$string['gemini_builtin_code_execution'] = 'تمكين أداة Code Execution';
+$string['gemini_builtin_code_execution_desc'] = 'يتيح لـ Gemini كتابة شفرة Python وتشغيلها في بيئة معزولة لحل المسائل الحسابية أو معالجة البيانات. يعمل في نماذج Gemini من الإصدار 3 فما فوق فقط، ويُتجاهل بصمت في Gemini 2.5 وما قبله لأن تلك النماذج لا تستطيع الجمع بين الأدوات المضمّنة واستدعاء الوظائف المخصصة.';
+$string['gemini_builtin_google_search'] = 'تمكين الاستناد إلى بحث Google';
+$string['gemini_builtin_google_search_desc'] = 'يتيح لـ Gemini إسناد الردود إلى نتائج بحث حديثة على الويب. يعمل في نماذج Gemini من الإصدار 3 فما فوق فقط، ويُتجاهل بصمت في Gemini 2.5 وما قبله لأن تلك النماذج لا تستطيع الجمع بين الأدوات المضمّنة واستدعاء الوظائف المخصصة. يُحاسَب على كل استعلام بحث على حدة.';
+$string['gemini_builtin_url_context'] = 'تمكين أداة URL Context';
+$string['gemini_builtin_url_context_desc'] = 'يتيح لـ Gemini قراءة المحتوى وتحليله من العناوين العامة التي يذكرها المستخدم. يعمل في نماذج Gemini من الإصدار 3 فما فوق فقط، ويُتجاهل بصمت في Gemini 2.5 وما قبله لأن تلك النماذج لا تستطيع الجمع بين الأدوات المضمّنة واستدعاء الوظائف المخصصة. يجب أن تكون العناوين متاحة للعموم (بلا localhost وبلا مصادقة).';
+$string['gemini_heading'] = 'Google Gemini';
+$string['hint_splitview'] = 'هل ترغب في استعمال هذه المحادثة إلى جانب موقعك؟ يمكن سحب <a href="{$a}">{$a}</a> إلى نافذة جديدة، أو النقر عليه بالزر الأيمن واستعمال العرض المقسّم في المتصفح.';
+$string['imagedimensions'] = '{$a->width}×{$a->height} بكسل';
+$string['imagepreviewinfo'] = 'حجم الملف: {$a->size}، الأبعاد: {$a->dimensions}. المعاينة: {$a->preview} ({$a->scale}%).';
+$string['importskill'] = 'استيراد المهارات';
+$string['importskill_addmore'] = 'إضافة المزيد...';
+$string['importskill_button'] = 'استيراد المهارات ({$a})';
+$string['importskill_buttonone'] = 'استيراد مهارة واحدة';
+$string['importskill_choose'] = 'اختيار الملفات...';
+$string['importskill_drophint'] = 'يمكن سحب ملفات المهارات إلى هنا، أو استعمال الزر.';
+$string['importskill_fileone'] = 'تم تحديد ملف واحد';
+$string['importskill_files'] = 'الملفات المحددة: {$a}';
+$string['importskill_statusinvalid'] = 'ليس ملف مهارة';
+$string['importskill_statusnew'] = 'مهارة جديدة';
+$string['importskill_statusupdate'] = 'تحديث لـ {$a}';
+$string['importskill_summarynew'] = 'جديدة: {$a}';
+$string['importskill_summaryskipped'] = 'متجاوَزة: {$a}';
+$string['importskill_summaryupdate'] = 'للتحديث: {$a}';
+$string['importskill_toolarge'] = 'بيانات المهارة كبيرة جدًا (الحد الأقصى {$a}).';
+$string['inlinefilecharlimit'] = 'حد محتوى الملف المضمّن';
+$string['inlinefilecharlimit_desc'] = 'أقصى مقدار من ملف نصي يمكن تضمينه مباشرة في المحادثة عند قراءة الملف تضمينًا. يُقتطع المحتوى الأطول من ذلك. يُستعمل التضمين عندما يطلبه النموذج، وكذلك بديلًا لدى مزوّدي الذكاء الاصطناعي الذين لا يقبلون الملفات. يُعاد إرسال المحتوى المضمَّن مع سجل المحادثة في كل دور، ولذلك يزيد الحد المرتفع من استعمال الترميزات.';
+$string['invalidparameter'] = 'تم اكتشاف معامل غير صالح: {$a}';
+$string['isajax'] = 'AJAX';
+$string['licenseactivate'] = 'تفعيل الرخصة';
+$string['licenseactivate_help'] = 'يجب إدخال مفتاح الرخصة الذي وصلك بالبريد الإلكتروني من LMSCloud. يمكن تفعيل مفتاح الرخصة على عدد محدود من المواقع (اثنين عادةً)، ويمكن إلغاء التفعيل في أي لحظة لاستعماله على موقع آخر.';
+$string['licensedeactivate'] = 'إلغاء التفعيل';
+$string['licensedeactivate_help'] = 'إلغاء تفعيل مفتاح الرخصة على هذا الموقع ليتسنى استعماله على موقع آخر.';
+$string['licenseerror_deactivate'] = 'تعذّر إلغاء تفعيل الرخصة. قد يكون الخادم غير متاح مؤقتًا، يرجى المحاولة مرة أخرى لاحقًا.';
+$string['licenseerror_deactivate_forced'] = 'هذه الرخصة مضبوطة في إعدادات الخادم (config.php) ولا يمكن إلغاء تفعيلها من هذه الصفحة.';
+$string['licenseerror_invalid'] = 'مفتاح الرخصة غير صالح أو تعذّر تفعيله.';
+$string['licenseerror_limit'] = 'لا توجد أماكن شاغرة لمفتاح الرخصة هذا. يجب إلغاء التفعيل على موقع آخر أولًا ثم المحاولة مرة أخرى.';
+$string['licenseerror_transport'] = 'تعذّر الوصول إلى خادم الرخص. يرجى التحقق من الاتصال والمحاولة مرة أخرى.';
+$string['licensekey'] = 'مفتاح الرخصة';
+$string['licenselocked_expired'] = 'لم يتحقق هذا الموقع من رخصته منذ أكثر من 14 يومًا. يجب إعادة فحص الرخصة لاستعادة الوصول.';
+$string['licenselocked_key_rejected'] = 'لم يعد مفتاح الرخصة هذا صالحًا على هذا الموقع.';
+$string['licenselocked_url_mismatch'] = 'تغيّر عنوان الويب الخاص بهذا الموقع، ويجب على صاحب الرخصة أن يأذن به.';
+$string['licensemanageinsettings'] = 'يمكن إدارة الرخصة في إعدادات وكيل الذكاء الاصطناعي.';
+$string['licenserecheck'] = 'إعادة الفحص';
+$string['licensesetting'] = 'رخصة وكيل الذكاء الاصطناعي';
+$string['licensesetting_desc'] = 'تفعيل رخصة وكيل الذكاء الاصطناعي لهذا الموقع أو إعادة فحصها أو إلغاء تفعيلها.';
+$string['licensestatus_materialsmissing'] = 'رخصة وكيل الذكاء الاصطناعي مفعّلة، لكن المواد التي جرى تنزيلها مفقودة، ولذلك لا تتوفر أي وظائف. يجب إعادة الفحص لتنزيلها مرة أخرى.';
+$string['licensestatus_notactivated'] = 'يلزم وجود رخصة لاستعمال وكيل الذكاء الاصطناعي على هذا الموقع.';
+$string['licensestatus_valid'] = 'رخصة وكيل الذكاء الاصطناعي مفعّلة.';
+$string['loginrequired'] = 'تسجيل الدخول مطلوب';
+$string['logretention'] = 'الاحتفاظ بسجلات المحادثات لمدة';
+$string['logretention_desc'] = 'تُحذف نهائيًا من قاعدة البيانات رسائل المحادثات التي لم يجرِ فيها أي نشاط طوال هذه المدة وسجلات استعمال الترميزات الخاصة بها. ينطبق هذا فقط على المحادثات التي حُذفت من سجل المحادثات، سواء بفعل المستخدم أو بفعل الإعداد أعلاه. القيمة 0 تعني الاحتفاظ بالسجلات إلى الأبد.';
+$string['maxfilesize'] = 'الحجم الأقصى للملف المرسل إلى النموذج اللغوي';
+$string['maxfilesize_desc'] = 'يمنع المستخدمين من إرسال ملفات أكبر من أن يتحملها النموذج اللغوي. الملفات الكبيرة تستهلك الترميزات بسرعة وترفع التكاليف. تُرفض الملفات التي تتجاوز هذا الحجم مع رسالة خطأ قبل أن تغادر أي بيانات الموقع.
+
+سيرفض مزوّدو الذكاء الاصطناعي على أي حال الملفات التي تتجاوز حدودهم الخاصة بكل طلب (Anthropic 32 ميغابايت، وGemini 50 ميغابايت في التضمين، وOpenAI 512 ميغابايت).';
+$string['maxfunctionresultsize'] = 'الحجم الأقصى لنتيجة الوظيفة';
+$string['maxfunctionresultsize_desc'] = 'أقصى مقدار من البيانات يمكن لوظيفة واحدة أن تُرجعه إلى نموذج الذكاء الاصطناعي. بعض وظائف مودل بلا مرشِّح فتُرجع كل مستخدم أو كل مقرر في الموقع، مما يُغرق النموذج ويستهلك الترميزات في كل دور تالٍ. تُتجاهَل النتيجة التي تتجاوز هذا الحد ويُطلب من النموذج تضييق الطلب بدلًا من ذلك. القيمة صفر تعني بلا حد. قراءة ملف تضمينًا مستثناة من ذلك، ويُستعمل لها "حد محتوى الملف المضمّن".';
+$string['newchat'] = 'محادثة جديدة';
+$string['newchatchooser_blank_sub'] = 'بلا سياق. مساعد عام.';
+$string['newchatchooser_clone'] = 'مثل هذه المحادثة';
+$string['newchatchooser_continue'] = 'المتابعة من حيث توقفت';
+$string['newchatchooser_desc_default'] = 'يمكن بدء محادثة جديدة في هذه الصفحة، أو المتابعة من حيث توقفت.';
+$string['newchatchooser_desc_full'] = 'يمكن بدء محادثة عامة، أو المتابعة من حيث توقفت.';
+$string['newchatchooser_desc_multi'] = 'في هذه الصفحة عدة نقاط بداية. يمكن اختيار إحداها، أو المتابعة من حيث توقفت.';
+$string['newchatchooser_error'] = 'تعذّر بدء محادثة جديدة. يرجى المحاولة مرة أخرى.';
+$string['newchatchooser_none'] = 'لا توجد هنا صفحة يمكن بدء محادثة جديدة فيها.';
+$string['newchatchooser_onthispage'] = 'في هذه الصفحة:';
+$string['newchatchooser_title'] = 'بدء محادثة جديدة';
+$string['nfilesattached'] = 'الملفات المرفقة: {$a}';
+$string['nonauth'] = 'بدون مصادقة';
+$string['numfiles'] = 'الملفات: {$a}';
+$string['numimages'] = 'الصور: {$a}';
+$string['numotherfiles'] = 'ملفات أخرى: {$a}';
+$string['openai_api_chatcompletions'] = 'Chat Completions';
+$string['openai_api_responses'] = 'Responses API';
+$string['openai_api_type'] = 'نوع الـ API';
+$string['openai_api_type_desc'] = 'أي واجهة API من OpenAI تُستعمل في المحادثات متعددة الأدوار. تحتفظ Responses API بحالة المحادثة على الخادم، فلا يُرسَل في كل دور سوى المدخلات الجديدة (تكلفة أقل وسجل أبسط). أما Chat Completions فتعيد بناء قائمة الرسائل كاملة في كل طلب (توافق أوسع مع المزوّدين).<br><br>الواجهة Responses API مدعومة لدى: <strong>{$a}</strong>. أما المزوّدون الآخرون فسيرجعون بصمت إلى Chat Completions بصرف النظر عن هذا الإعداد.';
+$string['openai_heading'] = 'OpenAI (أو متوافق معها)';
+$string['openlink'] = 'فتح الرابط';
+$string['placeholder'] = 'اكتب رسالة...';
+$string['placement_add'] = 'إضافة موضع';
+$string['placement_confirmdelete'] = 'هل تريد بالتأكيد حذف هذا الموضع؟';
+$string['placement_copyof'] = '{$a} (نسخة)';
+$string['placement_defaultname'] = 'وكيل الذكاء الاصطناعي';
+$string['placement_deleted'] = 'تم حذف الموضع.';
+$string['placement_duplicated'] = 'تم تكرار الموضع.';
+$string['placement_edit'] = 'تحرير الموضع';
+$string['placement_initialskills'] = 'المهارات الأولية';
+$string['placement_initialskills_help'] = 'مهارات تُحمَّل تلقائيًا عند بدء المحادثة. اختيارية، فالوكيل يستطيع تحميل أي مهارة عند الحاجة. المهارات التي تحددها تتحكم أيضًا في هذا الموضع: المستخدمون الذين لا يملكون وصولًا إلى أي منها لن يروا الزر أو عنصر القائمة، وإذا أُزيلت كل المهارات المحددة أو عُطّلت لاحقًا فسيتوقف الموضع عن الظهور.';
+$string['placement_intro'] = '<p>تتيح لك المواضع تقديم وكلاء مصممين لمهمة بعينها. يضيف كل موضع زر وكيل الذكاء الاصطناعي إلى الصفحات التي يطابق عنوانها أحد أقنعته، ويمكنه بدء المحادثة بمهارات أولية ونص ترحيب محددين مسبقًا. وإذا حُددت مهارات أولية، فلن يرى الزر المستخدمون الذين لا يملكون وصولًا إلى أي منها.</p><p>المهارات الأولية تحدد نقطة انطلاق المحادثة فقط، فالوكيل يظل قادرًا على الوصول إلى كل الوظائف الممكّنة، لا إلى وظائف تلك المهارات وحدها.</p>';
+$string['placement_location'] = 'موقع الزر';
+$string['placement_location_floating'] = 'زر عائم';
+$string['placement_location_h1'] = 'عنوان الصفحة (H1)';
+$string['placement_location_h2'] = 'عنوان ثانوي (H2)';
+$string['placement_menuheading'] = 'اسأل وكيل الذكاء الاصطناعي';
+$string['placement_name'] = 'الاسم';
+$string['placement_name_help'] = 'يظهر للمستخدمين: في قائمة المستخدم، وبوصفه تلميح الزر، وفي قائمة الزر عندما تطابق عدة مواضع الصفحة نفسها.';
+$string['placement_save'] = 'حفظ الموضع';
+$string['placement_saved'] = 'تم حفظ الموضع.';
+$string['placement_skillmissing'] = 'لم يُعثر على المهارة';
+$string['placement_urlmask'] = 'أقنعة العناوين';
+$string['placement_urlmask_help'] = 'نمط واحد في كل سطر. يمكن استعمال * رمزًا شاملًا، مثل ‎/course/view.php*‎ أو ‎/mod/*/view.php*‎. ملاحظة: في الصفحات التي يستهدف فيها موضع أكثر تحديدًا الموقع نفسه، يُخفى الموضع الواسع الذي يطابق ‎/*‎ ليرى المستخدمون الموضع الأوثق صلة وحده.';
+$string['placement_urlmask_invalid'] = 'يجب أن يبدأ كل قناع عنوان بشَرطة مائلة، وهذا السطر لا يبدأ بها: "{$a}"';
+$string['placement_welcome'] = 'نص ترحيب مخصص (اختياري)';
+$string['placement_welcome_help'] = 'يحل محل رسالة الترحيب القياسية في شاشة بداية المحادثة. يُترك فارغًا لاستعمال النص الافتراضي.';
+$string['pluginname'] = 'وكيل الذكاء الاصطناعي';
+$string['previouschats'] = 'المحادثات السابقة';
+$string['privacy:metadata:aiprovider'] = 'تُرسَل المحادثات إلى مزوّد الذكاء الاصطناعي الذي يختاره مدير الموقع، مثل OpenAI أو Azure OpenAI أو Google Gemini أو Anthropic، ليتمكن من توليد رد. ترسل الإضافة كل طلب إلى المزوّد مباشرة لا عبر نظام الذكاء الاصطناعي في مودل. أما الشركة التي تتلقى البيانات ومدة الاحتفاظ بها لديها فيعتمدان على المزوّد الذي هُيّئ في الموقع وعلى شروط ذلك المزوّد.';
+$string['privacy:metadata:aiprovider:files'] = 'الملفات التي يرفقها المستخدم بالمحادثة، والملفات التي يقرؤها الوكيل من الموقع نيابة عنه، وتُرفع ليتمكن النموذج من قراءة محتواها.';
+$string['privacy:metadata:aiprovider:messages'] = 'سجل المحادثة، الذي يُعاد إرساله في كل دور: طلبات المستخدم وردود المساعد ونتائج وظائف مودل التي شغّلها الوكيل، وقد تتضمن بيانات شخصية عن مستخدمين آخرين أرجعتها تلك الوظائف.';
+$string['privacy:metadata:aiprovider:userid'] = 'مُعرَّف المستخدم صاحب المحادثة، ويُدرَج في التعليمات المعطاة للنموذج ليتمكن من التصرف نيابة عنه.';
+$string['privacy:metadata:core_files'] = 'الملفات المرفقة برسائل وكيل الذكاء الاصطناعي.';
+$string['privacy:metadata:feedback'] = 'عندما تكون الملاحظات ممكّنة ويقيّم مستخدم ردًا أو يبلّغ عن استدعاء وظيفة فاشل، يُرسَل التبادل المُقيَّم إلى مطوّري إضافة وكيل الذكاء الاصطناعي ليتسنى تحسين سلوك الوكيل. لا يُرسَل شيء ما لم يختر المستخدم إرسال ملاحظات، ويمكن تعطيل هذه الميزة كليًا بإعداد "السماح بالملاحظات".';
+$string['privacy:metadata:feedback:freetext'] = 'التعليق الذي يكتبه المستخدم اختياريًا عند إرسال الملاحظات، ويُرسَل كما أُدخل.';
+$string['privacy:metadata:feedback:snapshot'] = 'نص التبادل المُقيَّم: سؤال المستخدم وردود المساعد وأسماء الوظائف التي استدعاها. تُخفى عناوين البريد الإلكتروني، وتُستبعد وسائط تلك الوظائف ونتائجها، عدا عمليات بحث الوكيل عن الوظائف. ويمكن للمستخدم تحرير النص قبل إرساله.';
+$string['privacy:metadata:preference:tool_aiagent_closeconfirm_hidden'] = 'تفضيل عدم إظهار نافذة تأكيد الإغلاق مرة أخرى.';
+$string['privacy:metadata:preference:tool_aiagent_overlaysize'] = 'الحجم الذي حدده المستخدم للنافذة العائمة للمحادثة.';
+$string['privacy:metadata:preference:tool_aiagent_sidebarwidth'] = 'العرض الذي حدده المستخدم للشريط الجانبي للمحادثة.';
+$string['privacy:metadata:preference:tool_aiagent_viewtype'] = 'نوع عرض المحادثة الذي استعمله المستخدم آخر مرة (نافذة عائمة أو شريط جانبي أو ملء الشاشة).';
+$string['privacy:metadata:tool_aiagent_conversation'] = 'المحادثات بين المستخدم ووكيل الذكاء الاصطناعي. المحادثات التي يحذفها المستخدم تُؤرشَف ولا تُزال، ليتسنى الاستمرار في تتبع استعمال الترميزات.';
+$string['privacy:metadata:tool_aiagent_conversation:timearchived'] = 'وقت أرشفة المحادثة (حذفها من قِبل المستخدم)، إن وُجد.';
+$string['privacy:metadata:tool_aiagent_conversation:timecreated'] = 'وقت إنشاء المحادثة.';
+$string['privacy:metadata:tool_aiagent_conversation:timelastactivity'] = 'وقت تخزين آخر رسالة في المحادثة.';
+$string['privacy:metadata:tool_aiagent_conversation:timemodified'] = 'وقت آخر تحديث للمحادثة.';
+$string['privacy:metadata:tool_aiagent_conversation:title'] = 'اسم المحادثة، المولَّد من الرسالة الأولى.';
+$string['privacy:metadata:tool_aiagent_conversation:userid'] = 'المستخدم صاحب المحادثة.';
+$string['privacy:metadata:tool_aiagent_message'] = 'الرسائل المفردة داخل المحادثة، بما فيها طلبات المستخدم وردود الذكاء الاصطناعي.';
+$string['privacy:metadata:tool_aiagent_message:content'] = 'محتوى الرسالة.';
+$string['privacy:metadata:tool_aiagent_message:role'] = 'من أرسل الرسالة: المستخدم أو المساعد أو النظام أو وظيفة.';
+$string['privacy:metadata:tool_aiagent_message:timecreated'] = 'وقت إنشاء الرسالة.';
+$string['privacy:metadata:tool_aiagent_usage'] = 'استعمال الترميزات المسجَّل لكل طلب ذكاء اصطناعي، ويُحفظ لتتبع الاستعمال.';
+$string['privacy:metadata:tool_aiagent_usage:completiontokens'] = 'عدد ترميزات الإخراج (الإكمال) المستعملة.';
+$string['privacy:metadata:tool_aiagent_usage:model'] = 'نموذج الذكاء الاصطناعي الذي تولى الطلب.';
+$string['privacy:metadata:tool_aiagent_usage:prompttokens'] = 'عدد ترميزات الإدخال (النص التلقيني) المستعملة.';
+$string['privacy:metadata:tool_aiagent_usage:provider'] = 'مزوّد الذكاء الاصطناعي الذي تولى الطلب.';
+$string['privacy:metadata:tool_aiagent_usage:timecreated'] = 'وقت تقديم الطلب.';
+$string['relevancescore'] = 'درجة الملاءمة';
+$string['relevancescore_help'] = 'تشير درجة الملاءمة إلى مدى مناسبة وظيفة خدمة الويب لوكيل الذكاء الاصطناعي، على مقياس من 1 إلى 10.
+
+**الدرجات المرتفعة (من 7 إلى 10)** تُمنح للوظائف المفيدة بوضوح لمساعد ذكاء اصطناعي، مثل إنشاء المقررات أو ضم المستخدمين أو البحث عن المحتوى أو جلب الدرجات.
+
+**الدرجات المتوسطة (من 4 إلى 6)** معتادة للعمليات المدمِّرة أو غير القابلة للتراجع (مثل حذف المقررات أو إلغاء ضم المستخدمين) وهي مفيدة لكنها أعلى خطورة، وكذلك للوظائف المتخصصة محدودة الاستعمال.
+
+**الدرجات المنخفضة (من 1 إلى 3)** تُمنح للوظائف المصممة للاتصال الداخلي بين المتصفح والخادم، أو التي لا تتطلب مصادقة، أو المهجورة، أو التي تكرر بدائل أفضل منها.
+
+**الدرجة 0** تعني أن الوظيفة لم تُقيَّم بعد، وهذا شائع في وظائف الإضافات الخارجية.
+
+استُعملت درجة الملاءمة لضبط القيمة الافتراضية الأولية لتمكين كل وظيفة من عدمه. أما الدرجات الأولية لمكوّنات نواة مودل فقد ولّدها الذكاء الاصطناعي وقد تحتاج إلى مراجعة يدوية.';
+$string['removefilenamed'] = 'إزالة الملف: {$a}';
+$string['renamechat'] = 'تغيير اسم المحادثة';
+$string['renamechat_label'] = 'اسم جديد للمحادثة';
+$string['responses_endpoints'] = 'نقاط نهاية مخصصة لـ Responses API';
+$string['responses_endpoints_desc'] = 'يتجاوز نقطة نهاية Responses API عندما يقدّمها نشر مستضاف أو موجَّه عبر وسيط من OpenAI أو Azure OpenAI على عنوان غير قياسي. يُترك فارغًا لاستعمال القيم الافتراضية المضمّنة. ولا أثر له عندما يكون نوع الـ API هو Chat Completions.<br><br>
+على سبيل المثال: https://your-resource.azure.com/api/responses?api-version=preview. تُشتق نقطة نهاية Files API باستبدال ‎/responses‎ بـ ‎/files‎ مع الإبقاء على سلسلة الاستعلام، فتذهب عمليات الرفع إلى https://your-resource.azure.com/api/files?api-version=preview.<br><br>
+عند استعمال عدة نسخ من المزوّدين، يُضاف عنوان واحد في كل سطر. ويستعمل كل مزوّد السطر الذي يطابق مضيفه نقطة نهاية الـ API الخاصة به.';
+$string['responses_endpoints_invalidline'] = 'يجب أن يكون كل سطر عنوان https كاملًا ينتهي مساره بـ ‎/responses‎، ولا يُقبل http إلا لـ localhost. السطر غير الصالح: {$a}';
+$string['resume_desc'] = 'لديك محادثة حديثة. يمكن المتابعة من حيث توقفت، أو بدء محادثة جديدة.';
+$string['resume_lastmessage'] = 'آخر رسالة قبل {$a}';
+$string['resume_resume'] = 'متابعة آخر محادثة';
+$string['resume_title'] = 'مرحبًا بعودتك';
+$string['sendmessage'] = 'إرسال';
+$string['settings'] = 'إعدادات وكيل الذكاء الاصطناعي';
+$string['showallfiles'] = 'عرض الكل';
+$string['skill_add'] = 'إضافة مهارة';
+$string['skill_edit'] = 'تحرير المهارة';
+$string['skill_save_close'] = 'الحفظ والإغلاق';
+$string['skill_save_preview'] = 'الحفظ والمعاينة';
+$string['skill_saved'] = 'تم حفظ المهارة.';
+$string['skilladd_aitip'] = 'بدلًا من تعبئة هذه الحقول يدويًا، يمكن أن يُطلب من وكيل الذكاء الاصطناعي بناء المهارة: فهو يستطيع العثور على الوظائف المناسبة وصياغة التعليمات. <a href="{$a}">فتح وكيل الذكاء الاصطناعي</a>.';
+$string['skillcapabilities_help'] = 'مستنتجة من الوظائف الرئيسية للمهارة: لا يستطيع المستخدم استعمال المهارة إلا إذا كان يملك إحدى هذه الإمكانيات على الأقل في سياق ما داخل الموقع. وتجمع القائمة الإمكانيات المطلوبة لكل وظيفة رئيسية.';
+$string['skillcapabilities_none'] = 'بلا. المهارة متاحة لجميع المستخدمين.';
+$string['skillconfigured'] = 'المضبوطة';
+$string['skilldeleted'] = 'تم حذف المهارة "{$a}".';
+$string['skilldescription'] = 'الوصف';
+$string['skilldescription_help'] = 'الغرض من المهارة، ليعرف المساعد متى يحمّلها. يُوصف فيه المهمة أو النشاط الذي تخصه، لا الخطوات التي تنفذها. ويظهر في قائمة المهارات (للأشخاص) وفي تعليمات النظام (للمساعد) معًا.';
+$string['skillexists'] = 'توجد بالفعل مهارة بالاسم المختصر "{$a}".';
+$string['skillimport_badmasks'] = 'يجب أن يحتوي كلٌّ من الحقلين "mainfunctions" و"otherfunctions" على قائمة من الأقنعة النصية.';
+$string['skillimport_badshortname'] = 'تحتاج كل مهارة إلى اسم مختصر صالح (حروف وأرقام وشَرطة وشَرطة سفلية).';
+$string['skillimport_invalidjson'] = 'الملف المرفوع ليس ملف JSON صالحًا لمهارة.';
+$string['skillimport_missingfield'] = 'حقل إجباري مفقود: {$a}.';
+$string['skillimported'] = 'تم استيراد المهارة "{$a}".';
+$string['skillinstructions'] = 'التعليمات';
+$string['skillinstructions_help'] = 'إرشادات تُحمَّل في المحادثة عند تحميل المهارة. لا يُدرَج فيها سوى الإرشادات غير البديهية: فالمساعد يرى أصلًا كل وظيفة محمَّلة ووصفها، ولذلك لا حاجة إلى إعادة ذكر ما تفعله الوظيفة أو تذكيره بتمرير معامِلات بديهية. يُدوَّن فيها ترتيب سير العمل والقرارات والمزالق التي لا تغطيها الأوصاف، وتُصاغ الخطوات التي تنطبق أحيانًا فقط بأسلوب "إذا ...".';
+$string['skillloadedevent'] = 'تم تحميل المهارة · {$a}';
+$string['skillmainfunctions'] = 'الوظائف الرئيسية';
+$string['skillmainfunctions_help'] = 'مجموعة ضيقة من الأقنعة تحدد وظائف الإنشاء والتحديث الأساسية للمهارة. إمكانيات هذه الوظائف تقرر لمن تُعرض المهارة: للمستخدمين القادرين على الوصول إلى إحداها على الأقل وحدهم. ويطابق كل قناع اسم وظيفة أو نمط مكوّن/اسم (الرمز "*" شامل، والبادئة "~" تزيل المطابقات). يُترك فارغًا لعرض المهارة على الجميع.';
+$string['skillmatched'] = 'المطابقة ({$a})';
+$string['skillmisconfigured'] = 'غير متاحة حاليًا لأحد: لا تؤدي أي من وظائفها الرئيسية إلى وظيفة ممكّنة.';
+$string['skillname'] = 'الاسم';
+$string['skillname_help'] = 'اسم عرض قصير ومفهوم للمهارة، يظهر في قائمة المهارات.';
+$string['skillnomatch'] = 'لا توجد وظيفة ممكّنة تطابق هذه الأنماط.';
+$string['skillnotfound'] = 'لم يُعثر على المهارة: {$a}.';
+$string['skillotherfunctions'] = 'وظائف أخرى';
+$string['skillotherfunctions_help'] = 'أقنعة لبقية الوظائف التي تجلبها المهارة: وظائف القراءة أو الوظائف المساعدة أو مكوّن كامل. التركيب نفسه المستعمل في الوظائف الرئيسية، غير أن هذه لا تؤثر في تحديد من تُعرض عليه المهارة. يُترك فارغًا إذا كانت المهارة لا تحتاج إلى وظائف إضافية.';
+$string['skills_intro'] = '<p>تجمع المهارة تعليمات متخصصة لمهمة بعينها مع قائمة بالوظائف الموصى بها لها. تُستعمل المهارات في المهام الشائعة متعددة الخطوات التي يميل فيها وكيل الذكاء الاصطناعي إلى الارتباك أو لا يجد فيها الوظائف المناسبة، أو في المهام الخاصة بمؤسستك.</p><p>قائمة المهارات وأوصافها متاحة دائمًا لوكيل الذكاء الاصطناعي، وهو يحمّل مهارةً من تلقاء نفسه كلما رأى أنها تناسب طلب المستخدم. ولا تتاح المهارة إلا للمستخدمين القادرين على الوصول إلى إحدى وظائفها الرئيسية على الأقل. فمهارة مبنية للمعلمين مثلًا لن تظهر للطلاب.</p>';
+$string['skillshortname'] = 'الاسم المختصر';
+$string['skillshortname_help'] = 'اسم آلي ثابت وفريد على مستوى الموقع: حروف وأرقام وشَرطة وشَرطة سفلية فقط. ولا يمكن تغييره بعد إنشاء المهارة.';
+$string['skilltoobroad'] = 'عدد الوظائف المطابقة: {$a}، وقد يكون هذا واسعًا أكثر من اللازم. يُنصح بتضييق أقنعة الوظائف.';
+$string['skillunavailable'] = 'غير متاحة';
+$string['skillupdated'] = 'تم تحديث المهارة "{$a}".';
+$string['switchview'] = 'تبديل العرض';
+$string['systeminstruction'] = 'تعليمات نظام مخصصة';
+$string['systeminstruction_desc'] = 'تعليمات مخصصة تُرسَل إلى نموذج الذكاء الاصطناعي مع كل طلب، وتحدد سلوكه ونبرته وقدراته. يُترك هذا الحقل فارغًا لاستعمال القيمة الافتراضية المضمّنة (المعروضة أدناه). ويمكن استعمال {siteurl} (عنوان الموقع) و{userid} (مُعرَّف المستخدم الحالي) و{date} (تاريخ اليوم بصيغة ISO) بوصفها عناصر نائبة تُستبدل عند التشغيل. التعليمات الافتراضية:{$a->default}
+
+يُضاف دائمًا إلى تعليمات النظام (الافتراضية منها والمخصصة):{$a->context}';
+$string['tab_functions'] = 'الوظائف';
+$string['tab_placements'] = 'المواضع';
+$string['tab_skills'] = 'المهارات';
+$string['tagarea_tool_aiagent_functions'] = 'وسوم وظائف وكيل الذكاء الاصطناعي';
+$string['task_cleanup_chats'] = 'حذف محادثات وكيل الذكاء الاصطناعي القديمة';
+$string['task_purge_provider_data'] = 'حذف بيانات محادثات وكيل الذكاء الاصطناعي من مزوّد الذكاء الاصطناعي';
+$string['task_revalidate_license'] = 'إعادة التحقق من رخصة وكيل الذكاء الاصطناعي';
+$string['thinking'] = 'وكيل الذكاء الاصطناعي يفكّر...';
+$string['timecreated'] = 'وقت الإنشاء';
+$string['timelastactivity'] = 'آخر نشاط';
+$string['timemodified'] = 'وقت التعديل';
+$string['tryagain'] = 'إعادة المحاولة';
+$string['usage_completiontokens'] = 'ترميزات الإخراج';
+$string['usage_model'] = 'النموذج';
+$string['usage_prompttokens'] = 'ترميزات الإدخال';
+$string['usage_provider'] = 'المزوّد';
+$string['usage_totaltokens'] = 'إجمالي الترميزات';
+$string['viewdetails'] = 'عرض التفاصيل';
+$string['viewtype_fullscreen'] = 'ملء الشاشة';
+$string['viewtype_overlay'] = 'نافذة عائمة';
+$string['viewtype_sidebar'] = 'شريط جانبي';
+$string['viewtypes'] = 'أنواع العرض المتاحة';
+$string['viewtypes_alldisabled_warning'] = 'وكيل الذكاء الاصطناعي غير متاح لأحد لأن جميع أنواع العرض معطَّلة في <a href="{$a}">الإعدادات</a>.';
+$string['viewtypes_desc'] = 'أنواع عرض المحادثة التي يمكن للمستخدمين فتحها: نافذة عائمة صغيرة في زاوية الصفحة، وشريط جانبي بجوار محتوى الصفحة، وصفحة المحادثة بملء الشاشة. إلغاء تحديدها جميعًا يعطّل وكيل الذكاء الاصطناعي مؤقتًا لجميع المستخدمين.';
+$string['viewtypes_unavailable'] = 'وكيل الذكاء الاصطناعي غير متاح حاليًا.';
+$string['welcomedesc'] = 'يمكنك سؤال وكيل الذكاء الاصطناعي عن موقعك أو مقرراتك أو مستخدميك أو محتواك. فهو يستطيع القراءة، وإجراء التغييرات بموافقتك.';
+$string['welcometitle'] = 'مرحبًا، {$a}';

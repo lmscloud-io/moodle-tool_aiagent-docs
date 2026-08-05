@@ -2,7 +2,10 @@
 
 > **This repository is a public issue tracker.** It carries no plugin source code; it mirrors the
 > README and changelog of the AI Agent for Moodle plugin, which is distributed separately. Please use
-> the issues here to report bugs and request features.
+> the issues here to report bugs and request features. It also carries the plugin's language packs in
+> [`lang/`](lang) and a screenshot of every screen in every language in
+> [`screenshots/`](screenshots), both refreshed at each release; translation fixes are welcome as pull
+> requests.
 
 An AI-powered assistant that lives inside your Moodle site. Ask it to search courses, enrol students, create activities, check grades, and hundreds of other tasks, all through a friendly chat interface with full conversation history.
 

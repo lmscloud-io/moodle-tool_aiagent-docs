@@ -5,6 +5,59 @@ All notable changes to the tool_aiagent plugin are documented here. The format i
 `major.minor.patch` releases mirrored by the `$plugin->release` in `version.php`. The top entry must
 match the release being cut (the deploy preflight enforces this).
 
+## [4.5.3] - 2026-08-05
+
+### Added
+
+- **Translations**: the interface, settings and privacy descriptions are now available in:
+  - Dansk (da)
+  - Deutsch (de)
+  - eesti (et)
+  - English (United States) (en_us)
+  - Español - Colombia (es_co)
+  - Español - Internacional (es)
+  - Español - México (es_mx)
+  - Français (fr)
+  - Italiano (it)
+  - Nederlands (nl)
+  - Norsk (no)
+  - Português - Brasil (pt_br)
+  - Suomi (fi)
+  - Svenska (sv)
+  - Ελληνικά (el)
+  - Русский (ru)
+  - Українська (uk)
+  - עברית (he)
+  - العربية (ar)
+  - 日本語 (ja)
+- **Maximum function result size**: a new setting caps how much data a single function may return
+  to the AI model.
+
+### Changed
+
+- Consistent wording throughout the interface: a conversation is now always a "chat" and has a
+  "name" rather than a title, everything the agent runs is a "function" rather than a "tool", and
+  the configuration tab is named "Placements" rather than "Button locations".
+- Reading a course's contents and listing its activities now return far less data by default, so
+  chats use fewer tokens; the agent still asks for the full detail when it needs it.
+- The "Inline file content limit" setting is now entered as a size with a KB/MB selector, and is
+  measured in bytes; sites using non-Latin alphabets may see inline file content truncated earlier.
+
+### Fixed
+
+- Addressed a security issue reported by mdlshield.com. Details are withheld until sites have had
+  time to upgrade.
+- The floating chat button now moves aside for an open block or message drawer instead of hiding
+  behind it.
+- The layout in right-to-left languages is fixed throughout the interface.
+- On Moodle 5.0 and later, the "Previous chats" and view-switcher menus in the chat header open
+  under their button instead of off the edge of the screen.
+- A file's actions menu near the bottom of the "Attached files" dialog is no longer cut off.
+- Approve and Deny buttons no longer appear on function calls an auto-approve mode is already
+  running.
+- In languages that wrap at any character, such as Japanese, the Functions table headers no longer
+  collapse to one character per line.
+
 ## [4.5.2] - 2026-07-30
 
 ### Added

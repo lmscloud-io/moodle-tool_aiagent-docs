@@ -1,8 +1,8 @@
 {
-  "release": "4.5.3",
-  "version": 2026080500,
-  "commit": "f4f46ef961974275e2de2f0e0646a50c4af5d873",
-  "generated": "2026-08-05T17:10:16Z",
+  "release": "4.5.4",
+  "version": 2026082400,
+  "commit": "ab48c15941119a8d5f8b2a161904238bd1c69966",
+  "generated": "2026-08-23T22:26:38Z",
   "versions": {
     "405": {"moodle": "4.5", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
     "500": {"moodle": "5.0", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},

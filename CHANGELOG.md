@@ -5,6 +5,52 @@ All notable changes to the tool_aiagent plugin are documented here. The format i
 `major.minor.patch` releases mirrored by the `$plugin->release` in `version.php`. The top entry must
 match the release being cut (the deploy preflight enforces this).
 
+## [4.5.4] - 2026-08-24
+
+### Added
+
+- **Advanced grading**: create and edit rubrics and marking guides, switch an assignment's grading
+  method and grade submissions with them.
+- **Database activities**: create and configure databases, manage their fields and templates, and
+  add entries with files and rich text.
+- **Workshop activities**: create and configure peer-assessment workshops, define assessment forms
+  for all four grading strategies, author example submissions with their reference assessments,
+  and move workshops through their phases.
+- **Feedback activities**: create and configure feedback surveys and their questions of all nine
+  types, including conditional questions and page breaks.
+- **H5P activities**: create H5P activities from an uploaded package or from the content bank, and
+  configure their tracking, grading and display options.
+- **External tool (LTI) activities**: list the external tools a course can launch, or every tool
+  registered on the site, and add activities that launch them. Register new tools.
+- **Glossary, wiki, choice, BigBlueButton, SCORM and subsections**: create and configure all of
+  these, edit glossary entries and wiki pages without losing their formatting.
+
+### Changed
+
+- The image functions (resize, crop, PDF to image) now accept a public web address, not just a
+  file attached to the chat.
+- Generating an image now reports the pixel size of the result, so the agent can tell you how big
+  the image is and resize it without having to inspect it first.
+- The bundled "Create a lesson" skill is now named `mod_lesson_management`, to match the other
+  per-activity skills.
+
+### Fixed
+
+- Addressed a security issue reported by mdlshield.com. Details are withheld until sites have had
+  time to upgrade.
+- Times you give the agent are no longer read in the wrong timezone, so activities and events are
+  scheduled at the hour you asked for.
+- Leaving the chat while the agent is working warns again: the warning went silent after
+  approving a function batch, and the refresh/close warning never fired in overlay and sidebar.
+- Users no longer see functions they lack the permissions to run: some teacher-only functions
+  were listed for everyone (running them was always blocked).
+- The agent no longer looks like it has stopped part-way through a long run of automatic function
+  calls: the "thinking" indicator now stays up until the whole run finishes.
+- A completed function call no longer stays stuck on the waiting or running icon when a status
+  update was missed mid-chain.
+- An open chat overlay or sidebar no longer appears a second time inside the H5P iframe of an
+  activity, or inside any other framed page such as the file picker.
+
 ## [4.5.3] - 2026-08-05
 
 ### Added

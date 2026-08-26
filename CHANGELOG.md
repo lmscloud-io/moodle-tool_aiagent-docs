@@ -5,6 +5,21 @@ All notable changes to the tool_aiagent plugin are documented here. The format i
 `major.minor.patch` releases mirrored by the `$plugin->release` in `version.php`. The top entry must
 match the release being cut (the deploy preflight enforces this).
 
+## [4.5.5] - 2026-08-26
+
+### Fixed
+
+- The agent could lose access to an attached file right after reading it and then invent its
+  contents. A file it has read now stays available for the rest of the chat.
+- A connection error while the agent is working no longer wipes the message you are typing:
+  the already-sent message and its attachments were being put back over your draft.
+- The chat no longer jumps to the bottom on every function call when you have scrolled up;
+  only a new function approval prompt still pulls you down to it.
+- You no longer need to scroll after sending images: the chat stays at its end while their
+  thumbnails render, and reopening a chat with images lands at its end.
+- Error messages no longer show the Copy response and feedback buttons; they had nothing to
+  act on there.
+
 ## [4.5.4] - 2026-08-24
 
 ### Added

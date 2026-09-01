@@ -10,7 +10,7 @@
 
 /**
  * Danish language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Der er ingen ventende funktionskald.';
 $string['errornoprovider'] = 'Der er ingen AI-udbyder tilgængelig. AI-agenten bruger indstillingerne for handlingen "Generer tekst", så du skal sikre dig, at den er konfigureret og aktiveret for mindst én AI-udbyder i Site-administration.';
 $string['errornoprovider_link'] = 'Konfigurer AI-udbydere.';
 $string['errornoretryresponse'] = 'Der er intet mislykket svar at prøve igen.';
+$string['errorpagenotavailable'] = 'Den aktuelle side er ikke tilgængelig i denne visning.';
 $string['errorpendingfunctions'] = 'Godkend eller afvis venligst de ventende funktionskald først.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} blokerede prompten: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} blokerede svaret: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'Chattens navn, ge
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'Den bruger, der ejer chatten.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Enkelte beskeder i en chat, herunder brugerens prompts og AI-svarene.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'Beskedens indhold.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'For en besked sendt fra chattens overlay eller sidepanel, adressen og navnet på den side, brugeren læste på det tidspunkt.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Hvem der sendte beskeden: brugeren, assistenten, systemet eller en funktion.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Tidspunktet, hvor beskeden blev oprettet.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Tokenforbrug registreret for hver AI-anmodning, gemt til opfølgning på forbruget.';

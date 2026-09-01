@@ -10,7 +10,7 @@
 
 /**
  * Greek language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Δεν υπάρχουν εκκρεμείς 
 $string['errornoprovider'] = 'Δεν υπάρχει διαθέσιμος πάροχος AI. Ο πράκτορας AI χρησιμοποιεί τις ρυθμίσεις της ενέργειας «Generate text» (Δημιουργία κειμένου), οπότε πρέπει να βεβαιωθείτε ότι είναι διαμορφωμένη και ενεργοποιημένη για τουλάχιστον έναν πάροχο AI στη Διαχείριση ιστοτόπου.';
 $string['errornoprovider_link'] = 'Διαμόρφωση παρόχων AI.';
 $string['errornoretryresponse'] = 'Δεν υπάρχει αποτυχημένη απάντηση για επανάληψη.';
+$string['errorpagenotavailable'] = 'Η τρέχουσα σελίδα δεν είναι διαθέσιμη σε αυτήν την προβολή.';
 $string['errorpendingfunctions'] = 'Εγκρίνετε ή απορρίψτε πρώτα τις εκκρεμείς κλήσεις λειτουργιών.';
 $string['errorprovider_blocked_prompt'] = 'Ο πάροχος {$a->provider} απέκλεισε την προτροπή: {$a->reason}';
 $string['errorprovider_blocked_response'] = 'Ο πάροχος {$a->provider} απέκλεισε την απάντηση: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'Το όνομα �
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'Ο χρήστης στον οποίο ανήκει η συνομιλία.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Μεμονωμένα μηνύματα μέσα σε μια συνομιλία, συμπεριλαμβανομένων των προτροπών του χρήστη και των απαντήσεων της AI.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'Το περιεχόμενο του μηνύματος.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Για ένα μήνυμα που στάλθηκε από τη συνομιλία ως επικάλυψη ή πλευρική μπάρα, η διεύθυνση και το όνομα της σελίδας που διάβαζε ο χρήστης εκείνη τη στιγμή.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Ποιος έστειλε το μήνυμα: ο χρήστης, ο βοηθός, το σύστημα ή μια λειτουργία.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Η ώρα κατά την οποία δημιουργήθηκε το μήνυμα.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Η χρήση tokens που καταγράφεται για κάθε αίτημα AI, η οποία διατηρείται για την παρακολούθηση της χρήσης.';

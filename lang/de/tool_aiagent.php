@@ -10,7 +10,7 @@
 
 /**
  * German language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Es gibt keine offenen Funktionsaufrufe.';
 $string['errornoprovider'] = 'Es ist kein KI-Provider verfügbar. Der KI-Agent verwendet die Einstellungen der Aktion „Text generieren“; stellen Sie daher sicher, dass diese in der Website-Administration für mindestens einen KI-Provider konfiguriert und aktiviert ist.';
 $string['errornoprovider_link'] = 'KI-Provider konfigurieren.';
 $string['errornoretryresponse'] = 'Es gibt keine fehlgeschlagene Antwort, die wiederholt werden könnte.';
+$string['errorpagenotavailable'] = 'Die aktuelle Seite ist in dieser Ansicht nicht verfügbar.';
 $string['errorpendingfunctions'] = 'Bitte bestätigen oder verweigern Sie zuerst die offenen Funktionsaufrufe.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} hat den Prompt blockiert: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} hat die Antwort blockiert: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'Der Name des Chat
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'Die Person, der der Chat gehört.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Einzelne Nachrichten innerhalb eines Chats, einschließlich der Anfragen der Nutzer/innen und der Antworten der KI.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'Der Inhalt der Nachricht.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Bei einer Nachricht aus dem Chat als Overlay oder Seitenleiste die Adresse und der Name der Seite, die die Person zu diesem Zeitpunkt gelesen hat.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Wer die Nachricht gesendet hat: die Person, der Assistent, das System oder eine Funktion.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Der Zeitpunkt, zu dem die Nachricht erstellt wurde.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Der für jede KI-Anfrage erfasste Tokenverbrauch, aufbewahrt zur Nachverfolgung der Nutzung.';

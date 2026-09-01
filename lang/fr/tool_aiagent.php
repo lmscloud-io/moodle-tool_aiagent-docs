@@ -10,7 +10,7 @@
 
 /**
  * French language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Il n’y a aucun appel de fonction en atten
 $string['errornoprovider'] = 'Aucun fournisseur IA n’est disponible. L’agent IA utilise les réglages de l’action « Générer texte » ; vous devez donc vous assurer qu’elle est configurée et activée pour au moins un fournisseur IA dans l’administration du site.';
 $string['errornoprovider_link'] = 'Configurer les fournisseurs IA.';
 $string['errornoretryresponse'] = 'Il n’y a aucune réponse en échec à relancer.';
+$string['errorpagenotavailable'] = 'La page actuelle n’est pas disponible dans cette vue.';
 $string['errorpendingfunctions'] = 'Veuillez d’abord approuver ou refuser les appels de fonction en attente.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} a bloqué le prompt : {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} a bloqué la réponse : {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'Le nom du chat, g
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'L’utilisateur propriétaire du chat.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Les messages individuels d’un chat, y compris les demandes de l’utilisateur et les réponses de l’IA.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'Le contenu du message.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Pour un message envoyé depuis le chat en superposition ou en barre latérale, l’adresse et le nom de la page que l’utilisateur lisait à ce moment-là.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'L’auteur du message : l’utilisateur, l’assistant, le système ou une fonction.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'La date et l’heure de création du message.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'L’utilisation des jetons enregistrée pour chaque requête IA, conservée pour le suivi de l’utilisation.';

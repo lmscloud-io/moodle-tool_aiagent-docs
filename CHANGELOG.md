@@ -5,6 +5,49 @@ All notable changes to the tool_aiagent plugin are documented here. The format i
 `major.minor.patch` releases mirrored by the `$plugin->release` in `version.php`. The top entry must
 match the release being cut (the deploy preflight enforces this).
 
+## [4.5.6] - 2026-09-02
+
+### Added
+
+- **Current page awareness**: in the overlay and sidebar views the agent knows which page you are
+  looking at, and can read that page and attach it to the chat as a Markdown snapshot.
+- **Forum search**: the agent can find forum posts across one course or several, by words, phrase,
+  subject, author, date range, tags or starred discussions.
+- **Group and grouping editing**: the agent can now set a group's picture and its messaging, put
+  images in a group or grouping description, and fill in the custom fields a site defines, reading
+  either one exactly as stored before it edits.
+- The agent can now read a forum post exactly as it was written before editing it, so rewording a
+  post keeps its embedded images and its original formatting instead of quietly converting them.
+- Listing a course's groups now includes their custom fields.
+
+### Fixed
+
+- Chats on OpenAI and Azure OpenAI could stop with a provider error as soon as the agent reached
+  for certain functions, among them looking up assignments, searching courses and creating a course.
+- Asking the agent to set up a marking guide or rubric either failed with an "Unexpected keys"
+  parameter error or saved a form with no criteria in it, worth 0 points. Both are fixed.
+- A marking guide or rubric could lose criteria without saying so, when the agent named a
+  criterion that does not exist. That is now refused with an error the agent can correct.
+- Asked to reword what students see for a marking guide criterion, the agent would edit the
+  marker-only guidance instead. Each criterion field now says who reads it.
+- Asking the agent to create a grouping failed outright unless it happened to set an ID number.
+- Editing a group turned its group messaging off, so renaming a group quietly closed the group
+  conversation its members were using.
+- The agent no longer mistakes the format Moodle reports when it reads a forum post for the format
+  the post is stored in, which could turn a plain text or Markdown post into raw HTML on saving.
+- The agent could not open a file uploaded to a course unless you pasted its download link into the
+  chat. It now finds the file itself.
+- The agent could list a course's forums but had no way to open or link to any of them; every
+  activity listing now reports that link, and all of them report it the same way.
+- Asked to edit a course section that does not exist, the agent reported a database error instead
+  of what was wrong. It now names the bad section id and says how to add a section.
+- Setting a group's visibility was refused the first time and only went through after the agent
+  retried it a different way.
+- Setting a course image pointed the agent at a function that does not exist, so it had to find the
+  right one for itself.
+- Editing one detail of a group or grouping made the agent restate the ones it was not changing,
+  which risked overwriting them with a stale copy.
+
 ## [4.5.5] - 2026-08-26
 
 ### Fixed

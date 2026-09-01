@@ -10,7 +10,7 @@
 
 /**
  * Swedish language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Det finns inga väntande funktionsanrop.';
 $string['errornoprovider'] = 'Ingen AI-leverantör är tillgänglig. AI-agenten använder inställningarna för åtgärden ”Generate text”, så du måste se till att den är konfigurerad och aktiverad för minst en AI-leverantör i Webbplatsadministration.';
 $string['errornoprovider_link'] = 'Konfigurera AI-leverantörer.';
 $string['errornoretryresponse'] = 'Det finns inget misslyckat svar att försöka igen med.';
+$string['errorpagenotavailable'] = 'Den aktuella sidan är inte tillgänglig i den här vyn.';
 $string['errorpendingfunctions'] = 'Godkänn eller avslå de väntande funktionsanropen först.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} blockerade prompten: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} blockerade svaret: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'Chattens namn, ge
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'Användaren som äger chatten.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Enskilda meddelanden i en chatt, inklusive användarens frågor och AI:ns svar.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'Meddelandets innehåll.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'För ett meddelande som skickats från chatten som överlägg eller sidopanel, adressen och namnet på sidan som användaren läste vid det tillfället.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Vem som skickade meddelandet: användaren, assistenten, systemet eller en funktion.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Tidpunkten då meddelandet skapades.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Tokenanvändning som registreras för varje AI-begäran, sparad för uppföljning av användningen.';

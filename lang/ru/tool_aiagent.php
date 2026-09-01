@@ -10,7 +10,7 @@
 
 /**
  * Russian language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Нет ожидающих вызовов ф
 $string['errornoprovider'] = 'Нет доступного AI-провайдера. AI-агент использует настройки действия «Создание текста», поэтому убедитесь, что оно настроено и включено хотя бы для одного AI-провайдера в Администрировании сайта.';
 $string['errornoprovider_link'] = 'Настроить AI-провайдеров.';
 $string['errornoretryresponse'] = 'Нет неудачного ответа для повтора.';
+$string['errorpagenotavailable'] = 'Текущая страница недоступна в этом виде.';
 $string['errorpendingfunctions'] = 'Сначала одобрите или отклоните ожидающие вызовы функций.';
 $string['errorprovider_blocked_prompt'] = 'Провайдер {$a->provider} заблокировал запрос: {$a->reason}';
 $string['errorprovider_blocked_response'] = 'Провайдер {$a->provider} заблокировал ответ: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'Имя чата, 
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'Пользователь, которому принадлежит чат.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Отдельные сообщения в чате, включая запросы пользователя и ответы ИИ.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'Содержимое сообщения.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Для сообщения, отправленного из плавающего окна или боковой панели чата, адрес и название страницы, которую пользователь читал в тот момент.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Кто отправил сообщение: пользователь, ассистент, система или функция.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Время создания сообщения.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Расход токенов, записываемый для каждого запроса к ИИ и сохраняемый для учёта использования.';

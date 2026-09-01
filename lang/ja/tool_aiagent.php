@@ -10,7 +10,7 @@
 
 /**
  * Japanese language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = '保留中の関数呼び出しはありま�
 $string['errornoprovider'] = '利用可能なAIプロバイダがありません。AIエージェントはアクション「テキストを生成する」の設定を使用するため、サイト管理で少なくとも1つのAIプロバイダに対してこのアクションが設定および有効にされていることを確認してください。';
 $string['errornoprovider_link'] = 'AIプロバイダを設定する。';
 $string['errornoretryresponse'] = '再試行できる失敗した応答はありません。';
+$string['errorpagenotavailable'] = '現在のページはこのビューでは利用できません。';
 $string['errorpendingfunctions'] = 'まず保留中の関数呼び出しを承認または拒否してください。';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} がプロンプトをブロックしました: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} が応答をブロックしました: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = '最初のメッ�
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'チャットを所有するユーザです。';
 $string['privacy:metadata:tool_aiagent_message'] = 'ユーザのプロンプトおよびAIの応答を含む、チャット内の個々のメッセージです。';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'メッセージのコンテンツです。';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'オーバーレイまたはサイドバーのチャットから送信されたメッセージについて、その時点でユーザが読んでいたページのアドレスおよび名称です。';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'メッセージを送信した主体です: ユーザ、アシスタント、システムまたは関数です。';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'メッセージが作成された日時です。';
 $string['privacy:metadata:tool_aiagent_usage'] = '使用量の追跡のために保持される、それぞれのAIリクエストで記録されたトークン使用量です。';

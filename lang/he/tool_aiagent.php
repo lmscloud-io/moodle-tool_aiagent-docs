@@ -10,7 +10,7 @@
 
 /**
  * Hebrew language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'אין קריאות לפונקציות המ
 $string['errornoprovider'] = 'אין ספק AI זמין. סוכן AI משתמש בהגדרות של הפעולה "יצירת תוכן", ולכן יש לוודא שהיא מוגדרת ומופעלת עבור ספק AI אחד לפחות בניהול המערכת.';
 $string['errornoprovider_link'] = 'הגדרת ספקי AI.';
 $string['errornoretryresponse'] = 'אין תשובה שנכשלה שניתן לשלוח שוב.';
+$string['errorpagenotavailable'] = 'העמוד הנוכחי אינו זמין בתצוגה זו.';
 $string['errorpendingfunctions'] = 'יש לאשר או לדחות תחילה את הקריאות לפונקציות הממתינות לאישור.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} חסם את ההנחיה: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} חסם את התשובה: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'שם השיחה, 
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'המשתמש שהשיחה שייכת לו.';
 $string['privacy:metadata:tool_aiagent_message'] = 'הודעות בודדות בתוך שיחה, כולל בקשות המשתמש ותשובות ה-AI.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'תוכן ההודעה.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'עבור הודעה שנשלחה מחלון השיחה הצף או מסרגל הצד של השיחה, הכתובת והשם של העמוד שהמשתמש קרא באותה עת.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'מי שלח את ההודעה: המשתמש, העוזר, המערכת או פונקציה.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'המועד שבו ההודעה נוצרה.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'השימוש בטוקנים הנרשם עבור כל בקשת AI, נשמר למעקב אחר השימוש.';

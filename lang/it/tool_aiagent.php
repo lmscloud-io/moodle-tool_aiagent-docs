@@ -10,7 +10,7 @@
 
 /**
  * Italian language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Non ci sono chiamate di funzione in attesa.
 $string['errornoprovider'] = 'Nessun provider IA disponibile. L\'agente IA utilizza le impostazioni dell\'azione "Genera testo", quindi occorre assicurarsi che sia configurata e abilitata per almeno un provider IA nell\'Amministrazione del sito.';
 $string['errornoprovider_link'] = 'Configura i provider IA.';
 $string['errornoretryresponse'] = 'Non c\'è nessuna risposta non riuscita da ripetere.';
+$string['errorpagenotavailable'] = 'La pagina corrente non è disponibile in questa vista.';
 $string['errorpendingfunctions'] = 'Approva o rifiuta prima le chiamate di funzione in attesa.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} ha bloccato il prompt: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} ha bloccato la risposta: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'Il nome della cha
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'L\'utente a cui appartiene la chat.';
 $string['privacy:metadata:tool_aiagent_message'] = 'I singoli messaggi all\'interno di una chat, comprese le richieste dell\'utente e le risposte dell\'IA.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'Il contenuto del messaggio.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Per un messaggio inviato dalla chat in overlay o nella barra laterale, l\'indirizzo e il nome della pagina che l\'utente stava leggendo in quel momento.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Chi ha inviato il messaggio: l\'utente, l\'assistente, il sistema o una funzione.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Il momento in cui il messaggio è stato creato.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'L\'utilizzo dei token registrato per ogni richiesta IA, conservato per il monitoraggio dell\'utilizzo.';

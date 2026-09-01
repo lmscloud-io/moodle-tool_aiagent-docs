@@ -10,7 +10,7 @@
 
 /**
  * Estonian language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Ootel funktsioonikutseid pole.';
 $string['errornoprovider'] = 'Ühtegi AI-teenusepakkujat pole saadaval. AI-agent kasutab tegevuse „Generate text“ sätteid, seega veenduge, et see on õpikeskkonna halduses vähemalt ühe AI-teenusepakkuja jaoks seadistatud ja lubatud.';
 $string['errornoprovider_link'] = 'Seadista AI-teenusepakkujad.';
 $string['errornoretryresponse'] = 'Ühtegi ebaõnnestunud vastust pole, mida korrata.';
+$string['errorpagenotavailable'] = 'Praegune leht ei ole selles vaates saadaval.';
 $string['errorpendingfunctions'] = 'Kinnitage ootel funktsioonikutsed või keelduge neist kõigepealt.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} blokeeris prompti: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} blokeeris vastuse: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'Vestluse nimi, mi
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'Kasutaja, kellele vestlus kuulub.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Vestluse üksikud sõnumid, sealhulgas kasutaja päringud ja AI vastused.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'Sõnumi sisu.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Ülekattena või külgribana kuvatavast vestlusest saadetud sõnumi puhul selle lehe aadress ja nimi, mida kasutaja tol hetkel luges.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Kes sõnumi saatis: kasutaja, assistent, süsteem või funktsioon.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Aeg, mil sõnum loodi.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Iga AI-päringu kohta salvestatud tokenite kasutus, mida säilitatakse kasutuse jälgimiseks.';

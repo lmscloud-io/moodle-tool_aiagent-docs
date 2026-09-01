@@ -10,7 +10,7 @@
 
 /**
  * Spanish language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'No hay llamadas a funciones pendientes.';
 $string['errornoprovider'] = 'No hay ningún proveedor de IA disponible. El agente de IA usa los ajustes de la acción «Generar texto», así que debe asegurarse de que esté configurada y habilitada para al menos un proveedor de IA en Administración del sitio.';
 $string['errornoprovider_link'] = 'Configurar los proveedores de IA.';
 $string['errornoretryresponse'] = 'No hay ninguna respuesta fallida que reintentar.';
+$string['errorpagenotavailable'] = 'La página actual no está disponible en esta vista.';
 $string['errorpendingfunctions'] = 'Apruebe o deniegue primero las llamadas a funciones pendientes.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} bloqueó la petición: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} bloqueó la respuesta: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'El nombre del cha
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'El usuario propietario del chat.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Los mensajes individuales de un chat, incluidas las peticiones del usuario y las respuestas de la IA.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'El contenido del mensaje.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Para un mensaje enviado desde el chat en ventana flotante o barra lateral, la dirección y el nombre de la página que el usuario estaba leyendo en ese momento.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Quién envió el mensaje: el usuario, el asistente, el sistema o una función.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'La hora en que se creó el mensaje.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'El uso de tokens registrado en cada petición de IA, conservado para el control del uso.';

@@ -10,7 +10,7 @@
 
 /**
  * Colombian Spanish language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * Only the strings that differ from lang/es are listed. Everything else falls back to lang/es
  * through parentlanguage, which core's es_co declares, so a string added to lang/en needs an entry

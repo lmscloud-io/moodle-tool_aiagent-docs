@@ -10,7 +10,7 @@
 
 /**
  * Finnish language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Odottavia toimintokutsuja ei ole.';
 $string['errornoprovider'] = 'Yhtään tekoälypalveluntarjoajaa ei ole käytettävissä. Tekoälyagentti käyttää "Luo tekstiä" -toiminnon asetuksia, joten varmista, että se on määritetty ja otettu käyttöön vähintään yhdelle tekoälypalveluntarjoajalle sivuston hallinnassa.';
 $string['errornoprovider_link'] = 'Määritä tekoälypalveluntarjoajat.';
 $string['errornoretryresponse'] = 'Ei epäonnistunutta vastausta, jota voisi yrittää uudelleen.';
+$string['errorpagenotavailable'] = 'Nykyinen sivu ei ole käytettävissä tässä näkymässä.';
 $string['errorpendingfunctions'] = 'Hyväksy tai hylkää ensin odottavat toimintokutsut.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} esti kehotteen: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} esti vastauksen: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'Chatin nimi, joka
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'Käyttäjä, joka omistaa chatin.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Chatin yksittäiset viestit, mukaan lukien käyttäjän kehotteet ja tekoälyn vastaukset.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'Viestin sisältö.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Kelluvasta chat-ikkunasta tai chatin sivupalkista lähetetyn viestin kohdalla sen sivun osoite ja nimi, jota käyttäjä luki sillä hetkellä.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Kuka viestin lähetti: käyttäjä, avustaja, järjestelmä vai toiminto.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Aika, jolloin viesti luotiin.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Kunkin tekoälypyynnön tokenien käyttö, säilytetään käytön seurantaa varten.';

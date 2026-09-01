@@ -10,7 +10,7 @@
 
 /**
  * Dutch language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Er zijn geen openstaande functieaanroepen.'
 $string['errornoprovider'] = 'Er is geen AI-provider beschikbaar. De AI-agent gebruikt de instellingen van de actie "Tekst genereren", zorg er dus voor dat die in Sitebeheer voor minstens één AI-provider is ingesteld en ingeschakeld.';
 $string['errornoprovider_link'] = 'AI-providers configureren.';
 $string['errornoretryresponse'] = 'Er is geen mislukt antwoord om opnieuw te proberen.';
+$string['errorpagenotavailable'] = 'De huidige pagina is niet beschikbaar in deze weergave.';
 $string['errorpendingfunctions'] = 'Keur de openstaande functieaanroepen eerst goed of af.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} heeft de prompt geblokkeerd: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} heeft het antwoord geblokkeerd: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'De naam van de ch
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'De gebruiker van wie de chat is.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Afzonderlijke berichten binnen een chat, met de vragen van de gebruiker en de antwoorden van de AI.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'De inhoud van het bericht.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Voor een bericht dat vanuit de chat als overlay of zijbalk is verstuurd, het adres en de naam van de pagina die de gebruiker op dat moment las.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Wie het bericht heeft verstuurd: de gebruiker, de assistent, het systeem of een functie.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Het tijdstip waarop het bericht is aangemaakt.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Het tokengebruik dat voor elk AI-verzoek wordt vastgelegd, bewaard om het gebruik te kunnen volgen.';

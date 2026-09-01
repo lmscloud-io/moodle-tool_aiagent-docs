@@ -10,7 +10,7 @@
 
 /**
  * Ukrainian language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Немає викликів функцій,
 $string['errornoprovider'] = 'Немає доступного провайдера ШІ. ШІ-агент використовує налаштування дії «Згенерувати текст», тому переконайтеся, що її налаштовано й увімкнено принаймні для одного провайдера ШІ в керуванні сайтом.';
 $string['errornoprovider_link'] = 'Налаштувати провайдерів ШІ.';
 $string['errornoretryresponse'] = 'Немає невдалої відповіді, яку можна повторити.';
+$string['errorpagenotavailable'] = 'Поточна сторінка недоступна в цьому вигляді.';
 $string['errorpendingfunctions'] = 'Спочатку схваліть або відхиліть виклики функцій, що очікують на розгляд.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} заблокував запит: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} заблокував відповідь: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'Назва чат
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'Користувач, якому належить чат.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Окремі повідомлення в чаті, зокрема запити користувача та відповіді ШІ.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'Вміст повідомлення.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Для повідомлення, надісланого зі спливаючого вікна або бічної панелі чату, адреса та назва сторінки, яку користувач читав у той момент.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Хто надіслав повідомлення: користувач, асистент, система чи функція.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Час створення повідомлення.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Витрати токенів, записані для кожного запиту до ШІ, зберігаються для відстеження використання.';

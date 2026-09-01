@@ -10,7 +10,7 @@
 
 /**
  * Arabic language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'لا توجد استدعاءات وظائف
 $string['errornoprovider'] = 'لا يوجد مزوّد ذكاء اصطناعي متاح. يستعمل وكيل الذكاء الاصطناعي إعدادات إجراء "توليد النص"، لذا يجب التأكد من تهيئته وتمكينه لدى مزوّد ذكاء اصطناعي واحد على الأقل في إدارة الموقع.';
 $string['errornoprovider_link'] = 'تهيئة مزوّدي الذكاء الاصطناعي.';
 $string['errornoretryresponse'] = 'لا يوجد رد فاشل يمكن إعادة المحاولة عليه.';
+$string['errorpagenotavailable'] = 'الصفحة الحالية غير متاحة في هذا العرض.';
 $string['errorpendingfunctions'] = 'يجب أولًا الموافقة على استدعاءات الوظائف المعلّقة أو رفضها.';
 $string['errorprovider_blocked_prompt'] = 'حظر {$a->provider} النص التلقيني: {$a->reason}';
 $string['errorprovider_blocked_response'] = 'حظر {$a->provider} الرد: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'اسم المحا
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'المستخدم صاحب المحادثة.';
 $string['privacy:metadata:tool_aiagent_message'] = 'الرسائل المفردة داخل المحادثة، بما فيها طلبات المستخدم وردود الذكاء الاصطناعي.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'محتوى الرسالة.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'بالنسبة إلى رسالة أُرسلت من النافذة العائمة أو الشريط الجانبي للمحادثة، عنوان الصفحة التي كان المستخدم يقرأها في ذلك الوقت واسمها.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'من أرسل الرسالة: المستخدم أو المساعد أو النظام أو وظيفة.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'وقت إنشاء الرسالة.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'استعمال الترميزات المسجَّل لكل طلب ذكاء اصطناعي، ويُحفظ لتتبع الاستعمال.';

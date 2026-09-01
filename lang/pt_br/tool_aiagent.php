@@ -10,7 +10,7 @@
 
 /**
  * Brazilian Portuguese language pack for AI agent.
- * Last updated: 2026-08-03
+ * Last updated: 2026-08-31
  *
  * @package    tool_aiagent
  * @category   string
@@ -105,6 +105,7 @@ $string['errornopendingfunction'] = 'Não há chamadas de função pendentes.';
 $string['errornoprovider'] = 'Nenhum provedor de IA está disponível. O agente de IA usa as configurações da ação "Gerar texto", então você precisa garantir que ela esteja configurada e habilitada para pelo menos um provedor de IA na Administração do site.';
 $string['errornoprovider_link'] = 'Configurar os provedores de IA.';
 $string['errornoretryresponse'] = 'Não há resposta com falha para repetir.';
+$string['errorpagenotavailable'] = 'A página atual não está disponível nesta visualização.';
 $string['errorpendingfunctions'] = 'Aprove ou negue primeiro as chamadas de função pendentes.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} bloqueou o prompt: {$a->reason}';
 $string['errorprovider_blocked_response'] = '{$a->provider} bloqueou a resposta: {$a->reason}';
@@ -310,6 +311,7 @@ $string['privacy:metadata:tool_aiagent_conversation:title'] = 'O nome do chat, g
 $string['privacy:metadata:tool_aiagent_conversation:userid'] = 'O usuário dono do chat.';
 $string['privacy:metadata:tool_aiagent_message'] = 'Mensagens individuais dentro de um chat, incluindo os prompts do usuário e as respostas da IA.';
 $string['privacy:metadata:tool_aiagent_message:content'] = 'O conteúdo da mensagem.';
+$string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Para uma mensagem enviada do chat em sobreposição ou barra lateral, o endereço e o nome da página que o usuário estava lendo naquele momento.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Quem enviou a mensagem: o usuário, o assistente, o sistema ou uma função.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'O momento em que a mensagem foi criada.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Uso de tokens registrado para cada solicitação de IA, mantido para o acompanhamento de uso.';

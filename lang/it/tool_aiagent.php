@@ -10,7 +10,7 @@
 
 /**
  * Italian language pack for AI agent.
- * Last updated: 2026-08-31
+ * Last updated: 2026-09-29
  *
  * @package    tool_aiagent
  * @category   string
@@ -98,6 +98,7 @@ $string['error_interrupted_llm'] = 'La comunicazione con il provider IA è stata
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Il messaggio non può essere vuoto.';
 $string['errorfullscreendisabled'] = 'La vista della chat a schermo intero non è abilitata su questo sito.';
+$string['errorinconsistent'] = 'La chat è in uno stato incoerente e non può proseguire. Ricarica la pagina e riprova.';
 $string['errorinvalidchat'] = 'Chat non trovata o accesso negato.';
 $string['errorinvalidname'] = 'Il nome non può essere vuoto.';
 $string['errormissingfeedbackparams'] = 'Messaggio o tipo di feedback mancante.';
@@ -105,6 +106,7 @@ $string['errornopendingfunction'] = 'Non ci sono chiamate di funzione in attesa.
 $string['errornoprovider'] = 'Nessun provider IA disponibile. L\'agente IA utilizza le impostazioni dell\'azione "Genera testo", quindi occorre assicurarsi che sia configurata e abilitata per almeno un provider IA nell\'Amministrazione del sito.';
 $string['errornoprovider_link'] = 'Configura i provider IA.';
 $string['errornoretryresponse'] = 'Non c\'è nessuna risposta non riuscita da ripetere.';
+$string['erroroutofsync'] = 'Questa chat è stata modificata in un\'altra finestra. Aggiorna per vedere lo stato più recente.';
 $string['errorpagenotavailable'] = 'La pagina corrente non è disponibile in questa vista.';
 $string['errorpendingfunctions'] = 'Approva o rifiuta prima le chiamate di funzione in attesa.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} ha bloccato il prompt: {$a->reason}';
@@ -283,6 +285,8 @@ $string['placement_name_help'] = 'Mostrato agli utenti: nel menu utente, come to
 $string['placement_save'] = 'Salva posizionamento';
 $string['placement_saved'] = 'Posizionamento salvato.';
 $string['placement_skillmissing'] = 'Skill non trovata';
+$string['placement_suggestedprompts'] = 'Prompt suggeriti';
+$string['placement_suggestedprompts_help'] = 'Un prompt per riga, proposto come pulsante sopra la casella del messaggio nella schermata iniziale della chat. Un clic lo invia subito, ad esempio "Riassumi questo corso". Per proporre un prompt che l\'utente deve prima completare, inserire ... in un punto qualsiasi: il prompt viene allora inserito nella casella del messaggio invece di essere inviato, ad esempio "Riassumi la sezione ... di questo corso". Lasciare vuoto per non proporre alcun prompt.';
 $string['placement_urlmask'] = 'Maschere URL';
 $string['placement_urlmask_help'] = 'Un pattern per riga. Usare * come carattere jolly, ad esempio /course/view.php* oppure /mod/*/view.php*. Nota: nelle pagine in cui un posizionamento più specifico occupa la stessa posizione, un posizionamento generico che corrisponde a /* viene nascosto, in modo che gli utenti vedano solo quello più pertinente.';
 $string['placement_urlmask_invalid'] = 'Ogni maschera URL deve iniziare con una barra: "{$a}" non lo fa.';
@@ -353,6 +357,12 @@ $string['skill_save_close'] = 'Salva e chiudi';
 $string['skill_save_preview'] = 'Salva e visualizza anteprima';
 $string['skill_saved'] = 'Skill salvata.';
 $string['skilladd_aitip'] = 'Invece di compilare il modulo a mano, puoi chiedere all\'agente IA di creare la skill al posto tuo: sa trovare le funzioni giuste e scrivere una bozza delle istruzioni. <a href="{$a}">Apri l\'agente IA</a>.';
+$string['skillbundled'] = 'Inclusa';
+$string['skillbundledchangedinfo'] = 'Questa skill è inclusa nel plugin ed è stata modificata su questo sito.';
+$string['skillbundledchangedinfo_help'] = 'Chiedi all\'agente IA di confrontare questa skill con la versione inclusa nel plugin e di ripristinare quella versione se non vuoi più le tue modifiche. Una skill modificata non riceve più aggiornamenti.';
+$string['skillbundledinfo'] = 'Inclusa nel plugin. Può essere disabilitata e modificata, ma non eliminata né rinominata.';
+$string['skillbundlednodelete'] = 'Una skill inclusa nel plugin non può essere eliminata. Puoi invece disabilitarla.';
+$string['skillbundlednorename'] = 'Il nome abbreviato di una skill inclusa nel plugin non può essere modificato.';
 $string['skillcapabilities_help'] = 'Ricavati dalle funzioni principali della skill: un utente può usare la skill solo se possiede almeno uno di questi privilegi in qualche contesto del sito. L\'elenco riunisce i privilegi richiesti da tutte le funzioni principali.';
 $string['skillcapabilities_none'] = 'Nessuno. La skill è disponibile per tutti gli utenti.';
 $string['skillconfigured'] = 'Configurate';
@@ -380,10 +390,14 @@ $string['skillotherfunctions'] = 'Altre funzioni';
 $string['skillotherfunctions_help'] = 'Maschere per le altre funzioni che la skill porta con sé: letture, funzioni di supporto o un intero componente. Stessa sintassi delle funzioni principali, ma queste non influiscono su chi riceve la skill. Lasciare vuoto se la skill non ha bisogno di funzioni aggiuntive.';
 $string['skills_intro'] = '<p>Una skill riunisce istruzioni specializzate per un compito preciso con l\'elenco delle funzioni consigliate per svolgerlo. Usa le skill per le attività ricorrenti in più passaggi in cui l\'agente IA tende a confondersi o non trova le funzioni giuste, oppure per i compiti tipici della tua organizzazione.</p><p>L\'elenco delle skill e delle loro descrizioni è sempre a disposizione dell\'agente IA, che carica da sé una skill ogni volta che la ritiene adatta alla richiesta dell\'utente. Una skill è disponibile solo per gli utenti che possono accedere ad almeno una delle sue funzioni principali. Ad esempio, una skill pensata per i docenti non sarà visibile agli studenti.</p>';
 $string['skillshortname'] = 'Nome abbreviato';
-$string['skillshortname_help'] = 'Un nome macchina stabile, univoco in tutto il sito: solo lettere, numeri, trattino e trattino basso. Non può essere modificato dopo la creazione della skill.';
+$string['skillshortname_help'] = 'Un nome macchina stabile, univoco in tutto il sito: solo lettere, numeri, trattino e trattino basso. Può essere modificato in seguito, a meno che la skill non sia inclusa nel plugin.';
+$string['skilltags'] = 'Tag';
+$string['skilltags_help'] = 'I tag servono solo per filtrare e non vengono inviati al modello.';
 $string['skilltoobroad'] = 'Corrisponde a {$a} funzioni: potrebbe essere troppo generica. Valuta di restringere le maschere delle funzioni.';
 $string['skillunavailable'] = 'Non disponibile';
 $string['skillupdated'] = 'Skill "{$a}" aggiornata.';
+$string['suggestedprompt_edit'] = 'Modifica questo messaggio prima di inviarlo';
+$string['suggestedprompt_send'] = 'Invia questo messaggio';
 $string['switchview'] = 'Cambia vista';
 $string['systeminstruction'] = 'Istruzioni di sistema personalizzate';
 $string['systeminstruction_desc'] = 'Istruzioni personalizzate inviate al modello IA a ogni richiesta, che ne definiscono comportamento, tono e possibilità. Lasciare vuoto per usare quelle predefinite (mostrate sotto). È possibile usare come segnaposto {siteurl} (URL del sito), {userid} (ID dell\'utente corrente) e {date} (data odierna, formato ISO); vengono sostituiti in fase di esecuzione. Istruzioni predefinite:{$a->default}
@@ -393,6 +407,7 @@ $string['tab_functions'] = 'Funzioni';
 $string['tab_placements'] = 'Posizionamenti';
 $string['tab_skills'] = 'Skill';
 $string['tagarea_tool_aiagent_functions'] = 'Tag delle funzioni dell\'agente IA';
+$string['tagarea_tool_aiagent_skill'] = 'Tag delle skill dell\'agente IA';
 $string['task_cleanup_chats'] = 'Elimina le vecchie chat dell\'agente IA';
 $string['task_purge_provider_data'] = 'Elimina i dati delle chat dell\'agente IA presso il provider IA';
 $string['task_revalidate_license'] = 'Riconvalida la licenza dell\'agente IA';
@@ -414,5 +429,7 @@ $string['viewtypes'] = 'Viste disponibili';
 $string['viewtypes_alldisabled_warning'] = 'L\'agente IA non è disponibile per nessuno perché tutte le viste sono disabilitate nelle <a href="{$a}">impostazioni</a>.';
 $string['viewtypes_desc'] = 'Le viste della chat che gli utenti possono aprire: un piccolo overlay nell\'angolo della pagina, una barra laterale accanto al contenuto della pagina e la pagina della chat a schermo intero. Deselezionarle tutte per disattivare temporaneamente l\'agente IA per tutti gli utenti.';
 $string['viewtypes_unavailable'] = 'L\'agente IA al momento non è disponibile.';
+$string['welcome_skillsmore'] = '+{$a} altre';
+$string['welcome_tryasking'] = 'Prova a chiedere';
 $string['welcomedesc'] = 'Chiedi all\'agente IA informazioni sul tuo sito, sui corsi, sugli utenti o sui contenuti. Può leggere e, con la tua approvazione, apportare modifiche.';
 $string['welcometitle'] = 'Benvenuto, {$a}';

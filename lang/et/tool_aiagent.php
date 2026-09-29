@@ -10,7 +10,7 @@
 
 /**
  * Estonian language pack for AI agent.
- * Last updated: 2026-08-31
+ * Last updated: 2026-09-29
  *
  * @package    tool_aiagent
  * @category   string
@@ -98,6 +98,7 @@ $string['error_interrupted_llm'] = 'Side AI-teenusepakkujaga katkes. Päringu ko
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Sõnum ei tohi olla tühi.';
 $string['errorfullscreendisabled'] = 'Vestluse täisekraanvaade pole selles õpikeskkonnas lubatud.';
+$string['errorinconsistent'] = 'Vestlus on vastuolulises olekus ega saa jätkuda. Laadige leht uuesti ja proovige siis veel kord.';
 $string['errorinvalidchat'] = 'Vestlust ei leitud või juurdepääs on keelatud.';
 $string['errorinvalidname'] = 'Nimi ei tohi olla tühi.';
 $string['errormissingfeedbackparams'] = 'Sõnum või tagasiside tüüp puudub.';
@@ -105,6 +106,7 @@ $string['errornopendingfunction'] = 'Ootel funktsioonikutseid pole.';
 $string['errornoprovider'] = 'Ühtegi AI-teenusepakkujat pole saadaval. AI-agent kasutab tegevuse „Generate text“ sätteid, seega veenduge, et see on õpikeskkonna halduses vähemalt ühe AI-teenusepakkuja jaoks seadistatud ja lubatud.';
 $string['errornoprovider_link'] = 'Seadista AI-teenusepakkujad.';
 $string['errornoretryresponse'] = 'Ühtegi ebaõnnestunud vastust pole, mida korrata.';
+$string['erroroutofsync'] = 'Seda vestlust on muudetud teises aknas. Värskendage, et näha viimast seisu.';
 $string['errorpagenotavailable'] = 'Praegune leht ei ole selles vaates saadaval.';
 $string['errorpendingfunctions'] = 'Kinnitage ootel funktsioonikutsed või keelduge neist kõigepealt.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} blokeeris prompti: {$a->reason}';
@@ -283,6 +285,8 @@ $string['placement_name_help'] = 'Kuvatakse kasutajatele: kasutajamenüüs, nupu
 $string['placement_save'] = 'Salvesta paigutus';
 $string['placement_saved'] = 'Paigutus salvestatud.';
 $string['placement_skillmissing'] = 'Oskust ei leitud';
+$string['placement_suggestedprompts'] = 'Soovitatud promptid';
+$string['placement_suggestedprompts_help'] = 'Üks prompt rea kohta; need kuvatakse nuppudena sõnumivälja kohal vestluse avaekraanil. Klõps saadab prompti kohe, näiteks „Tee sellest kursusest kokkuvõte“. Kui kasutaja peab prompti enne ise lõpetama, lisage sellesse ükskõik kuhu ...: siis pannakse prompt saatmise asemel sõnumivälja, näiteks „Tee selle kursuse jaotisest ... kokkuvõte“. Jätke väli tühjaks, kui prompte ei pakuta.';
 $string['placement_urlmask'] = 'URL-maskid';
 $string['placement_urlmask_help'] = 'Üks muster rea kohta. Kasutage metamärgina tärni, näiteks /course/view.php* või /mod/*/view.php*. Märkus: lehtedel, kus samasse asukohta on suunatud täpsem paigutus, peidetakse lai paigutus, mis vastab mustrile /*, nii et kasutajad näevad ainult sobivamat.';
 $string['placement_urlmask_invalid'] = 'Iga URL-mask peab algama kaldkriipsuga: „{$a}“ ei alga.';
@@ -353,6 +357,12 @@ $string['skill_save_close'] = 'Salvesta ja sulge';
 $string['skill_save_preview'] = 'Salvesta ja kuva eelvaade';
 $string['skill_saved'] = 'Oskus salvestatud.';
 $string['skilladd_aitip'] = 'Selle asemel et vormi käsitsi täita, võite paluda AI-agendil oskus teie eest koostada: ta leiab sobivad funktsioonid ja koostab juhiste mustandi. <a href="{$a}">Ava AI-agent</a>.';
+$string['skillbundled'] = 'Sisseehitatud';
+$string['skillbundledchangedinfo'] = 'See oskus tuli koos lisandmooduliga ja seda on selles õpikeskkonnas muudetud.';
+$string['skillbundledchangedinfo_help'] = 'Paluge AI-agendil võrrelda seda oskust lisandmooduliga kaasa tulnud versiooniga ja taastada see versioon, kui te oma muudatusi enam ei soovi. Muudetud oskus ei saa enam uuendusi.';
+$string['skillbundledinfo'] = 'Tuli koos lisandmooduliga. Seda saab keelata ja muuta, kuid mitte kustutada ega ümber nimetada.';
+$string['skillbundlednodelete'] = 'Lisandmooduliga kaasa tulnud oskust ei saa kustutada. Keelake see selle asemel.';
+$string['skillbundlednorename'] = 'Lisandmooduliga kaasa tulnud oskuse lühinime ei saa muuta.';
 $string['skillcapabilities_help'] = 'Tuletatud oskuse põhifunktsioonidest: kasutaja saab oskust kasutada ainult siis, kui tal on mõnes õpikeskkonna kontekstis vähemalt üks neist tegevuslubadest. Loend koondab kõigi põhifunktsioonide nõutavad tegevusload.';
 $string['skillcapabilities_none'] = 'Puuduvad. Oskus on saadaval kõigile kasutajatele.';
 $string['skillconfigured'] = 'Konfigureeritud';
@@ -380,10 +390,14 @@ $string['skillotherfunctions'] = 'Muud funktsioonid';
 $string['skillotherfunctions_help'] = 'Maskid ülejäänud funktsioonidele, mida oskus kaasa toob: lugemised, abifunktsioonid või terve komponent. Sama süntaks nagu põhifunktsioonidel, kuid need ei mõjuta seda, kellele oskust pakutakse. Jätke tühjaks, kui oskus lisafunktsioone ei vaja.';
 $string['skills_intro'] = '<p>Oskus koondab kindla tööülesande jaoks mõeldud erijuhised koos selle jaoks soovitatud funktsioonide loendiga. Kasutage oskusi sagedaste mitmesammuliste ülesannete jaoks, mille puhul AI-agent kipub segadusse minema või ei leia sobivaid funktsioone, või teie organisatsiooni eripäraste ülesannete jaoks.</p><p>Oskuste loend koos kirjeldustega on AI-agendile alati saadaval ja ta laadib oskuse ise, kui otsustab, et see sobib kasutaja sooviga. Oskus on saadaval ainult kasutajatele, kes pääsevad ligi vähemalt ühele selle põhifunktsioonile. Näiteks õpetajatele mõeldud oskust õppijad ei näe.</p>';
 $string['skillshortname'] = 'Lühinimi';
-$string['skillshortname_help'] = 'Püsiv masinnimi, mis on kogu õpikeskkonnas kordumatu: ainult tähed, numbrid, sidekriips ja alakriips. Pärast oskuse loomist ei saa seda enam muuta.';
+$string['skillshortname_help'] = 'Püsiv masinnimi, mis on kogu õpikeskkonnas kordumatu: ainult tähed, numbrid, sidekriips ja alakriips. Seda saab hiljem muuta, välja arvatud juhul, kui oskus tuli koos lisandmooduliga.';
+$string['skilltags'] = 'Sildid';
+$string['skilltags_help'] = 'Silte kasutatakse ainult filtreerimiseks ja neid ei saadeta mudelile.';
 $string['skilltoobroad'] = 'Vastab {$a} funktsioonile, mis võib olla liiga lai. Kaaluge funktsioonimaskide kitsendamist.';
 $string['skillunavailable'] = 'Pole saadaval';
 $string['skillupdated'] = 'Oskus „{$a}“ uuendatud.';
+$string['suggestedprompt_edit'] = 'Muuda seda sõnumit enne saatmist';
+$string['suggestedprompt_send'] = 'Saada see sõnum';
 $string['switchview'] = 'Vaheta vaadet';
 $string['systeminstruction'] = 'Kohandatud süsteemijuhised';
 $string['systeminstruction_desc'] = 'Kohandatud juhised, mis saadetakse AI-mudelile iga päringuga ja määravad selle käitumise, tooni ja võimalused. Sisseehitatud vaikeväärtuse (allpool näidatud) kasutamiseks jätke tühjaks. Kohatäidetena võite kasutada väärtusi {siteurl} (õpikeskkonna URL), {userid} (praeguse kasutaja ID) ja {date} (tänane kuupäev ISO-vormingus); need asendatakse käitusajal. Vaikejuhised:{$a->default}
@@ -393,6 +407,7 @@ $string['tab_functions'] = 'Funktsioonid';
 $string['tab_placements'] = 'Paigutused';
 $string['tab_skills'] = 'Oskused';
 $string['tagarea_tool_aiagent_functions'] = 'AI-agendi funktsioonide sildid';
+$string['tagarea_tool_aiagent_skill'] = 'AI-agendi oskuste sildid';
 $string['task_cleanup_chats'] = 'Kustuta vanad AI-agendi vestlused';
 $string['task_purge_provider_data'] = 'Kustuta AI-agendi vestlusandmed AI-teenusepakkuja juurest';
 $string['task_revalidate_license'] = 'Kinnita AI-agendi litsents uuesti';
@@ -414,5 +429,7 @@ $string['viewtypes'] = 'Saadaolevad vaated';
 $string['viewtypes_alldisabled_warning'] = 'AI-agent pole kellelegi saadaval, sest <a href="{$a}">sätetes</a> on kõik vaated keelatud.';
 $string['viewtypes_desc'] = 'Vestlusvaated, mida kasutajad saavad avada: väike ülekate lehe nurgas, külgriba lehe sisu kõrval ja täisekraanil vestluse leht. Eemaldage kõik linnukesed, et AI-agent kõigi kasutajate jaoks ajutiselt välja lülitada.';
 $string['viewtypes_unavailable'] = 'AI-agent pole praegu saadaval.';
+$string['welcome_skillsmore'] = '+{$a} veel';
+$string['welcome_tryasking'] = 'Proovige küsida';
 $string['welcomedesc'] = 'Küsige AI-agendilt oma õpikeskkonna, kursuste, kasutajate või sisu kohta. Ta oskab lugeda ja teie kinnitusel ka muudatusi teha.';
 $string['welcometitle'] = 'Tere tulemast, {$a}';

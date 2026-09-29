@@ -51,6 +51,11 @@ We recommend using modern models. Older models may not be capable enough to cope
 5. Grant the `tool/aiagent:usechat` capability to the desired roles.
 6. Open the chat from the **AI agent chat** link in your user menu and start asking!
 
+The agent's longer tasks run for several minutes inside one request. If a reverse proxy, load
+balancer or application gateway sits in front of Moodle, allow requests to `admin/tool/aiagent/ajax.php`
+to run for at least 10 minutes (600 seconds). The chat survives a shorter timeout, but the reply
+then arrives through the page's live updates instead of the request itself.
+
 ## For plugin developers
 
 If you are developing a Moodle plugin that exposes web service functions and want them to work well with the AI agent, read [AIAGENT_WS_GUIDE.md](AIAGENT_WS_GUIDE.md), a short guide on function design, parameter descriptions, and metadata conventions that LLMs handle well.

@@ -10,7 +10,7 @@
 
 /**
  * German language pack for AI agent.
- * Last updated: 2026-08-31
+ * Last updated: 2026-09-29
  *
  * @package    tool_aiagent
  * @category   string
@@ -98,6 +98,7 @@ $string['error_interrupted_llm'] = 'Die Kommunikation mit dem KI-Provider wurde 
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Die Nachricht darf nicht leer sein.';
 $string['errorfullscreendisabled'] = 'Die Chatansicht im Vollbild ist auf dieser Website nicht aktiviert.';
+$string['errorinconsistent'] = 'Der Chat ist in einem inkonsistenten Zustand und kann nicht fortgesetzt werden. Laden Sie die Seite neu und versuchen Sie es erneut.';
 $string['errorinvalidchat'] = 'Chat nicht gefunden oder Zugriff verweigert.';
 $string['errorinvalidname'] = 'Der Name darf nicht leer sein.';
 $string['errormissingfeedbackparams'] = 'Nachricht oder Art der Rückmeldung fehlt.';
@@ -105,6 +106,7 @@ $string['errornopendingfunction'] = 'Es gibt keine offenen Funktionsaufrufe.';
 $string['errornoprovider'] = 'Es ist kein KI-Provider verfügbar. Der KI-Agent verwendet die Einstellungen der Aktion „Text generieren“; stellen Sie daher sicher, dass diese in der Website-Administration für mindestens einen KI-Provider konfiguriert und aktiviert ist.';
 $string['errornoprovider_link'] = 'KI-Provider konfigurieren.';
 $string['errornoretryresponse'] = 'Es gibt keine fehlgeschlagene Antwort, die wiederholt werden könnte.';
+$string['erroroutofsync'] = 'Dieser Chat wurde in einem anderen Fenster geändert. Aktualisieren Sie, um den aktuellen Stand zu sehen.';
 $string['errorpagenotavailable'] = 'Die aktuelle Seite ist in dieser Ansicht nicht verfügbar.';
 $string['errorpendingfunctions'] = 'Bitte bestätigen oder verweigern Sie zuerst die offenen Funktionsaufrufe.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} hat den Prompt blockiert: {$a->reason}';
@@ -283,6 +285,8 @@ $string['placement_name_help'] = 'Wird Nutzer/innen angezeigt: im Nutzermenü, a
 $string['placement_save'] = 'Platzierung speichern';
 $string['placement_saved'] = 'Platzierung gespeichert.';
 $string['placement_skillmissing'] = 'Skill nicht gefunden';
+$string['placement_suggestedprompts'] = 'Vorgeschlagene Prompts';
+$string['placement_suggestedprompts_help'] = 'Ein Prompt pro Zeile, angeboten als Schaltflächen über dem Nachrichtenfeld auf der Startseite des Chats. Ein Klick sendet ihn sofort, zum Beispiel „Fasse diesen Kurs zusammen“. Um einen Prompt anzubieten, den Nutzer/innen zuerst vervollständigen müssen, fügen Sie an beliebiger Stelle ... ein: Der Prompt wird dann in das Nachrichtenfeld gesetzt, statt gesendet zu werden, zum Beispiel „Fasse den Abschnitt ... dieses Kurses zusammen“. Lassen Sie das Feld leer, um keine Prompts anzubieten.';
 $string['placement_urlmask'] = 'URL-Masken';
 $string['placement_urlmask_help'] = 'Ein Muster pro Zeile. Verwenden Sie * als Platzhalter, zum Beispiel /course/view.php* oder /mod/*/view.php*. Hinweis: Auf Seiten, auf denen eine genauere Platzierung dieselbe Position belegt, wird eine breite Platzierung mit /* ausgeblendet, damit Nutzer/innen nur die passendere sehen.';
 $string['placement_urlmask_invalid'] = 'Jede URL-Maske muss mit einem Schrägstrich beginnen: „{$a}“ tut das nicht.';
@@ -353,6 +357,12 @@ $string['skill_save_close'] = 'Speichern und schließen';
 $string['skill_save_preview'] = 'Speichern und Vorschau';
 $string['skill_saved'] = 'Skill gespeichert.';
 $string['skilladd_aitip'] = 'Statt das Formular von Hand auszufüllen, können Sie den KI-Agenten bitten, den Skill für Sie zu erstellen: Er findet die passenden Funktionen und entwirft die Anweisungen. <a href="{$a}">KI-Agenten öffnen</a>.';
+$string['skillbundled'] = 'Mitgeliefert';
+$string['skillbundledchangedinfo'] = 'Dieser Skill wurde mit dem Plugin mitgeliefert und auf dieser Website geändert.';
+$string['skillbundledchangedinfo_help'] = 'Bitten Sie den KI-Agenten, diesen Skill mit der mitgelieferten Version zu vergleichen und diese Version wiederherzustellen, wenn Sie Ihre Änderungen nicht mehr möchten. Ein geänderter Skill erhält keine Aktualisierungen mehr.';
+$string['skillbundledinfo'] = 'Mit dem Plugin mitgeliefert. Kann deaktiviert und bearbeitet, aber nicht gelöscht oder umbenannt werden.';
+$string['skillbundlednodelete'] = 'Ein mit dem Plugin mitgelieferter Skill kann nicht gelöscht werden. Deaktivieren Sie ihn stattdessen.';
+$string['skillbundlednorename'] = 'Die Kurzbezeichnung eines mit dem Plugin mitgelieferten Skills kann nicht geändert werden.';
 $string['skillcapabilities_help'] = 'Aus den Hauptfunktionen des Skills abgeleitet: Eine Person kann den Skill nur verwenden, wenn sie mindestens eine dieser Fähigkeiten in irgendeinem Kontext der Website besitzt. Die Liste fasst die erforderlichen Fähigkeiten aller Hauptfunktionen zusammen.';
 $string['skillcapabilities_none'] = 'Keine. Der Skill steht allen Nutzer/innen zur Verfügung.';
 $string['skillconfigured'] = 'Konfiguriert';
@@ -380,10 +390,14 @@ $string['skillotherfunctions'] = 'Weitere Funktionen';
 $string['skillotherfunctions_help'] = 'Masken für die übrigen Funktionen, die der Skill mitbringt: lesende Funktionen, Hilfsfunktionen oder eine ganze Komponente. Gleiche Schreibweise wie bei den Hauptfunktionen, sie beeinflussen jedoch nicht, wem der Skill angeboten wird. Leer lassen, wenn der Skill keine zusätzlichen Funktionen braucht.';
 $string['skills_intro'] = '<p>Ein Skill bündelt besondere Anweisungen für eine bestimmte Aufgabe mit einer Liste der dafür empfohlenen Funktionen. Nutzen Sie Skills für häufige mehrstufige Aufgaben, bei denen der KI-Agent ins Straucheln gerät oder die passenden Funktionen nicht findet, oder für Aufgaben, die für Ihre Organisation typisch sind.</p><p>Die Liste der Skills und ihrer Beschreibungen steht dem KI-Agenten immer zur Verfügung; er lädt selbst einen Skill, sobald er ihn für die Anfrage als passend ansieht. Ein Skill steht nur Nutzer/innen zur Verfügung, die auf mindestens eine seiner Hauptfunktionen zugreifen können. Ein Skill für Trainer/innen ist zum Beispiel für Teilnehmer/innen nicht sichtbar.</p>';
 $string['skillshortname'] = 'Kurzbezeichnung';
-$string['skillshortname_help'] = 'Ein unveränderlicher Maschinenname, eindeutig auf der gesamten Website: nur Buchstaben, Ziffern, Bindestrich und Unterstrich. Nach dem Anlegen des Skills kann er nicht mehr geändert werden.';
+$string['skillshortname_help'] = 'Ein stabiler Maschinenname, eindeutig auf der gesamten Website: nur Buchstaben, Ziffern, Bindestrich und Unterstrich. Er kann später geändert werden, außer bei einem Skill, der mit dem Plugin mitgeliefert wurde.';
+$string['skilltags'] = 'Tags';
+$string['skilltags_help'] = 'Tags dienen nur zum Filtern und werden nicht an das Modell gesendet.';
 $string['skilltoobroad'] = 'Passt auf {$a} Funktionen, das könnte zu weit gefasst sein. Schränken Sie die Funktionsmasken gegebenenfalls ein.';
 $string['skillunavailable'] = 'Nicht verfügbar';
 $string['skillupdated'] = 'Skill „{$a}“ aktualisiert.';
+$string['suggestedprompt_edit'] = 'Diese Nachricht vor dem Senden bearbeiten';
+$string['suggestedprompt_send'] = 'Diese Nachricht senden';
 $string['switchview'] = 'Ansicht wechseln';
 $string['systeminstruction'] = 'Eigene Systemanweisungen';
 $string['systeminstruction_desc'] = 'Eigene Anweisungen, die dem KI-Modell mit jeder Anfrage mitgegeben werden und sein Verhalten, seinen Ton und seine Möglichkeiten festlegen. Leer lassen, um die eingebaute Vorgabe zu verwenden (unten abgebildet). Als Platzhalter können Sie {siteurl} (URL der Website), {userid} (ID der aktuellen Person) und {date} (heutiges Datum im ISO-Format) verwenden; sie werden zur Laufzeit ersetzt. Vorgegebene Anweisungen:{$a->default}
@@ -393,6 +407,7 @@ $string['tab_functions'] = 'Funktionen';
 $string['tab_placements'] = 'Platzierungen';
 $string['tab_skills'] = 'Skills';
 $string['tagarea_tool_aiagent_functions'] = 'Tags für Funktionen des KI-Agenten';
+$string['tagarea_tool_aiagent_skill'] = 'Tags für Skills des KI-Agenten';
 $string['task_cleanup_chats'] = 'Alte Chats des KI-Agenten löschen';
 $string['task_purge_provider_data'] = 'Chatdaten des KI-Agenten beim KI-Provider löschen';
 $string['task_revalidate_license'] = 'Lizenz des KI-Agenten erneut prüfen';
@@ -414,5 +429,7 @@ $string['viewtypes'] = 'Verfügbare Ansichten';
 $string['viewtypes_alldisabled_warning'] = 'Der KI-Agent steht niemandem zur Verfügung, weil in den <a href="{$a}">Einstellungen</a> alle Ansichten deaktiviert sind.';
 $string['viewtypes_desc'] = 'Die Chatansichten, die Nutzer/innen öffnen können: ein kleines Overlay in der Ecke der Seite, eine Seitenleiste neben dem Seiteninhalt und die Chatseite im Vollbild. Deaktivieren Sie alle, um den KI-Agenten vorübergehend für alle abzuschalten.';
 $string['viewtypes_unavailable'] = 'Der KI-Agent ist derzeit nicht verfügbar.';
+$string['welcome_skillsmore'] = '+{$a} weitere';
+$string['welcome_tryasking'] = 'Fragen Sie zum Beispiel';
 $string['welcomedesc'] = 'Fragen Sie den KI-Agenten zu Ihrer Website, zu Kursen, Nutzer/innen oder Inhalten. Er kann lesen und, mit Ihrer Bestätigung, Änderungen vornehmen.';
 $string['welcometitle'] = 'Willkommen, {$a}';

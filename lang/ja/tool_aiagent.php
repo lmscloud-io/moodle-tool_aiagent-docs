@@ -10,7 +10,7 @@
 
 /**
  * Japanese language pack for AI agent.
- * Last updated: 2026-08-31
+ * Last updated: 2026-09-29
  *
  * @package    tool_aiagent
  * @category   string
@@ -98,6 +98,7 @@ $string['error_interrupted_llm'] = 'AIプロバイダとの通信が中断され
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'メッセージを空にすることはできません。';
 $string['errorfullscreendisabled'] = 'フルスクリーンのチャットビューはこのサイトで有効にされていません。';
+$string['errorinconsistent'] = 'チャットが不整合な状態のため続行できません。ページを再読み込みしてもう一度お試しください。';
 $string['errorinvalidchat'] = 'チャットが見つからないか、アクセスが拒否されました。';
 $string['errorinvalidname'] = '名称を空にすることはできません。';
 $string['errormissingfeedbackparams'] = 'メッセージまたはフィードバックタイプがありません。';
@@ -105,6 +106,7 @@ $string['errornopendingfunction'] = '保留中の関数呼び出しはありま�
 $string['errornoprovider'] = '利用可能なAIプロバイダがありません。AIエージェントはアクション「テキストを生成する」の設定を使用するため、サイト管理で少なくとも1つのAIプロバイダに対してこのアクションが設定および有効にされていることを確認してください。';
 $string['errornoprovider_link'] = 'AIプロバイダを設定する。';
 $string['errornoretryresponse'] = '再試行できる失敗した応答はありません。';
+$string['erroroutofsync'] = 'このチャットは別のウィンドウで変更されました。リフレッシュして最新の状態を表示してください。';
 $string['errorpagenotavailable'] = '現在のページはこのビューでは利用できません。';
 $string['errorpendingfunctions'] = 'まず保留中の関数呼び出しを承認または拒否してください。';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} がプロンプトをブロックしました: {$a->reason}';
@@ -283,6 +285,8 @@ $string['placement_name_help'] = 'ユーザに表示されます: ユーザメ�
 $string['placement_save'] = '配置を保存';
 $string['placement_saved'] = '配置を保存しました。';
 $string['placement_skillmissing'] = 'スキルが見つかりません';
+$string['placement_suggestedprompts'] = '提案プロンプト';
+$string['placement_suggestedprompts_help'] = '1行に1つのプロンプトを入力します。プロンプトはチャットの開始画面でメッセージ欄の上にボタンとして表示され、クリックするとすぐに送信されます (例: 「このコースを要約して」)。ユーザが先に補足する必要があるプロンプトにするには、プロンプト内の任意の位置に ... を入れてください。その場合、プロンプトは送信されずにメッセージ欄に入力されます (例: 「このコースの ... セクションを要約して」)。プロンプトを表示しない場合は空欄にしてください。';
 $string['placement_urlmask'] = 'URLマスク';
 $string['placement_urlmask_help'] = '1行に1つのパターンを入力してください。* をワイルドカードとして使用できます。例: /course/view.php* または /mod/*/view.php*。注意: より限定的な配置が同じ位置を対象としているページでは、/* に一致する広範な配置は非表示になり、ユーザにはより適切なものだけが表示されます。';
 $string['placement_urlmask_invalid'] = 'それぞれのURLマスクはスラッシュで始まる必要があります。「{$a}」はそうなっていません。';
@@ -353,6 +357,12 @@ $string['skill_save_close'] = '保存して閉じる';
 $string['skill_save_preview'] = '保存してプレビュー';
 $string['skill_saved'] = 'スキルを保存しました。';
 $string['skilladd_aitip'] = 'この内容を手作業で入力する代わりに、AIエージェントにスキルの作成を依頼できます。適切な関数を見つけ、インストラクションの草案を作成します。<a href="{$a}">AIエージェントを開く</a>。';
+$string['skillbundled'] = '同梱';
+$string['skillbundledchangedinfo'] = 'このスキルはプラグインに同梱されたもので、このサイトで変更されています。';
+$string['skillbundledchangedinfo_help'] = 'このスキルとプラグインに同梱されたバージョンとの比較や、変更が不要になった場合の同梱バージョンへの復元を、AIエージェントに依頼できます。変更したスキルは更新を受け取らなくなります。';
+$string['skillbundledinfo'] = 'プラグインに同梱されています。無効化や編集はできますが、削除や名前の変更はできません。';
+$string['skillbundlednodelete'] = 'プラグインに同梱されたスキルは削除できません。代わりに無効にしてください。';
+$string['skillbundlednorename'] = 'プラグインに同梱されたスキルの省略名は変更できません。';
 $string['skillcapabilities_help'] = 'スキルのメイン関数から算出されます。ユーザは、サイト内のいずれかのコンテキストでこれらのケイパビリティを1つ以上持っている場合のみ、このスキルを使用できます。この一覧は、すべてのメイン関数に必要なケイパビリティをまとめたものです。';
 $string['skillcapabilities_none'] = 'なし。このスキルはすべてのユーザが利用できます。';
 $string['skillconfigured'] = '設定済み';
@@ -380,10 +390,14 @@ $string['skillotherfunctions'] = 'その他の関数';
 $string['skillotherfunctions_help'] = 'スキルが持ち込むその他の関数 (読み取り、ヘルパー、またはコンポーネント全体) のマスクです。書式はメイン関数と同じですが、誰にスキルが提供されるかには影響しません。追加の関数が不要な場合は空にしてください。';
 $string['skills_intro'] = '<p>スキルは、特定の目的のための専門的なインストラクションと、そのために推奨される関数の一覧をまとめたものです。AIエージェントが混乱しやすい、または適切な関数を見つけられない複数ステップのよくあるタスクや、あなたの組織に固有のタスクにスキルをご利用ください。</p><p>スキルの一覧とその説明は常にAIエージェントが利用でき、ユーザのリクエストに合うと判断したスキルをAIエージェント自身が読み込みます。スキルは、そのメイン関数の少なくとも1つにアクセスできるユーザのみが利用できます。例えば、教師向けに作られたスキルは学生には表示されません。</p>';
 $string['skillshortname'] = '省略名';
-$string['skillshortname_help'] = 'サイト全体で一意の、変わらないマシン名です。英字、数字、ハイフンおよびアンダースコアのみ使用できます。スキルの作成後は変更できません。';
+$string['skillshortname_help'] = 'サイト全体で一意の、安定したマシン名です。英字、数字、ハイフンおよびアンダースコアのみ使用できます。後から変更できますが、プラグインに同梱されたスキルの省略名は変更できません。';
+$string['skilltags'] = 'タグ';
+$string['skilltags_help'] = 'タグは絞り込みにのみ使用され、モデルには送信されません。';
 $string['skilltoobroad'] = '関数 {$a} 個に一致します。範囲が広すぎる可能性があります。関数マスクを絞り込むことをご検討ください。';
 $string['skillunavailable'] = '利用不可';
 $string['skillupdated'] = 'スキル「{$a}」を更新しました。';
+$string['suggestedprompt_edit'] = '送信前にこのメッセージを編集する';
+$string['suggestedprompt_send'] = 'このメッセージを送信する';
 $string['switchview'] = 'ビューを切り替え';
 $string['systeminstruction'] = 'カスタムシステムインストラクション';
 $string['systeminstruction_desc'] = 'すべてのリクエストとともにAIモデルに送信されるカスタムインストラクションです。モデルの動作、口調および能力を定めます。組み込みのデフォルト (下に表示) を使用する場合は空にしてください。プレースホルダとして {siteurl} (サイトURL)、{userid} (現在のユーザのID) および {date} (今日の日付、ISO形式) を使用できます。これらは実行時に置き換えられます。デフォルトのインストラクション:{$a->default}
@@ -393,6 +407,7 @@ $string['tab_functions'] = '関数';
 $string['tab_placements'] = '配置';
 $string['tab_skills'] = 'スキル';
 $string['tagarea_tool_aiagent_functions'] = 'AIエージェント関数タグ';
+$string['tagarea_tool_aiagent_skill'] = 'AIエージェントスキルタグ';
 $string['task_cleanup_chats'] = '古いAIエージェントチャットを削除する';
 $string['task_purge_provider_data'] = 'AIプロバイダからAIエージェントのチャットデータを削除する';
 $string['task_revalidate_license'] = 'AIエージェントライセンスを再検証する';
@@ -414,5 +429,7 @@ $string['viewtypes'] = '利用可能なビュータイプ';
 $string['viewtypes_alldisabled_warning'] = '<a href="{$a}">設定</a>ですべてのビュータイプが無効にされているため、AIエージェントは誰も利用できません。';
 $string['viewtypes_desc'] = 'ユーザが開けるチャットビューです: ページの隅に表示される小さなオーバーレイ、ページコンテンツの横のサイドバー、およびフルスクリーンのチャットページです。AIエージェントをすべてのユーザに対して一時的に無効にするには、すべてのチェックを外してください。';
 $string['viewtypes_unavailable'] = 'AIエージェントは現在利用できません。';
+$string['welcome_skillsmore'] = '他{$a}件';
+$string['welcome_tryasking'] = '質問の例';
 $string['welcomedesc'] = 'あなたのサイト、コース、ユーザまたはコンテンツについてAIエージェントに質問してください。読み取りができ、あなたの承認があれば変更もできます。';
 $string['welcometitle'] = 'ようこそ、{$a}さん';

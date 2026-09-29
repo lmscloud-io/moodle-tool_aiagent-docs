@@ -10,7 +10,7 @@
 
 /**
  * Hebrew language pack for AI agent.
- * Last updated: 2026-08-31
+ * Last updated: 2026-09-29
  *
  * @package    tool_aiagent
  * @category   string
@@ -98,6 +98,7 @@ $string['error_interrupted_llm'] = 'התקשורת עם ספק ה-AI נקטעה.
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'ההודעה אינה יכולה להיות ריקה.';
 $string['errorfullscreendisabled'] = 'תצוגת השיחה במסך מלא אינה מופעלת במערכת זו.';
+$string['errorinconsistent'] = 'השיחה נמצאת במצב לא עקבי ואינה יכולה להמשיך. יש לטעון מחדש את הדף ולנסות שוב.';
 $string['errorinvalidchat'] = 'השיחה לא נמצאה או שהגישה אליה נדחתה.';
 $string['errorinvalidname'] = 'השם אינו יכול להיות ריק.';
 $string['errormissingfeedbackparams'] = 'חסרה הודעה או חסר סוג המשוב.';
@@ -105,6 +106,7 @@ $string['errornopendingfunction'] = 'אין קריאות לפונקציות המ
 $string['errornoprovider'] = 'אין ספק AI זמין. סוכן AI משתמש בהגדרות של הפעולה "יצירת תוכן", ולכן יש לוודא שהיא מוגדרת ומופעלת עבור ספק AI אחד לפחות בניהול המערכת.';
 $string['errornoprovider_link'] = 'הגדרת ספקי AI.';
 $string['errornoretryresponse'] = 'אין תשובה שנכשלה שניתן לשלוח שוב.';
+$string['erroroutofsync'] = 'השיחה השתנתה בחלון אחר. יש לרענן כדי לראות את המצב העדכני.';
 $string['errorpagenotavailable'] = 'העמוד הנוכחי אינו זמין בתצוגה זו.';
 $string['errorpendingfunctions'] = 'יש לאשר או לדחות תחילה את הקריאות לפונקציות הממתינות לאישור.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} חסם את ההנחיה: {$a->reason}';
@@ -283,6 +285,8 @@ $string['placement_name_help'] = 'מוצג למשתמשים: בתפריט המש
 $string['placement_save'] = 'שמירת השיבוץ';
 $string['placement_saved'] = 'השיבוץ נשמר.';
 $string['placement_skillmissing'] = 'הכישור לא נמצא';
+$string['placement_suggestedprompts'] = 'הנחיות מוצעות';
+$string['placement_suggestedprompts_help'] = 'הנחיה אחת בכל שורה. ההנחיות מוצגות ככפתורים מעל תיבת ההודעה במסך הפתיחה של השיחה. לחיצה על כפתור שולחת את ההנחיה מיד, לדוגמה "סכם את הקורס הזה". כדי להציע הנחיה שהמשתמש צריך להשלים קודם, יש להוסיף בה ... בכל מקום: ההנחיה תוכנס אז לתיבת ההודעה במקום להישלח, לדוגמה "סכם את הנושא ... בקורס הזה". יש להשאיר את השדה ריק כדי לא להציע הנחיות.';
 $string['placement_urlmask'] = 'מסכות כתובת';
 $string['placement_urlmask_help'] = 'תבנית אחת בכל שורה. ניתן להשתמש בתו * כתו כללי, למשל /course/view.php* או /mod/*/view.php*. לתשומת לבך: בעמודים שבהם שיבוץ ממוקד יותר תופס את אותו מיקום, שיבוץ רחב המתאים ל-/* מוסתר, כך שהמשתמשים יראו רק את הרלוונטי יותר.';
 $string['placement_urlmask_invalid'] = 'כל מסכת כתובת חייבת להתחיל בקו נטוי: "{$a}" אינה מתחילה בו.';
@@ -353,6 +357,12 @@ $string['skill_save_close'] = 'שמירה וסגירה';
 $string['skill_save_preview'] = 'שמירה ותצוגה מקדימה';
 $string['skill_saved'] = 'הכישור נשמר.';
 $string['skilladd_aitip'] = 'במקום למלא את הטופס ידנית, ניתן לבקש מסוכן AI לבנות את הכישור: הוא ימצא את הפונקציות המתאימות וינסח את ההנחיות. <a href="{$a}">פתיחת סוכן AI</a>.';
+$string['skillbundled'] = 'מובנה';
+$string['skillbundledchangedinfo'] = 'כישור זה הגיע עם התוסף ושונה במערכת זו.';
+$string['skillbundledchangedinfo_help'] = 'אפשר לבקש מסוכן ה-AI להשוות את הכישור הזה לגרסה שהגיעה עם התוסף, ולהחזיר את הגרסה הזו אם השינויים כבר אינם רצויים. כישור ששונה מפסיק לקבל עדכונים.';
+$string['skillbundledinfo'] = 'הגיע עם התוסף. אפשר להשבית ולערוך אותו, אך לא למחוק אותו או לשנות את שמו.';
+$string['skillbundlednodelete'] = 'לא ניתן למחוק כישור שהגיע עם התוסף. במקום זאת, יש להשבית אותו.';
+$string['skillbundlednorename'] = 'לא ניתן לשנות את השם המקוצר של כישור שהגיע עם התוסף.';
 $string['skillcapabilities_help'] = 'נגזר מהפונקציות העיקריות של הכישור: משתמש יכול להשתמש בכישור רק אם יש לו לפחות אחת מהיכולות הללו באיזשהו הקשר במערכת. הרשימה מאחדת את היכולות הנדרשות של כל הפונקציות העיקריות.';
 $string['skillcapabilities_none'] = 'אין. הכישור זמין לכל המשתמשים.';
 $string['skillconfigured'] = 'מוגדרות';
@@ -380,10 +390,14 @@ $string['skillotherfunctions'] = 'פונקציות נוספות';
 $string['skillotherfunctions_help'] = 'מסכות עבור שאר הפונקציות שהכישור מביא עמו: פונקציות קריאה, פונקציות עזר או רכיב שלם. אותה תחביר כמו בפונקציות העיקריות, אך אלה אינן משפיעות על השאלה למי הכישור מוצע. יש להשאיר ריק אם הכישור אינו זקוק לפונקציות נוספות.';
 $string['skills_intro'] = '<p>כישור מאגד הנחיות ייעודיות למשימה מסוימת יחד עם רשימת הפונקציות המומלצות עבורה. מומלץ להשתמש בכישורים למשימות נפוצות מרובות שלבים שבהן סוכן AI נוטה להתבלבל או אינו מוצא את הפונקציות המתאימות, או למשימות הייחודיות לארגון שלך.</p><p>רשימת הכישורים והתיאורים שלהם זמינה תמיד לסוכן AI, והוא טוען כישור מיוזמתו בכל פעם שהוא מחליט שהכישור מתאים לבקשת המשתמש. כישור זמין רק למשתמשים שיכולים לגשת לפחות לאחת מהפונקציות העיקריות שלו. כך למשל, כישור שנבנה עבור מורים לא יהיה גלוי לתלמידים.</p>';
 $string['skillshortname'] = 'שם מקוצר';
-$string['skillshortname_help'] = 'שם מזהה קבוע, ייחודי בכל המערכת: אותיות לועזיות, ספרות, מקף ומקף תחתון בלבד. לא ניתן לשנות אותו לאחר יצירת הכישור.';
+$string['skillshortname_help'] = 'שם מזהה יציב, ייחודי בכל המערכת: אותיות לועזיות, ספרות, מקף ומקף תחתון בלבד. אפשר לשנות אותו בהמשך, אלא אם הכישור הגיע עם התוסף.';
+$string['skilltags'] = 'תגים';
+$string['skilltags_help'] = 'התגים משמשים לסינון בלבד ואינם נשלחים למודל.';
 $string['skilltoobroad'] = 'מתאים ל-{$a} פונקציות, וייתכן שזה רחב מדי. מומלץ לצמצם את מסכות הפונקציות.';
 $string['skillunavailable'] = 'אינו זמין';
 $string['skillupdated'] = 'הכישור "{$a}" עודכן.';
+$string['suggestedprompt_edit'] = 'עריכת ההודעה לפני השליחה';
+$string['suggestedprompt_send'] = 'שליחת ההודעה';
 $string['switchview'] = 'החלפת תצוגה';
 $string['systeminstruction'] = 'הנחיות מערכת מותאמות';
 $string['systeminstruction_desc'] = 'הנחיות מותאמות הנשלחות למודל ה-AI בכל בקשה, ומגדירות את התנהגותו, את סגנונו ואת יכולותיו. יש להשאיר ריק כדי להשתמש בברירת המחדל המובנית (מוצגת להלן). ניתן להשתמש בתווים {siteurl} (כתובת המערכת), {userid} (המזהה של המשתמש הנוכחי) ו-{date} (תאריך היום בתבנית ISO) כתווים ממלאי מקום; הם מוחלפים בעת ההרצה. הנחיות ברירת המחדל:{$a->default}
@@ -393,6 +407,7 @@ $string['tab_functions'] = 'פונקציות';
 $string['tab_placements'] = 'שיבוצים';
 $string['tab_skills'] = 'כישורים';
 $string['tagarea_tool_aiagent_functions'] = 'תגים לפונקציות של סוכן AI';
+$string['tagarea_tool_aiagent_skill'] = 'תגים לכישורים של סוכן AI';
 $string['task_cleanup_chats'] = 'מחיקת שיחות ישנות של סוכן AI';
 $string['task_purge_provider_data'] = 'מחיקת נתוני שיחות של סוכן AI אצל ספק ה-AI';
 $string['task_revalidate_license'] = 'אימות מחדש של רישיון סוכן AI';
@@ -414,5 +429,7 @@ $string['viewtypes'] = 'תצוגות זמינות';
 $string['viewtypes_alldisabled_warning'] = 'סוכן AI אינו זמין לאיש מכיוון שכל התצוגות מושבתות ב<a href="{$a}">הגדרות</a>.';
 $string['viewtypes_desc'] = 'התצוגות שהמשתמשים יכולים לפתוח: חלון צף קטן בפינת העמוד, סרגל צד לצד תוכן העמוד, ועמוד השיחה במסך מלא. ביטול הסימון של כולן משבית זמנית את סוכן AI עבור כל המשתמשים.';
 $string['viewtypes_unavailable'] = 'סוכן AI אינו זמין כרגע.';
+$string['welcome_skillsmore'] = '+{$a} נוספים';
+$string['welcome_tryasking'] = 'אפשר לשאול, למשל';
 $string['welcomedesc'] = 'ניתן לשאול את סוכן AI על המערכת, על הקורסים, על המשתמשים או על התכנים שלך. הוא יכול לקרוא, ובאישורך גם לבצע שינויים.';
 $string['welcometitle'] = 'שלום, {$a}';

@@ -10,7 +10,7 @@
 
 /**
  * Danish language pack for AI agent.
- * Last updated: 2026-08-31
+ * Last updated: 2026-09-29
  *
  * @package    tool_aiagent
  * @category   string
@@ -98,6 +98,7 @@ $string['error_interrupted_llm'] = 'Kommunikationen med AI-udbyderen blev afbrud
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Beskeden må ikke være tom.';
 $string['errorfullscreendisabled'] = 'Chatvisningen i fuld skærm er ikke aktiveret på dette websted.';
+$string['errorinconsistent'] = 'Chatten er i en inkonsistent tilstand og kan ikke fortsætte. Genindlæs siden, og prøv igen.';
 $string['errorinvalidchat'] = 'Chatten blev ikke fundet, eller adgang nægtet.';
 $string['errorinvalidname'] = 'Navnet må ikke være tomt.';
 $string['errormissingfeedbackparams'] = 'Besked eller feedbacktype mangler.';
@@ -105,6 +106,7 @@ $string['errornopendingfunction'] = 'Der er ingen ventende funktionskald.';
 $string['errornoprovider'] = 'Der er ingen AI-udbyder tilgængelig. AI-agenten bruger indstillingerne for handlingen "Generer tekst", så du skal sikre dig, at den er konfigureret og aktiveret for mindst én AI-udbyder i Site-administration.';
 $string['errornoprovider_link'] = 'Konfigurer AI-udbydere.';
 $string['errornoretryresponse'] = 'Der er intet mislykket svar at prøve igen.';
+$string['erroroutofsync'] = 'Denne chat er ændret i et andet vindue. Genindlæs for at se den seneste tilstand.';
 $string['errorpagenotavailable'] = 'Den aktuelle side er ikke tilgængelig i denne visning.';
 $string['errorpendingfunctions'] = 'Godkend eller afvis venligst de ventende funktionskald først.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} blokerede prompten: {$a->reason}';
@@ -283,6 +285,8 @@ $string['placement_name_help'] = 'Vises for brugerne: i brugermenuen, som knappe
 $string['placement_save'] = 'Gem placering';
 $string['placement_saved'] = 'Placeringen er gemt.';
 $string['placement_skillmissing'] = 'Skill ikke fundet';
+$string['placement_suggestedprompts'] = 'Foreslåede prompts';
+$string['placement_suggestedprompts_help'] = 'Én prompt pr. linje, vist som knapper over beskedfeltet på chattens startskærm. Et klik sender den med det samme, for eksempel "Opsummer dette kursus". Hvis brugeren først skal gøre en prompt færdig, så skriv ... et sted i den: Prompten sættes så ind i beskedfeltet i stedet for at blive sendt, for eksempel "Opsummer afsnittet ... i dette kursus". Lad feltet være tomt for ikke at vise nogen prompts.';
 $string['placement_urlmask'] = 'URL-masker';
 $string['placement_urlmask_help'] = 'Ét mønster pr. linje. Brug * som jokertegn, for eksempel /course/view.php* eller /mod/*/view.php*. Bemærk: På sider, hvor en mere specifik placering optager den samme position, skjules en bred placering, der matcher /*, så brugerne kun ser den mest relevante.';
 $string['placement_urlmask_invalid'] = 'Hver URL-maske skal begynde med en skråstreg: "{$a}" gør ikke.';
@@ -353,6 +357,12 @@ $string['skill_save_close'] = 'Gem og luk';
 $string['skill_save_preview'] = 'Gem og vis forhåndsvisning';
 $string['skill_saved'] = 'Skillen er gemt.';
 $string['skilladd_aitip'] = 'I stedet for at udfylde dette i hånden kan du bede AI-agenten om at bygge skillen for dig: den kan finde de rigtige funktioner og udarbejde instruktionerne. <a href="{$a}">Åbn AI-agenten</a>.';
+$string['skillbundled'] = 'Indbygget';
+$string['skillbundledchangedinfo'] = 'Denne skill fulgte med pluginnet og er blevet ændret på dette websted.';
+$string['skillbundledchangedinfo_help'] = 'Bed AI-agenten om at sammenligne denne skill med den version, der fulgte med pluginnet, og om at gendanne den version, hvis du ikke længere vil beholde dine ændringer. En skill, du har ændret, modtager ikke længere opdateringer.';
+$string['skillbundledinfo'] = 'Fulgte med pluginnet. Den kan deaktiveres og redigeres, men ikke slettes eller omdøbes.';
+$string['skillbundlednodelete'] = 'En skill, der fulgte med pluginnet, kan ikke slettes. Deaktiver den i stedet.';
+$string['skillbundlednorename'] = 'Det korte navn på en skill, der fulgte med pluginnet, kan ikke ændres.';
 $string['skillcapabilities_help'] = 'Udledt af skillens hovedfunktioner: en bruger kan kun bruge skillen, hvis vedkommende har mindst én af disse rettigheder i en eller anden kontekst på webstedet. Listen samler de nødvendige rettigheder for alle hovedfunktioner.';
 $string['skillcapabilities_none'] = 'Ingen. Skillen er tilgængelig for alle brugere.';
 $string['skillconfigured'] = 'Konfigureret';
@@ -380,10 +390,14 @@ $string['skillotherfunctions'] = 'Øvrige funktioner';
 $string['skillotherfunctions_help'] = 'Masker for de øvrige funktioner, skillen medbringer: læsninger, hjælpefunktioner eller en hel komponent. Samme skrivemåde som ved hovedfunktionerne, men de påvirker ikke, hvem skillen tilbydes. Lad feltet være tomt, hvis skillen ikke har brug for ekstra funktioner.';
 $string['skills_intro'] = '<p>En skill samler specialiserede instruktioner til en bestemt opgave med en liste over de funktioner, der anbefales til den. Brug skills til almindelige opgaver i flere trin, hvor AI-agenten har tendens til at blive forvirret eller ikke kan finde de rigtige funktioner, eller til opgaver, der er særlige for din organisation.</p><p>Listen over skills og deres beskrivelser er altid tilgængelig for AI-agenten, som selv indlæser en skill, når den vurderer, at den passer til brugerens anmodning. En skill er kun tilgængelig for brugere, der har adgang til mindst én af dens hovedfunktioner. En skill bygget til lærere er for eksempel ikke synlig for studerende.</p>';
 $string['skillshortname'] = 'Kort navn';
-$string['skillshortname_help'] = 'Et stabilt maskinnavn, der er unikt på hele webstedet: kun bogstaver, tal, bindestreg og understreg. Det kan ikke ændres, efter at skillen er oprettet.';
+$string['skillshortname_help'] = 'Et stabilt maskinnavn, der er unikt på hele webstedet: kun bogstaver, tal, bindestreg og understreg. Det kan ændres senere, medmindre skillen fulgte med pluginnet.';
+$string['skilltags'] = 'Tags';
+$string['skilltags_help'] = 'Tags bruges kun til filtrering og sendes ikke til modellen.';
 $string['skilltoobroad'] = 'Matcher {$a} funktioner, hvilket kan være for bredt. Overvej at indsnævre funktionsmaskerne.';
 $string['skillunavailable'] = 'Utilgængelig';
 $string['skillupdated'] = 'Skillen "{$a}" er opdateret.';
+$string['suggestedprompt_edit'] = 'Rediger denne besked, før den sendes';
+$string['suggestedprompt_send'] = 'Send denne besked';
 $string['switchview'] = 'Skift visning';
 $string['systeminstruction'] = 'Egne systeminstruktioner';
 $string['systeminstruction_desc'] = 'Egne instruktioner, der sendes til AI-modellen med hver anmodning, og som fastlægger dens adfærd, tone og muligheder. Lad feltet være tomt for at bruge den indbyggede standard (vist nedenfor). Du kan bruge {siteurl} (webstedets URL), {userid} (den aktuelle brugers ID) og {date} (dagens dato i ISO-format) som pladsholdere; de erstattes ved kørsel. Standardinstruktioner:{$a->default}
@@ -393,6 +407,7 @@ $string['tab_functions'] = 'Funktioner';
 $string['tab_placements'] = 'Placeringer';
 $string['tab_skills'] = 'Skills';
 $string['tagarea_tool_aiagent_functions'] = 'Tags til AI-agentens funktioner';
+$string['tagarea_tool_aiagent_skill'] = 'Tags til AI-agentens skills';
 $string['task_cleanup_chats'] = 'Slet gamle chats fra AI-agenten';
 $string['task_purge_provider_data'] = 'Slet AI-agentens chatdata hos AI-udbyderen';
 $string['task_revalidate_license'] = 'Kontroller AI-agentens licens igen';
@@ -414,5 +429,7 @@ $string['viewtypes'] = 'Tilgængelige visninger';
 $string['viewtypes_alldisabled_warning'] = 'AI-agenten er ikke tilgængelig for nogen, fordi alle visninger er deaktiveret i <a href="{$a}">indstillingerne</a>.';
 $string['viewtypes_desc'] = 'De chatvisninger, brugerne kan åbne: et lille overlay i hjørnet af siden, et sidepanel ved siden af sideindholdet og chatsiden i fuld skærm. Fjern markeringen fra alle for midlertidigt at deaktivere AI-agenten for alle brugere.';
 $string['viewtypes_unavailable'] = 'AI-agenten er i øjeblikket ikke tilgængelig.';
+$string['welcome_skillsmore'] = '+{$a} til';
+$string['welcome_tryasking'] = 'Prøv at spørge';
 $string['welcomedesc'] = 'Spørg AI-agenten om dit websted, dine kurser, brugere eller indhold. Den kan læse og, med din godkendelse, foretage ændringer.';
 $string['welcometitle'] = 'Velkommen, {$a}';

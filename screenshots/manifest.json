@@ -1,12 +1,13 @@
 {
-  "release": "4.5.6",
-  "version": 2026090200,
-  "commit": "c400aec638f0e6da3aa9914d4ae16da3c7b4f81c",
-  "generated": "2026-09-01T23:10:52Z",
+  "release": "4.5.7",
+  "version": 2026093000,
+  "commit": "0bd2c2bec2e4abf02ef58e01bd8c278544514368",
+  "generated": "2026-09-29T21:58:17Z",
   "versions": {
     "405": {"moodle": "4.5", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
     "500": {"moodle": "5.0", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
     "501": {"moodle": "5.1", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
-    "502": {"moodle": "5.2", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]}
+    "502": {"moodle": "5.2", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
+    "503": {"moodle": "5.3", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]}
   }
 }

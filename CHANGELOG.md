@@ -5,6 +5,45 @@ All notable changes to the tool_aiagent plugin are documented here. The format i
 `major.minor.patch` releases mirrored by the `$plugin->release` in `version.php`. The top entry must
 match the release being cut (the deploy preflight enforces this).
 
+## [4.5.7] - 2026-09-30
+
+### Added
+
+- **Conversation integrity**: a request keeps running if you refresh the page, close the tab or
+  lose your connection mid-turn, and you can pick the conversation up where you left it.
+- **Moodle 5.3 support**: the AI agent now runs on Moodle 5.3 and is tested against it.
+- **Suggested prompts**: a placement can offer ready-made first messages as buttons on the chat's
+  start screen. Clicking one sends it, unless it contains `...`, which puts it in the message box for
+  the user to finish.
+- **Skill tags**: give skills your own tags and filter the skills list by them.
+
+### Changed
+
+- Skills that came with the plugin are marked Bundled in the skills list. They can still be disabled
+  and edited, but no longer deleted or renamed.
+- A bundled skill you have changed is marked with an asterisk, and the AI agent can tell you what
+  differs from the supplied version and put that version back.
+- A bundled skill you have not changed now follows the supplied version when the plugin's materials
+  are updated, so improvements to it reach your site.
+- You can now change the short name of a skill you created yourself.
+- The chat's start screen names the loaded skills and the page you came from on one line, in place of
+  the row of chips.
+
+### Fixed
+
+- Opening the same conversation in two windows could break it. The windows are not kept in sync,
+  but if you act in a window that is out of date you are offered to refresh it first.
+- OpenAI's GPT-6 Sol and GPT-6 Luna failed on every message when the API type was Chat Completions.
+  They now work there, with the model's reasoning turned off; GPT-6 Astra needs the Responses API.
+- Google Gemini failed on every message when the Interactions API was chosen in the AI agent
+  settings or in the provider's endpoint.
+- Tokens spent on function discovery now count towards each chat's usage. The AI agent usage report
+  source left them out, so a chat's token totals came out lower than what the AI provider billed.
+- Denying a function call could leave two identical flag buttons under the same bubble.
+- Opening the sidebar left the site navigation laid out for the full width, so its tabs wrapped onto
+  a second line and were drawn over the page heading. The navigation now moves tabs into its More
+  menu as the sidebar narrows the page, and brings them back when it closes.
+
 ## [4.5.6] - 2026-09-02
 
 ### Added

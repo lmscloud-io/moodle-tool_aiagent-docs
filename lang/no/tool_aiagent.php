@@ -10,7 +10,7 @@
 
 /**
  * Norwegian language pack for AI agent.
- * Last updated: 2026-08-31
+ * Last updated: 2026-09-29
  *
  * @package    tool_aiagent
  * @category   string
@@ -98,6 +98,7 @@ $string['error_interrupted_llm'] = 'Kommunikasjonen med KI-tilbyderen ble avbrut
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Meldingen kan ikke være tom.';
 $string['errorfullscreendisabled'] = 'Chatvisning i fullskjerm er ikke aktivert på denne portalen.';
+$string['errorinconsistent'] = 'Chatten er i en inkonsistent tilstand og kan ikke fortsette. Last inn siden på nytt og prøv igjen.';
 $string['errorinvalidchat'] = 'Chatten ble ikke funnet, eller tilgang ble nektet.';
 $string['errorinvalidname'] = 'Navnet kan ikke være tomt.';
 $string['errormissingfeedbackparams'] = 'Melding eller type tilbakemelding mangler.';
@@ -105,6 +106,7 @@ $string['errornopendingfunction'] = 'Det finnes ingen ventende funksjonskall.';
 $string['errornoprovider'] = 'Ingen KI-tilbyder er tilgjengelig. KI-agenten bruker innstillingene for handlingen «Generer tekst», så du må sørge for at den er satt opp og slått på for minst én KI-tilbyder under Administrer portalen.';
 $string['errornoprovider_link'] = 'Sett opp KI-tilbydere.';
 $string['errornoretryresponse'] = 'Det finnes ikke noe mislykket svar å prøve på nytt.';
+$string['erroroutofsync'] = 'Denne chatten er endret i et annet vindu. Oppdatér for å se siste tilstand.';
 $string['errorpagenotavailable'] = 'Den gjeldende siden er ikke tilgjengelig i denne visningen.';
 $string['errorpendingfunctions'] = 'Godkjenn eller avslå de ventende funksjonskallene først.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} blokkerte ledeteksten: {$a->reason}';
@@ -283,6 +285,8 @@ $string['placement_name_help'] = 'Vises for brukerne: i brukermenyen, som verkt�
 $string['placement_save'] = 'Lagre plassering';
 $string['placement_saved'] = 'Plasseringen er lagret.';
 $string['placement_skillmissing'] = 'Ferdigheten ble ikke funnet';
+$string['placement_suggestedprompts'] = 'Foreslåtte ledetekster';
+$string['placement_suggestedprompts_help'] = 'Én ledetekst per linje, som vises som knapper over meldingsfeltet på startskjermen i chatten. Et klikk sender den med en gang, for eksempel «Oppsummer dette emnet». Skal brukeren fullføre en ledetekst først, skriver du ... et sted i den: Ledeteksten legges da i meldingsfeltet i stedet for å bli sendt, for eksempel «Oppsummer seksjonen ... i dette emnet». La feltet stå tomt for ikke å tilby noen ledetekster.';
 $string['placement_urlmask'] = 'URL-masker';
 $string['placement_urlmask_help'] = 'Ett mønster per linje. Bruk * som jokertegn, for eksempel /course/view.php* eller /mod/*/view.php*. Merk: på sider der en mer spesifikk plassering bruker samme posisjon, skjules en bred plassering som passer med /*, slik at brukerne bare ser den mest relevante.';
 $string['placement_urlmask_invalid'] = 'Hver URL-maske må begynne med en skråstrek: «{$a}» gjør ikke det.';
@@ -353,6 +357,12 @@ $string['skill_save_close'] = 'Lagre og lukk';
 $string['skill_save_preview'] = 'Lagre og forhåndsvis';
 $string['skill_saved'] = 'Ferdigheten er lagret.';
 $string['skilladd_aitip'] = 'I stedet for å fylle ut dette for hånd kan du be KI-agenten om å lage ferdigheten for deg: den finner de riktige funksjonene og skriver et utkast til instruksjonene. <a href="{$a}">Åpne KI-agenten</a>.';
+$string['skillbundled'] = 'Innebygd';
+$string['skillbundledchangedinfo'] = 'Denne ferdigheten fulgte med pluginen og er endret på denne portalen.';
+$string['skillbundledchangedinfo_help'] = 'Be KI-agenten sammenligne denne ferdigheten med versjonen som fulgte med pluginen, og sette tilbake den versjonen hvis du ikke lenger vil ha endringene dine. En ferdighet du har endret, får ikke lenger oppdateringer.';
+$string['skillbundledinfo'] = 'Fulgte med pluginen. Den kan slås av og redigeres, men ikke slettes eller gis nytt navn.';
+$string['skillbundlednodelete'] = 'En ferdighet som fulgte med pluginen, kan ikke slettes. Slå den av i stedet.';
+$string['skillbundlednorename'] = 'Kortnavnet til en ferdighet som fulgte med pluginen, kan ikke endres.';
 $string['skillcapabilities_help'] = 'Utledet fra hovedfunksjonene til ferdigheten: en bruker kan bare bruke ferdigheten hvis vedkommende har minst én av disse kvalifikasjonene i en eller annen kontekst på portalen. Listen samler de nødvendige kvalifikasjonene fra alle hovedfunksjonene.';
 $string['skillcapabilities_none'] = 'Ingen. Ferdigheten er tilgjengelig for alle brukere.';
 $string['skillconfigured'] = 'Konfigurert';
@@ -380,10 +390,14 @@ $string['skillotherfunctions'] = 'Andre funksjoner';
 $string['skillotherfunctions_help'] = 'Masker for resten av funksjonene ferdigheten tar med seg: lesende funksjoner, hjelpefunksjoner eller en hel komponent. Samme skrivemåte som for hovedfunksjonene, men disse påvirker ikke hvem ferdigheten tilbys til. La stå tom hvis ferdigheten ikke trenger flere funksjoner.';
 $string['skills_intro'] = '<p>En ferdighet samler spesialiserte instruksjoner for en bestemt oppgave med en liste over funksjoner som anbefales til den. Bruk ferdigheter til vanlige oppgaver med flere trinn der KI-agenten pleier å bli forvirret eller ikke finner de riktige funksjonene, eller til oppgaver som er spesielle for organisasjonen din.</p><p>Listen over ferdigheter og beskrivelsene deres er alltid tilgjengelig for KI-agenten, som selv laster en ferdighet når den mener at en passer til forespørselen fra brukeren. En ferdighet er bare tilgjengelig for brukere som har tilgang til minst én av hovedfunksjonene. En ferdighet laget for lærere vil for eksempel ikke være synlig for studenter.</p>';
 $string['skillshortname'] = 'Kortnavn';
-$string['skillshortname_help'] = 'Et fast maskinnavn, unikt på hele portalen: bare bokstaver, tall, bindestrek og understrek. Det kan ikke endres etter at ferdigheten er opprettet.';
+$string['skillshortname_help'] = 'Et fast maskinnavn, unikt på hele portalen: bare bokstaver, tall, bindestrek og understrek. Det kan endres senere, med mindre ferdigheten fulgte med pluginen.';
+$string['skilltags'] = 'Tagger';
+$string['skilltags_help'] = 'Tagger brukes bare til filtrering og sendes ikke til modellen.';
 $string['skilltoobroad'] = 'Passer med {$a} funksjoner, noe som kan være for vidt. Vurder å begrense funksjonsmaskene.';
 $string['skillunavailable'] = 'Utilgjengelig';
 $string['skillupdated'] = 'Ferdigheten «{$a}» er oppdatert.';
+$string['suggestedprompt_edit'] = 'Rediger meldingen før den sendes';
+$string['suggestedprompt_send'] = 'Send meldingen';
 $string['switchview'] = 'Bytt visning';
 $string['systeminstruction'] = 'Egne systeminstruksjoner';
 $string['systeminstruction_desc'] = 'Egne instruksjoner som sendes til KI-modellen med hver forespørsel, og som fastsetter oppførselen, tonen og mulighetene dens. La stå tom for å bruke den innebygde standarden (vist nedenfor). Du kan bruke {siteurl} (URL-en til portalen), {userid} (ID-en til den innloggede brukeren) og {date} (dagens dato, ISO-format) som plassholdere; de erstattes ved kjøring. Standardinstruksjoner:{$a->default}
@@ -393,6 +407,7 @@ $string['tab_functions'] = 'Funksjoner';
 $string['tab_placements'] = 'Plasseringer';
 $string['tab_skills'] = 'Ferdigheter';
 $string['tagarea_tool_aiagent_functions'] = 'Tagger for funksjoner i KI-agenten';
+$string['tagarea_tool_aiagent_skill'] = 'Tagger for ferdigheter i KI-agenten';
 $string['task_cleanup_chats'] = 'Slett gamle chatter i KI-agenten';
 $string['task_purge_provider_data'] = 'Slett chatdata fra KI-agenten hos KI-tilbyderen';
 $string['task_revalidate_license'] = 'Valider lisensen for KI-agenten på nytt';
@@ -414,5 +429,7 @@ $string['viewtypes'] = 'Tilgjengelige visninger';
 $string['viewtypes_alldisabled_warning'] = 'KI-agenten er ikke tilgjengelig for noen, fordi alle visninger er slått av i <a href="{$a}">innstillingene</a>.';
 $string['viewtypes_desc'] = 'Chatvisningene brukerne kan åpne: et lite overlegg i hjørnet av siden, et sidepanel ved siden av sideinnholdet, og chatsiden i fullskjerm. Fjern avkryssingen på alle for å slå av KI-agenten midlertidig for alle brukere.';
 $string['viewtypes_unavailable'] = 'KI-agenten er for tiden ikke tilgjengelig.';
+$string['welcome_skillsmore'] = '+{$a} til';
+$string['welcome_tryasking'] = 'Prøv å spørre';
 $string['welcomedesc'] = 'Spør KI-agenten om portalen din, om kurs, brukere eller innhold. Den kan lese og, med din godkjenning, gjøre endringer.';
 $string['welcometitle'] = 'Velkommen, {$a}';

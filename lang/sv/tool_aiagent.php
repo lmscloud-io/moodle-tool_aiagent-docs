@@ -10,7 +10,7 @@
 
 /**
  * Swedish language pack for AI agent.
- * Last updated: 2026-08-31
+ * Last updated: 2026-09-29
  *
  * @package    tool_aiagent
  * @category   string
@@ -98,6 +98,7 @@ $string['error_interrupted_llm'] = 'Kommunikationen med AI-leverantören avbröt
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Meddelandet får inte vara tomt.';
 $string['errorfullscreendisabled'] = 'Chattvyn i helskärm är inte aktiverad på den här webbplatsen.';
+$string['errorinconsistent'] = 'Chatten är i ett inkonsekvent tillstånd och kan inte fortsätta. Läs in sidan igen och försök på nytt.';
 $string['errorinvalidchat'] = 'Chatten hittades inte eller så nekades åtkomst.';
 $string['errorinvalidname'] = 'Namnet får inte vara tomt.';
 $string['errormissingfeedbackparams'] = 'Meddelande eller typ av återkoppling saknas.';
@@ -105,6 +106,7 @@ $string['errornopendingfunction'] = 'Det finns inga väntande funktionsanrop.';
 $string['errornoprovider'] = 'Ingen AI-leverantör är tillgänglig. AI-agenten använder inställningarna för åtgärden ”Generate text”, så du måste se till att den är konfigurerad och aktiverad för minst en AI-leverantör i Webbplatsadministration.';
 $string['errornoprovider_link'] = 'Konfigurera AI-leverantörer.';
 $string['errornoretryresponse'] = 'Det finns inget misslyckat svar att försöka igen med.';
+$string['erroroutofsync'] = 'Den här chatten har ändrats i ett annat fönster. Uppdatera för att se det senaste läget.';
 $string['errorpagenotavailable'] = 'Den aktuella sidan är inte tillgänglig i den här vyn.';
 $string['errorpendingfunctions'] = 'Godkänn eller avslå de väntande funktionsanropen först.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} blockerade prompten: {$a->reason}';
@@ -283,6 +285,8 @@ $string['placement_name_help'] = 'Visas för användare: i användarmenyn, som k
 $string['placement_save'] = 'Spara placering';
 $string['placement_saved'] = 'Placeringen har sparats.';
 $string['placement_skillmissing'] = 'Färdigheten hittades inte';
+$string['placement_suggestedprompts'] = 'Föreslagna promptar';
+$string['placement_suggestedprompts_help'] = 'En prompt per rad, som visas som knappar ovanför meddelanderutan på chattens startskärm. Ett klick skickar den direkt, till exempel ”Sammanfatta den här kursen”. Om användaren först ska göra klart en prompt skriver du ... någonstans i den: prompten placeras då i meddelanderutan i stället för att skickas, till exempel ”Sammanfatta avsnittet ... i den här kursen”. Lämna fältet tomt om inga promptar ska erbjudas.';
 $string['placement_urlmask'] = 'URL-masker';
 $string['placement_urlmask_help'] = 'Ett mönster per rad. Använd * som jokertecken, till exempel /course/view.php* eller /mod/*/view.php*. Observera: på sidor där en mer specifik placering använder samma position döljs en bred placering som matchar /*, så att användarna bara ser den mest relevanta.';
 $string['placement_urlmask_invalid'] = 'Varje URL-mask måste börja med ett snedstreck: ”{$a}” gör inte det.';
@@ -353,6 +357,12 @@ $string['skill_save_close'] = 'Spara och stäng';
 $string['skill_save_preview'] = 'Spara och förhandsgranska';
 $string['skill_saved'] = 'Färdigheten har sparats.';
 $string['skilladd_aitip'] = 'I stället för att fylla i det här för hand kan du be AI-agenten att bygga färdigheten åt dig: den kan hitta rätt funktioner och skriva ett utkast till instruktionerna. <a href="{$a}">Öppna AI-agenten</a>.';
+$string['skillbundled'] = 'Medföljande';
+$string['skillbundledchangedinfo'] = 'Den här färdigheten följde med pluginmodulen och har ändrats på den här webbplatsen.';
+$string['skillbundledchangedinfo_help'] = 'Be AI-agenten jämföra den här färdigheten med versionen som följde med pluginmodulen och återställa den versionen om du inte längre vill behålla dina ändringar. En färdighet som du har ändrat får inte längre uppdateringar.';
+$string['skillbundledinfo'] = 'Följde med pluginmodulen. Den kan inaktiveras och redigeras, men inte tas bort eller döpas om.';
+$string['skillbundlednodelete'] = 'En färdighet som följde med pluginmodulen kan inte tas bort. Inaktivera den i stället.';
+$string['skillbundlednorename'] = 'Kortnamnet för en färdighet som följde med pluginmodulen kan inte ändras.';
 $string['skillcapabilities_help'] = 'Härlett från färdighetens huvudfunktioner: en användare kan bara använda färdigheten om användaren har minst en av dessa behörigheter i någon kontext på webbplatsen. Listan sammanfattar de behörigheter som alla huvudfunktioner kräver.';
 $string['skillcapabilities_none'] = 'Inga. Färdigheten är tillgänglig för alla användare.';
 $string['skillconfigured'] = 'Konfigurerade';
@@ -380,10 +390,14 @@ $string['skillotherfunctions'] = 'Övriga funktioner';
 $string['skillotherfunctions_help'] = 'Masker för de övriga funktioner som färdigheten tar med sig: läsningar, hjälpfunktioner eller en hel komponent. Samma syntax som för huvudfunktionerna, men dessa påverkar inte vem färdigheten erbjuds. Lämna tomt om färdigheten inte behöver några extra funktioner.';
 $string['skills_intro'] = '<p>En färdighet samlar specialiserade instruktioner för en viss uppgift tillsammans med en lista över funktioner som rekommenderas för den. Använd färdigheter för vanliga uppgifter i flera steg där AI-agenten tenderar att bli förvirrad eller inte hittar rätt funktioner, eller för uppgifter som är särskilda för din organisation.</p><p>Listan över färdigheter och deras beskrivningar är alltid tillgänglig för AI-agenten, som själv läser in en färdighet när den bedömer att någon passar användarens begäran. En färdighet är bara tillgänglig för användare som kan komma åt minst en av dess huvudfunktioner. En färdighet som byggts för lärare syns till exempel inte för studenter.</p>';
 $string['skillshortname'] = 'Kortnamn';
-$string['skillshortname_help'] = 'Ett stabilt maskinnamn, unikt på hela webbplatsen: endast bokstäver, siffror, bindestreck och understreck. Det kan inte ändras efter att färdigheten har skapats.';
+$string['skillshortname_help'] = 'Ett stabilt maskinnamn, unikt på hela webbplatsen: endast bokstäver, siffror, bindestreck och understreck. Det kan ändras senare, utom om färdigheten följde med pluginmodulen.';
+$string['skilltags'] = 'Taggar';
+$string['skilltags_help'] = 'Taggar används bara för filtrering och skickas inte till modellen.';
 $string['skilltoobroad'] = 'Matchar {$a} funktioner, vilket kan vara för brett. Överväg att snäva in funktionsmaskerna.';
 $string['skillunavailable'] = 'Inte tillgänglig';
 $string['skillupdated'] = 'Färdigheten ”{$a}” har uppdaterats.';
+$string['suggestedprompt_edit'] = 'Redigera meddelandet innan det skickas';
+$string['suggestedprompt_send'] = 'Skicka meddelandet';
 $string['switchview'] = 'Byt vy';
 $string['systeminstruction'] = 'Egna systeminstruktioner';
 $string['systeminstruction_desc'] = 'Egna instruktioner som skickas till AI-modellen med varje begäran och som anger dess beteende, ton och förmågor. Lämna tomt för att använda den inbyggda standarden (visas nedan). Du kan använda {siteurl} (webbplatsens URL), {userid} (den aktuella användarens ID) och {date} (dagens datum, ISO-format) som platshållare; de ersätts vid körning. Standardinstruktioner:{$a->default}
@@ -393,6 +407,7 @@ $string['tab_functions'] = 'Funktioner';
 $string['tab_placements'] = 'Placeringar';
 $string['tab_skills'] = 'Färdigheter';
 $string['tagarea_tool_aiagent_functions'] = 'Taggar för AI-agentens funktioner';
+$string['tagarea_tool_aiagent_skill'] = 'Taggar för AI-agentens färdigheter';
 $string['task_cleanup_chats'] = 'Ta bort gamla chattar med AI-agenten';
 $string['task_purge_provider_data'] = 'Ta bort AI-agentens chattdata hos AI-leverantören';
 $string['task_revalidate_license'] = 'Validera AI-agentens licens på nytt';
@@ -414,5 +429,7 @@ $string['viewtypes'] = 'Tillgängliga vyer';
 $string['viewtypes_alldisabled_warning'] = 'AI-agenten är inte tillgänglig för någon eftersom alla vyer är inaktiverade i <a href="{$a}">inställningarna</a>.';
 $string['viewtypes_desc'] = 'De chattvyer som användarna kan öppna: ett litet överlägg i sidans hörn, en sidopanel bredvid sidinnehållet och chattsidan i helskärm. Avmarkera alla för att tillfälligt stänga av AI-agenten för alla användare.';
 $string['viewtypes_unavailable'] = 'AI-agenten är för närvarande inte tillgänglig.';
+$string['welcome_skillsmore'] = '+{$a} till';
+$string['welcome_tryasking'] = 'Prova att fråga';
 $string['welcomedesc'] = 'Fråga AI-agenten om din webbplats, dina kurser, användare eller innehåll. Den kan läsa och, med ditt godkännande, göra ändringar.';
 $string['welcometitle'] = 'Välkommen, {$a}';

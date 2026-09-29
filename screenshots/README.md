@@ -12,12 +12,12 @@ screenshots/<moodle version>/<language>/<screen>.png
 ```
 
 The version directory is the Moodle branch number: `405` is Moodle 4.5, `500` is 5.0, `501` is 5.1,
-`502` is 5.2. The language directory is the Moodle language code, the same code the packs in
-[`lang/`](../lang) use.
+`502` is 5.2 and `503` is 5.3. The language directory is the Moodle language code, the same code the
+packs in [`lang/`](../lang) use.
 
 Filenames are fixed, so the same file name is the same screen in every language and on every
 version. That is what makes them worth comparing: open `405/en/chat.png` next to `405/de/chat.png`
-to see how a translation sits in its buttons, or next to `502/en/chat.png` to see what the newer
+to see how a translation sits in its buttons, or next to `503/en/chat.png` to see what the newer
 Moodle theme does to the same page.
 
 ## What you are looking at

@@ -10,7 +10,7 @@
 
 /**
  * Finnish language pack for AI agent.
- * Last updated: 2026-08-31
+ * Last updated: 2026-09-29
  *
  * @package    tool_aiagent
  * @category   string
@@ -98,6 +98,7 @@ $string['error_interrupted_llm'] = 'Yhteys tekoälypalveluntarjoajaan katkesi. N
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Viesti ei voi olla tyhjä.';
 $string['errorfullscreendisabled'] = 'Koko näytön chat-näkymä ei ole käytössä tällä sivustolla.';
+$string['errorinconsistent'] = 'Chat on epäjohdonmukaisessa tilassa eikä voi jatkua. Lataa sivu uudelleen ja yritä uudestaan.';
 $string['errorinvalidchat'] = 'Chattia ei löytynyt tai pääsy on evätty.';
 $string['errorinvalidname'] = 'Nimi ei voi olla tyhjä.';
 $string['errormissingfeedbackparams'] = 'Viesti tai palautteen tyyppi puuttuu.';
@@ -105,6 +106,7 @@ $string['errornopendingfunction'] = 'Odottavia toimintokutsuja ei ole.';
 $string['errornoprovider'] = 'Yhtään tekoälypalveluntarjoajaa ei ole käytettävissä. Tekoälyagentti käyttää "Luo tekstiä" -toiminnon asetuksia, joten varmista, että se on määritetty ja otettu käyttöön vähintään yhdelle tekoälypalveluntarjoajalle sivuston hallinnassa.';
 $string['errornoprovider_link'] = 'Määritä tekoälypalveluntarjoajat.';
 $string['errornoretryresponse'] = 'Ei epäonnistunutta vastausta, jota voisi yrittää uudelleen.';
+$string['erroroutofsync'] = 'Tätä chatia on muutettu toisessa ikkunassa. Päivitä nähdäksesi uusimman tilan.';
 $string['errorpagenotavailable'] = 'Nykyinen sivu ei ole käytettävissä tässä näkymässä.';
 $string['errorpendingfunctions'] = 'Hyväksy tai hylkää ensin odottavat toimintokutsut.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} esti kehotteen: {$a->reason}';
@@ -283,6 +285,8 @@ $string['placement_name_help'] = 'Näytetään käyttäjille: käyttäjävalikos
 $string['placement_save'] = 'Tallenna sijoittelu';
 $string['placement_saved'] = 'Sijoittelu tallennettu.';
 $string['placement_skillmissing'] = 'Taitoa ei löydy';
+$string['placement_suggestedprompts'] = 'Ehdotetut kehotteet';
+$string['placement_suggestedprompts_help'] = 'Yksi kehote riviä kohden. Kehotteet näytetään painikkeina viestikentän yläpuolella chatin aloitusnäytöllä. Painikkeen napsauttaminen lähettää kehotteen heti, esimerkiksi "Tiivistä tämä kurssi". Jos käyttäjän pitää ensin täydentää kehote, kirjoita siihen jonnekin ...: kehote lisätään silloin viestikenttään lähettämisen sijaan, esimerkiksi "Tiivistä tämän kurssin osio ...". Jätä kenttä tyhjäksi, jos kehotteita ei tarjota.';
 $string['placement_urlmask'] = 'URL-maskit';
 $string['placement_urlmask_help'] = 'Yksi kuvio riviä kohden. Käytä *-merkkiä jokerimerkkinä, esimerkiksi /course/view.php* tai /mod/*/view.php*. Huomaa: sivuilla, joilla tarkempi sijoittelu kohdistuu samaan sijaintiin, laaja /*-sijoittelu piilotetaan, jotta käyttäjät näkevät vain osuvamman.';
 $string['placement_urlmask_invalid'] = 'Jokaisen URL-maskin on alettava vinoviivalla: "{$a}" ei ala.';
@@ -353,6 +357,12 @@ $string['skill_save_close'] = 'Tallenna ja sulje';
 $string['skill_save_preview'] = 'Tallenna ja esikatsele';
 $string['skill_saved'] = 'Taito tallennettu.';
 $string['skilladd_aitip'] = 'Sen sijaan että täyttäisit tämän käsin, voit pyytää tekoälyagenttia rakentamaan taidon puolestasi: se osaa etsiä oikeat toiminnot ja laatia ohjeet. <a href="{$a}">Avaa tekoälyagentti</a>.';
+$string['skillbundled'] = 'Vakio';
+$string['skillbundledchangedinfo'] = 'Tämä taito tuli lisäosan mukana, ja sitä on muutettu tällä sivustolla.';
+$string['skillbundledchangedinfo_help'] = 'Pyydä tekoälyagenttia vertaamaan tätä taitoa lisäosan mukana tulleeseen versioon ja palauttamaan se versio, jos et enää halua muutoksiasi. Muokattu taito ei enää saa päivityksiä.';
+$string['skillbundledinfo'] = 'Tuli lisäosan mukana. Sen voi poistaa käytöstä ja sitä voi muokata, mutta sitä ei voi poistaa eikä nimetä uudelleen.';
+$string['skillbundlednodelete'] = 'Lisäosan mukana tullutta taitoa ei voi poistaa. Poista se sen sijaan käytöstä.';
+$string['skillbundlednorename'] = 'Lisäosan mukana tulleen taidon lyhytnimeä ei voi muuttaa.';
 $string['skillcapabilities_help'] = 'Päätelty taidon päätoiminnoista: käyttäjä voi käyttää taitoa vain, jos hänellä on vähintään yksi näistä kyvyistä jossakin sivuston kontekstissa. Luettelo yhdistää kaikkien päätoimintojen vaatimat kyvyt.';
 $string['skillcapabilities_none'] = 'Ei mitään. Taito on kaikkien käyttäjien käytettävissä.';
 $string['skillconfigured'] = 'Määritetyt';
@@ -380,10 +390,14 @@ $string['skillotherfunctions'] = 'Muut toiminnot';
 $string['skillotherfunctions_help'] = 'Maskit muille toiminnoille, jotka taito tuo mukanaan: lukutoiminnot, aputoiminnot tai kokonainen komponentti. Sama syntaksi kuin päätoiminnoissa, mutta nämä eivät vaikuta siihen, kenelle taito tarjotaan. Jätä tyhjäksi, jos taito ei tarvitse lisätoimintoja.';
 $string['skills_intro'] = '<p>Taito yhdistää tiettyyn tehtävään erikoistuneet ohjeet ja siihen suositeltujen toimintojen luettelon. Käytä taitoja tavallisissa monivaiheisissa tehtävissä, joissa tekoälyagentti menee helposti sekaisin tai ei löydä oikeita toimintoja, tai organisaatiollesi ominaisissa tehtävissä.</p><p>Taitojen luettelo ja niiden kuvaukset ovat aina tekoälyagentin käytettävissä, ja se lataa taidon omatoimisesti aina kun se katsoo jonkin sopivan käyttäjän pyyntöön. Taito on vain niiden käyttäjien käytettävissä, jotka pääsevät käsiksi vähintään yhteen sen päätoiminnoista. Esimerkiksi opettajille tehty taito ei näy opiskelijoille.</p>';
 $string['skillshortname'] = 'Lyhytnimi';
-$string['skillshortname_help'] = 'Pysyvä koneluettava nimi, joka on yksilöllinen koko sivustolla: vain kirjaimia, numeroita, väliviiva ja alaviiva. Sitä ei voi muuttaa taidon luomisen jälkeen.';
+$string['skillshortname_help'] = 'Pysyvä koneluettava nimi, joka on yksilöllinen koko sivustolla: vain kirjaimia, numeroita, väliviiva ja alaviiva. Sitä voi muuttaa myöhemmin, paitsi jos taito tuli lisäosan mukana.';
+$string['skilltags'] = 'Tunnisteet';
+$string['skilltags_help'] = 'Tunnisteita käytetään vain suodatukseen, eikä niitä lähetetä mallille.';
 $string['skilltoobroad'] = 'Vastaa {$a} toimintoa, mikä voi olla liian laaja. Harkitse toimintomaskien rajaamista.';
 $string['skillunavailable'] = 'Ei käytettävissä';
 $string['skillupdated'] = 'Taito "{$a}" päivitetty.';
+$string['suggestedprompt_edit'] = 'Muokkaa viestiä ennen lähettämistä';
+$string['suggestedprompt_send'] = 'Lähetä tämä viesti';
 $string['switchview'] = 'Vaihda näkymää';
 $string['systeminstruction'] = 'Omat järjestelmäohjeet';
 $string['systeminstruction_desc'] = 'Omat ohjeet, jotka lähetetään tekoälymallille jokaisen pyynnön mukana ja jotka määrittävät sen toimintatavan, sävyn ja valmiudet. Jätä tyhjäksi käyttääksesi sisäänrakennettua oletusta (näkyy alla). Voit käyttää paikkamerkkejä {siteurl} (sivuston URL-osoite), {userid} (nykyisen käyttäjän tunnus) ja {date} (tämän päivän päivämäärä ISO-muodossa); ne korvataan suoritusaikana. Oletusohjeet:{$a->default}
@@ -393,6 +407,7 @@ $string['tab_functions'] = 'Toiminnot';
 $string['tab_placements'] = 'Sijoittelut';
 $string['tab_skills'] = 'Taidot';
 $string['tagarea_tool_aiagent_functions'] = 'Tekoälyagentin toimintojen tunnisteet';
+$string['tagarea_tool_aiagent_skill'] = 'Tekoälyagentin taitojen tunnisteet';
 $string['task_cleanup_chats'] = 'Poista vanhat tekoälyagentin chatit';
 $string['task_purge_provider_data'] = 'Poista tekoälyagentin chat-tiedot tekoälypalveluntarjoajalta';
 $string['task_revalidate_license'] = 'Tarkista tekoälyagentin lisenssi uudelleen';
@@ -414,5 +429,7 @@ $string['viewtypes'] = 'Käytettävissä olevat näkymätyypit';
 $string['viewtypes_alldisabled_warning'] = 'Tekoälyagentti ei ole kenenkään käytettävissä, koska kaikki näkymätyypit on poistettu käytöstä <a href="{$a}">asetuksissa</a>.';
 $string['viewtypes_desc'] = 'Chat-näkymät, joita käyttäjät voivat avata: pieni kelluva ikkuna sivun kulmassa, sivupalkki sivun sisällön vierellä ja koko näytön chat-sivu. Poista kaikki valinnat kytkeäksesi tekoälyagentin tilapäisesti pois käytöstä kaikilta käyttäjiltä.';
 $string['viewtypes_unavailable'] = 'Tekoälyagentti ei ole tällä hetkellä käytettävissä.';
+$string['welcome_skillsmore'] = '+{$a} muuta';
+$string['welcome_tryasking'] = 'Kokeile kysyä';
 $string['welcomedesc'] = 'Kysy tekoälyagentilta sivustostasi, kursseista, käyttäjistä tai sisällöstä. Se voi lukea tietoja ja luvallasi myös tehdä muutoksia.';
 $string['welcometitle'] = 'Tervetuloa, {$a}';

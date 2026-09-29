@@ -10,7 +10,7 @@
 
 /**
  * Dutch language pack for AI agent.
- * Last updated: 2026-08-31
+ * Last updated: 2026-09-29
  *
  * @package    tool_aiagent
  * @category   string
@@ -98,6 +98,7 @@ $string['error_interrupted_llm'] = 'De communicatie met de AI-provider is onderb
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Het bericht mag niet leeg zijn.';
 $string['errorfullscreendisabled'] = 'De chatweergave op volledig scherm is niet ingeschakeld op deze site.';
+$string['errorinconsistent'] = 'De chat is in een inconsistente toestand en kan niet verder. Laad de pagina opnieuw en probeer het nog eens.';
 $string['errorinvalidchat'] = 'Chat niet gevonden of toegang geweigerd.';
 $string['errorinvalidname'] = 'De naam mag niet leeg zijn.';
 $string['errormissingfeedbackparams'] = 'Bericht of type feedback ontbreekt.';
@@ -105,6 +106,7 @@ $string['errornopendingfunction'] = 'Er zijn geen openstaande functieaanroepen.'
 $string['errornoprovider'] = 'Er is geen AI-provider beschikbaar. De AI-agent gebruikt de instellingen van de actie "Tekst genereren", zorg er dus voor dat die in Sitebeheer voor minstens één AI-provider is ingesteld en ingeschakeld.';
 $string['errornoprovider_link'] = 'AI-providers configureren.';
 $string['errornoretryresponse'] = 'Er is geen mislukt antwoord om opnieuw te proberen.';
+$string['erroroutofsync'] = 'Deze chat is in een ander venster gewijzigd. Vernieuw om de laatste stand te zien.';
 $string['errorpagenotavailable'] = 'De huidige pagina is niet beschikbaar in deze weergave.';
 $string['errorpendingfunctions'] = 'Keur de openstaande functieaanroepen eerst goed of af.';
 $string['errorprovider_blocked_prompt'] = '{$a->provider} heeft de prompt geblokkeerd: {$a->reason}';
@@ -283,6 +285,8 @@ $string['placement_name_help'] = 'Wordt aan gebruikers getoond: in het gebruiker
 $string['placement_save'] = 'Plaatsing opslaan';
 $string['placement_saved'] = 'Plaatsing opgeslagen.';
 $string['placement_skillmissing'] = 'Vaardigheid niet gevonden';
+$string['placement_suggestedprompts'] = 'Voorgestelde prompts';
+$string['placement_suggestedprompts_help'] = 'Eén prompt per regel, aangeboden als knoppen boven het berichtvak op het startscherm van de chat. Met een klik wordt de prompt meteen verstuurd, bijvoorbeeld "Vat deze cursus samen". Wil je een prompt aanbieden die de gebruiker eerst moet aanvullen, zet dan ergens ... in de prompt: die wordt dan in het berichtvak gezet in plaats van verstuurd, bijvoorbeeld "Vat de sectie ... van deze cursus samen". Laat het veld leeg om geen prompts aan te bieden.';
 $string['placement_urlmask'] = 'URL-maskers';
 $string['placement_urlmask_help'] = 'Eén patroon per regel. Gebruik * als jokerteken, bijvoorbeeld /course/view.php* of /mod/*/view.php*. Let op: op pagina\'s waar een specifiekere plaatsing dezelfde positie inneemt, wordt een brede plaatsing die op /* past verborgen, zodat gebruikers alleen de meest relevante zien.';
 $string['placement_urlmask_invalid'] = 'Elk URL-masker moet met een schuine streep beginnen: "{$a}" doet dat niet.';
@@ -353,6 +357,12 @@ $string['skill_save_close'] = 'Opslaan en sluiten';
 $string['skill_save_preview'] = 'Opslaan en bekijken';
 $string['skill_saved'] = 'Vaardigheid opgeslagen.';
 $string['skilladd_aitip'] = 'In plaats van dit met de hand in te vullen, kun je de AI-agent vragen de vaardigheid voor je te bouwen: hij vindt de juiste functies en stelt de instructies op. <a href="{$a}">Open de AI-agent</a>.';
+$string['skillbundled'] = 'Meegeleverd';
+$string['skillbundledchangedinfo'] = 'Deze vaardigheid is met de plugin meegeleverd en op deze site gewijzigd.';
+$string['skillbundledchangedinfo_help'] = 'Vraag de AI-agent om deze vaardigheid te vergelijken met de versie die met de plugin is meegeleverd, en om die versie terug te zetten als je je wijzigingen niet meer wilt. Een gewijzigde vaardigheid krijgt geen updates meer.';
+$string['skillbundledinfo'] = 'Meegeleverd met de plugin. Kan worden uitgeschakeld en bewerkt, maar niet verwijderd of hernoemd.';
+$string['skillbundlednodelete'] = 'Een vaardigheid die met de plugin is meegeleverd, kan niet worden verwijderd. Schakel haar in plaats daarvan uit.';
+$string['skillbundlednorename'] = 'De korte naam van een vaardigheid die met de plugin is meegeleverd, kan niet worden gewijzigd.';
 $string['skillcapabilities_help'] = 'Afgeleid uit de hoofdfuncties van de vaardigheid: een gebruiker kan de vaardigheid alleen gebruiken als hij minstens één van deze mogelijkheden in een of andere context op de site heeft. De lijst combineert de vereiste mogelijkheden van alle hoofdfuncties.';
 $string['skillcapabilities_none'] = 'Geen. De vaardigheid is beschikbaar voor alle gebruikers.';
 $string['skillconfigured'] = 'Maskers';
@@ -380,10 +390,14 @@ $string['skillotherfunctions'] = 'Overige functies';
 $string['skillotherfunctions_help'] = 'Maskers voor de overige functies die de vaardigheid meebrengt: leesfuncties, hulpfuncties of een hele component. Dezelfde schrijfwijze als bij de hoofdfuncties, maar ze bepalen niet aan wie de vaardigheid wordt aangeboden. Laat leeg als de vaardigheid geen extra functies nodig heeft.';
 $string['skills_intro'] = '<p>Een vaardigheid bundelt gespecialiseerde instructies voor een bepaalde taak met een lijst van functies die daarvoor worden aanbevolen. Gebruik vaardigheden voor veelvoorkomende taken met meerdere stappen waarbij de AI-agent in de war raakt of de juiste functies niet vindt, of voor taken die eigen zijn aan jouw organisatie.</p><p>De lijst met vaardigheden en hun beschrijvingen is altijd beschikbaar voor de AI-agent, die zelf een vaardigheid laadt zodra hij vindt dat er een bij het verzoek van de gebruiker past. Een vaardigheid is alleen beschikbaar voor gebruikers die tot minstens één van haar hoofdfuncties toegang hebben. Een vaardigheid die voor docenten is gemaakt, is bijvoorbeeld niet zichtbaar voor studenten.</p>';
 $string['skillshortname'] = 'Korte naam';
-$string['skillshortname_help'] = 'Een vaste machinenaam, uniek binnen de site: alleen letters, cijfers, koppelteken en underscore. Hij kan niet meer worden gewijzigd nadat de vaardigheid is aangemaakt.';
+$string['skillshortname_help'] = 'Een vaste machinenaam, uniek binnen de site: alleen letters, cijfers, koppelteken en underscore. Hij kan later worden gewijzigd, behalve als de vaardigheid met de plugin is meegeleverd.';
+$string['skilltags'] = 'Tags';
+$string['skilltags_help'] = 'Tags worden alleen gebruikt om te filteren en niet naar het model gestuurd.';
 $string['skilltoobroad'] = 'Past op {$a} functies, dat is mogelijk te breed. Overweeg de functiemaskers te versmallen.';
 $string['skillunavailable'] = 'Niet beschikbaar';
 $string['skillupdated'] = 'Vaardigheid "{$a}" bijgewerkt.';
+$string['suggestedprompt_edit'] = 'Dit bericht bewerken voor het versturen';
+$string['suggestedprompt_send'] = 'Dit bericht versturen';
 $string['switchview'] = 'Weergave wisselen';
 $string['systeminstruction'] = 'Eigen systeeminstructies';
 $string['systeminstruction_desc'] = 'Eigen instructies die bij elk verzoek aan het AI-model worden meegestuurd en die zijn gedrag, toon en mogelijkheden bepalen. Laat leeg om de ingebouwde standaard te gebruiken (hieronder getoond). Je kunt {siteurl} (URL van de site), {userid} (ID van de huidige gebruiker) en {date} (datum van vandaag, ISO-formaat) als plaatshouders gebruiken; ze worden tijdens de uitvoering vervangen. Standaardinstructies:{$a->default}
@@ -393,6 +407,7 @@ $string['tab_functions'] = 'Functies';
 $string['tab_placements'] = 'Plaatsingen';
 $string['tab_skills'] = 'Vaardigheden';
 $string['tagarea_tool_aiagent_functions'] = 'Tags voor functies van de AI-agent';
+$string['tagarea_tool_aiagent_skill'] = 'Tags voor vaardigheden van de AI-agent';
 $string['task_cleanup_chats'] = 'Oude chats van de AI-agent verwijderen';
 $string['task_purge_provider_data'] = 'Chatgegevens van de AI-agent bij de AI-provider verwijderen';
 $string['task_revalidate_license'] = 'Licentie van de AI-agent opnieuw valideren';
@@ -414,5 +429,7 @@ $string['viewtypes'] = 'Beschikbare weergaven';
 $string['viewtypes_alldisabled_warning'] = 'De AI-agent is voor niemand beschikbaar, omdat alle weergaven in de <a href="{$a}">instellingen</a> zijn uitgeschakeld.';
 $string['viewtypes_desc'] = 'De chatweergaven die gebruikers kunnen openen: een kleine overlay in de hoek van de pagina, een zijbalk naast de pagina-inhoud en de chatpagina op volledig scherm. Vink alles uit om de AI-agent tijdelijk voor alle gebruikers uit te schakelen.';
 $string['viewtypes_unavailable'] = 'De AI-agent is momenteel niet beschikbaar.';
+$string['welcome_skillsmore'] = '+{$a} meer';
+$string['welcome_tryasking'] = 'Vraag bijvoorbeeld';
 $string['welcomedesc'] = 'Vraag de AI-agent naar je site, cursussen, gebruikers of inhoud. Hij kan lezen en, met jouw goedkeuring, wijzigingen aanbrengen.';
 $string['welcometitle'] = 'Welkom, {$a}';

@@ -10,7 +10,7 @@
 
 /**
  * Spanish language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Aprobar {$a} llamadas';
 $string['functioncall_actions'] = 'Aprobar o denegar la llamada a función';
 $string['functioncall_chip_action'] = 'Cambiar el modo de autoaprobación';
 $string['functioncalldetails'] = 'Detalles de la llamada a función';
+$string['functioncalldetailscount'] = 'Detalles de las llamadas a funciones ({$a})';
 $string['functiondeny'] = 'Denegar';
 $string['functiondenyall'] = 'Denegar todas';
+$string['functiondetailscopied'] = 'Copiado';
+$string['functiondetailscopy'] = 'Copiar';
+$string['functiondetailscopyhtml'] = 'Copiar código HTML';
+$string['functiondetailscopyparameters'] = 'Copiar parámetros como JSON';
+$string['functiondetailscopyresult'] = 'Copiar resultado como JSON';
+$string['functiondetailscopysvg'] = 'Copiar código SVG';
+$string['functiondetailsdisplay'] = 'Vista';
+$string['functiondetailsempty'] = '(vacío)';
+$string['functiondetailsfield'] = '1 campo';
+$string['functiondetailsfields'] = '{$a} campos';
+$string['functiondetailsformatted'] = 'Con formato';
+$string['functiondetailshtmlsource'] = 'Código HTML';
+$string['functiondetailsimage'] = 'Imagen';
+$string['functiondetailsitem'] = '1 elemento';
+$string['functiondetailsitems'] = '{$a} elementos';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'Texto JSON';
+$string['functiondetailssvgimage'] = 'Imagen SVG · {$a}';
+$string['functiondetailssvgsource'] = 'Código SVG';
+$string['functiondetailsviewformatted'] = 'Ver texto con formato';
+$string['functiondetailsviewimage'] = 'Ver imagen';
 $string['functionloopguardbody'] = 'Esta función ya se ha ejecutado {$a} veces con la misma entrada. La autoaprobación está en pausa por si hay un bucle; apruébela para continuar.';
 $string['functionloopguardheading'] = 'Llamada repetida.';
 $string['functionname'] = 'Nombre de la función';

@@ -10,7 +10,7 @@
 
 /**
  * Italian language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Approva {$a} chiamate';
 $string['functioncall_actions'] = 'Approva o rifiuta la chiamata di funzione';
 $string['functioncall_chip_action'] = 'Cambia modalità di auto-approvazione';
 $string['functioncalldetails'] = 'Dettagli della chiamata di funzione';
+$string['functioncalldetailscount'] = 'Dettagli delle chiamate di funzione ({$a})';
 $string['functiondeny'] = 'Rifiuta';
 $string['functiondenyall'] = 'Rifiuta tutte';
+$string['functiondetailscopied'] = 'Copiato';
+$string['functiondetailscopy'] = 'Copia';
+$string['functiondetailscopyhtml'] = 'Copia sorgente HTML';
+$string['functiondetailscopyparameters'] = 'Copia parametri come JSON';
+$string['functiondetailscopyresult'] = 'Copia risultato come JSON';
+$string['functiondetailscopysvg'] = 'Copia sorgente SVG';
+$string['functiondetailsdisplay'] = 'Visualizzazione';
+$string['functiondetailsempty'] = '(vuoto)';
+$string['functiondetailsfield'] = '1 campo';
+$string['functiondetailsfields'] = '{$a} campi';
+$string['functiondetailsformatted'] = 'Formattato';
+$string['functiondetailshtmlsource'] = 'Sorgente HTML';
+$string['functiondetailsimage'] = 'Immagine';
+$string['functiondetailsitem'] = '1 elemento';
+$string['functiondetailsitems'] = '{$a} elementi';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'Testo JSON';
+$string['functiondetailssvgimage'] = 'Immagine SVG · {$a}';
+$string['functiondetailssvgsource'] = 'Sorgente SVG';
+$string['functiondetailsviewformatted'] = 'Visualizza testo formattato';
+$string['functiondetailsviewimage'] = 'Visualizza immagine';
 $string['functionloopguardbody'] = 'Questa funzione è già stata eseguita {$a} volte con lo stesso input. L\'auto-approvazione è sospesa per un possibile ciclo; approva per continuare.';
 $string['functionloopguardheading'] = 'Chiamata ripetuta.';
 $string['functionname'] = 'Nome della funzione';

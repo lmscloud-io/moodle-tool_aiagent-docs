@@ -10,7 +10,7 @@
 
 /**
  * Russian language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Одобрить вызовы ({$a})';
 $string['functioncall_actions'] = 'Одобрить или отклонить вызов функции';
 $string['functioncall_chip_action'] = 'Изменить режим автоодобрения';
 $string['functioncalldetails'] = 'Подробности вызова функции';
+$string['functioncalldetailscount'] = 'Подробности вызовов функций ({$a})';
 $string['functiondeny'] = 'Отклонить';
 $string['functiondenyall'] = 'Отклонить все';
+$string['functiondetailscopied'] = 'Скопировано';
+$string['functiondetailscopy'] = 'Копировать';
+$string['functiondetailscopyhtml'] = 'Копировать исходный код HTML';
+$string['functiondetailscopyparameters'] = 'Копировать параметры в формате JSON';
+$string['functiondetailscopyresult'] = 'Копировать результат в формате JSON';
+$string['functiondetailscopysvg'] = 'Копировать исходный код SVG';
+$string['functiondetailsdisplay'] = 'Вид';
+$string['functiondetailsempty'] = '(пусто)';
+$string['functiondetailsfield'] = '1 поле';
+$string['functiondetailsfields'] = 'Полей: {$a}';
+$string['functiondetailsformatted'] = 'Форматированный';
+$string['functiondetailshtmlsource'] = 'Исходный код HTML';
+$string['functiondetailsimage'] = 'Изображение';
+$string['functiondetailsitem'] = '1 элемент';
+$string['functiondetailsitems'] = 'Элементов: {$a}';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'Текст JSON';
+$string['functiondetailssvgimage'] = 'Изображение SVG · {$a}';
+$string['functiondetailssvgsource'] = 'Исходный код SVG';
+$string['functiondetailsviewformatted'] = 'Показать форматированный текст';
+$string['functiondetailsviewimage'] = 'Показать изображение';
 $string['functionloopguardbody'] = 'Эта функция уже выполнялась с теми же входными данными. Число повторов: {$a}. Автоодобрение приостановлено из-за возможного зацикливания; одобрите вызов, чтобы продолжить.';
 $string['functionloopguardheading'] = 'Повторный вызов.';
 $string['functionname'] = 'Имя функции';

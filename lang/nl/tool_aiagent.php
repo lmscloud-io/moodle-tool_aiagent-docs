@@ -10,7 +10,7 @@
 
 /**
  * Dutch language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Keur {$a} aanroepen goed';
 $string['functioncall_actions'] = 'Functieaanroep goedkeuren of afkeuren';
 $string['functioncall_chip_action'] = 'Modus voor automatisch goedkeuren wijzigen';
 $string['functioncalldetails'] = 'Details van de functieaanroep';
+$string['functioncalldetailscount'] = 'Details van de functieaanroepen ({$a})';
 $string['functiondeny'] = 'Keur af';
 $string['functiondenyall'] = 'Keur alles af';
+$string['functiondetailscopied'] = 'Gekopieerd';
+$string['functiondetailscopy'] = 'Kopiëren';
+$string['functiondetailscopyhtml'] = 'HTML-broncode kopiëren';
+$string['functiondetailscopyparameters'] = 'Parameters als JSON kopiëren';
+$string['functiondetailscopyresult'] = 'Resultaat als JSON kopiëren';
+$string['functiondetailscopysvg'] = 'SVG-broncode kopiëren';
+$string['functiondetailsdisplay'] = 'Weergave';
+$string['functiondetailsempty'] = '(leeg)';
+$string['functiondetailsfield'] = '1 veld';
+$string['functiondetailsfields'] = '{$a} velden';
+$string['functiondetailsformatted'] = 'Opgemaakt';
+$string['functiondetailshtmlsource'] = 'HTML-broncode';
+$string['functiondetailsimage'] = 'Afbeelding';
+$string['functiondetailsitem'] = '1 item';
+$string['functiondetailsitems'] = '{$a} items';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'JSON-tekst';
+$string['functiondetailssvgimage'] = 'SVG-afbeelding · {$a}';
+$string['functiondetailssvgsource'] = 'SVG-broncode';
+$string['functiondetailsviewformatted'] = 'Opgemaakte tekst bekijken';
+$string['functiondetailsviewimage'] = 'Afbeelding bekijken';
 $string['functionloopguardbody'] = 'Deze functie is al {$a} keer met dezelfde invoer uitgevoerd. Automatisch goedkeuren is gepauzeerd vanwege een mogelijke lus; keur goed om door te gaan.';
 $string['functionloopguardheading'] = 'Herhaalde aanroep.';
 $string['functionname'] = 'Functienaam';

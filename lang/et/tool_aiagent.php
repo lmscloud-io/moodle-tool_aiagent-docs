@@ -10,7 +10,7 @@
 
 /**
  * Estonian language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Kinnita {$a} kutset';
 $string['functioncall_actions'] = 'Kinnita funktsioonikutse või keeldu sellest';
 $string['functioncall_chip_action'] = 'Muuda automaatse kinnitamise režiimi';
 $string['functioncalldetails'] = 'Funktsioonikutse üksikasjad';
+$string['functioncalldetailscount'] = 'Funktsioonikutsete üksikasjad ({$a})';
 $string['functiondeny'] = 'Keeldu';
 $string['functiondenyall'] = 'Keeldu kõigist';
+$string['functiondetailscopied'] = 'Kopeeritud';
+$string['functiondetailscopy'] = 'Kopeeri';
+$string['functiondetailscopyhtml'] = 'Kopeeri HTML-lähtekood';
+$string['functiondetailscopyparameters'] = 'Kopeeri parameetrid JSON-ina';
+$string['functiondetailscopyresult'] = 'Kopeeri tulemus JSON-ina';
+$string['functiondetailscopysvg'] = 'Kopeeri SVG-lähtekood';
+$string['functiondetailsdisplay'] = 'Kuva';
+$string['functiondetailsempty'] = '(tühi)';
+$string['functiondetailsfield'] = '1 väli';
+$string['functiondetailsfields'] = '{$a} välja';
+$string['functiondetailsformatted'] = 'Vormindatud';
+$string['functiondetailshtmlsource'] = 'HTML-lähtekood';
+$string['functiondetailsimage'] = 'Pilt';
+$string['functiondetailsitem'] = '1 element';
+$string['functiondetailsitems'] = '{$a} elementi';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'JSON-tekst';
+$string['functiondetailssvgimage'] = 'SVG-pilt · {$a}';
+$string['functiondetailssvgsource'] = 'SVG-lähtekood';
+$string['functiondetailsviewformatted'] = 'Kuva vormindatud tekst';
+$string['functiondetailsviewimage'] = 'Kuva pilt';
 $string['functionloopguardbody'] = 'Seda funktsiooni on sama sisendiga juba {$a} korda käivitatud. Võimaliku tsükli tõttu on automaatne kinnitamine peatatud; jätkamiseks kinnitage.';
 $string['functionloopguardheading'] = 'Korduv kutse.';
 $string['functionname'] = 'Funktsiooni nimi';

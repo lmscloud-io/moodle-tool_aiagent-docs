@@ -10,7 +10,7 @@
 
 /**
  * Finnish language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Hyväksy {$a} kutsua';
 $string['functioncall_actions'] = 'Hyväksy tai hylkää toimintokutsu';
 $string['functioncall_chip_action'] = 'Vaihda automaattisen hyväksynnän tilaa';
 $string['functioncalldetails'] = 'Toimintokutsun tiedot';
+$string['functioncalldetailscount'] = 'Toimintokutsujen tiedot ({$a})';
 $string['functiondeny'] = 'Hylkää';
 $string['functiondenyall'] = 'Hylkää kaikki';
+$string['functiondetailscopied'] = 'Kopioitu';
+$string['functiondetailscopy'] = 'Kopioi';
+$string['functiondetailscopyhtml'] = 'Kopioi HTML-lähdekoodi';
+$string['functiondetailscopyparameters'] = 'Kopioi parametrit JSON-muodossa';
+$string['functiondetailscopyresult'] = 'Kopioi tulos JSON-muodossa';
+$string['functiondetailscopysvg'] = 'Kopioi SVG-lähdekoodi';
+$string['functiondetailsdisplay'] = 'Näkymä';
+$string['functiondetailsempty'] = '(tyhjä)';
+$string['functiondetailsfield'] = '1 kenttä';
+$string['functiondetailsfields'] = '{$a} kenttää';
+$string['functiondetailsformatted'] = 'Muotoiltu';
+$string['functiondetailshtmlsource'] = 'HTML-lähdekoodi';
+$string['functiondetailsimage'] = 'Kuva';
+$string['functiondetailsitem'] = '1 kohde';
+$string['functiondetailsitems'] = '{$a} kohdetta';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'JSON-teksti';
+$string['functiondetailssvgimage'] = 'SVG-kuva · {$a}';
+$string['functiondetailssvgsource'] = 'SVG-lähdekoodi';
+$string['functiondetailsviewformatted'] = 'Näytä muotoiltu teksti';
+$string['functiondetailsviewimage'] = 'Näytä kuva';
 $string['functionloopguardbody'] = 'Tämä toiminto on jo suoritettu {$a} kertaa samalla syötteellä. Automaattinen hyväksyntä on keskeytetty mahdollisen silmukan vuoksi; hyväksy jatkaaksesi.';
 $string['functionloopguardheading'] = 'Toistuva kutsu.';
 $string['functionname'] = 'Toiminnon nimi';

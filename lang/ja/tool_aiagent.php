@@ -10,7 +10,7 @@
 
 /**
  * Japanese language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = '呼び出し {$a} 件を承認';
 $string['functioncall_actions'] = '関数呼び出しの承認または拒否';
 $string['functioncall_chip_action'] = '自動承認モードを変更';
 $string['functioncalldetails'] = '関数呼び出しの詳細';
+$string['functioncalldetailscount'] = '関数呼び出しの詳細 ({$a})';
 $string['functiondeny'] = '拒否';
 $string['functiondenyall'] = 'すべて拒否';
+$string['functiondetailscopied'] = 'コピーしました';
+$string['functiondetailscopy'] = 'コピー';
+$string['functiondetailscopyhtml'] = 'HTMLソースをコピー';
+$string['functiondetailscopyparameters'] = 'パラメータをJSONとしてコピー';
+$string['functiondetailscopyresult'] = '結果をJSONとしてコピー';
+$string['functiondetailscopysvg'] = 'SVGソースをコピー';
+$string['functiondetailsdisplay'] = '表示';
+$string['functiondetailsempty'] = '(空)';
+$string['functiondetailsfield'] = '1 個のフィールド';
+$string['functiondetailsfields'] = '{$a} 個のフィールド';
+$string['functiondetailsformatted'] = '書式付き';
+$string['functiondetailshtmlsource'] = 'HTMLソース';
+$string['functiondetailsimage'] = '画像';
+$string['functiondetailsitem'] = '1 件の項目';
+$string['functiondetailsitems'] = '{$a} 件の項目';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'JSONテキスト';
+$string['functiondetailssvgimage'] = 'SVG画像 · {$a}';
+$string['functiondetailssvgsource'] = 'SVGソース';
+$string['functiondetailsviewformatted'] = '書式付きテキストを表示';
+$string['functiondetailsviewimage'] = '画像を表示';
 $string['functionloopguardbody'] = 'この関数は同じ入力ですでに {$a} 回実行されています。ループの可能性があるため自動承認を一時停止しました。続けるには承認してください。';
 $string['functionloopguardheading'] = '繰り返しの呼び出しです。';
 $string['functionname'] = '関数名';

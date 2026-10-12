@@ -10,7 +10,7 @@
 
 /**
  * Brazilian Portuguese language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Aprovar {$a} chamadas';
 $string['functioncall_actions'] = 'Aprovar ou negar a chamada de função';
 $string['functioncall_chip_action'] = 'Alterar o modo de auto-aprovação';
 $string['functioncalldetails'] = 'Detalhes da chamada de função';
+$string['functioncalldetailscount'] = 'Detalhes das chamadas de função ({$a})';
 $string['functiondeny'] = 'Negar';
 $string['functiondenyall'] = 'Negar todas';
+$string['functiondetailscopied'] = 'Copiado';
+$string['functiondetailscopy'] = 'Copiar';
+$string['functiondetailscopyhtml'] = 'Copiar código-fonte HTML';
+$string['functiondetailscopyparameters'] = 'Copiar parâmetros como JSON';
+$string['functiondetailscopyresult'] = 'Copiar resultado como JSON';
+$string['functiondetailscopysvg'] = 'Copiar código-fonte SVG';
+$string['functiondetailsdisplay'] = 'Exibição';
+$string['functiondetailsempty'] = '(vazio)';
+$string['functiondetailsfield'] = '1 campo';
+$string['functiondetailsfields'] = '{$a} campos';
+$string['functiondetailsformatted'] = 'Formatado';
+$string['functiondetailshtmlsource'] = 'Código-fonte HTML';
+$string['functiondetailsimage'] = 'Imagem';
+$string['functiondetailsitem'] = '1 item';
+$string['functiondetailsitems'] = '{$a} itens';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'Texto JSON';
+$string['functiondetailssvgimage'] = 'Imagem SVG · {$a}';
+$string['functiondetailssvgsource'] = 'Código-fonte SVG';
+$string['functiondetailsviewformatted'] = 'Ver texto formatado';
+$string['functiondetailsviewimage'] = 'Ver imagem';
 $string['functionloopguardbody'] = 'Esta função já foi executada {$a} vezes com a mesma entrada. A auto-aprovação foi pausada por causa de um possível laço; aprove para continuar.';
 $string['functionloopguardheading'] = 'Chamada repetida.';
 $string['functionname'] = 'Nome da função';

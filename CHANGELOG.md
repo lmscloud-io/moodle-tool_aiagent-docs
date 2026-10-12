@@ -5,6 +5,45 @@ All notable changes to the tool_aiagent plugin are documented here. The format i
 `major.minor.patch` releases mirrored by the `$plugin->release` in `version.php`. The top entry must
 match the release being cut (the deploy preflight enforces this).
 
+## [4.5.8] - 2026-10-12
+
+### Added
+
+- **Gradebook setup functions**: the AI agent can set up a course's gradebook: categories, items,
+  weights, aggregation, order, calculations, grade settings, letters, scales and outcomes.
+- **More activity settings**: the AI agent can set an activity's outcomes, ratings, competencies,
+  forced language, download option and AI tools, quiz review options and due date, assignment late
+  penalties and multiple marking, and the grade categories of LTI and workshop activities.
+- **File reading on Mistral**: the AI agent can read PDF, Word, PowerPoint, Excel and image files on
+  Mistral's API, including its EU endpoint.
+- **Friendlier function call details**: the details dialog shows parameters and results as readable
+  fields, lists and tables instead of raw JSON, with a switch back to the JSON.
+- **Dark mode support**: in Moodle 5.3's dark colour mode, the chat and the AI agent's
+  administration screens follow the dark theme.
+
+### Changed
+
+- When the AI agent cannot make the change you asked for, it tells you and asks before making a
+  different change with a similar effect.
+- A Kimi model served from anywhere other than Moonshot's own API now reads files like any other
+  model on that service; Moonshot's file reading is used only on Moonshot's API.
+
+### Fixed
+
+- With OpenAI on the Responses API, the AI agent had to fill in every optional parameter of a
+  function, so some changes failed, such as adding a question to a Feedback activity.
+- Creating or editing an activity through the AI agent could unexpectedly reset some of its
+  settings, or change the grading of an activity that already had grades.
+- The OpenAI provider failed in the AI agent with another vendor's model, such as Mistral, unless
+  the API type was switched to Chat Completions.
+- Generating an image with Google Gemini failed in the AI agent with "revisedprompt: expected
+  string, got null".
+- Opening the chat offered to resume the last chat even when it was started from a different
+  placement.
+- When the AI model asked to read a PDF or an image as plain text, the chat showed a failed function
+  call and the model had to ask for the file again.
+- Small display fixes in the chat window.
+
 ## [4.5.7] - 2026-09-30
 
 ### Added

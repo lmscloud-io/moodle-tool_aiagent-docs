@@ -20,7 +20,7 @@ The AI proposes actions and **you approve them** before anything happens. Every 
 - **Tool use with approval flow**: the AI can call Moodle web service functions on your behalf, but only after you click Approve. Auto-approve is available and configurable from the chat composer, from asking before every call through to read-only, safe (non-modifying), or all actions.
 - **Curated function catalogue**: all core/standard web service functions have been reviewed and rated for suitability and relevance, with useful ones pre-selected out of the box. Descriptions have been refined where needed to reduce LLM confusion. The plugin also bundles many extra functions that standard web services lack, for example creating activities.
 - **File attachments**: with any model, files attached to the chat can be passed through to Moodle web service functions (e.g. to set a user picture or attach to a forum post).
-- **AI file reading on supported models**: if you want the AI itself to read attachment contents (for example, to summarise a PDF), this works on Claude models, OpenAI models via the Responses API, and Gemini models (uploaded on demand to the Files API and reused across the conversation).
+- **AI file reading on supported models**: if you want the AI itself to read attachment contents (for example, to summarise a PDF), this works on Claude models, OpenAI models via the Responses API, and Gemini models (uploaded on demand to the Files API and reused across the conversation), and on the Kimi (Moonshot) and Mistral APIs (see [Tested OpenAI-compatible endpoints](#tested-openai-compatible-endpoints)).
 - **Image generation**: generate images directly from the chat using any configured "Generate image" provider.
 - **Smart function discovery**: with hundreds of functions available, the AI dynamically discovers only what it needs, keeping requests fast and affordable.
 - **Skills**: bundle specialised instructions with a recommended set of functions for a particular job. The agent loads a matching skill on its own for common multi-step tasks, and you can author your own for workflows specific to your organisation. Skills ship pre-seeded and are managed in *AI Agent configuration*.
@@ -35,12 +35,23 @@ Moodle core's AI subsystem is single-shot (no multi-turn conversation, tool call
 Currently supported:
 
 - **OpenAI**: `aiprovider_openai`, standard plugin in Moodle 4.5+.
-- **Azure AI**: `aiprovider_azureai`, standard plugin in Moodle 4.5+. OpenAI models only, not Azure AI Foundry's Llama / Mistral / DeepSeek (those sit on a different API surface).
+- **Azure AI**: `aiprovider_azureai`, standard plugin in Moodle 4.5+.
 - **Google Gemini**: `aiprovider_gemini`, standard plugin in Moodle 5.2+. On earlier versions (Moodle 4.5+), install the third-party [`aiprovider_gemini`](https://moodle.org/plugins/aiprovider_gemini).
 - **Claude / Anthropic**: `aiprovider_anthropic`, standard plugin in Moodle 5.3+. On earlier versions, install the third-party [`aiprovider_anthropic`](https://moodle.org/plugins/aiprovider_anthropic) (Moodle 4.5+) or [`aiprovider_claude`](https://moodle.org/plugins/aiprovider_claude) (Moodle 5.0+).
-- **OpenAI-compatible** endpoints: Ollama, DeepSeek, Groq, Open WebUI, etc. These haven't been explicitly tested but may work.
+- **OpenAI-compatible** endpoints: Ollama, DeepSeek, Groq, Open WebUI, etc. These haven't been explicitly tested but may work, except the ones listed below.
 
 We recommend using modern models. Older models may not be capable enough to cope with Moodle's complexity and the large number of available tools. The set of available features also depends on the chosen model, for example, file handling, web search, and similar capabilities may or may not be supported. Review the *AI agent settings* before you start working.
+
+### Tested OpenAI-compatible endpoints
+
+These services have been tested with the agent, including reading files. Use them with the OpenAI provider: in its "Generate text" action, set the endpoint to the URL below and the model to one the service offers.
+
+| Service | Endpoint | Files the AI can read |
+|---|---|---|
+| **Mistral** | `https://api.mistral.ai/v1/chat/completions` or `https://api.eu.mistral.ai/v1/chat/completions` | PDF, Word (.docx), PowerPoint (.pptx), Excel (.xlsx), PNG, JPEG, GIF, WebP and text files. Images need a model with vision. |
+| **Kimi** (Moonshot) | `https://api.moonshot.ai/v1/chat/completions` | Documents such as PDF and Office files (Moonshot extracts the text), images, and text files. |
+
+Mistral keeps no files: a file the AI has read is sent with every request of the chat. Moonshot keeps no documents either: it extracts their text and the file is deleted straight away. Images read on Kimi stay in Moonshot's file storage until the chat is deleted, by the user or automatically after the chat retention period. Mistral does not commit to where requests to its global endpoint are processed, so sites that need processing in the EU should use the EU endpoint.
 
 ## Getting started
 
@@ -49,7 +60,7 @@ We recommend using modern models. Older models may not be capable enough to cope
 3. Visit *Site administration > Plugins > AI Agent settings* and enter your license key.
 4. Visit *Site administration > AI > AI Agent configuration* and review skills, button placements, and enable functions.
 5. Grant the `tool/aiagent:usechat` capability to the desired roles.
-6. Open the chat from the **AI agent chat** link in your user menu and start asking!
+6. Open the chat with the **AI agent** button in the bottom right corner of any page (bottom left in right-to-left languages) and start asking! It comes from the default placement, which you can change in *AI Agent configuration*, for example to show the chat in the user menu instead.
 
 The agent's longer tasks run for several minutes inside one request. If a reverse proxy, load
 balancer or application gateway sits in front of Moodle, allow requests to `admin/tool/aiagent/ajax.php`

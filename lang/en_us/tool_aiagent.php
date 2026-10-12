@@ -10,7 +10,7 @@
 
 /**
  * American English language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * Only the strings whose American spelling differs from lang/en are listed. Everything else falls
  * back to lang/en, which is how core's own en_us pack works, so a string added to lang/en needs an

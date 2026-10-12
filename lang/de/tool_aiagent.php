@@ -10,7 +10,7 @@
 
 /**
  * German language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = '{$a} Aufrufe bestätigen';
 $string['functioncall_actions'] = 'Funktionsaufruf bestätigen oder verweigern';
 $string['functioncall_chip_action'] = 'Modus der automatischen Bestätigung ändern';
 $string['functioncalldetails'] = 'Details zum Funktionsaufruf';
+$string['functioncalldetailscount'] = 'Details zu den Funktionsaufrufen ({$a})';
 $string['functiondeny'] = 'Verweigern';
 $string['functiondenyall'] = 'Alle verweigern';
+$string['functiondetailscopied'] = 'Kopiert';
+$string['functiondetailscopy'] = 'Kopieren';
+$string['functiondetailscopyhtml'] = 'HTML-Quelltext kopieren';
+$string['functiondetailscopyparameters'] = 'Parameter als JSON kopieren';
+$string['functiondetailscopyresult'] = 'Ergebnis als JSON kopieren';
+$string['functiondetailscopysvg'] = 'SVG-Quelltext kopieren';
+$string['functiondetailsdisplay'] = 'Darstellung';
+$string['functiondetailsempty'] = '(leer)';
+$string['functiondetailsfield'] = '1 Feld';
+$string['functiondetailsfields'] = '{$a} Felder';
+$string['functiondetailsformatted'] = 'Formatiert';
+$string['functiondetailshtmlsource'] = 'HTML-Quelltext';
+$string['functiondetailsimage'] = 'Bild';
+$string['functiondetailsitem'] = '1 Eintrag';
+$string['functiondetailsitems'] = '{$a} Einträge';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'JSON-Text';
+$string['functiondetailssvgimage'] = 'SVG-Bild · {$a}';
+$string['functiondetailssvgsource'] = 'SVG-Quelltext';
+$string['functiondetailsviewformatted'] = 'Formatierten Text anzeigen';
+$string['functiondetailsviewimage'] = 'Bild anzeigen';
 $string['functionloopguardbody'] = 'Diese Funktion wurde bereits {$a} Mal mit derselben Eingabe ausgeführt. Wegen einer möglichen Schleife ist die automatische Bestätigung angehalten; bestätigen Sie, um fortzufahren.';
 $string['functionloopguardheading'] = 'Wiederholter Aufruf.';
 $string['functionname'] = 'Funktionsname';

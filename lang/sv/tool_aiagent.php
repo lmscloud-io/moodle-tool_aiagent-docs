@@ -10,7 +10,7 @@
 
 /**
  * Swedish language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Godkänn {$a} anrop';
 $string['functioncall_actions'] = 'Godkänn eller avslå funktionsanrop';
 $string['functioncall_chip_action'] = 'Byt läge för autogodkännande';
 $string['functioncalldetails'] = 'Detaljer om funktionsanropet';
+$string['functioncalldetailscount'] = 'Detaljer om funktionsanropen ({$a})';
 $string['functiondeny'] = 'Avslå';
 $string['functiondenyall'] = 'Avslå alla';
+$string['functiondetailscopied'] = 'Kopierat';
+$string['functiondetailscopy'] = 'Kopiera';
+$string['functiondetailscopyhtml'] = 'Kopiera HTML-källkod';
+$string['functiondetailscopyparameters'] = 'Kopiera parametrar som JSON';
+$string['functiondetailscopyresult'] = 'Kopiera resultat som JSON';
+$string['functiondetailscopysvg'] = 'Kopiera SVG-källkod';
+$string['functiondetailsdisplay'] = 'Visning';
+$string['functiondetailsempty'] = '(tom)';
+$string['functiondetailsfield'] = '1 fält';
+$string['functiondetailsfields'] = '{$a} fält';
+$string['functiondetailsformatted'] = 'Formaterad';
+$string['functiondetailshtmlsource'] = 'HTML-källkod';
+$string['functiondetailsimage'] = 'Bild';
+$string['functiondetailsitem'] = '1 objekt';
+$string['functiondetailsitems'] = '{$a} objekt';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'JSON-text';
+$string['functiondetailssvgimage'] = 'SVG-bild · {$a}';
+$string['functiondetailssvgsource'] = 'SVG-källkod';
+$string['functiondetailsviewformatted'] = 'Visa formaterad text';
+$string['functiondetailsviewimage'] = 'Visa bild';
 $string['functionloopguardbody'] = 'Den här funktionen har redan körts {$a} gånger med samma indata. Autogodkännandet är pausat på grund av en möjlig slinga; godkänn för att fortsätta.';
 $string['functionloopguardheading'] = 'Upprepat anrop.';
 $string['functionname'] = 'Funktionsnamn';

@@ -10,7 +10,7 @@
 
 /**
  * Ukrainian language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Схвалити виклики ({$a})';
 $string['functioncall_actions'] = 'Схвалити або відхилити виклик функції';
 $string['functioncall_chip_action'] = 'Змінити режим автосхвалення';
 $string['functioncalldetails'] = 'Деталі виклику функції';
+$string['functioncalldetailscount'] = 'Деталі викликів функцій ({$a})';
 $string['functiondeny'] = 'Відхилити';
 $string['functiondenyall'] = 'Відхилити всі';
+$string['functiondetailscopied'] = 'Скопійовано';
+$string['functiondetailscopy'] = 'Копіювати';
+$string['functiondetailscopyhtml'] = 'Копіювати вихідний код HTML';
+$string['functiondetailscopyparameters'] = 'Копіювати параметри у форматі JSON';
+$string['functiondetailscopyresult'] = 'Копіювати результат у форматі JSON';
+$string['functiondetailscopysvg'] = 'Копіювати вихідний код SVG';
+$string['functiondetailsdisplay'] = 'Вигляд';
+$string['functiondetailsempty'] = '(порожньо)';
+$string['functiondetailsfield'] = '1 поле';
+$string['functiondetailsfields'] = 'Полів: {$a}';
+$string['functiondetailsformatted'] = 'Форматований';
+$string['functiondetailshtmlsource'] = 'Вихідний код HTML';
+$string['functiondetailsimage'] = 'Зображення';
+$string['functiondetailsitem'] = '1 елемент';
+$string['functiondetailsitems'] = 'Елементів: {$a}';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'Текст JSON';
+$string['functiondetailssvgimage'] = 'Зображення SVG · {$a}';
+$string['functiondetailssvgsource'] = 'Вихідний код SVG';
+$string['functiondetailsviewformatted'] = 'Показати форматований текст';
+$string['functiondetailsviewimage'] = 'Показати зображення';
 $string['functionloopguardbody'] = 'Ця функція вже виконувалася {$a} разів з тими самими вхідними даними. Автосхвалення призупинено через можливий цикл; схваліть, щоб продовжити.';
 $string['functionloopguardheading'] = 'Повторний виклик.';
 $string['functionname'] = 'Назва функції';

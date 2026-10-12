@@ -15,10 +15,14 @@ The version directory is the Moodle branch number: `405` is Moodle 4.5, `500` is
 `502` is 5.2 and `503` is 5.3. The language directory is the Moodle language code, the same code the
 packs in [`lang/`](../lang) use.
 
+Moodle 5.3 added a dark colour mode, so from `503` on there is one more directory, `en__dark`: the
+same English tour with the site in dark mode. It is there to show how the plugin looks in that mode,
+not to review a translation, so it is in English only.
+
 Filenames are fixed, so the same file name is the same screen in every language and on every
 version. That is what makes them worth comparing: open `405/en/chat.png` next to `405/de/chat.png`
 to see how a translation sits in its buttons, or next to `503/en/chat.png` to see what the newer
-Moodle theme does to the same page.
+Moodle theme does to the same page. `503/en__dark/chat.png` is the same page again in dark mode.
 
 ## What you are looking at
 

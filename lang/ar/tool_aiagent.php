@@ -10,7 +10,7 @@
 
 /**
  * Arabic language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'الموافقة على الاستدعاءا�
 $string['functioncall_actions'] = 'الموافقة على استدعاء الوظيفة أو رفضه';
 $string['functioncall_chip_action'] = 'تغيير وضع الموافقة التلقائية';
 $string['functioncalldetails'] = 'تفاصيل استدعاء الوظيفة';
+$string['functioncalldetailscount'] = 'تفاصيل استدعاءات الوظائف ({$a})';
 $string['functiondeny'] = 'رفض';
 $string['functiondenyall'] = 'رفض الكل';
+$string['functiondetailscopied'] = 'تم النسخ';
+$string['functiondetailscopy'] = 'نسخ';
+$string['functiondetailscopyhtml'] = 'نسخ مصدر HTML';
+$string['functiondetailscopyparameters'] = 'نسخ المعامِلات بصيغة JSON';
+$string['functiondetailscopyresult'] = 'نسخ النتيجة بصيغة JSON';
+$string['functiondetailscopysvg'] = 'نسخ مصدر SVG';
+$string['functiondetailsdisplay'] = 'طريقة العرض';
+$string['functiondetailsempty'] = '(فارغ)';
+$string['functiondetailsfield'] = 'حقل واحد';
+$string['functiondetailsfields'] = 'الحقول: {$a}';
+$string['functiondetailsformatted'] = 'منسَّق';
+$string['functiondetailshtmlsource'] = 'مصدر HTML';
+$string['functiondetailsimage'] = 'صورة';
+$string['functiondetailsitem'] = 'عنصر واحد';
+$string['functiondetailsitems'] = 'العناصر: {$a}';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'نص JSON';
+$string['functiondetailssvgimage'] = 'صورة SVG · {$a}';
+$string['functiondetailssvgsource'] = 'مصدر SVG';
+$string['functiondetailsviewformatted'] = 'عرض النص المنسَّق';
+$string['functiondetailsviewimage'] = 'عرض الصورة';
 $string['functionloopguardbody'] = 'عدد مرات تشغيل هذه الوظيفة بالمدخلات نفسها: {$a}. أُوقفت الموافقة التلقائية مؤقتًا خشية وجود حلقة متكررة، ويمكن الموافقة للمتابعة.';
 $string['functionloopguardheading'] = 'استدعاء متكرر.';
 $string['functionname'] = 'اسم الوظيفة';

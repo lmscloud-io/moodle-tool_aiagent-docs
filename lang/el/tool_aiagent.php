@@ -10,7 +10,7 @@
 
 /**
  * Greek language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Έγκριση {$a} κλήσεων';
 $string['functioncall_actions'] = 'Έγκριση ή απόρριψη κλήσης λειτουργίας';
 $string['functioncall_chip_action'] = 'Αλλαγή τρόπου αυτόματης έγκρισης';
 $string['functioncalldetails'] = 'Λεπτομέρειες κλήσης λειτουργίας';
+$string['functioncalldetailscount'] = 'Λεπτομέρειες κλήσεων λειτουργιών ({$a})';
 $string['functiondeny'] = 'Απόρριψη';
 $string['functiondenyall'] = 'Απόρριψη όλων';
+$string['functiondetailscopied'] = 'Αντιγράφηκε';
+$string['functiondetailscopy'] = 'Αντιγραφή';
+$string['functiondetailscopyhtml'] = 'Αντιγραφή κώδικα HTML';
+$string['functiondetailscopyparameters'] = 'Αντιγραφή παραμέτρων ως JSON';
+$string['functiondetailscopyresult'] = 'Αντιγραφή αποτελέσματος ως JSON';
+$string['functiondetailscopysvg'] = 'Αντιγραφή κώδικα SVG';
+$string['functiondetailsdisplay'] = 'Προβολή';
+$string['functiondetailsempty'] = '(κενό)';
+$string['functiondetailsfield'] = '1 πεδίο';
+$string['functiondetailsfields'] = '{$a} πεδία';
+$string['functiondetailsformatted'] = 'Μορφοποιημένο';
+$string['functiondetailshtmlsource'] = 'Κώδικας HTML';
+$string['functiondetailsimage'] = 'Εικόνα';
+$string['functiondetailsitem'] = '1 στοιχείο';
+$string['functiondetailsitems'] = '{$a} στοιχεία';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'Κείμενο JSON';
+$string['functiondetailssvgimage'] = 'Εικόνα SVG · {$a}';
+$string['functiondetailssvgsource'] = 'Κώδικας SVG';
+$string['functiondetailsviewformatted'] = 'Προβολή μορφοποιημένου κειμένου';
+$string['functiondetailsviewimage'] = 'Προβολή εικόνας';
 $string['functionloopguardbody'] = 'Αυτή η λειτουργία έχει ήδη εκτελεστεί {$a} φορές με την ίδια είσοδο. Η αυτόματη έγκριση έχει τεθεί σε παύση λόγω πιθανού βρόχου. Εγκρίνετε για να συνεχίσετε.';
 $string['functionloopguardheading'] = 'Επαναλαμβανόμενη κλήση.';
 $string['functionname'] = 'Όνομα λειτουργίας';

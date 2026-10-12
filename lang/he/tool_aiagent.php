@@ -10,7 +10,7 @@
 
 /**
  * Hebrew language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'אישור {$a} קריאות';
 $string['functioncall_actions'] = 'אישור או דחייה של הקריאה לפונקציה';
 $string['functioncall_chip_action'] = 'שינוי מצב האישור האוטומטי';
 $string['functioncalldetails'] = 'פרטי הקריאה לפונקציה';
+$string['functioncalldetailscount'] = 'פרטי הקריאות לפונקציות ({$a})';
 $string['functiondeny'] = 'דחייה';
 $string['functiondenyall'] = 'דחיית הכל';
+$string['functiondetailscopied'] = 'הועתק';
+$string['functiondetailscopy'] = 'העתקה';
+$string['functiondetailscopyhtml'] = 'העתקת קוד המקור של HTML';
+$string['functiondetailscopyparameters'] = 'העתקת הפרמטרים כ-JSON';
+$string['functiondetailscopyresult'] = 'העתקת התוצאה כ-JSON';
+$string['functiondetailscopysvg'] = 'העתקת קוד המקור של SVG';
+$string['functiondetailsdisplay'] = 'תצוגה';
+$string['functiondetailsempty'] = '(ריק)';
+$string['functiondetailsfield'] = 'שדה אחד';
+$string['functiondetailsfields'] = '{$a} שדות';
+$string['functiondetailsformatted'] = 'מעוצב';
+$string['functiondetailshtmlsource'] = 'קוד מקור HTML';
+$string['functiondetailsimage'] = 'תמונה';
+$string['functiondetailsitem'] = 'פריט אחד';
+$string['functiondetailsitems'] = '{$a} פריטים';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'טקסט JSON';
+$string['functiondetailssvgimage'] = 'תמונת SVG · {$a}';
+$string['functiondetailssvgsource'] = 'קוד מקור SVG';
+$string['functiondetailsviewformatted'] = 'הצגת הטקסט המעוצב';
+$string['functiondetailsviewimage'] = 'הצגת התמונה';
 $string['functionloopguardbody'] = 'פונקציה זו כבר הופעלה {$a} פעמים עם אותם נתונים. האישור האוטומטי הושהה בשל חשד ללולאה; יש לאשר כדי להמשיך.';
 $string['functionloopguardheading'] = 'קריאה חוזרת.';
 $string['functionname'] = 'שם הפונקציה';

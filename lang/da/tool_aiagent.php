@@ -10,7 +10,7 @@
 
 /**
  * Danish language pack for AI agent.
- * Last updated: 2026-09-29
+ * Last updated: 2026-10-11
  *
  * @package    tool_aiagent
  * @category   string
@@ -157,8 +157,30 @@ $string['functionapprovecount'] = 'Godkend {$a} kald';
 $string['functioncall_actions'] = 'Godkend eller afvis funktionskald';
 $string['functioncall_chip_action'] = 'Skift tilstand for autogodkendelse';
 $string['functioncalldetails'] = 'Detaljer om funktionskaldet';
+$string['functioncalldetailscount'] = 'Detaljer om funktionskaldene ({$a})';
 $string['functiondeny'] = 'Afvis';
 $string['functiondenyall'] = 'Afvis alle';
+$string['functiondetailscopied'] = 'Kopieret';
+$string['functiondetailscopy'] = 'Kopier';
+$string['functiondetailscopyhtml'] = 'Kopier HTML-kilde';
+$string['functiondetailscopyparameters'] = 'Kopier parametre som JSON';
+$string['functiondetailscopyresult'] = 'Kopier resultat som JSON';
+$string['functiondetailscopysvg'] = 'Kopier SVG-kilde';
+$string['functiondetailsdisplay'] = 'Visning';
+$string['functiondetailsempty'] = '(tom)';
+$string['functiondetailsfield'] = '1 felt';
+$string['functiondetailsfields'] = '{$a} felter';
+$string['functiondetailsformatted'] = 'Formateret';
+$string['functiondetailshtmlsource'] = 'HTML-kilde';
+$string['functiondetailsimage'] = 'Billede';
+$string['functiondetailsitem'] = '1 element';
+$string['functiondetailsitems'] = '{$a} elementer';
+$string['functiondetailsjson'] = 'JSON';
+$string['functiondetailsjsontext'] = 'JSON-tekst';
+$string['functiondetailssvgimage'] = 'SVG-billede · {$a}';
+$string['functiondetailssvgsource'] = 'SVG-kilde';
+$string['functiondetailsviewformatted'] = 'Vis formateret tekst';
+$string['functiondetailsviewimage'] = 'Vis billede';
 $string['functionloopguardbody'] = 'Denne funktion er allerede kørt {$a} gange med det samme input. Autogodkendelse er sat på pause på grund af en mulig løkke; godkend for at fortsætte.';
 $string['functionloopguardheading'] = 'Gentaget kald.';
 $string['functionname'] = 'Funktionsnavn';

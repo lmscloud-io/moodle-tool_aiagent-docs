@@ -10,7 +10,7 @@
 
 /**
  * Japanese language pack for AI agent.
- * Last updated: 2026-10-11
+ * Last updated: 2026-10-25
  *
  * @package    tool_aiagent
  * @category   string
@@ -21,9 +21,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_needsyou'] = 'AIエージェント: あなたの承認待ち';
+$string['activity_working'] = 'AIエージェント: 作業中';
 $string['addon'] = 'アドオン';
 $string['aiagent:autoapproveall'] = '確認なしですべての関数呼び出しを実行する自動承認モード「すべて」を選択する';
 $string['aiagent:usechat'] = 'AIエージェントとのチャットを開始する (チャットを開始できる場所を制御します。開始後のチャットがアクセスできるデータは制限しません)';
+$string['allfunctions'] = 'すべて';
 $string['allowfeedback'] = 'フィードバックを許可する';
 $string['allowfeedback_desc'] = '有効にした場合、ユーザはアシスタントの応答を評価したり、失敗した関数呼び出しを報告したりできます。送信された内容はAIエージェントプラグインの開発者に送られます (LLMには送られません)。開発者はこれをMoodle関数の呼び出し動作の改善に利用します。送信されるのは評価された一連のやりとりのみでチャット全体ではなく、ユーザは送信前にテキストを編集できます。外部への通信ポリシーが厳格なサイトではこの設定を無効にしてください。';
 $string['anthropic_heading'] = 'Anthropic (Claude)';
@@ -44,6 +47,18 @@ $string['autoapprove_readonly_desc'] = '読み取りは自動承認し、書き�
 $string['autoapprove_safe'] = '安全';
 $string['autoapprove_safe_desc'] = 'サイトを変更しない操作を自動承認する';
 $string['autoapprove_safe_examples'] = '読み取りに加えて、添付ファイルのサイズ変更、画像生成、LLMへのファイル送信等';
+$string['autoapprovetimelimit'] = '自動承認の時間制限';
+$string['autoapprovetimelimit_desc'] = 'ユーザの最後の操作 (メッセージの送信や関数の承認など) の後、AIエージェントが自動承認された関数を実行し続けられる時間です。この時間を過ぎると、次の関数の前に承認を求めます。これにより、放置されたチャットがサーバのリソースやAIのトークンを消費し続けるのを防ぎます。0 は制限なしを意味します。';
+$string['autopaused'] = 'あなたの操作がないまま {$a} が経過したため、自動承認を一時停止しました。続行するには承認してください。';
+$string['background_heading'] = 'バックグラウンドのチャット';
+$string['backgroundchats'] = 'バックグラウンドのチャットを許可する';
+$string['backgroundchats_desc'] = '各チャットをサーバ上の専用の PHP CLI プロセスで実行します。これにより、ユーザがページを離れたりタブを閉じたりした後も AIエージェントは作業を続け、関数の連鎖をより速く実行し、「停止」を押すと関数の実行中でもすぐに中断されます。この設定がオフの場合、または PHP CLI を利用できない場合、チャットはユーザのブラウザのリクエスト内で実行されます。';
+$string['backgroundunavailable_effect'] = 'AIエージェントは関数の連鎖をブラウザ経由で実行するため、処理が遅くなり、ユーザがページを離れたりタブを閉じたりすると停止します。すでに実行中の関数は中断できません。';
+$string['backgroundunavailable_executable'] = '「バックグラウンドのチャット用の PHP CLIのパス」が実行可能ファイルではありません。';
+$string['backgroundunavailable_function'] = 'このサーバでは PHP 関数 {$a} が無効になっています。';
+$string['backgroundunavailable_pathtophp'] = '「PHP CLIのパス」が設定されていません。';
+$string['backgroundunavailable_setpath'] = '「PHP CLIのパス」を設定する';
+$string['backgroundunavailable_windows'] = 'Windows サーバではバックグラウンドのチャットを利用できません。';
 $string['backtoconfiguration'] = 'AIエージェント構成に戻る';
 $string['builtinfunction'] = '同梱';
 $string['bulk_disabled'] = '関数 {$a} 個を無効にしました';
@@ -52,14 +67,17 @@ $string['bulk_enabled'] = '関数 {$a} 個を有効にしました';
 $string['bulk_enableselected'] = '選択したものを有効にする';
 $string['bulk_withselected'] = '選択した関数に対して';
 $string['capabilities'] = 'ケイパビリティ';
+$string['chat_heading'] = 'チャット';
 $string['chat_namelink'] = '名称 (リンク付き)';
 $string['chatfrozen'] = 'このチャットのスキルは利用できなくなったため、チャットを続けることはできません。代わりに新しいチャットを開始してください。';
+$string['chatfrozen_noplacement'] = 'このチャットはAIエージェントの以前のバージョンで開始されたため、続けることはできません。代わりに新しいチャットを開始してください。';
 $string['chathelpcontent'] = '<p>AIエージェントはあなたに代わってこのサイトのコンテンツを読み取り、変更できます。ほとんどの操作は実行前にあなたの承認を求めます。入力欄で自動承認モードを切り替えて、これを緩めたり厳しくしたりできます。</p>
 <p>ファイルはドラッグアンドドロップ、貼り付け、またはクリップアイコンのクリックで添付できます。次にリクエストを入力して<strong>送信</strong>を押してください。Enterキーで送信、ShiftキーとEnterキーで改行します。</p><p>AIは間違えることがあります。結果を確認してください。</p>';
 $string['chatnopermission'] = 'このチャットは、あなたがAIエージェントを利用できなくなったサイト内のエリアで開始されたため、続けることはできません。';
 $string['chatnostartpermission'] = 'あなたにはここでチャットを開始する権限がありません。AIエージェントが提供されているページから開いてください。';
 $string['chatretention'] = 'チャットの保存期間';
 $string['chatretention_desc'] = 'この期間アクティビティのないチャットは、ユーザのチャット履歴から削除され、添付ファイルはこのサイトから削除されます。また、AIプロバイダに保存されているチャットデータ (保存されたレスポンスおよびアップロードされたファイル) の削除がリクエストされます。プロバイダ側での削除はベストエフォートであり、保証されません。プロバイダのアカウントでも同様のデータ保存ポリシーを設定してください。メッセージおよび使用量の記録は、下の「チャットログの保存期間」が経過するまでレポート用に保持されます。0に設定した場合、チャットは永久に保持されます。';
+$string['closeconfirm_background'] = 'チャットを閉じている間も、AIエージェントは作業を続けます。';
 $string['closeconfirm_body'] = 'ウィンドウを閉じてもチャットは削除されません。「以前のチャット」メニューからいつでも再度開けます。チャットは {$a} 日後に自動的に削除されます。';
 $string['closeconfirm_body_noretention'] = 'ウィンドウを閉じてもチャットは削除されません。「以前のチャット」メニューからいつでも再度開けます。';
 $string['closeconfirm_close'] = 'チャットを閉じる';
@@ -95,6 +113,8 @@ $string['entity_skill'] = 'スキル';
 $string['entity_usage'] = 'トークン使用量';
 $string['error_interrupted_function'] = '関数呼び出しが完了する前に中断されました。変更が部分的に適用されている可能性があります。再試行する前に状態を確認してください。';
 $string['error_interrupted_llm'] = 'AIプロバイダとの通信が中断されました。「再試行」をクリックしてリクエストをやり直してください。';
+$string['errorbackgroundstart'] = 'AIエージェントはこのチャットの作業を開始できませんでした。サイト管理者にバックグラウンドのチャットの設定を確認するよう依頼してください。';
+$string['errorbackgroundstart_admin'] = 'AIエージェントはこのサーバでバックグラウンドプロセスを開始できませんでした。AIエージェントの設定の {$a} で、「PHP CLIのパス」を修正するか、バックグラウンドのチャットをオフにしてください。';
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'メッセージを空にすることはできません。';
 $string['errorfullscreendisabled'] = 'フルスクリーンのチャットビューはこのサイトで有効にされていません。';
@@ -118,6 +138,7 @@ $string['errorresponses_endpoint_invalid_config'] = 'プラグインはOpenAI Re
 $string['errorresponses_endpoint_reply'] = 'プロバイダの応答: {$a}';
 $string['errorresponses_provider_switch'] = 'このチャットは別のAIプロバイダで開始されたため、OpenAIのResponses APIでは続けることができません。新しいチャットを開始するか、元のプロバイダ (またはOpenAI Chat Completions) に戻して続けてください。';
 $string['errorrootnotfound'] = 'このチャットのルートメッセージが見つかりません。';
+$string['errorupdatesstopped'] = 'このチャットは更新を受信しなくなりました。リフレッシュして最新の状態を表示してください。';
 $string['exportskill'] = 'エクスポート';
 $string['feedback_modal_freetextlabel'] = 'その他にありますか? (任意)';
 $string['feedback_modal_freetextplaceholder_negative'] = '何が問題でしたか? 詳しく書いていただいて構いません。';
@@ -153,11 +174,23 @@ $string['feedbackthanks'] = 'フィードバックをありがとうございま
 $string['feedbackthumbdown'] = 'この応答の問題を報告';
 $string['feedbackthumbup'] = 'この応答は役に立ちました';
 $string['feedbackvalidation_categoryrequired'] = '少なくとも1つのカテゴリを選択してください。';
+$string['functionapprovalneeded'] = '承認が必要です';
+$string['functionapprovalneededmany'] = '承認が必要な関数呼び出し: {$a} 件';
 $string['functionapprovecount'] = '呼び出し {$a} 件を承認';
+$string['functionavailable'] = '利用可能';
 $string['functioncall_actions'] = '関数呼び出しの承認または拒否';
 $string['functioncall_chip_action'] = '自動承認モードを変更';
 $string['functioncalldetails'] = '関数呼び出しの詳細';
-$string['functioncalldetailscount'] = '関数呼び出しの詳細 ({$a})';
+$string['functioncalldetailsof'] = '関数呼び出しの詳細: {$a}';
+$string['functioncalling'] = '{$a} を呼び出し中';
+$string['functioncallnav'] = '{$a->index} / {$a->total}';
+$string['functioncallnext'] = '次の関数呼び出し';
+$string['functioncallprevious'] = '前の関数呼び出し';
+$string['functioncallscount'] = '関数呼び出し {$a} 件';
+$string['functioncallscountone'] = '関数呼び出し 1 件';
+$string['functiondenied'] = '{$a} を拒否しました';
+$string['functiondeniedmany'] = '{$a->name} とほか {$a->count} 件を拒否しました';
+$string['functiondeniednext'] = 'エージェントは停止しました。次に何をするかをメッセージで伝えてください。';
 $string['functiondeny'] = '拒否';
 $string['functiondenyall'] = 'すべて拒否';
 $string['functiondetailscopied'] = 'コピーしました';
@@ -187,20 +220,34 @@ $string['functionname'] = '関数名';
 $string['functionparameters'] = 'パラメータ';
 $string['functionresult'] = '結果';
 $string['functionresultdiscarded'] = '結果が大きすぎたため ({$a})、破棄されました。絞り込み条件を付ける、取得するフィールドを減らす、より限定的な関数を使用するなどして、リクエストを絞り込んでください。同じ呼び出しを繰り返しても同じエラーになります。';
+$string['functionrules_error_component'] = '{$a->path}: 「{$a->value}」に一致するコンポーネントに属する関数はありません。';
+$string['functionrules_error_depth'] = '{$a->path}: ルールのネストが {$a->max} 階層を超えています。';
+$string['functionrules_error_function'] = '{$a->path}: 「{$a->value}」に一致する関数はありません。';
+$string['functionrules_error_json'] = 'ルールが有効なJSONではありません: {$a}';
+$string['functionrules_error_list'] = '{$a->path}: ルールの部分を1つ以上含む一覧が必要です。';
+$string['functionrules_error_node'] = '{$a->path}: ルールの各部分は、type、tag、component、function、not、allまたはanyのいずれか1つだけをキーとして持つオブジェクトである必要があります。';
+$string['functionrules_error_tag'] = '{$a->path}: タグ「{$a->value}」を持つ関数はありません。';
+$string['functionrules_error_type'] = '{$a->path}: 「{$a->value}」は不明なタイプです。タイプはread、safeまたはwriteのいずれかです。';
+$string['functionrules_error_value'] = '{$a->path}: 空でない文字列、または空でない文字列を1つ以上含む一覧が必要です。';
+$string['functionrules_path_root'] = 'ルール全体';
 $string['functions_intro'] = '<p><b>すべてのウェブサービス関数がAIエージェントに適しているわけではありません。</b>クライアント・サーバ間の通信用に作られたもの (AJAXと表示) や、未認証ユーザ用のもの (未認証) があり、より良い代替がある関数もあります。一部のAJAX関数はAIエージェントでも十分に機能しますが、ほとんどは機能しません。AIエージェントプラグインはコアおよび標準の関数に関連度スコア (1-10) を割り当て、5以上のものを有効にします。アドオンプラグインの関数はスコア付けされず、代わりにAJAX以外のすべての関数が自動的に有効にされます。このページで利用可能な関数を確認し、個別に有効または無効にしてください。</p><p>関数が1つ以上のケイパビリティを必要とする場合、サイト内のいずれのコンテキストでもそれらのケイパビリティを1つも持たないユーザは、その関数を利用できません。コアおよび標準プラグインについては、AIエージェントプラグインがこれらのケイパビリティを正しく設定します。アドオンプラグインについてはケイパビリティが関数定義から取得され、Moodle自身はこのチェックを強制しないため、誤っている可能性があります。</p>';
 $string['functions_report'] = 'AIエージェント関数';
 $string['functionstatus_denied'] = '拒否済み';
 $string['functionstatus_failed'] = '失敗';
+$string['functionstatus_interrupted'] = '中断';
+$string['functionstatus_notrun'] = '未実行';
 $string['functionstatus_pending'] = '承認待ち';
 $string['functionstatus_processing'] = '実行中...';
 $string['functiontype'] = 'タイプ';
 $string['functiontype_help'] = 'ウェブサービス関数のタイプおよびその特性です:
 
 * **読み取り**: 何も変更せずにデータを取得します
+* **安全**: サイトを変更せず、チャット内のファイルのみを変更する組み込み関数です (添付ファイルのサイズ変更や画像生成など)
 * **書き込み**: データを作成または変更します
 * **AJAX**: クライアント・サーバ間のリクエストのためにMoodleが内部的に使用します。AIエージェントの関数としては適さない可能性が高くなります
 * **未認証**: 未認証ユーザが利用できます。これもAIエージェントの関数としては適さない可能性が高くなります';
 $string['functiontype_read'] = '読み取り';
+$string['functiontype_safe'] = '安全';
 $string['functiontype_write'] = '書き込み';
 $string['gemini_api_generatecontent'] = 'generateContent (安定版)';
 $string['gemini_api_interactions'] = 'Interactions API (ベータ)';
@@ -213,6 +260,7 @@ $string['gemini_builtin_google_search_desc'] = 'Geminiが最新のウェブ検�
 $string['gemini_builtin_url_context'] = '「URL Context」ツールを有効にする';
 $string['gemini_builtin_url_context_desc'] = 'Geminiがユーザの言及した公開URLのコンテンツを読み取り、分析できるようにします。Gemini 3以降のモデルのみ対応しています。Gemini 2.5以前では組み込みツールとカスタム関数呼び出しを併用できないため、この設定は通知なく無視されます。URLは公開されている必要があります (localhostは不可、認証も不可)。';
 $string['gemini_heading'] = 'Google Gemini';
+$string['hidefunctioncalls'] = '関数呼び出しを隠す';
 $string['hint_splitview'] = 'このチャットをあなたのサイトと並べて使用しますか? <a href="{$a}">{$a}</a> を新しいウィンドウにドラッグするか、右クリックしてブラウザの分割ビューをご利用ください。';
 $string['imagedimensions'] = '{$a->width}×{$a->height} px';
 $string['imagepreviewinfo'] = 'ファイル {$a->size}、大きさ {$a->dimensions}。プレビュー {$a->preview} ({$a->scale}%)。';
@@ -233,6 +281,8 @@ $string['importskill_summaryupdate'] = '更新 {$a} 個';
 $string['importskill_toolarge'] = 'スキルデータが大きすぎます (最大 {$a})。';
 $string['inlinefilecharlimit'] = 'インラインファイルコンテンツの上限';
 $string['inlinefilecharlimit_desc'] = 'ファイルをインラインで読み取る際に、チャットへ直接埋め込めるテキストファイルの最大量です。これを超えるコンテンツは切り詰められます。インライン配信は、モデルがリクエストした場合、およびファイルを受け付けられないAIプロバイダのフォールバックとして使用されます。埋め込まれたコンテンツはターンごとにチャット履歴とともに再送信されるため、上限を大きくするとトークン使用量が増加します。';
+$string['interruptedbystop'] = '中断: あなたがエージェントを停止しました。';
+$string['interruptedunexpectedly'] = '中断: 関数が予期せず停止しました。';
 $string['invalidparameter'] = '無効なパラメータが検出されました: {$a}';
 $string['isajax'] = 'AJAX';
 $string['licenseactivate'] = 'ライセンスを有効化';
@@ -265,7 +315,6 @@ AIプロバイダはいずれにせよ、リクエストごとの独自の上限
 $string['maxfunctionresultsize'] = '関数の結果の最大サイズ';
 $string['maxfunctionresultsize_desc'] = '1つの関数がAIモデルに返せるデータの最大量です。Moodleの関数の中にはフィルタを持たず、サイトのすべてのユーザまたはすべてのコースを返すものがあり、モデルを圧迫して以降のターンごとにトークンを消費します。この上限を超えた結果は破棄され、モデルにはリクエストを絞り込むよう伝えられます。ゼロを指定すると無制限になります。ファイルのインライン読み取りは対象外です。それには「インラインファイルコンテンツの上限」を使用してください。';
 $string['newchat'] = '新しいチャット';
-$string['newchatchooser_blank_sub'] = 'コンテキストなし。一般的なアシスタントです。';
 $string['newchatchooser_clone'] = 'このチャットと同じ';
 $string['newchatchooser_continue'] = '続きから';
 $string['newchatchooser_desc_default'] = 'このページで新しいチャットを開始するか、続きから始めてください。';
@@ -277,15 +326,20 @@ $string['newchatchooser_onthispage'] = 'このページ:';
 $string['newchatchooser_title'] = '新しいチャットを開始';
 $string['nfilesattached'] = '添付ファイル {$a} 個';
 $string['nonauth'] = '未認証';
+$string['notavailable_loginas'] = '別のユーザとしてログインしている間は、AIエージェントを利用できません。';
+$string['notavailable_roleswitch'] = 'ロールを切り替えている間は、AIエージェントを利用できません。';
 $string['numfiles'] = 'ファイル {$a} 個';
 $string['numimages'] = '画像 {$a} 枚';
 $string['numotherfiles'] = 'その他 {$a} 個';
+$string['onefileattached'] = '添付ファイル 1 個';
 $string['openai_api_chatcompletions'] = 'Chat Completions';
 $string['openai_api_responses'] = 'Responses API';
 $string['openai_api_type'] = 'APIタイプ';
 $string['openai_api_type_desc'] = 'マルチターンチャットに使用するOpenAI APIです。Responses APIは会話の状態をサーバ側で保持するため、ターンごとに新しい入力のみが送信されます (コストが低く、履歴も単純です)。Chat Completionsはリクエストごとにメッセージ配列全体を再構築します (プロバイダとの互換性が広がります)。<br><br>Responses APIをサポートするプロバイダ: <strong>{$a}</strong>。その他のプロバイダは、この設定にかかわらず通知なくChat Completionsにフォールバックします。';
 $string['openai_heading'] = 'OpenAI (または互換)';
 $string['openlink'] = 'リンクを開く';
+$string['pathtophp'] = 'バックグラウンドのチャット用の PHP CLIのパス';
+$string['pathtophp_desc'] = 'バックグラウンドのチャットを実行する PHP CLI のプログラムです。サイトの「PHP CLIのパス」とは別のものを使う場合に指定します。空のままにすると、サイトの設定を使用します。';
 $string['placeholder'] = 'メッセージを入力...';
 $string['placement_add'] = '配置を追加';
 $string['placement_confirmdelete'] = 'この配置を削除してもよろしいですか?';
@@ -294,9 +348,26 @@ $string['placement_defaultname'] = 'AIエージェント';
 $string['placement_deleted'] = '配置を削除しました。';
 $string['placement_duplicated'] = '配置を複製しました。';
 $string['placement_edit'] = '配置を編集';
+$string['placement_functionrules'] = '関数ルール';
+$string['placement_functionrules_help'] = 'この配置から開始されたチャットでAIエージェントが使用できる関数を制限します。すべての関数を許可する場合は空にしてください。ルールを変更すると、この配置からすでに開始されたチャットのルールも変更されます。
+
+ルールはJSONで記述します。ルールの各部分は、キーを1つ持つオブジェクトです:
+
+* {"type": "read"}: 関数のタイプがread、safeまたはwriteです (「関数」タブのレポートの「読み取り」「安全」「書き込み」)
+* {"tag": "student"}: 関数にこのタグが付いています
+* {"component": "mod_quiz"}: 関数がこのコンポーネントに属しています
+* {"function": "core_course_get_courses"}: 関数名がこれと一致します
+* {"not": 部分}、{"all": [部分]}、{"any": [部分]}: 部分を組み合わせます
+
+コンポーネント名または関数名では、アスタリスクが任意のテキストに一致します。type、tag、componentおよびfunctionには一覧も指定でき、その場合はいずれかの値に一致することを意味します。例えば {"type": ["read", "safe"]} は、サイトを変更しないすべての関数を許可します。
+
+ルールの作成や変更はAIエージェントに依頼してください。AIエージェントは、ルールを保存する前に、そのルールがどの関数を許可するかを確認します。';
+$string['placement_functionrules_preview'] = '保存されたルールは、有効な関数 {$a->total} 個のうち {$a->count} 個を許可します';
+$string['placement_functions'] = '許可される関数';
+$string['placement_functions_limited'] = '制限あり ({$a})';
 $string['placement_initialskills'] = '初期スキル';
-$string['placement_initialskills_help'] = 'チャットの開始時に自動的に読み込まれるスキルです。任意です。エージェントは必要に応じて他のスキルも読み込めます。ここで設定したスキルはこの配置自体も制御します。いずれのスキルにもアクセスできないユーザにはボタンもメニュー項目も表示されず、設定したスキルがすべて削除または無効にされると、この配置は表示されなくなります。';
-$string['placement_intro'] = '<p>配置を使用すると、特定の目的に合わせたエージェントを提供できます。それぞれの配置は、URLがマスクのいずれかに一致するページにAIエージェントボタンを追加し、あらかじめ決めた初期スキルとウェルカムテキストでチャットを開始できます。初期スキルが設定されている場合、いずれのスキルにもアクセスできないユーザにはボタンが表示されません。</p><p>初期スキルはチャットの出発点を決めるだけです。エージェントはスキルの関数だけでなく、有効なすべての関数にアクセスできます。</p>';
+$string['placement_initialskills_help'] = 'チャットの開始時に自動的に読み込まれるスキルです。任意です。配置の関数ルールで妨げられない限り、エージェントは必要に応じて他のスキルも読み込めます。ここで設定したスキルはこの配置自体も制御します。いずれのスキルにもアクセスできないユーザにはボタンもメニュー項目も表示されず、設定したスキルがすべて削除または無効にされると、この配置は表示されなくなります。';
+$string['placement_intro'] = '<p>配置を使用すると、特定の目的に合わせたエージェントを提供できます。それぞれの配置は、URLがマスクのいずれかに一致するページにAIエージェントボタンを追加し、あらかじめ決めた初期スキルとウェルカムテキストでチャットを開始できます。初期スキルが設定されている場合、いずれのスキルにもアクセスできないユーザにはボタンが表示されません。</p><p>初期スキルはチャットの出発点を決めるだけです。エージェントはスキルの関数だけでなく、有効なすべての関数にアクセスできます。関数ルールは、配置から開始されたチャットでエージェントが使用できる関数を制限します。</p>';
 $string['placement_location'] = 'ボタンの位置';
 $string['placement_location_floating'] = 'フローティングボタン';
 $string['placement_location_h1'] = 'ページ見出し (H1)';
@@ -307,14 +378,16 @@ $string['placement_name_help'] = 'ユーザに表示されます: ユーザメ�
 $string['placement_save'] = '配置を保存';
 $string['placement_saved'] = '配置を保存しました。';
 $string['placement_skillmissing'] = 'スキルが見つかりません';
+$string['placement_skillnotinitial'] = '初期スキルとして使用不可';
 $string['placement_suggestedprompts'] = '提案プロンプト';
 $string['placement_suggestedprompts_help'] = '1行に1つのプロンプトを入力します。プロンプトはチャットの開始画面でメッセージ欄の上にボタンとして表示され、クリックするとすぐに送信されます (例: 「このコースを要約して」)。ユーザが先に補足する必要があるプロンプトにするには、プロンプト内の任意の位置に ... を入れてください。その場合、プロンプトは送信されずにメッセージ欄に入力されます (例: 「このコースの ... セクションを要約して」)。プロンプトを表示しない場合は空欄にしてください。';
 $string['placement_urlmask'] = 'URLマスク';
-$string['placement_urlmask_help'] = '1行に1つのパターンを入力してください。* をワイルドカードとして使用できます。例: /course/view.php* または /mod/*/view.php*。注意: より限定的な配置が同じ位置を対象としているページでは、/* に一致する広範な配置は非表示になり、ユーザにはより適切なものだけが表示されます。';
+$string['placement_urlmask_help'] = '1行に1つのパターンを入力してください。* をワイルドカードとして使用できます。例: /course/view.php* または /mod/*/view.php*。';
 $string['placement_urlmask_invalid'] = 'それぞれのURLマスクはスラッシュで始まる必要があります。「{$a}」はそうなっていません。';
 $string['placement_welcome'] = 'カスタムウェルカムテキスト (任意)';
 $string['placement_welcome_help'] = 'チャットの開始画面の標準のウェルカムメッセージを置き換えます。デフォルトを使用する場合は空にしてください。';
 $string['pluginname'] = 'AIエージェント';
+$string['pluginnotinstalled'] = 'プラグイン未インストール';
 $string['previouschats'] = '以前のチャット';
 $string['privacy:metadata:aiprovider'] = 'チャットは、応答を生成するため、サイト管理者が選択したAIプロバイダ (OpenAI、Azure OpenAI、Google GeminiまたはAnthropic等) に送信されます。プラグインはMoodleのAIサブシステムを経由せず、それぞれのリクエストをプロバイダに直接送信します。どの企業がデータを受け取り、そこでどれくらいの期間保持されるかは、サイトが設定したプロバイダおよびそのプロバイダ自身の規約によります。';
 $string['privacy:metadata:aiprovider:files'] = 'ユーザがチャットに添付したファイル、およびエージェントがユーザに代わってサイトから読み取ったファイルです。モデルが内容を読み取れるようアップロードされます。';
@@ -340,12 +413,18 @@ $string['privacy:metadata:tool_aiagent_message:content'] = 'メッセージの�
 $string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'オーバーレイまたはサイドバーのチャットから送信されたメッセージについて、その時点でユーザが読んでいたページのアドレスおよび名称です。';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'メッセージを送信した主体です: ユーザ、アシスタント、システムまたは関数です。';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'メッセージが作成された日時です。';
+$string['privacy:metadata:tool_aiagent_run'] = 'AIエージェントがチャットのメッセージに取り組んだ各回の記録です。終了後1日間保持されます。';
+$string['privacy:metadata:tool_aiagent_run:ip'] = 'メッセージ送信時のユーザのIPアドレスです。AIエージェントがユーザのために実行した操作とともに記録されます。';
+$string['privacy:metadata:tool_aiagent_run:payload'] = 'AIエージェントが読み取りを求めたときに、ユーザが表示していたページの内容です。';
+$string['privacy:metadata:tool_aiagent_run:timecreated'] = 'AIエージェントがメッセージの作業を開始した日時です。';
+$string['privacy:metadata:tool_aiagent_run:userid'] = 'メッセージを送信したユーザです。';
 $string['privacy:metadata:tool_aiagent_usage'] = '使用量の追跡のために保持される、それぞれのAIリクエストで記録されたトークン使用量です。';
 $string['privacy:metadata:tool_aiagent_usage:completiontokens'] = '使用された出力 (コンプリーション) トークンの数です。';
 $string['privacy:metadata:tool_aiagent_usage:model'] = 'リクエストを処理したAIモデルです。';
 $string['privacy:metadata:tool_aiagent_usage:prompttokens'] = '使用された入力 (プロンプト) トークンの数です。';
 $string['privacy:metadata:tool_aiagent_usage:provider'] = 'リクエストを処理したAIプロバイダです。';
 $string['privacy:metadata:tool_aiagent_usage:timecreated'] = 'リクエストが行われた日時です。';
+$string['providers_heading'] = 'すべてのAIプロバイダ';
 $string['relevancescore'] = '関連度スコア';
 $string['relevancescore_help'] = '関連度スコアは、ウェブサービス関数がAIエージェントにどれくらい適しているかを1から10の尺度で示します。
 
@@ -373,6 +452,7 @@ $string['resume_title'] = 'おかえりなさい';
 $string['sendmessage'] = '送信';
 $string['settings'] = 'AIエージェント設定';
 $string['showallfiles'] = 'すべて表示';
+$string['showfunctioncalls'] = '関数呼び出しを表示';
 $string['skill_add'] = 'スキルを追加';
 $string['skill_edit'] = 'スキルを編集';
 $string['skill_save_close'] = '保存して閉じる';
@@ -392,6 +472,7 @@ $string['skilldeleted'] = 'スキル「{$a}」を削除しました。';
 $string['skilldescription'] = '説明';
 $string['skilldescription_help'] = 'アシスタントがいつスキルを読み込むべきか判断できるよう、そのスキルが何のためのものかを記述します。実行する手順ではなく、対象となるタスクまたはアクティビティを説明してください。この内容はスキル一覧 (人が読みます) とシステムプロンプト (アシスタントが読みます) の両方に表示されます。';
 $string['skillexists'] = '省略名「{$a}」のスキルはすでに存在します。';
+$string['skillimport_badloadmode'] = '「loadmode」フィールドは次のいずれかである必要があります: {$a}。';
 $string['skillimport_badmasks'] = '「mainfunctions」および「otherfunctions」フィールドは、それぞれマスク文字列の一覧である必要があります。';
 $string['skillimport_badshortname'] = 'それぞれのスキルには有効な省略名 (英字、数字、ハイフン、アンダースコア) が必要です。';
 $string['skillimport_invalidjson'] = 'アップロードされたファイルは有効なスキルJSONではありません。';
@@ -400,6 +481,13 @@ $string['skillimported'] = 'スキル「{$a}」をインポートしました。
 $string['skillinstructions'] = 'インストラクション';
 $string['skillinstructions_help'] = 'スキルが読み込まれるときにチャットへ読み込まれるガイダンスです。自明でない内容のみを含めてください。アシスタントは読み込まれたすべての関数とその説明をすでに見ているため、関数の動作を繰り返したり、当然のパラメータを渡すよう念を押したりしないでください。説明ではカバーされないワークフローの順序、判断およびつまずきやすい点を記述し、場合によってのみ適用される手順は「もし...」の形で書いてください。';
 $string['skillloadedevent'] = 'スキル読み込み · {$a}';
+$string['skillloadmode'] = '使用方法';
+$string['skillloadmode_dynamic'] = 'チャット中に必要に応じて読み込む場合のみ';
+$string['skillloadmode_help'] = '配置がこのスキルを初期スキルとして使用する場合、スキルのインストラクションはチャットの開始時からシステムインストラクションに追加されます。AIエージェントの応答の仕方を変えたい場合に使用してください。
+
+評定表の設定やアクセス制限の追加など、特定の目的のためのスキルは、そのスキルが対象とする内容をユーザが依頼したときに、必要に応じて読み込むことができます。';
+$string['skillloadmode_initial'] = '初期スキルとしてのみ';
+$string['skillloadmode_initial_or_dynamic'] = '初期スキルとしても、必要に応じて読み込む場合も';
 $string['skillmainfunctions'] = 'メイン関数';
 $string['skillmainfunctions_help'] = 'スキルの中心となる作成および更新の関数を選択する、限定的なマスクのセットです。これらの関数のケイパビリティによって、誰にスキルが提供されるかが決まります。少なくとも1つの関数にアクセスできるユーザのみです。それぞれのマスクは関数名またはコンポーネント/名称のグロブに一致します (「*」はワイルドカード、先頭の「~」は一致を除外します)。すべてのユーザにスキルを提供する場合は空にしてください。';
 $string['skillmatched'] = '一致 ({$a})';
@@ -410,7 +498,7 @@ $string['skillnomatch'] = 'これらのパターンに一致する有効な関�
 $string['skillnotfound'] = 'スキルが見つかりません: {$a}。';
 $string['skillotherfunctions'] = 'その他の関数';
 $string['skillotherfunctions_help'] = 'スキルが持ち込むその他の関数 (読み取り、ヘルパー、またはコンポーネント全体) のマスクです。書式はメイン関数と同じですが、誰にスキルが提供されるかには影響しません。追加の関数が不要な場合は空にしてください。';
-$string['skills_intro'] = '<p>スキルは、特定の目的のための専門的なインストラクションと、そのために推奨される関数の一覧をまとめたものです。AIエージェントが混乱しやすい、または適切な関数を見つけられない複数ステップのよくあるタスクや、あなたの組織に固有のタスクにスキルをご利用ください。</p><p>スキルの一覧とその説明は常にAIエージェントが利用でき、ユーザのリクエストに合うと判断したスキルをAIエージェント自身が読み込みます。スキルは、そのメイン関数の少なくとも1つにアクセスできるユーザのみが利用できます。例えば、教師向けに作られたスキルは学生には表示されません。</p>';
+$string['skills_intro'] = '<p>スキルは、特定の目的のための専門的なインストラクションと、そのために推奨される関数の一覧をまとめたものです。AIエージェントが混乱しやすい、または適切な関数を見つけられない複数ステップのよくあるタスクや、あなたの組織に固有のタスクにスキルをご利用ください。</p><p>スキルの使い方は2通りあり、スキルの「使用方法」設定で選択します。配置でスキルを初期スキルとして設定すると、そのインストラクションがチャットの開始時から適用されます。または、AIエージェントが必要に応じてスキルを読み込むこともできます。AIエージェントはこれらのスキルの名称と説明を常に参照でき、ユーザのリクエストに合うと判断したスキルを読み込みます。スキルは、そのメイン関数の少なくとも1つにアクセスできるユーザのみが利用できます。例えば、教師向けに作られたスキルは学生には表示されません。</p>';
 $string['skillshortname'] = '省略名';
 $string['skillshortname_help'] = 'サイト全体で一意の、安定したマシン名です。英字、数字、ハイフンおよびアンダースコアのみ使用できます。後から変更できますが、プラグインに同梱されたスキルの省略名は変更できません。';
 $string['skilltags'] = 'タグ';
@@ -418,6 +506,11 @@ $string['skilltags_help'] = 'タグは絞り込みにのみ使用され、モデ
 $string['skilltoobroad'] = '関数 {$a} 個に一致します。範囲が広すぎる可能性があります。関数マスクを絞り込むことをご検討ください。';
 $string['skillunavailable'] = '利用不可';
 $string['skillupdated'] = 'スキル「{$a}」を更新しました。';
+$string['stop'] = '停止';
+$string['stoppedafter'] = '{$a} 後に停止';
+$string['stoppedbyuser'] = 'エージェントを停止しました。続けるには新しいメッセージを入力してください。';
+$string['stopping'] = '停止しています...';
+$string['stoppingafterfunction'] = 'この関数が終わり次第停止します';
 $string['suggestedprompt_edit'] = '送信前にこのメッセージを編集する';
 $string['suggestedprompt_send'] = 'このメッセージを送信する';
 $string['switchview'] = 'ビューを切り替え';
@@ -438,6 +531,9 @@ $string['timecreated'] = '作成日時';
 $string['timelastactivity'] = '最終アクティビティ';
 $string['timemodified'] = '更新日時';
 $string['tryagain'] = '再試行';
+$string['unavailable_envcheck'] = 'この関数は、依存するサイト設定が有効になっていないため利用できません: {$a}';
+$string['unavailable_plugindisabled'] = 'この関数は、このサイトでプラグイン {$a} が無効になっているため利用できません。';
+$string['unavailable_pluginnotinstalled'] = 'この関数は、このサイトにプラグイン {$a} がインストールされていないため使用できません。';
 $string['usage_completiontokens'] = '出力トークン';
 $string['usage_model'] = 'モデル';
 $string['usage_prompttokens'] = '入力トークン';
@@ -455,3 +551,6 @@ $string['welcome_skillsmore'] = '他{$a}件';
 $string['welcome_tryasking'] = '質問の例';
 $string['welcomedesc'] = 'あなたのサイト、コース、ユーザまたはコンテンツについてAIエージェントに質問してください。読み取りができ、あなたの承認があれば変更もできます。';
 $string['welcometitle'] = 'ようこそ、{$a}さん';
+$string['workedfor'] = '作業時間 {$a}';
+$string['working'] = '作業中';
+$string['workingfor'] = '作業中 ({$a})';

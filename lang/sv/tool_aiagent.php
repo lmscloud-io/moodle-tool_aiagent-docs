@@ -10,7 +10,7 @@
 
 /**
  * Swedish language pack for AI agent.
- * Last updated: 2026-10-11
+ * Last updated: 2026-10-25
  *
  * @package    tool_aiagent
  * @category   string
@@ -21,9 +21,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_needsyou'] = 'AI-agent: väntar på ditt godkännande';
+$string['activity_working'] = 'AI-agent: arbetar';
 $string['addon'] = 'Tilläggsplugin';
 $string['aiagent:autoapproveall'] = 'Välja läget ”Alla” för autogodkännande, som kör varje funktionsanrop utan bekräftelse';
 $string['aiagent:usechat'] = 'Starta chattar med AI-agenten (styr var en chatt kan startas; begränsar inte vilka data chatten kommer åt när den väl har startats)';
+$string['allfunctions'] = 'Alla';
 $string['allowfeedback'] = 'Tillåt återkoppling';
 $string['allowfeedback_desc'] = 'När detta är aktiverat kan användare bedöma assistentens svar och rapportera funktionsanrop som misslyckats. Det som skickas in går till utvecklarna av AI-agenten (inte till någon LLM) så att de kan förbättra hur Moodles funktioner anropas. Endast det bedömda utbytet skickas, inte hela chatten, och användaren kan redigera texten innan den skickas. Inaktivera detta på webbplatser med strikta regler för utgående trafik.';
 $string['anthropic_heading'] = 'Anthropic (Claude)';
@@ -44,6 +47,18 @@ $string['autoapprove_readonly_desc'] = 'Godkänn läsningar automatiskt, fråga 
 $string['autoapprove_safe'] = 'Säkra';
 $string['autoapprove_safe_desc'] = 'Godkänn åtgärder som inte ändrar webbplatsen';
 $string['autoapprove_safe_examples'] = 'Läsningar samt storleksändring av bilagor, bildgenerering, sändning av filer till LLM:en med mera.';
+$string['autoapprovetimelimit'] = 'Tidsgräns för autogodkännande';
+$string['autoapprovetimelimit_desc'] = 'Hur länge AI-agenten får fortsätta köra autogodkända funktioner efter användarens senaste åtgärd, till exempel att skicka ett meddelande eller godkänna funktioner. Därefter ber den om godkännande före nästa funktion. Det hindrar att övergivna chattar använder serverresurser och AI-tokens. 0 betyder ingen gräns.';
+$string['autopaused'] = 'Autogodkännandet pausades efter {$a} utan åtgärd från dig. Godkänn för att fortsätta.';
+$string['background_heading'] = 'Chattar i bakgrunden';
+$string['backgroundchats'] = 'Tillåt chattar i bakgrunden';
+$string['backgroundchats_desc'] = 'Kör varje chatt i en egen PHP CLI-process på servern. AI-agenten fortsätter då att arbeta efter att användaren lämnat sidan eller stängt fliken, kör kedjor av funktioner snabbare, och Stoppa avbryter agenten direkt, även medan en funktion körs. När detta är avstängt, eller ingen PHP CLI är tillgänglig, körs chattarna i användarens webbläsarförfrågan.';
+$string['backgroundunavailable_effect'] = 'AI-agenten kör kedjor av funktioner via webbläsaren, så de är långsammare och stoppas när användaren lämnar sidan eller stänger fliken. Funktioner som redan körs kan inte avbrytas.';
+$string['backgroundunavailable_executable'] = 'Sökväg till PHP CLI för chattar i bakgrunden är inte en körbar fil.';
+$string['backgroundunavailable_function'] = 'PHP-funktionen {$a} är avstängd på den här servern.';
+$string['backgroundunavailable_pathtophp'] = 'Sökväg till PHP CLI är inte angiven.';
+$string['backgroundunavailable_setpath'] = 'Ange Sökväg till PHP CLI';
+$string['backgroundunavailable_windows'] = 'Chattar i bakgrunden är inte tillgängliga på Windows-servrar.';
 $string['backtoconfiguration'] = 'Tillbaka till konfigurationen av AI-agenten';
 $string['builtinfunction'] = 'Medföljande';
 $string['bulk_disabled'] = '{$a} funktion(er) inaktiverade';
@@ -52,14 +67,17 @@ $string['bulk_enabled'] = '{$a} funktion(er) aktiverade';
 $string['bulk_enableselected'] = 'Aktivera valda';
 $string['bulk_withselected'] = 'Med valda funktioner';
 $string['capabilities'] = 'Behörigheter';
+$string['chat_heading'] = 'Chattar';
 $string['chat_namelink'] = 'Namn med länk';
 $string['chatfrozen'] = 'Färdigheterna i den här chatten är inte längre tillgängliga, så den kan inte fortsätta. Starta en ny chatt i stället.';
+$string['chatfrozen_noplacement'] = 'Den här chatten startades i en tidigare version av AI-agenten, så den kan inte längre fortsätta. Starta en ny chatt i stället.';
 $string['chathelpcontent'] = '<p>AI-agenten kan läsa och ändra innehåll på den här webbplatsen åt dig. De flesta åtgärder kräver ditt godkännande innan de utförs. Du kan byta läge för autogodkännande i skrivfältet för att lätta på eller skärpa det.</p>
 <p>Bifoga filer genom att dra och släppa, klistra in eller klicka på gemsymbolen. Skriv sedan din fråga och tryck på <strong>Skicka</strong>. Tryck på Enter för att skicka, eller Skift och Enter för en ny rad.</p><p>AI kan göra misstag. Kontrollera resultaten.</p>';
 $string['chatnopermission'] = 'Den här chatten startades i en del av webbplatsen där du inte längre har åtkomst till AI-agenten, så den kan inte fortsätta.';
 $string['chatnostartpermission'] = 'Du har inte behörighet att starta en chatt här. Öppna AI-agenten från en sida där den erbjuds.';
 $string['chatretention'] = 'Behåll chattar i';
 $string['chatretention_desc'] = 'Chattar utan aktivitet under så lång tid tas bort från användarnas chatthistorik, deras bifogade filer raderas från den här webbplatsen och en begäran skickas om att radera de chattdata som AI-leverantören lagrar (sparade svar och uppladdade filer). Radering hos leverantören sker efter bästa förmåga och kan inte garanteras; ställ in en motsvarande policy för datalagring i ditt konto hos leverantören också. Meddelanden och användningsuppgifter behålls för rapportering tills lagringstiden för chattloggar nedan har löpt ut. Ange 0 för att behålla chattar för alltid.';
+$string['closeconfirm_background'] = 'AI-agenten fortsätter att arbeta medan chatten är stängd.';
 $string['closeconfirm_body'] = 'Att stänga fönstret tar inte bort chatten. Du kan öppna den igen när som helst från menyn Tidigare chattar. Chattar tas bort automatiskt efter {$a} dagar.';
 $string['closeconfirm_body_noretention'] = 'Att stänga fönstret tar inte bort chatten. Du kan öppna den igen när som helst från menyn Tidigare chattar.';
 $string['closeconfirm_close'] = 'Stäng chatten';
@@ -95,6 +113,8 @@ $string['entity_skill'] = 'Färdighet';
 $string['entity_usage'] = 'Tokenanvändning';
 $string['error_interrupted_function'] = 'Ett funktionsanrop avbröts innan det hann slutföras. Det kan ha gjort ändringar delvis; kontrollera läget innan du försöker igen.';
 $string['error_interrupted_llm'] = 'Kommunikationen med AI-leverantören avbröts. Klicka på ”Försök igen” för att göra om begäran.';
+$string['errorbackgroundstart'] = 'AI-agenten kunde inte börja arbeta med den här chatten. Be webbplatsens administratör att kontrollera inställningarna för chattar i bakgrunden.';
+$string['errorbackgroundstart_admin'] = 'AI-agenten kunde inte starta sin bakgrundsprocess på den här servern. Rätta Sökväg till PHP CLI, eller stäng av chattar i bakgrunden, under {$a} i AI-agentens inställningar.';
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Meddelandet får inte vara tomt.';
 $string['errorfullscreendisabled'] = 'Chattvyn i helskärm är inte aktiverad på den här webbplatsen.';
@@ -118,6 +138,7 @@ $string['errorresponses_endpoint_invalid_config'] = 'Pluginmodulen försökte an
 $string['errorresponses_endpoint_reply'] = 'Leverantören svarade: {$a}';
 $string['errorresponses_provider_switch'] = 'Den här chatten kan inte fortsätta med OpenAI:s Responses API eftersom den startades med en annan AI-leverantör. Starta en ny chatt, eller byt tillbaka till den ursprungliga leverantören (eller till OpenAI Chat Completions) för att fortsätta med den här.';
 $string['errorrootnotfound'] = 'Ursprungsmeddelandet för den här chatten hittades inte.';
+$string['errorupdatesstopped'] = 'Den här chatten tar inte längre emot uppdateringar. Uppdatera för att se det senaste läget.';
 $string['exportskill'] = 'Exportera';
 $string['feedback_modal_freetextlabel'] = 'Något mer? (valfritt)';
 $string['feedback_modal_freetextplaceholder_negative'] = 'Vad gick fel? Var så detaljerad du vill.';
@@ -153,11 +174,23 @@ $string['feedbackthanks'] = 'Tack för din återkoppling!';
 $string['feedbackthumbdown'] = 'Rapportera ett problem med det här svaret';
 $string['feedbackthumbup'] = 'Det här svaret var till hjälp';
 $string['feedbackvalidation_categoryrequired'] = 'Välj minst en kategori.';
+$string['functionapprovalneeded'] = 'Godkännande krävs';
+$string['functionapprovalneededmany'] = '{$a} funktionsanrop behöver godkännas';
 $string['functionapprovecount'] = 'Godkänn {$a} anrop';
+$string['functionavailable'] = 'Tillgänglig';
 $string['functioncall_actions'] = 'Godkänn eller avslå funktionsanrop';
 $string['functioncall_chip_action'] = 'Byt läge för autogodkännande';
 $string['functioncalldetails'] = 'Detaljer om funktionsanropet';
-$string['functioncalldetailscount'] = 'Detaljer om funktionsanropen ({$a})';
+$string['functioncalldetailsof'] = 'Detaljer om funktionsanropet: {$a}';
+$string['functioncalling'] = 'Anropar {$a}';
+$string['functioncallnav'] = '{$a->index} av {$a->total}';
+$string['functioncallnext'] = 'Nästa funktionsanrop';
+$string['functioncallprevious'] = 'Föregående funktionsanrop';
+$string['functioncallscount'] = '{$a} funktionsanrop';
+$string['functioncallscountone'] = '1 funktionsanrop';
+$string['functiondenied'] = 'Du avslog {$a}';
+$string['functiondeniedmany'] = 'Du avslog {$a->name} och {$a->count} till';
+$string['functiondeniednext'] = 'Agenten stoppade. Skriv ett meddelande och berätta vad den ska göra härnäst.';
 $string['functiondeny'] = 'Avslå';
 $string['functiondenyall'] = 'Avslå alla';
 $string['functiondetailscopied'] = 'Kopierat';
@@ -187,20 +220,34 @@ $string['functionname'] = 'Funktionsnamn';
 $string['functionparameters'] = 'Parametrar';
 $string['functionresult'] = 'Resultat';
 $string['functionresultdiscarded'] = 'Resultatet var för stort ({$a}) och kastades. Begränsa begäran genom att filtrera den, be om färre fält eller använda en mer specifik funktion. Att upprepa samma anrop ger samma fel.';
+$string['functionrules_error_component'] = '{$a->path}: ingen funktion hör till en komponent som matchar ”{$a->value}”.';
+$string['functionrules_error_depth'] = '{$a->path}: regeln är nästlad i mer än {$a->max} nivåer.';
+$string['functionrules_error_function'] = '{$a->path}: ingen funktion matchar ”{$a->value}”.';
+$string['functionrules_error_json'] = 'Regeln är inte giltig JSON: {$a}';
+$string['functionrules_error_list'] = '{$a->path}: här förväntas en icke-tom lista med regeldelar.';
+$string['functionrules_error_node'] = '{$a->path}: varje del av regeln måste vara ett objekt med exakt en nyckel: type, tag, component, function, not, all eller any.';
+$string['functionrules_error_tag'] = '{$a->path}: ingen funktion har etiketten ”{$a->value}”.';
+$string['functionrules_error_type'] = '{$a->path}: okänd typ ”{$a->value}”. Typerna är read, safe och write.';
+$string['functionrules_error_value'] = '{$a->path}: här förväntas en icke-tom sträng eller en icke-tom lista med icke-tomma strängar.';
+$string['functionrules_path_root'] = 'Hela regeln';
 $string['functions_intro'] = '<p><b>Alla webbtjänstfunktioner passar inte för AI-agenten.</b> Vissa byggdes för kommunikation mellan klient och server (märkta AJAX) eller för användare som inte är inloggade (Utan inloggning), och för vissa finns bättre alternativ. En del AJAX-funktioner fungerar bra med AI-agenten, men de flesta gör det inte. AI-agenten ger funktioner i Moodles kärna och i standardpluginmoduler en relevanspoäng (1-10) och aktiverar dem som har 5 eller högre. Funktioner från tilläggsplugin poängsätts inte; i stället aktiveras alla deras funktioner som inte är AJAX automatiskt. Använd den här sidan för att gå igenom de tillgängliga funktionerna och aktivera eller inaktivera enskilda funktioner.</p><p>När en funktion kräver en eller flera behörigheter är den inte tillgänglig för användare som saknar minst en av dessa behörigheter i någon kontext på webbplatsen. För kärnan och standardpluginmoduler sätter AI-agenten dessa behörigheter korrekt. För tilläggsplugin hämtas behörigheterna från funktionsdefinitionen, och eftersom Moodle inte själv genomdriver kontrollen kan de vara felaktiga.</p>';
 $string['functions_report'] = 'AI-agentens funktioner';
 $string['functionstatus_denied'] = 'Avslaget';
 $string['functionstatus_failed'] = 'Misslyckades';
+$string['functionstatus_interrupted'] = 'Avbrutet';
+$string['functionstatus_notrun'] = 'Inte kört';
 $string['functionstatus_pending'] = 'Väntar på godkännande';
 $string['functionstatus_processing'] = 'Körs...';
 $string['functiontype'] = 'Typ';
 $string['functiontype_help'] = 'Webbtjänstfunktionens typ och egenskaper:
 
 * **Läsning**: hämtar data utan att ändra något
+* **Säker**: en medföljande funktion som inte ändrar webbplatsen, bara filerna i chatten, till exempel storleksändring av en bilaga eller bildgenerering
 * **Skrivning**: skapar eller ändrar data
 * **AJAX**: används internt av Moodle för anrop mellan klient och server, mindre lämplig som funktion för AI-agenten
 * **Utan inloggning**: tillgänglig för användare som inte är inloggade, också mindre lämplig som funktion för AI-agenten';
 $string['functiontype_read'] = 'Läsning';
+$string['functiontype_safe'] = 'Säker';
 $string['functiontype_write'] = 'Skrivning';
 $string['gemini_api_generatecontent'] = 'generateContent (stabil)';
 $string['gemini_api_interactions'] = 'Interactions API (beta)';
@@ -213,6 +260,7 @@ $string['gemini_builtin_google_search_desc'] = 'Låter Gemini förankra svaren i
 $string['gemini_builtin_url_context'] = 'Aktivera verktyget URL Context';
 $string['gemini_builtin_url_context_desc'] = 'Låter Gemini läsa och analysera innehåll från offentliga URL:er som användaren nämner. Endast modeller från Gemini 3 och senare; ignoreras utan meddelande på Gemini 2.5 och äldre, eftersom de modellerna inte kan kombinera inbyggda verktyg med egna funktionsanrop. URL:erna måste vara offentligt tillgängliga (ingen localhost, ingen inloggning).';
 $string['gemini_heading'] = 'Google Gemini';
+$string['hidefunctioncalls'] = 'Dölj funktionsanrop';
 $string['hint_splitview'] = 'Vill du använda den här chatten sida vid sida med din webbplats? Dra <a href="{$a}">{$a}</a> till ett nytt fönster, eller högerklicka på länken och använd webbläsarens delade vy.';
 $string['imagedimensions'] = '{$a->width}×{$a->height} px';
 $string['imagepreviewinfo'] = 'Fil {$a->size}, mått {$a->dimensions}. Förhandsvisning {$a->preview} ({$a->scale} %).';
@@ -233,6 +281,8 @@ $string['importskill_summaryupdate'] = '{$a} att uppdatera';
 $string['importskill_toolarge'] = 'Färdighetsdata är för stora (högst {$a}).';
 $string['inlinefilecharlimit'] = 'Gräns för infogat filinnehåll';
 $string['inlinefilecharlimit_desc'] = 'Största mängd av en textfil som kan bäddas in direkt i chatten när en fil läses infogat. Längre innehåll kortas av. Infogad leverans används när modellen begär det, och som reserv för AI-leverantörer som inte kan ta emot filer. Infogat innehåll skickas med chatthistoriken på nytt varje omgång, så en hög gräns ökar tokenanvändningen.';
+$string['interruptedbystop'] = 'Avbrutet: du stoppade agenten.';
+$string['interruptedunexpectedly'] = 'Avbrutet: funktionen stoppades oväntat.';
 $string['invalidparameter'] = 'Ogiltig parameter upptäckt: {$a}';
 $string['isajax'] = 'AJAX';
 $string['licenseactivate'] = 'Aktivera licens';
@@ -265,7 +315,6 @@ AI-leverantörer avvisar ändå filer som överskrider deras egna gränser per b
 $string['maxfunctionresultsize'] = 'Största storlek på funktionsresultat';
 $string['maxfunctionresultsize_desc'] = 'Största mängd data som en enskild funktion får returnera till AI-modellen. Vissa Moodle-funktioner saknar filter och returnerar alla användare eller alla kurser på webbplatsen, vilket översvämmar modellen och förbrukar token i varje följande omgång. Ett resultat över den här gränsen kastas och modellen uppmanas att begränsa begäran i stället. Ange noll för ingen gräns. Att läsa en fil infogat är undantaget; använd ”Gräns för infogat filinnehåll” för det.';
 $string['newchat'] = 'Ny chatt';
-$string['newchatchooser_blank_sub'] = 'Utan sammanhang. Allmän assistent.';
 $string['newchatchooser_clone'] = 'Samma som den här chatten';
 $string['newchatchooser_continue'] = 'Fortsätt där du var';
 $string['newchatchooser_desc_default'] = 'Starta en ny chatt på den här sidan, eller fortsätt där du var.';
@@ -277,15 +326,20 @@ $string['newchatchooser_onthispage'] = 'På den här sidan:';
 $string['newchatchooser_title'] = 'Starta en ny chatt';
 $string['nfilesattached'] = '{$a} bifogade filer';
 $string['nonauth'] = 'Utan inloggning';
+$string['notavailable_loginas'] = 'AI-agenten är inte tillgänglig medan du är inloggad som en annan användare.';
+$string['notavailable_roleswitch'] = 'AI-agenten är inte tillgänglig medan du har bytt roll.';
 $string['numfiles'] = '{$a} filer';
 $string['numimages'] = '{$a} bilder';
 $string['numotherfiles'] = '{$a} övriga';
+$string['onefileattached'] = '1 bifogad fil';
 $string['openai_api_chatcompletions'] = 'Chat Completions';
 $string['openai_api_responses'] = 'Responses API';
 $string['openai_api_type'] = 'API-typ';
 $string['openai_api_type_desc'] = 'Vilket OpenAI-API som ska användas för chattar med flera omgångar. Responses API håller chattens tillstånd på serversidan, så bara ny indata skickas varje omgång (lägre kostnad, enklare historik). Chat Completions bygger upp hela meddelandelistan på nytt vid varje begäran (bredare kompatibilitet med leverantörer).<br><br>Responses API stöds av: <strong>{$a}</strong>. Andra leverantörer faller utan meddelande tillbaka på Chat Completions oavsett den här inställningen.';
 $string['openai_heading'] = 'OpenAI (eller kompatibel)';
 $string['openlink'] = 'Öppna länken';
+$string['pathtophp'] = 'Sökväg till PHP CLI för chattar i bakgrunden';
+$string['pathtophp_desc'] = 'PHP CLI-programmet som kör chattar i bakgrunden, när det ska vara ett annat än webbplatsens Sökväg till PHP CLI. Lämna tomt för att använda webbplatsens inställning.';
 $string['placeholder'] = 'Skriv ett meddelande...';
 $string['placement_add'] = 'Lägg till placering';
 $string['placement_confirmdelete'] = 'Är du säker på att du vill ta bort den här placeringen?';
@@ -294,9 +348,26 @@ $string['placement_defaultname'] = 'AI-agent';
 $string['placement_deleted'] = 'Placeringen har tagits bort.';
 $string['placement_duplicated'] = 'Placeringen har duplicerats.';
 $string['placement_edit'] = 'Redigera placering';
+$string['placement_functionrules'] = 'Funktionsregel';
+$string['placement_functionrules_help'] = 'Begränsar vilka funktioner AI-agenten får använda i chattar som startats från den här placeringen. Lämna tomt för att tillåta alla funktioner. Om du ändrar regeln ändras den även i de chattar som redan har startats från den här placeringen.
+
+Regeln skrivs i JSON. Varje del av den är ett objekt med en nyckel:
+
+* {"type": "read"}: funktionens typ är read, safe eller write, som i rapporten ”Funktioner”
+* {"tag": "student"}: funktionen har den här etiketten
+* {"component": "mod_quiz"}: funktionen hör till den här komponenten
+* {"function": "core_course_get_courses"}: funktionen har det här namnet
+* {"not": del}, {"all": [delar]}, {"any": [delar]}: kombinerar delar
+
+I ett komponent- eller funktionsnamn matchar en asterisk vilken text som helst. Nycklarna type, tag, component och function tar också emot en lista, och då räcker det med ett av värdena: {"type": ["read", "safe"]} tillåter alla funktioner som inte ändrar webbplatsen.
+
+Be AI-agenten att skriva eller ändra regeln: den kontrollerar vilka funktioner regeln tillåter innan den sparar regeln.';
+$string['placement_functionrules_preview'] = 'Den sparade regeln tillåter {$a->count} av {$a->total} aktiverade funktioner';
+$string['placement_functions'] = 'Tillåtna funktioner';
+$string['placement_functions_limited'] = 'Begränsade ({$a})';
 $string['placement_initialskills'] = 'Inledande färdigheter';
-$string['placement_initialskills_help'] = 'Färdigheter som läses in automatiskt när chatten startar. Valfritt; agenten kan fortfarande läsa in vilken färdighet som helst vid behov. De färdigheter du anger styr också den här placeringen: användare som inte har åtkomst till någon av dem ser varken knappen eller menyalternativet, och om alla angivna färdigheter senare tas bort eller inaktiveras slutar placeringen att visas.';
-$string['placement_intro'] = '<p>Med placeringar kan du erbjuda agenter som är anpassade för en viss uppgift. Varje placering lägger till knappen för AI-agenten på sidor vars URL matchar någon av dess masker, och kan starta chatten med förvalda inledande färdigheter och en välkomsttext. Om inledande färdigheter är angivna ser användare som inte har åtkomst till någon av dem inte knappen.</p><p>De inledande färdigheterna anger bara chattens utgångspunkt; agenten kan fortfarande komma åt alla aktiverade funktioner, inte bara färdigheternas.</p>';
+$string['placement_initialskills_help'] = 'Färdigheter som läses in automatiskt när chatten startar. Valfritt; agenten kan fortfarande läsa in vilken färdighet som helst vid behov, om inte placeringens funktionsregel hindrar det. De färdigheter du anger styr också den här placeringen: användare som inte har åtkomst till någon av dem ser varken knappen eller menyalternativet, och om alla angivna färdigheter senare tas bort eller inaktiveras slutar placeringen att visas.';
+$string['placement_intro'] = '<p>Med placeringar kan du erbjuda agenter som är anpassade för en viss uppgift. Varje placering lägger till knappen för AI-agenten på sidor vars URL matchar någon av dess masker, och kan starta chatten med förvalda inledande färdigheter och en välkomsttext. Om inledande färdigheter är angivna ser användare som inte har åtkomst till någon av dem inte knappen.</p><p>De inledande färdigheterna anger bara chattens utgångspunkt; agenten kan fortfarande komma åt alla aktiverade funktioner, inte bara färdigheternas. En funktionsregel begränsar vilka funktioner agenten får använda i de chattar som startas från en placering.</p>';
 $string['placement_location'] = 'Knappens position';
 $string['placement_location_floating'] = 'Flytande knapp';
 $string['placement_location_h1'] = 'Sidrubrik (H1)';
@@ -307,14 +378,16 @@ $string['placement_name_help'] = 'Visas för användare: i användarmenyn, som k
 $string['placement_save'] = 'Spara placering';
 $string['placement_saved'] = 'Placeringen har sparats.';
 $string['placement_skillmissing'] = 'Färdigheten hittades inte';
+$string['placement_skillnotinitial'] = 'Kan inte vara en inledande färdighet';
 $string['placement_suggestedprompts'] = 'Föreslagna promptar';
 $string['placement_suggestedprompts_help'] = 'En prompt per rad, som visas som knappar ovanför meddelanderutan på chattens startskärm. Ett klick skickar den direkt, till exempel ”Sammanfatta den här kursen”. Om användaren först ska göra klart en prompt skriver du ... någonstans i den: prompten placeras då i meddelanderutan i stället för att skickas, till exempel ”Sammanfatta avsnittet ... i den här kursen”. Lämna fältet tomt om inga promptar ska erbjudas.';
 $string['placement_urlmask'] = 'URL-masker';
-$string['placement_urlmask_help'] = 'Ett mönster per rad. Använd * som jokertecken, till exempel /course/view.php* eller /mod/*/view.php*. Observera: på sidor där en mer specifik placering använder samma position döljs en bred placering som matchar /*, så att användarna bara ser den mest relevanta.';
+$string['placement_urlmask_help'] = 'Ett mönster per rad. Använd * som jokertecken, till exempel /course/view.php* eller /mod/*/view.php*.';
 $string['placement_urlmask_invalid'] = 'Varje URL-mask måste börja med ett snedstreck: ”{$a}” gör inte det.';
 $string['placement_welcome'] = 'Egen välkomsttext (valfritt)';
 $string['placement_welcome_help'] = 'Ersätter standardmeddelandet på chattens startskärm. Lämna tomt för att använda standardtexten.';
 $string['pluginname'] = 'AI-agent';
+$string['pluginnotinstalled'] = 'Plugin inte installerat';
 $string['previouschats'] = 'Tidigare chattar';
 $string['privacy:metadata:aiprovider'] = 'Chattar skickas till den AI-leverantör som webbplatsadministratören har valt, till exempel OpenAI, Azure OpenAI, Google Gemini eller Anthropic, så att den kan generera ett svar. Pluginmodulen skickar varje begäran direkt till leverantören i stället för via Moodles AI-delsystem. Vilket företag som tar emot uppgifterna, och hur länge de sparas där, beror på vilken leverantör webbplatsen har konfigurerat och på leverantörens egna villkor.';
 $string['privacy:metadata:aiprovider:files'] = 'Filer som användaren bifogar till en chatt, och filer som agenten läser från webbplatsen åt användaren, uppladdade så att modellen kan läsa deras innehåll.';
@@ -340,12 +413,18 @@ $string['privacy:metadata:tool_aiagent_message:content'] = 'Meddelandets innehå
 $string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'För ett meddelande som skickats från chatten som överlägg eller sidopanel, adressen och namnet på sidan som användaren läste vid det tillfället.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Vem som skickade meddelandet: användaren, assistenten, systemet eller en funktion.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Tidpunkten då meddelandet skapades.';
+$string['privacy:metadata:tool_aiagent_run'] = 'En post för varje gång AI-agenten arbetade med ett meddelande i en chatt, som sparas en dag efter att den är klar.';
+$string['privacy:metadata:tool_aiagent_run:ip'] = 'Användarens IP-adress när meddelandet skickades, registrerad tillsammans med de åtgärder AI-agenten utförde åt användaren.';
+$string['privacy:metadata:tool_aiagent_run:payload'] = 'Innehållet på sidan användaren tittade på, när AI-agenten bad om att få läsa den.';
+$string['privacy:metadata:tool_aiagent_run:timecreated'] = 'Tidpunkten då AI-agenten började arbeta med meddelandet.';
+$string['privacy:metadata:tool_aiagent_run:userid'] = 'Användaren som skickade meddelandet.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Tokenanvändning som registreras för varje AI-begäran, sparad för uppföljning av användningen.';
 $string['privacy:metadata:tool_aiagent_usage:completiontokens'] = 'Antalet utdatatoken (completion) som använts.';
 $string['privacy:metadata:tool_aiagent_usage:model'] = 'AI-modellen som hanterade begäran.';
 $string['privacy:metadata:tool_aiagent_usage:prompttokens'] = 'Antalet indatatoken (prompt) som använts.';
 $string['privacy:metadata:tool_aiagent_usage:provider'] = 'AI-leverantören som hanterade begäran.';
 $string['privacy:metadata:tool_aiagent_usage:timecreated'] = 'Tidpunkten då begäran gjordes.';
+$string['providers_heading'] = 'Alla AI-leverantörer';
 $string['relevancescore'] = 'Relevanspoäng';
 $string['relevancescore_help'] = 'Relevanspoängen visar hur väl en webbtjänstfunktion passar för AI-agenten, på en skala från 1 till 10.
 
@@ -373,6 +452,7 @@ $string['resume_title'] = 'Välkommen tillbaka';
 $string['sendmessage'] = 'Skicka';
 $string['settings'] = 'Inställningar för AI-agenten';
 $string['showallfiles'] = 'Visa alla';
+$string['showfunctioncalls'] = 'Visa funktionsanrop';
 $string['skill_add'] = 'Lägg till färdighet';
 $string['skill_edit'] = 'Redigera färdighet';
 $string['skill_save_close'] = 'Spara och stäng';
@@ -392,6 +472,7 @@ $string['skilldeleted'] = 'Färdigheten ”{$a}” har tagits bort.';
 $string['skilldescription'] = 'Beskrivning';
 $string['skilldescription_help'] = 'Vad färdigheten är till för, så att assistenten vet när den ska läsas in. Beskriv uppgiften eller området den gäller, inte stegen den utför. Den visas både i färdighetslistan (för människor) och i systemprompten (för assistenten).';
 $string['skillexists'] = 'Det finns redan en färdighet med kortnamnet ”{$a}”.';
+$string['skillimport_badloadmode'] = 'Fältet ”loadmode” måste ha ett av följande värden: {$a}.';
 $string['skillimport_badmasks'] = 'Fälten ”mainfunctions” och ”otherfunctions” måste var för sig innehålla en lista med masksträngar.';
 $string['skillimport_badshortname'] = 'Varje färdighet behöver ett giltigt kortnamn (bokstäver, siffror, bindestreck, understreck).';
 $string['skillimport_invalidjson'] = 'Den uppladdade filen innehåller inte giltig färdighets-JSON.';
@@ -400,6 +481,13 @@ $string['skillimported'] = 'Färdigheten ”{$a}” har importerats.';
 $string['skillinstructions'] = 'Instruktioner';
 $string['skillinstructions_help'] = 'Vägledning som läses in i chatten när färdigheten läses in. Ta bara med sådant som inte är självklart: assistenten ser redan varje inläst funktion och dess beskrivning, så upprepa inte vad en funktion gör och påminn den inte om självklara parametrar. Fånga ordningen i arbetsflödet, valen och fallgroparna som beskrivningarna inte täcker, och inled steg som bara ibland gäller med ”Om ...”.';
 $string['skillloadedevent'] = 'Färdighet inläst · {$a}';
+$string['skillloadmode'] = 'Kan användas';
+$string['skillloadmode_dynamic'] = 'Endast inläst vid behov under chatten';
+$string['skillloadmode_help'] = 'När en placering använder färdigheten som inledande färdighet läggs dess instruktioner till i systeminstruktionerna från chattens början. Använd detta för att ändra hur AI-agenten svarar.
+
+En färdighet för en viss uppgift, till exempel att ställa in betygsboken eller lägga till åtkomstbegränsningar, kan läsas in vid behov, när användaren ber om något som den täcker.';
+$string['skillloadmode_initial'] = 'Endast som inledande färdighet';
+$string['skillloadmode_initial_or_dynamic'] = 'Både som inledande färdighet och inläst vid behov';
 $string['skillmainfunctions'] = 'Huvudfunktioner';
 $string['skillmainfunctions_help'] = 'En snäv uppsättning masker som väljer ut färdighetens centrala funktioner för att skapa och uppdatera. Dessa funktioners behörigheter avgör vem färdigheten erbjuds: bara användare som kan komma åt minst en av dem. Varje mask matchar ett funktionsnamn eller ett mönster av komponent och namn (”*” är ett jokertecken; ett inledande ”~” tar bort träffar). Lämna tomt för att erbjuda färdigheten till alla.';
 $string['skillmatched'] = 'Matchade ({$a})';
@@ -410,14 +498,19 @@ $string['skillnomatch'] = 'Ingen aktiverad funktion matchar dessa mönster.';
 $string['skillnotfound'] = 'Ingen färdighet hittades: {$a}.';
 $string['skillotherfunctions'] = 'Övriga funktioner';
 $string['skillotherfunctions_help'] = 'Masker för de övriga funktioner som färdigheten tar med sig: läsningar, hjälpfunktioner eller en hel komponent. Samma syntax som för huvudfunktionerna, men dessa påverkar inte vem färdigheten erbjuds. Lämna tomt om färdigheten inte behöver några extra funktioner.';
-$string['skills_intro'] = '<p>En färdighet samlar specialiserade instruktioner för en viss uppgift tillsammans med en lista över funktioner som rekommenderas för den. Använd färdigheter för vanliga uppgifter i flera steg där AI-agenten tenderar att bli förvirrad eller inte hittar rätt funktioner, eller för uppgifter som är särskilda för din organisation.</p><p>Listan över färdigheter och deras beskrivningar är alltid tillgänglig för AI-agenten, som själv läser in en färdighet när den bedömer att någon passar användarens begäran. En färdighet är bara tillgänglig för användare som kan komma åt minst en av dess huvudfunktioner. En färdighet som byggts för lärare syns till exempel inte för studenter.</p>';
+$string['skills_intro'] = '<p>En färdighet samlar specialiserade instruktioner för en viss uppgift tillsammans med en lista över funktioner som rekommenderas för den. Använd färdigheter för vanliga uppgifter i flera steg där AI-agenten tenderar att bli förvirrad eller inte hittar rätt funktioner, eller för uppgifter som är särskilda för din organisation.</p><p>En färdighet kan användas på två sätt, som du väljer i dess inställning ”Kan användas”. En placering kan ange den som inledande färdighet, så att dess instruktioner gäller från chattens början. Eller så kan AI-agenten läsa in den vid behov: den ser alltid namnen och beskrivningarna för dessa färdigheter och läser själv in en färdighet när den bedömer att någon passar användarens begäran. En färdighet är bara tillgänglig för användare som kan komma åt minst en av dess huvudfunktioner. En färdighet som byggts för lärare syns till exempel inte för studenter.</p>';
 $string['skillshortname'] = 'Kortnamn';
 $string['skillshortname_help'] = 'Ett stabilt maskinnamn, unikt på hela webbplatsen: endast bokstäver, siffror, bindestreck och understreck. Det kan ändras senare, utom om färdigheten följde med pluginmodulen.';
-$string['skilltags'] = 'Taggar';
-$string['skilltags_help'] = 'Taggar används bara för filtrering och skickas inte till modellen.';
+$string['skilltags'] = 'Etiketter';
+$string['skilltags_help'] = 'Etiketter används bara för filtrering och skickas inte till modellen.';
 $string['skilltoobroad'] = 'Matchar {$a} funktioner, vilket kan vara för brett. Överväg att snäva in funktionsmaskerna.';
 $string['skillunavailable'] = 'Inte tillgänglig';
 $string['skillupdated'] = 'Färdigheten ”{$a}” har uppdaterats.';
+$string['stop'] = 'Stoppa';
+$string['stoppedafter'] = 'Stoppad efter {$a}';
+$string['stoppedbyuser'] = 'Du stoppade agenten. Skriv ett nytt meddelande för att fortsätta.';
+$string['stopping'] = 'Stoppar...';
+$string['stoppingafterfunction'] = 'Stoppar när den här funktionen är klar';
 $string['suggestedprompt_edit'] = 'Redigera meddelandet innan det skickas';
 $string['suggestedprompt_send'] = 'Skicka meddelandet';
 $string['switchview'] = 'Byt vy';
@@ -428,8 +521,8 @@ Läggs alltid till i systeminstruktionerna (både standard och egna):{$a->contex
 $string['tab_functions'] = 'Funktioner';
 $string['tab_placements'] = 'Placeringar';
 $string['tab_skills'] = 'Färdigheter';
-$string['tagarea_tool_aiagent_functions'] = 'Taggar för AI-agentens funktioner';
-$string['tagarea_tool_aiagent_skill'] = 'Taggar för AI-agentens färdigheter';
+$string['tagarea_tool_aiagent_functions'] = 'Etiketter för AI-agentens funktioner';
+$string['tagarea_tool_aiagent_skill'] = 'Etiketter för AI-agentens färdigheter';
 $string['task_cleanup_chats'] = 'Ta bort gamla chattar med AI-agenten';
 $string['task_purge_provider_data'] = 'Ta bort AI-agentens chattdata hos AI-leverantören';
 $string['task_revalidate_license'] = 'Validera AI-agentens licens på nytt';
@@ -438,6 +531,9 @@ $string['timecreated'] = 'Skapad';
 $string['timelastactivity'] = 'Senaste aktivitet';
 $string['timemodified'] = 'Ändrad';
 $string['tryagain'] = 'Försök igen';
+$string['unavailable_envcheck'] = 'Den här funktionen är inte tillgänglig eftersom en webbplatsinställning som den är beroende av inte är aktiverad: {$a}.';
+$string['unavailable_plugindisabled'] = 'Den här funktionen är inte tillgänglig eftersom pluginet {$a} är inaktiverat på den här webbplatsen.';
+$string['unavailable_pluginnotinstalled'] = 'Den här funktionen kan inte användas eftersom pluginet {$a} inte är installerat på den här webbplatsen.';
 $string['usage_completiontokens'] = 'Utdatatoken';
 $string['usage_model'] = 'Modell';
 $string['usage_prompttokens'] = 'Indatatoken';
@@ -455,3 +551,6 @@ $string['welcome_skillsmore'] = '+{$a} till';
 $string['welcome_tryasking'] = 'Prova att fråga';
 $string['welcomedesc'] = 'Fråga AI-agenten om din webbplats, dina kurser, användare eller innehåll. Den kan läsa och, med ditt godkännande, göra ändringar.';
 $string['welcometitle'] = 'Välkommen, {$a}';
+$string['workedfor'] = 'Arbetade i {$a}';
+$string['working'] = 'Arbetar';
+$string['workingfor'] = 'Har arbetat i {$a}';

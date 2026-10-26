@@ -144,6 +144,36 @@ The AI agent's built-in `create_draft_file_area` tool (`upload_files` in Moodle 
 
 **Plugin developers: please add draft-area file support to any write function that takes HTML content, or that logically produces a file-bearing entity, from day one.** Don't wait until someone asks. The pattern above is cheap to implement and makes your plugin immediately useful to the AI agent.
 
+### Returning files to the chat
+
+A function can also hand files back to the user: an export, a generated report, a certificate PDF. This is useful for any function that converts, generates, packs or unpacks, or extracts files. When the AI agent calls it, put the files in a draft area of the current user and pass that area to `\tool_aiagent\api::attach_files()`. The AI agent then attaches the files to the conversation, where the user can preview and download them, and gives the LLM their URLs.
+
+```php
+public static function execute(int $reportid): array {
+    global $USER;
+    // ... validate parameters and context, build the report ...
+    if (class_exists(\tool_aiagent\api::class) && \tool_aiagent\api::is_called_by_ai_agent()) {
+        $draftitemid = file_get_unused_draft_itemid();
+        get_file_storage()->create_file_from_string([
+            'contextid' => \context_user::instance($USER->id)->id,
+            'component' => 'user',
+            'filearea' => 'draft',
+            'itemid' => $draftitemid,
+            'filepath' => '/',
+            'filename' => 'report.csv',
+        ], $csv);
+        \tool_aiagent\api::attach_files($draftitemid);
+    }
+    return ['filename' => 'report.csv', 'rows' => $count];
+}
+```
+
+- **Guard with `class_exists()`**: your plugin must work on sites without the AI agent.
+- **`is_called_by_ai_agent()`** tells you the AI agent is the caller, so other callers do not pay for a draft area they would never use.
+- **Use a draft area of the current user.** The agent never reads another user's draft areas.
+
+This works **only in the `tool_aiagent` plugin**. Called through web services or an MCP server (Moodle MCP, `webservice_mcp`), `is_called_by_ai_agent()` is false and no files are attached. For those consumers, offer an alternative way of downloading the files.
+
 ## Parameter and return descriptions
 
 ### Spell out internal jargon
@@ -228,6 +258,7 @@ The AI agent plugin ships with a corrections file (`data/corrections.json`) that
 - [ ] All enum/allowed values listed in descriptions
 - [ ] `update` function tolerates unchanged parameters being passed
 - [ ] File upload via draft area documented if your function accepts HTML
+- [ ] Files produced for the user handed to the chat with `\tool_aiagent\api::attach_files()` (AI agent only)
 - [ ] Plain-English function/parameter descriptions (no unexplained jargon)
 - [ ] Instance IDs vs course module IDs explicitly distinguished
 - [ ] `capabilities` lists only hard requirements

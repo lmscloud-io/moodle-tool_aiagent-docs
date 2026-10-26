@@ -10,7 +10,7 @@
 
 /**
  * German language pack for AI agent.
- * Last updated: 2026-10-11
+ * Last updated: 2026-10-25
  *
  * @package    tool_aiagent
  * @category   string
@@ -21,9 +21,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_needsyou'] = 'KI-Agent: wartet auf Ihre Bestätigung';
+$string['activity_working'] = 'KI-Agent: arbeitet';
 $string['addon'] = 'Zusatzplugin';
 $string['aiagent:autoapproveall'] = 'Den Modus „Alle“ für die automatische Bestätigung wählen, bei dem jeder Funktionsaufruf ohne Rückfrage ausgeführt wird';
 $string['aiagent:usechat'] = 'Chats mit dem KI-Agenten beginnen (legt fest, wo ein Chat begonnen werden kann; schränkt nicht ein, auf welche Daten der Chat danach zugreifen kann)';
+$string['allfunctions'] = 'Alle';
 $string['allowfeedback'] = 'Rückmeldungen erlauben';
 $string['allowfeedback_desc'] = 'Wenn aktiviert, können Nutzer/innen Antworten des Assistenten bewerten und fehlgeschlagene Funktionsaufrufe melden. Die Rückmeldungen gehen an die Entwickler/innen des KI-Agent-Plugins (nicht an ein LLM), damit diese den Umgang mit Moodle-Funktionen verbessern können. Übertragen wird nur der bewertete Wortwechsel, nicht der gesamte Chat, und der Text kann vor dem Absenden bearbeitet werden. Deaktivieren Sie diese Einstellung auf Websites mit strengen Richtlinien für ausgehenden Datenverkehr.';
 $string['anthropic_heading'] = 'Anthropic (Claude)';
@@ -44,6 +47,18 @@ $string['autoapprove_readonly_desc'] = 'Lesende Aufrufe bestätigen, bei schreib
 $string['autoapprove_safe'] = 'Sicher';
 $string['autoapprove_safe_desc'] = 'Aktionen bestätigen, die die Website nicht verändern';
 $string['autoapprove_safe_examples'] = 'Lesen sowie Größenänderung von Anhängen, Bildgenerierung, Senden von Dateien an das LLM usw.';
+$string['autoapprovetimelimit'] = 'Zeitlimit für autom. Bestätigung';
+$string['autoapprovetimelimit_desc'] = 'Wie lange der KI-Agent nach der letzten Aktion im Chat, etwa dem Senden einer Nachricht oder dem Bestätigen von Funktionen, automatisch bestätigte Funktionen weiter ausführen darf. Danach fragt er vor der nächsten Funktion um Bestätigung. Das verhindert, dass verlassene Chats Serverressourcen und KI-Token verbrauchen. 0 bedeutet kein Limit.';
+$string['autopaused'] = 'Die automatische Bestätigung wurde nach {$a} ohne Ihre Eingabe angehalten. Bestätigen Sie, um fortzufahren.';
+$string['background_heading'] = 'Hintergrund-Chats';
+$string['backgroundchats'] = 'Hintergrund-Chats erlauben';
+$string['backgroundchats_desc'] = 'Jeder Chat läuft in einem eigenen PHP-CLI-Prozess auf dem Server. Der KI-Agent arbeitet dann weiter, wenn Nutzer/innen die Seite verlassen oder den Tab schließen, führt Funktionsketten schneller aus, und Stopp unterbricht den Agenten sofort, auch während eine Funktion läuft. Ist dies deaktiviert oder steht kein PHP CLI zur Verfügung, laufen Chats in der Browser-Anfrage der Nutzer/innen.';
+$string['backgroundunavailable_effect'] = 'Der KI-Agent führt Funktionsketten über den Browser aus. Sie sind daher langsamer und brechen ab, wenn Nutzer/innen die Seite verlassen oder den Tab schließen. Bereits laufende Funktionen können nicht unterbrochen werden.';
+$string['backgroundunavailable_executable'] = 'Der Pfad zu PHP CLI für Hintergrund-Chats ist keine ausführbare Datei.';
+$string['backgroundunavailable_function'] = 'Die PHP-Funktion {$a} ist auf diesem Server deaktiviert.';
+$string['backgroundunavailable_pathtophp'] = 'Der Pfad zu PHP CLI ist nicht festgelegt.';
+$string['backgroundunavailable_setpath'] = 'Pfad zu PHP CLI festlegen';
+$string['backgroundunavailable_windows'] = 'Hintergrund-Chats sind auf Windows-Servern nicht verfügbar.';
 $string['backtoconfiguration'] = 'Zurück zur Konfiguration des KI-Agenten';
 $string['builtinfunction'] = 'Mitgeliefert';
 $string['bulk_disabled'] = '{$a} Funktion(en) deaktiviert';
@@ -52,14 +67,17 @@ $string['bulk_enabled'] = '{$a} Funktion(en) aktiviert';
 $string['bulk_enableselected'] = 'Ausgewählte aktivieren';
 $string['bulk_withselected'] = 'Mit ausgewählten Funktionen';
 $string['capabilities'] = 'Fähigkeiten';
+$string['chat_heading'] = 'Chats';
 $string['chat_namelink'] = 'Name mit Link';
 $string['chatfrozen'] = 'Die Skills dieses Chats sind nicht mehr verfügbar, daher kann er nicht fortgesetzt werden. Beginnen Sie stattdessen einen neuen Chat.';
+$string['chatfrozen_noplacement'] = 'Dieser Chat wurde in einer früheren Version des KI-Agenten begonnen, daher kann er nicht mehr fortgesetzt werden. Beginnen Sie stattdessen einen neuen Chat.';
 $string['chathelpcontent'] = '<p>Der KI-Agent kann Inhalte dieser Website in Ihrem Namen lesen und ändern. Die meisten Aktionen werden erst nach Ihrer Bestätigung ausgeführt. Den Modus der automatischen Bestätigung können Sie im Eingabefeld lockern oder verschärfen.</p>
 <p>Hängen Sie Dateien per Ziehen und Ablegen, durch Einfügen aus der Zwischenablage oder über das Büroklammer-Symbol an. Geben Sie dann Ihre Anfrage ein und klicken Sie auf <strong>Senden</strong>. Die Eingabetaste sendet die Nachricht, Umschalt und Eingabe fügen eine neue Zeile ein.</p><p>KI kann Fehler machen. Prüfen Sie die Ergebnisse.</p>';
 $string['chatnopermission'] = 'Dieser Chat wurde in einem Bereich der Website begonnen, in dem Sie keinen Zugriff mehr auf den KI-Agenten haben, daher kann er nicht fortgesetzt werden.';
 $string['chatnostartpermission'] = 'Sie haben keine Berechtigung, hier einen Chat zu beginnen. Öffnen Sie den KI-Agenten auf einer Seite, auf der er angeboten wird.';
 $string['chatretention'] = 'Aufbewahrungsdauer für Chats';
 $string['chatretention_desc'] = 'Chats ohne Aktivität über diesen Zeitraum werden aus dem Chatverlauf der Nutzer/innen entfernt, ihre angehängten Dateien werden von dieser Website gelöscht und die Löschung der beim KI-Provider gespeicherten Chatdaten (gespeicherte Antworten und hochgeladene Dateien) wird angefordert. Die Löschung aufseiten des Providers erfolgt nach bestem Bemühen und ist nicht garantiert; richten Sie zusätzlich eine passende Aufbewahrungsrichtlinie in Ihrem Konto beim Provider ein. Nachrichten und Nutzungsdaten bleiben für Berichte erhalten, bis die unten stehende Aufbewahrungsdauer für Chatprotokolle abgelaufen ist. Der Wert 0 bewahrt Chats unbegrenzt auf.';
+$string['closeconfirm_background'] = 'Der KI-Agent arbeitet weiter, während der Chat geschlossen ist.';
 $string['closeconfirm_body'] = 'Das Schließen des Fensters löscht den Chat nicht. Sie können ihn jederzeit über das Menü „Frühere Chats“ wieder öffnen. Chats werden nach {$a} Tagen automatisch gelöscht.';
 $string['closeconfirm_body_noretention'] = 'Das Schließen des Fensters löscht den Chat nicht. Sie können ihn jederzeit über das Menü „Frühere Chats“ wieder öffnen.';
 $string['closeconfirm_close'] = 'Chat schließen';
@@ -95,6 +113,8 @@ $string['entity_skill'] = 'Skill';
 $string['entity_usage'] = 'Tokenverbrauch';
 $string['error_interrupted_function'] = 'Ein Funktionsaufruf wurde vor seinem Ende unterbrochen. Möglicherweise wurden Änderungen teilweise übernommen; prüfen Sie den Stand, bevor Sie es erneut versuchen.';
 $string['error_interrupted_llm'] = 'Die Kommunikation mit dem KI-Provider wurde unterbrochen. Klicken Sie auf „Erneut versuchen“, um die Anfrage zu wiederholen.';
+$string['errorbackgroundstart'] = 'Der KI-Agent konnte die Arbeit an diesem Chat nicht beginnen. Bitten Sie die Administration der Website, die Einstellungen für Hintergrund-Chats zu prüfen.';
+$string['errorbackgroundstart_admin'] = 'Der KI-Agent konnte seinen Hintergrundprozess auf diesem Server nicht starten. Korrigieren Sie den Pfad zu PHP CLI oder schalten Sie Hintergrund-Chats aus, unter {$a} in den Einstellungen des KI-Agenten.';
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Die Nachricht darf nicht leer sein.';
 $string['errorfullscreendisabled'] = 'Die Chatansicht im Vollbild ist auf dieser Website nicht aktiviert.';
@@ -118,6 +138,7 @@ $string['errorresponses_endpoint_invalid_config'] = 'Das Plugin hat versucht, {$
 $string['errorresponses_endpoint_reply'] = 'Antwort des Providers: {$a}';
 $string['errorresponses_provider_switch'] = 'Dieser Chat kann unter der Responses API von OpenAI nicht fortgesetzt werden, weil er mit einem anderen KI-Provider begonnen wurde. Beginnen Sie einen neuen Chat oder wechseln Sie zum ursprünglichen Provider (oder zu OpenAI Chat Completions) zurück, um diesen fortzusetzen.';
 $string['errorrootnotfound'] = 'Die Ausgangsnachricht dieses Chats wurde nicht gefunden.';
+$string['errorupdatesstopped'] = 'Dieser Chat empfängt keine Updates mehr. Aktualisieren Sie, um den aktuellen Stand zu sehen.';
 $string['exportskill'] = 'Export';
 $string['feedback_modal_freetextlabel'] = 'Noch etwas? (optional)';
 $string['feedback_modal_freetextplaceholder_negative'] = 'Was ist schiefgelaufen? So genau, wie Sie möchten.';
@@ -153,11 +174,23 @@ $string['feedbackthanks'] = 'Danke für Ihre Rückmeldung!';
 $string['feedbackthumbdown'] = 'Problem mit dieser Antwort melden';
 $string['feedbackthumbup'] = 'Diese Antwort war hilfreich';
 $string['feedbackvalidation_categoryrequired'] = 'Bitte wählen Sie mindestens eine Kategorie aus.';
+$string['functionapprovalneeded'] = 'Bestätigung erforderlich';
+$string['functionapprovalneededmany'] = '{$a} Funktionsaufrufe müssen bestätigt werden';
 $string['functionapprovecount'] = '{$a} Aufrufe bestätigen';
+$string['functionavailable'] = 'Verfügbar';
 $string['functioncall_actions'] = 'Funktionsaufruf bestätigen oder verweigern';
 $string['functioncall_chip_action'] = 'Modus der automatischen Bestätigung ändern';
 $string['functioncalldetails'] = 'Details zum Funktionsaufruf';
-$string['functioncalldetailscount'] = 'Details zu den Funktionsaufrufen ({$a})';
+$string['functioncalldetailsof'] = 'Details zum Funktionsaufruf: {$a}';
+$string['functioncalling'] = '{$a} wird aufgerufen';
+$string['functioncallnav'] = '{$a->index} von {$a->total}';
+$string['functioncallnext'] = 'Nächster Funktionsaufruf';
+$string['functioncallprevious'] = 'Vorheriger Funktionsaufruf';
+$string['functioncallscount'] = '{$a} Funktionsaufrufe';
+$string['functioncallscountone'] = '1 Funktionsaufruf';
+$string['functiondenied'] = 'Sie haben {$a} verweigert';
+$string['functiondeniedmany'] = 'Sie haben {$a->name} und {$a->count} weitere verweigert';
+$string['functiondeniednext'] = 'Der Agent wurde angehalten. Schreiben Sie eine Nachricht, um ihm zu sagen, wie es weitergehen soll.';
 $string['functiondeny'] = 'Verweigern';
 $string['functiondenyall'] = 'Alle verweigern';
 $string['functiondetailscopied'] = 'Kopiert';
@@ -187,20 +220,34 @@ $string['functionname'] = 'Funktionsname';
 $string['functionparameters'] = 'Parameter';
 $string['functionresult'] = 'Ergebnis';
 $string['functionresultdiscarded'] = 'Das Ergebnis war zu groß ({$a}) und wurde verworfen. Schränken Sie die Anfrage ein: filtern Sie sie, fordern Sie weniger Felder an oder verwenden Sie eine gezieltere Funktion. Derselbe Aufruf führt erneut zum selben Fehler.';
+$string['functionrules_error_component'] = '{$a->path}: Keine Funktion gehört zu einer Komponente, die auf „{$a->value}“ passt.';
+$string['functionrules_error_depth'] = '{$a->path}: Die Regel ist mehr als {$a->max} Ebenen tief verschachtelt.';
+$string['functionrules_error_function'] = '{$a->path}: Keine Funktion passt auf „{$a->value}“.';
+$string['functionrules_error_json'] = 'Die Regel ist kein gültiges JSON: {$a}';
+$string['functionrules_error_list'] = '{$a->path}: Hier wird eine nicht leere Liste von Regelteilen erwartet.';
+$string['functionrules_error_node'] = '{$a->path}: Jeder Teil der Regel muss ein Objekt mit genau einem Schlüssel sein: type, tag, component, function, not, all oder any.';
+$string['functionrules_error_tag'] = '{$a->path}: Keine Funktion hat das Tag „{$a->value}“.';
+$string['functionrules_error_type'] = '{$a->path}: Die Art „{$a->value}“ ist unbekannt. Mögliche Arten sind read, safe und write.';
+$string['functionrules_error_value'] = '{$a->path}: Hier wird eine nicht leere Zeichenkette oder eine nicht leere Liste nicht leerer Zeichenketten erwartet.';
+$string['functionrules_path_root'] = 'Die gesamte Regel';
 $string['functions_intro'] = '<p><b>Nicht jede Webservice-Funktion eignet sich für den KI-Agenten.</b> Manche wurden für die Client-Server-Kommunikation entwickelt (gekennzeichnet mit AJAX) oder für nicht angemeldete Nutzer/innen (Ohne Login), und für manche gibt es bessere Alternativen. Einige AJAX-Funktionen arbeiten mit dem KI-Agenten gut zusammen, die meisten jedoch nicht. Das KI-Agent-Plugin vergibt für Funktionen aus dem Kern und aus Standardplugins einen Relevanzwert (1-10) und aktiviert alle mit einem Wert ab 5. Funktionen aus Zusatzplugins werden nicht bewertet; stattdessen werden alle ihre Nicht-AJAX-Funktionen automatisch aktiviert. Auf dieser Seite können Sie die verfügbaren Funktionen prüfen und einzeln aktivieren oder deaktivieren.</p><p>Wenn eine Funktion eine oder mehrere Fähigkeiten voraussetzt, steht sie Nutzer/innen nicht zur Verfügung, die keine davon in irgendeinem Kontext der Website besitzen. Für den Kern und für Standardplugins setzt das KI-Agent-Plugin diese Fähigkeiten korrekt. Bei Zusatzplugins stammen sie aus der Funktionsdefinition, und da Moodle diese Prüfung selbst nicht erzwingt, können sie falsch sein.</p>';
 $string['functions_report'] = 'Funktionen des KI-Agenten';
 $string['functionstatus_denied'] = 'Verweigert';
 $string['functionstatus_failed'] = 'Fehlgeschlagen';
+$string['functionstatus_interrupted'] = 'Unterbrochen';
+$string['functionstatus_notrun'] = 'Nicht ausgeführt';
 $string['functionstatus_pending'] = 'Wartet auf Bestätigung';
 $string['functionstatus_processing'] = 'Wird ausgeführt...';
 $string['functiontype'] = 'Art';
 $string['functiontype_help'] = 'Die Art der Webservice-Funktion und ihre Eigenschaften:
 
 * **Lesen**: ruft Daten ab, ohne etwas zu verändern
+* **Sicher**: eine mitgelieferte Funktion, die nicht die Website verändert, sondern nur die Dateien im Chat, zum Beispiel für die Größenänderung eines Anhangs oder die Bildgenerierung
 * **Schreiben**: erstellt oder verändert Daten
 * **AJAX**: wird von Moodle intern für Anfragen zwischen Client und Server verwendet und eignet sich seltener als Funktion für den KI-Agenten
 * **Ohne Login**: steht nicht angemeldeten Nutzer/innen zur Verfügung und eignet sich ebenfalls seltener als Funktion für den KI-Agenten';
 $string['functiontype_read'] = 'Lesen';
+$string['functiontype_safe'] = 'Sicher';
 $string['functiontype_write'] = 'Schreiben';
 $string['gemini_api_generatecontent'] = 'generateContent (stabil)';
 $string['gemini_api_interactions'] = 'Interactions API (Beta)';
@@ -213,6 +260,7 @@ $string['gemini_builtin_google_search_desc'] = 'Erlaubt Gemini, Antworten auf ak
 $string['gemini_builtin_url_context'] = 'Tool „URL Context“ aktivieren';
 $string['gemini_builtin_url_context_desc'] = 'Erlaubt Gemini, Inhalte öffentlicher URLs zu lesen und auszuwerten, die Nutzer/innen erwähnen. Nur für Modelle ab Gemini 3; bei Gemini 2.5 und älter wird die Einstellung stillschweigend ignoriert, weil diese Modelle eingebaute Tools nicht mit eigenen Funktionsaufrufen kombinieren können. Die URLs müssen öffentlich erreichbar sein (kein localhost, keine Anmeldung).';
 $string['gemini_heading'] = 'Google Gemini';
+$string['hidefunctioncalls'] = 'Funktionsaufrufe ausblenden';
 $string['hint_splitview'] = 'Möchten Sie diesen Chat neben Ihrer Website nutzen? Ziehen Sie <a href="{$a}">{$a}</a> in ein neues Fenster oder öffnen Sie ihn per Rechtsklick in der geteilten Ansicht Ihres Browsers.';
 $string['imagedimensions'] = '{$a->width}×{$a->height} px';
 $string['imagepreviewinfo'] = 'Datei {$a->size}, Abmessungen {$a->dimensions}. Vorschau {$a->preview} ({$a->scale} %).';
@@ -233,6 +281,8 @@ $string['importskill_summaryupdate'] = '{$a} zu aktualisieren';
 $string['importskill_toolarge'] = 'Die Skill-Daten sind zu groß (maximal {$a}).';
 $string['inlinefilecharlimit'] = 'Begrenzung für eingebettete Dateiinhalte';
 $string['inlinefilecharlimit_desc'] = 'Maximale Menge einer Textdatei, die direkt in den Chat eingebettet werden kann, wenn eine Datei inline gelesen wird. Längere Inhalte werden gekürzt. Das Einbetten wird verwendet, wenn das Modell es anfordert, und als Rückfallebene für KI-Provider, die keine Dateien annehmen können. Eingebettete Inhalte werden mit dem Chatverlauf in jeder Runde erneut gesendet, ein hoher Wert erhöht daher den Tokenverbrauch.';
+$string['interruptedbystop'] = 'Unterbrochen: Sie haben den Agenten gestoppt.';
+$string['interruptedunexpectedly'] = 'Unterbrochen: Die Funktion wurde unerwartet beendet.';
 $string['invalidparameter'] = 'Ungültiger Parameter erkannt: {$a}';
 $string['isajax'] = 'AJAX';
 $string['licenseactivate'] = 'Lizenz aktivieren';
@@ -265,7 +315,6 @@ KI-Provider weisen Dateien ohnehin ab, die ihre eigenen Grenzen je Anfrage über
 $string['maxfunctionresultsize'] = 'Maximale Größe des Funktionsergebnisses';
 $string['maxfunctionresultsize_desc'] = 'Maximale Datenmenge, die eine einzelne Funktion an das KI-Modell zurückgeben darf. Manche Moodle-Funktionen haben keinen Filter und geben alle Nutzer/innen oder alle Kurse der Website zurück, was das Modell überschwemmt und in jeder weiteren Runde Token verbraucht. Ein Ergebnis über dieser Grenze wird verworfen und das Modell wird aufgefordert, die Anfrage einzuschränken. Null bedeutet keine Begrenzung. Das Inline-Lesen einer Datei ist ausgenommen, dafür gilt „Begrenzung für eingebettete Dateiinhalte“.';
 $string['newchat'] = 'Neuer Chat';
-$string['newchatchooser_blank_sub'] = 'Ohne Kontext. Allgemeiner Assistent.';
 $string['newchatchooser_clone'] = 'Wie dieser Chat';
 $string['newchatchooser_continue'] = 'Dort weitermachen, wo Sie waren';
 $string['newchatchooser_desc_default'] = 'Beginnen Sie einen neuen Chat auf dieser Seite oder machen Sie dort weiter, wo Sie waren.';
@@ -277,15 +326,20 @@ $string['newchatchooser_onthispage'] = 'Auf dieser Seite:';
 $string['newchatchooser_title'] = 'Neuen Chat beginnen';
 $string['nfilesattached'] = '{$a} Dateien angehängt';
 $string['nonauth'] = 'Ohne Login';
+$string['notavailable_loginas'] = 'Der KI-Agent ist nicht verfügbar, solange Sie als eine andere Person angemeldet sind.';
+$string['notavailable_roleswitch'] = 'Der KI-Agent ist nicht verfügbar, solange Sie die Rolle gewechselt haben.';
 $string['numfiles'] = '{$a} Dateien';
 $string['numimages'] = '{$a} Bilder';
 $string['numotherfiles'] = '{$a} weitere';
+$string['onefileattached'] = '1 Datei angehängt';
 $string['openai_api_chatcompletions'] = 'Chat Completions';
 $string['openai_api_responses'] = 'Responses API';
 $string['openai_api_type'] = 'API-Art';
 $string['openai_api_type_desc'] = 'Welche OpenAI-API für Chats mit mehreren Runden verwendet wird. Die Responses API hält den Zustand des Chats serverseitig, es wird also nur die neue Eingabe je Runde gesendet (geringere Kosten, einfacherer Verlauf). Chat Completions baut die vollständige Nachrichtenliste bei jeder Anfrage neu auf (breitere Verträglichkeit mit Providern).<br><br>Die Responses API wird unterstützt von: <strong>{$a}</strong>. Andere Provider weichen unabhängig von dieser Einstellung stillschweigend auf Chat Completions aus.';
 $string['openai_heading'] = 'OpenAI (oder kompatibel)';
 $string['openlink'] = 'Link öffnen';
+$string['pathtophp'] = 'Pfad zu PHP CLI für Hintergrund-Chats';
+$string['pathtophp_desc'] = 'Das PHP-CLI-Programm, das die Hintergrund-Chats ausführt, wenn es ein anderes als im Pfad zu PHP CLI der Website sein soll. Leer lassen, um die Einstellung der Website zu verwenden.';
 $string['placeholder'] = 'Nachricht eingeben...';
 $string['placement_add'] = 'Platzierung hinzufügen';
 $string['placement_confirmdelete'] = 'Möchten Sie diese Platzierung wirklich löschen?';
@@ -294,9 +348,26 @@ $string['placement_defaultname'] = 'KI-Agent';
 $string['placement_deleted'] = 'Platzierung gelöscht.';
 $string['placement_duplicated'] = 'Platzierung dupliziert.';
 $string['placement_edit'] = 'Platzierung bearbeiten';
+$string['placement_functionrules'] = 'Funktionsregel';
+$string['placement_functionrules_help'] = 'Schränkt ein, welche Funktionen der KI-Agent in Chats verwenden darf, die über diese Platzierung begonnen werden. Leer lassen, um jede Funktion zu erlauben. Eine Änderung der Regel gilt auch für die Chats, die bereits über diese Platzierung begonnen wurden.
+
+Die Regel wird als JSON angegeben. Jeder ihrer Teile ist ein Objekt mit einem Schlüssel:
+
+* {"type": "read"}: Die Art der Funktion ist read, safe oder write, wie im Bericht „Funktionen“
+* {"tag": "student"}: Die Funktion hat dieses Tag
+* {"component": "mod_quiz"}: Die Funktion gehört zu dieser Komponente
+* {"function": "core_course_get_courses"}: Die Funktion hat diesen Namen
+* {"not": Teil}, {"all": [Teile]}, {"any": [Teile]}: Teile kombinieren
+
+In einem Komponenten- oder Funktionsnamen steht ein Sternchen für beliebigen Text. Die Schlüssel type, tag, component und function nehmen auch eine Liste an; dann genügt einer ihrer Werte: {"type": ["read", "safe"]} erlaubt jede Funktion, die die Website nicht verändert.
+
+Bitten Sie den KI-Agenten, die Regel zu schreiben oder zu ändern: Er prüft vor dem Speichern, welche Funktionen die Regel erlaubt.';
+$string['placement_functionrules_preview'] = 'Die gespeicherte Regel erlaubt {$a->count} von {$a->total} aktivierten Funktionen';
+$string['placement_functions'] = 'Erlaubte Funktionen';
+$string['placement_functions_limited'] = 'Eingeschränkt ({$a})';
 $string['placement_initialskills'] = 'Anfängliche Skills';
-$string['placement_initialskills_help'] = 'Skills, die beim Beginn des Chats automatisch geladen werden. Optional; der Agent kann jeden Skill weiterhin bei Bedarf laden. Die gesetzten Skills steuern zugleich diese Platzierung: Nutzer/innen ohne Zugriff auf mindestens einen davon sehen weder den Button noch den Menüpunkt, und wenn später alle gesetzten Skills entfernt oder deaktiviert werden, erscheint die Platzierung nicht mehr.';
-$string['placement_intro'] = '<p>Mit Platzierungen bieten Sie Agenten an, die auf eine bestimmte Aufgabe zugeschnitten sind. Jede Platzierung fügt den Button des KI-Agenten auf Seiten hinzu, deren URL zu einer ihrer Masken passt, und kann den Chat mit vorgegebenen anfänglichen Skills und einem Willkommenstext beginnen. Sind anfängliche Skills gesetzt, sehen Nutzer/innen ohne Zugriff auf mindestens einen davon den Button nicht.</p><p>Die anfänglichen Skills legen nur den Ausgangspunkt des Chats fest; der Agent kann weiterhin auf alle aktivierten Funktionen zugreifen, nicht nur auf die der Skills.</p>';
+$string['placement_initialskills_help'] = 'Skills, die beim Beginn des Chats automatisch geladen werden. Optional; der Agent kann jeden Skill weiterhin bei Bedarf laden, es sei denn, die Funktionsregel der Platzierung verhindert es. Die gesetzten Skills steuern zugleich diese Platzierung: Nutzer/innen ohne Zugriff auf mindestens einen davon sehen weder den Button noch den Menüpunkt, und wenn später alle gesetzten Skills entfernt oder deaktiviert werden, erscheint die Platzierung nicht mehr.';
+$string['placement_intro'] = '<p>Mit Platzierungen bieten Sie Agenten an, die auf eine bestimmte Aufgabe zugeschnitten sind. Jede Platzierung fügt den Button des KI-Agenten auf Seiten hinzu, deren URL zu einer ihrer Masken passt, und kann den Chat mit vorgegebenen anfänglichen Skills und einem Willkommenstext beginnen. Sind anfängliche Skills gesetzt, sehen Nutzer/innen ohne Zugriff auf mindestens einen davon den Button nicht.</p><p>Die anfänglichen Skills legen nur den Ausgangspunkt des Chats fest; der Agent kann weiterhin auf alle aktivierten Funktionen zugreifen, nicht nur auf die der Skills. Eine Funktionsregel schränkt ein, welche Funktionen der Agent in den Chats verwenden darf, die über eine Platzierung begonnen werden.</p>';
 $string['placement_location'] = 'Position des Buttons';
 $string['placement_location_floating'] = 'Schwebender Button';
 $string['placement_location_h1'] = 'Seitenüberschrift (H1)';
@@ -307,14 +378,16 @@ $string['placement_name_help'] = 'Wird Nutzer/innen angezeigt: im Nutzermenü, a
 $string['placement_save'] = 'Platzierung speichern';
 $string['placement_saved'] = 'Platzierung gespeichert.';
 $string['placement_skillmissing'] = 'Skill nicht gefunden';
+$string['placement_skillnotinitial'] = 'Kann kein anfänglicher Skill sein';
 $string['placement_suggestedprompts'] = 'Vorgeschlagene Prompts';
 $string['placement_suggestedprompts_help'] = 'Ein Prompt pro Zeile, angeboten als Schaltflächen über dem Nachrichtenfeld auf der Startseite des Chats. Ein Klick sendet ihn sofort, zum Beispiel „Fasse diesen Kurs zusammen“. Um einen Prompt anzubieten, den Nutzer/innen zuerst vervollständigen müssen, fügen Sie an beliebiger Stelle ... ein: Der Prompt wird dann in das Nachrichtenfeld gesetzt, statt gesendet zu werden, zum Beispiel „Fasse den Abschnitt ... dieses Kurses zusammen“. Lassen Sie das Feld leer, um keine Prompts anzubieten.';
 $string['placement_urlmask'] = 'URL-Masken';
-$string['placement_urlmask_help'] = 'Ein Muster pro Zeile. Verwenden Sie * als Platzhalter, zum Beispiel /course/view.php* oder /mod/*/view.php*. Hinweis: Auf Seiten, auf denen eine genauere Platzierung dieselbe Position belegt, wird eine breite Platzierung mit /* ausgeblendet, damit Nutzer/innen nur die passendere sehen.';
+$string['placement_urlmask_help'] = 'Ein Muster pro Zeile. Verwenden Sie * als Platzhalter, zum Beispiel /course/view.php* oder /mod/*/view.php*.';
 $string['placement_urlmask_invalid'] = 'Jede URL-Maske muss mit einem Schrägstrich beginnen: „{$a}“ tut das nicht.';
 $string['placement_welcome'] = 'Eigener Willkommenstext (optional)';
 $string['placement_welcome_help'] = 'Ersetzt die übliche Willkommensnachricht auf der Startseite des Chats. Leer lassen, um den Standardtext zu verwenden.';
 $string['pluginname'] = 'KI-Agent';
+$string['pluginnotinstalled'] = 'Plugin nicht installiert';
 $string['previouschats'] = 'Frühere Chats';
 $string['privacy:metadata:aiprovider'] = 'Chats werden an den von der Website-Administration gewählten KI-Provider gesendet, etwa OpenAI, Azure OpenAI, Google Gemini oder Anthropic, damit dieser eine Antwort erzeugen kann. Das Plugin sendet jede Anfrage direkt an den Provider und nicht über das KI-Subsystem von Moodle. Welches Unternehmen die Daten erhält und wie lange sie dort aufbewahrt werden, hängt vom eingerichteten Provider und dessen eigenen Bedingungen ab.';
 $string['privacy:metadata:aiprovider:files'] = 'Dateien, die Nutzer/innen an einen Chat anhängen, sowie Dateien, die der Agent in ihrem Namen von der Website liest, hochgeladen damit das Modell ihren Inhalt lesen kann.';
@@ -340,12 +413,18 @@ $string['privacy:metadata:tool_aiagent_message:content'] = 'Der Inhalt der Nachr
 $string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Bei einer Nachricht aus dem Chat als Overlay oder Seitenleiste die Adresse und der Name der Seite, die die Person zu diesem Zeitpunkt gelesen hat.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Wer die Nachricht gesendet hat: die Person, der Assistent, das System oder eine Funktion.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Der Zeitpunkt, zu dem die Nachricht erstellt wurde.';
+$string['privacy:metadata:tool_aiagent_run'] = 'Ein Eintrag für jedes Mal, wenn der KI-Agent an einer Nachricht in einem Chat gearbeitet hat; er wird einen Tag nach dem Ende aufbewahrt.';
+$string['privacy:metadata:tool_aiagent_run:ip'] = 'Die IP-Adresse, von der aus die Nachricht gesendet wurde, gespeichert zusammen mit den Aktionen, die der KI-Agent dafür ausgeführt hat.';
+$string['privacy:metadata:tool_aiagent_run:payload'] = 'Der Inhalt der Seite, die angesehen wurde, als der KI-Agent sie lesen wollte.';
+$string['privacy:metadata:tool_aiagent_run:timecreated'] = 'Der Zeitpunkt, zu dem der KI-Agent mit der Arbeit an der Nachricht begonnen hat.';
+$string['privacy:metadata:tool_aiagent_run:userid'] = 'Die Person, die die Nachricht gesendet hat.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Der für jede KI-Anfrage erfasste Tokenverbrauch, aufbewahrt zur Nachverfolgung der Nutzung.';
 $string['privacy:metadata:tool_aiagent_usage:completiontokens'] = 'Die Anzahl der verbrauchten Ausgabetoken.';
 $string['privacy:metadata:tool_aiagent_usage:model'] = 'Das KI-Modell, das die Anfrage bearbeitet hat.';
 $string['privacy:metadata:tool_aiagent_usage:prompttokens'] = 'Die Anzahl der verbrauchten Eingabetoken.';
 $string['privacy:metadata:tool_aiagent_usage:provider'] = 'Der KI-Provider, der die Anfrage bearbeitet hat.';
 $string['privacy:metadata:tool_aiagent_usage:timecreated'] = 'Der Zeitpunkt, zu dem die Anfrage gestellt wurde.';
+$string['providers_heading'] = 'Alle KI-Provider';
 $string['relevancescore'] = 'Relevanzwert';
 $string['relevancescore_help'] = 'Der Relevanzwert gibt auf einer Skala von 1 bis 10 an, wie gut sich eine Webservice-Funktion für den KI-Agenten eignet.
 
@@ -373,6 +452,7 @@ $string['resume_title'] = 'Willkommen zurück';
 $string['sendmessage'] = 'Senden';
 $string['settings'] = 'Einstellungen des KI-Agenten';
 $string['showallfiles'] = 'Alle anzeigen';
+$string['showfunctioncalls'] = 'Funktionsaufrufe anzeigen';
 $string['skill_add'] = 'Skill hinzufügen';
 $string['skill_edit'] = 'Skill bearbeiten';
 $string['skill_save_close'] = 'Speichern und schließen';
@@ -392,6 +472,7 @@ $string['skilldeleted'] = 'Skill „{$a}“ gelöscht.';
 $string['skilldescription'] = 'Beschreibung';
 $string['skilldescription_help'] = 'Wofür der Skill gedacht ist, damit der Assistent weiß, wann er ihn laden soll. Beschreiben Sie die Aufgabe oder den Bereich, um den es geht, nicht die einzelnen Schritte. Der Text erscheint sowohl in der Skill-Liste (für Menschen) als auch im Systemprompt (für den Assistenten).';
 $string['skillexists'] = 'Ein Skill mit der Kurzbezeichnung „{$a}“ existiert bereits.';
+$string['skillimport_badloadmode'] = 'Das Feld „loadmode“ muss einen der folgenden Werte haben: {$a}.';
 $string['skillimport_badmasks'] = 'Die Felder „mainfunctions“ und „otherfunctions“ müssen jeweils eine Liste von Masken enthalten.';
 $string['skillimport_badshortname'] = 'Jeder Skill braucht eine gültige Kurzbezeichnung (Buchstaben, Ziffern, Bindestrich, Unterstrich).';
 $string['skillimport_invalidjson'] = 'Die hochgeladene Datei enthält kein gültiges Skill-JSON.';
@@ -400,6 +481,13 @@ $string['skillimported'] = 'Skill „{$a}“ importiert.';
 $string['skillinstructions'] = 'Anweisungen';
 $string['skillinstructions_help'] = 'Hinweise, die mit dem Skill in den Chat geladen werden. Nehmen Sie nur auf, was nicht offensichtlich ist: Der Assistent sieht jede geladene Funktion samt Beschreibung, wiederholen Sie also nicht, was eine Funktion tut, und erinnern Sie ihn nicht an naheliegende Parameter. Halten Sie die Reihenfolge des Ablaufs, die Entscheidungen und die Fallstricke fest, die in den Beschreibungen fehlen, und leiten Sie Schritte, die nur manchmal gelten, mit „Wenn ...“ ein.';
 $string['skillloadedevent'] = 'Skill geladen · {$a}';
+$string['skillloadmode'] = 'Verwendbar';
+$string['skillloadmode_dynamic'] = 'Nur bei Bedarf während des Chats geladen';
+$string['skillloadmode_help'] = 'Wenn eine Platzierung den Skill als anfänglichen Skill verwendet, werden seine Anweisungen ab dem Beginn des Chats zu den Systemanweisungen hinzugefügt. Nutzen Sie das, um zu ändern, wie der KI-Agent antwortet.
+
+Ein Skill für eine bestimmte Aufgabe, etwa das Einrichten der Bewertungen oder das Hinzufügen von Voraussetzungen, kann bei Bedarf geladen werden, wenn Nutzer/innen nach etwas fragen, das er abdeckt.';
+$string['skillloadmode_initial'] = 'Nur als anfänglicher Skill';
+$string['skillloadmode_initial_or_dynamic'] = 'Sowohl als anfänglicher Skill als auch bei Bedarf geladen';
 $string['skillmainfunctions'] = 'Hauptfunktionen';
 $string['skillmainfunctions_help'] = 'Ein enger Satz von Masken, der die zentralen Funktionen des Skills zum Erstellen und Ändern auswählt. Die Fähigkeiten dieser Funktionen entscheiden, wem der Skill angeboten wird: nur Nutzer/innen, die auf mindestens eine davon zugreifen können. Jede Maske passt auf einen Funktionsnamen oder auf ein Muster aus Komponente und Name („*“ ist ein Platzhalter, ein vorangestelltes „~“ entfernt Treffer). Leer lassen, um den Skill allen anzubieten.';
 $string['skillmatched'] = 'Treffer ({$a})';
@@ -410,7 +498,7 @@ $string['skillnomatch'] = 'Keine aktivierte Funktion passt zu diesen Mustern.';
 $string['skillnotfound'] = 'Kein Skill gefunden: {$a}.';
 $string['skillotherfunctions'] = 'Weitere Funktionen';
 $string['skillotherfunctions_help'] = 'Masken für die übrigen Funktionen, die der Skill mitbringt: lesende Funktionen, Hilfsfunktionen oder eine ganze Komponente. Gleiche Schreibweise wie bei den Hauptfunktionen, sie beeinflussen jedoch nicht, wem der Skill angeboten wird. Leer lassen, wenn der Skill keine zusätzlichen Funktionen braucht.';
-$string['skills_intro'] = '<p>Ein Skill bündelt besondere Anweisungen für eine bestimmte Aufgabe mit einer Liste der dafür empfohlenen Funktionen. Nutzen Sie Skills für häufige mehrstufige Aufgaben, bei denen der KI-Agent ins Straucheln gerät oder die passenden Funktionen nicht findet, oder für Aufgaben, die für Ihre Organisation typisch sind.</p><p>Die Liste der Skills und ihrer Beschreibungen steht dem KI-Agenten immer zur Verfügung; er lädt selbst einen Skill, sobald er ihn für die Anfrage als passend ansieht. Ein Skill steht nur Nutzer/innen zur Verfügung, die auf mindestens eine seiner Hauptfunktionen zugreifen können. Ein Skill für Trainer/innen ist zum Beispiel für Teilnehmer/innen nicht sichtbar.</p>';
+$string['skills_intro'] = '<p>Ein Skill bündelt besondere Anweisungen für eine bestimmte Aufgabe mit einer Liste der dafür empfohlenen Funktionen. Nutzen Sie Skills für häufige mehrstufige Aufgaben, bei denen der KI-Agent ins Straucheln gerät oder die passenden Funktionen nicht findet, oder für Aufgaben, die für Ihre Organisation typisch sind.</p><p>Ein Skill kann auf zwei Arten verwendet werden; welche, legen Sie in seiner Einstellung „Verwendbar“ fest. Eine Platzierung kann ihn als anfänglichen Skill setzen, sodass seine Anweisungen ab dem Beginn des Chats gelten. Oder der KI-Agent kann ihn bei Bedarf laden: Er sieht immer die Namen und Beschreibungen dieser Skills und lädt selbst einen davon, sobald er ihn für die Anfrage als passend ansieht. Ein Skill steht nur Nutzer/innen zur Verfügung, die auf mindestens eine seiner Hauptfunktionen zugreifen können. Ein Skill für Trainer/innen ist zum Beispiel für Teilnehmer/innen nicht sichtbar.</p>';
 $string['skillshortname'] = 'Kurzbezeichnung';
 $string['skillshortname_help'] = 'Ein stabiler Maschinenname, eindeutig auf der gesamten Website: nur Buchstaben, Ziffern, Bindestrich und Unterstrich. Er kann später geändert werden, außer bei einem Skill, der mit dem Plugin mitgeliefert wurde.';
 $string['skilltags'] = 'Tags';
@@ -418,6 +506,11 @@ $string['skilltags_help'] = 'Tags dienen nur zum Filtern und werden nicht an das
 $string['skilltoobroad'] = 'Passt auf {$a} Funktionen, das könnte zu weit gefasst sein. Schränken Sie die Funktionsmasken gegebenenfalls ein.';
 $string['skillunavailable'] = 'Nicht verfügbar';
 $string['skillupdated'] = 'Skill „{$a}“ aktualisiert.';
+$string['stop'] = 'Stopp';
+$string['stoppedafter'] = 'Nach {$a} gestoppt';
+$string['stoppedbyuser'] = 'Sie haben den Agenten gestoppt. Schreiben Sie eine neue Nachricht, um fortzufahren.';
+$string['stopping'] = 'Wird gestoppt...';
+$string['stoppingafterfunction'] = 'Stoppt, sobald diese Funktion fertig ist';
 $string['suggestedprompt_edit'] = 'Diese Nachricht vor dem Senden bearbeiten';
 $string['suggestedprompt_send'] = 'Diese Nachricht senden';
 $string['switchview'] = 'Ansicht wechseln';
@@ -438,6 +531,9 @@ $string['timecreated'] = 'Erstellungsdatum';
 $string['timelastactivity'] = 'Letzte Aktivität';
 $string['timemodified'] = 'Zuletzt geändert';
 $string['tryagain'] = 'Erneut versuchen';
+$string['unavailable_envcheck'] = 'Diese Funktion ist nicht verfügbar, weil eine Website-Einstellung, von der sie abhängt, nicht aktiviert ist: {$a}.';
+$string['unavailable_plugindisabled'] = 'Diese Funktion ist nicht verfügbar, weil das Plugin {$a} auf dieser Website deaktiviert ist.';
+$string['unavailable_pluginnotinstalled'] = 'Diese Funktion kann nicht verwendet werden, weil das Plugin {$a} auf dieser Website nicht installiert ist.';
 $string['usage_completiontokens'] = 'Ausgabetoken';
 $string['usage_model'] = 'Modell';
 $string['usage_prompttokens'] = 'Eingabetoken';
@@ -455,3 +551,6 @@ $string['welcome_skillsmore'] = '+{$a} weitere';
 $string['welcome_tryasking'] = 'Fragen Sie zum Beispiel';
 $string['welcomedesc'] = 'Fragen Sie den KI-Agenten zu Ihrer Website, zu Kursen, Nutzer/innen oder Inhalten. Er kann lesen und, mit Ihrer Bestätigung, Änderungen vornehmen.';
 $string['welcometitle'] = 'Willkommen, {$a}';
+$string['workedfor'] = 'Hat {$a} gearbeitet';
+$string['working'] = 'Arbeitet';
+$string['workingfor'] = 'Arbeitet seit {$a}';

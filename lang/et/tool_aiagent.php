@@ -10,7 +10,7 @@
 
 /**
  * Estonian language pack for AI agent.
- * Last updated: 2026-10-11
+ * Last updated: 2026-10-25
  *
  * @package    tool_aiagent
  * @category   string
@@ -21,9 +21,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_needsyou'] = 'AI-agent: ootab teie kinnitust';
+$string['activity_working'] = 'AI-agent: töötab';
 $string['addon'] = 'Lisandmoodul';
 $string['aiagent:autoapproveall'] = 'Automaatse kinnitamise režiimi „Kõik“ valimine, mille puhul iga funktsioonikutse käivitatakse kinnitust küsimata';
 $string['aiagent:usechat'] = 'AI-agendi vestluste alustamine (määrab, kus saab vestlust alustada; ei piira, millistele andmetele vestlus pärast alustamist ligi pääseb)';
+$string['allfunctions'] = 'Kõik';
 $string['allowfeedback'] = 'Luba tagasiside';
 $string['allowfeedback_desc'] = 'Kui see on lubatud, saavad kasutajad hinnata assistendi vastuseid ja teatada ebaõnnestunud funktsioonikutsetest. Tagasiside saadetakse AI-agendi lisandmooduli arendajatele (mitte ühelegi LLM-ile), et nad saaksid Moodle\'i funktsioonide kasutamist parandada. Saadetakse ainult hinnatud sõnumivahetus, mitte kogu vestlus, ja kasutaja saab teksti enne saatmist muuta. Keelake see õpikeskkondades, kus väljuvale liiklusele kehtivad ranged reeglid.';
 $string['anthropic_heading'] = 'Anthropic (Claude)';
@@ -44,6 +47,18 @@ $string['autoapprove_readonly_desc'] = 'Kinnita lugemised, küsi kirjutamiste ko
 $string['autoapprove_safe'] = 'Ohutud';
 $string['autoapprove_safe_desc'] = 'Kinnita toimingud, mis õpikeskkonda ei muuda';
 $string['autoapprove_safe_examples'] = 'Lugemised, samuti manuste suuruse muutmine, piltide loomine, failide saatmine LLM-ile jms.';
+$string['autoapprovetimelimit'] = 'Automaatkinnituse ajapiirang';
+$string['autoapprovetimelimit_desc'] = 'Kui kaua võib AI-agent pärast kasutaja viimast tegevust, näiteks sõnumi saatmist või funktsioonide kinnitamist, automaatselt kinnitatud funktsioone edasi käivitada. Seejärel küsib ta enne järgmist funktsiooni kinnitust. Nii ei kuluta hüljatud vestlused serveri ressursse ega AI tokeneid. 0 tähendab piiranguta.';
+$string['autopaused'] = 'Automaatkinnitus peatati, kuna {$a} jooksul ei teinud te midagi. Jätkamiseks kinnitage.';
+$string['background_heading'] = 'Taustal töötavad vestlused';
+$string['backgroundchats'] = 'Luba taustal töötavad vestlused';
+$string['backgroundchats_desc'] = 'Iga vestlus töötab serveris oma PHP CLI protsessis. AI-agent jätkab siis tööd ka pärast seda, kui kasutaja lahkub lehelt või sulgeb vahekaardi, käivitab funktsioonide ahelaid kiiremini ja nupp Peata katkestab agendi kohe, isegi kui mõni funktsioon parajasti töötab. Kui see on välja lülitatud või PHP CLI pole saadaval, töötavad vestlused kasutaja brauseri päringus.';
+$string['backgroundunavailable_effect'] = 'AI-agent käivitab funktsioonide ahelaid brauseri kaudu, seega on need aeglasemad ja katkevad, kui kasutaja lahkub lehelt või sulgeb vahekaardi. Juba töötavaid funktsioone ei saa katkestada.';
+$string['backgroundunavailable_executable'] = 'Seade Tee PHP CLI-le taustal töötavate vestluste jaoks ei osuta käivitatavale failile.';
+$string['backgroundunavailable_function'] = 'PHP funktsioon {$a} on selles serveris keelatud.';
+$string['backgroundunavailable_pathtophp'] = 'Seade Tee PHP CLI-le on määramata.';
+$string['backgroundunavailable_setpath'] = 'Määrake Tee PHP CLI-le';
+$string['backgroundunavailable_windows'] = 'Taustal töötavad vestlused ei ole Windowsi serverites saadaval.';
 $string['backtoconfiguration'] = 'Tagasi AI-agendi konfiguratsiooni';
 $string['builtinfunction'] = 'Sisseehitatud';
 $string['bulk_disabled'] = 'Keelatud funktsioone: {$a}';
@@ -52,14 +67,17 @@ $string['bulk_enabled'] = 'Lubatud funktsioone: {$a}';
 $string['bulk_enableselected'] = 'Luba valitud';
 $string['bulk_withselected'] = 'Valitud funktsioonidega';
 $string['capabilities'] = 'Tegevusload';
+$string['chat_heading'] = 'Vestlused';
 $string['chat_namelink'] = 'Nimi lingiga';
 $string['chatfrozen'] = 'Selle vestluse oskused pole enam saadaval, seega ei saa vestlust jätkata. Alustage uut vestlust.';
+$string['chatfrozen_noplacement'] = 'See vestlus alustati AI-agendi varasemas versioonis, seega ei saa seda enam jätkata. Alustage uut vestlust.';
 $string['chathelpcontent'] = '<p>AI-agent saab teie nimel selle õpikeskkonna sisu lugeda ja muuta. Enamik toiminguid küsib enne käivitamist teie kinnitust. Automaatse kinnitamise režiimi saate sisestusväljal leebemaks või rangemaks muuta.</p>
 <p>Faile saate lisada lohistades, kleepides või kirjaklambri ikoonile klõpsates. Seejärel kirjutage oma soov ja vajutage <strong>Saada</strong>. Sõnumi saatmiseks vajutage Enter, uue rea lisamiseks Shift ja Enter.</p><p>AI võib eksida. Kontrollige tulemusi.</p>';
 $string['chatnopermission'] = 'See vestlus alustati õpikeskkonna alas, kus teil pole enam AI-agendile juurdepääsu, seega ei saa seda jätkata.';
 $string['chatnostartpermission'] = 'Teil pole õigust siin vestlust alustada. Avage AI-agent lehelt, kus seda pakutakse.';
 $string['chatretention'] = 'Vestluste säilitamise aeg';
 $string['chatretention_desc'] = 'Vestlused, milles pole selle aja jooksul tegevust olnud, eemaldatakse kasutajate vestluste ajaloost, nende manustatud failid kustutatakse sellest õpikeskkonnast ning AI-teenusepakkuja juures hoitavate vestlusandmete (salvestatud vastused ja üleslaaditud failid) kustutamiseks esitatakse taotlus. Teenusepakkuja poolel toimub kustutamine parimal võimalikul viisil ja pole tagatud; seadistage sobiv andmete säilitamise reegel ka oma teenusepakkuja kontos. Sõnumid ja kasutusandmed säilivad aruandluse jaoks seni, kuni allpool määratud vestluslogide säilitamise aeg möödub. Väärtus 0 säilitab vestlused igavesti.';
+$string['closeconfirm_background'] = 'AI-agent jätkab tööd ka siis, kui vestlus on suletud.';
 $string['closeconfirm_body'] = 'Akna sulgemine vestlust ei kustuta. Saate selle igal ajal menüüst „Varasemad vestlused“ uuesti avada. Vestlused kustutatakse automaatselt {$a} päeva pärast.';
 $string['closeconfirm_body_noretention'] = 'Akna sulgemine vestlust ei kustuta. Saate selle igal ajal menüüst „Varasemad vestlused“ uuesti avada.';
 $string['closeconfirm_close'] = 'Sulge vestlus';
@@ -95,6 +113,8 @@ $string['entity_skill'] = 'Oskus';
 $string['entity_usage'] = 'Tokenite kasutus';
 $string['error_interrupted_function'] = 'Funktsioonikutse katkes enne lõpetamist. Muudatused võivad olla osaliselt rakendunud; kontrollige olekut, enne kui uuesti proovite.';
 $string['error_interrupted_llm'] = 'Side AI-teenusepakkujaga katkes. Päringu kordamiseks klõpsake „Proovi uuesti“.';
+$string['errorbackgroundstart'] = 'AI-agent ei saanud selle vestluse kallal tööd alustada. Paluge õpikeskkonna administraatoril kontrollida taustal töötavate vestluste sätteid.';
+$string['errorbackgroundstart_admin'] = 'AI-agent ei saanud selles serveris oma taustaprotsessi käivitada. Parandage seade Tee PHP CLI-le või lülitage taustal töötavad vestlused välja, jaotises {$a} AI-agendi sätetes.';
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Sõnum ei tohi olla tühi.';
 $string['errorfullscreendisabled'] = 'Vestluse täisekraanvaade pole selles õpikeskkonnas lubatud.';
@@ -118,6 +138,7 @@ $string['errorresponses_endpoint_invalid_config'] = 'Lisandmoodul üritas kasuta
 $string['errorresponses_endpoint_reply'] = 'Teenusepakkuja vastus: {$a}';
 $string['errorresponses_provider_switch'] = 'Seda vestlust ei saa OpenAI Responses API kaudu jätkata, sest see alustati teise AI-teenusepakkujaga. Alustage uut vestlust või lülituge selle jätkamiseks tagasi algsele teenusepakkujale (või OpenAI Chat Completionsile).';
 $string['errorrootnotfound'] = 'Selle vestluse algsõnumit ei leitud.';
+$string['errorupdatesstopped'] = 'See vestlus ei saa enam uuendusi. Värskendage, et näha viimast seisu.';
 $string['exportskill'] = 'Ekspordi';
 $string['feedback_modal_freetextlabel'] = 'Kas veel midagi? (valikuline)';
 $string['feedback_modal_freetextplaceholder_negative'] = 'Mis läks valesti? Kirjeldage nii täpselt, kui soovite.';
@@ -153,11 +174,23 @@ $string['feedbackthanks'] = 'Aitäh tagasiside eest!';
 $string['feedbackthumbdown'] = 'Teata selle vastusega seotud probleemist';
 $string['feedbackthumbup'] = 'See vastus oli abiks';
 $string['feedbackvalidation_categoryrequired'] = 'Valige vähemalt üks kategooria.';
+$string['functionapprovalneeded'] = 'Vajab kinnitust';
+$string['functionapprovalneededmany'] = 'Kinnitust vajavaid funktsioonikutseid: {$a}';
 $string['functionapprovecount'] = 'Kinnita {$a} kutset';
+$string['functionavailable'] = 'Saadaval';
 $string['functioncall_actions'] = 'Kinnita funktsioonikutse või keeldu sellest';
 $string['functioncall_chip_action'] = 'Muuda automaatse kinnitamise režiimi';
 $string['functioncalldetails'] = 'Funktsioonikutse üksikasjad';
-$string['functioncalldetailscount'] = 'Funktsioonikutsete üksikasjad ({$a})';
+$string['functioncalldetailsof'] = 'Funktsioonikutse üksikasjad: {$a}';
+$string['functioncalling'] = 'Kutsutakse: {$a}';
+$string['functioncallnav'] = '{$a->index}/{$a->total}';
+$string['functioncallnext'] = 'Järgmine funktsioonikutse';
+$string['functioncallprevious'] = 'Eelmine funktsioonikutse';
+$string['functioncallscount'] = 'Funktsioonikutseid: {$a}';
+$string['functioncallscountone'] = '1 funktsioonikutse';
+$string['functiondenied'] = 'Te keeldusite: {$a}';
+$string['functiondeniedmany'] = 'Te keeldusite: {$a->name} ja veel {$a->count}';
+$string['functiondeniednext'] = 'Agent peatus. Kirjutage sõnum, et öelda talle, mida edasi teha.';
 $string['functiondeny'] = 'Keeldu';
 $string['functiondenyall'] = 'Keeldu kõigist';
 $string['functiondetailscopied'] = 'Kopeeritud';
@@ -187,20 +220,34 @@ $string['functionname'] = 'Funktsiooni nimi';
 $string['functionparameters'] = 'Parameetrid';
 $string['functionresult'] = 'Tulemus';
 $string['functionresultdiscarded'] = 'Tulemus oli liiga suur ({$a}) ja jäeti kõrvale. Kitsendage päringut, filtreerides seda, küsides vähem välju või kasutades täpsemat funktsiooni. Sama kutse kordamine annab sama tõrke.';
+$string['functionrules_error_component'] = '{$a->path}: ükski funktsioon ei kuulu komponenti, mis vastab mustrile „{$a->value}“.';
+$string['functionrules_error_depth'] = '{$a->path}: reegel on pesastatud sügavamale kui {$a->max} taset.';
+$string['functionrules_error_function'] = '{$a->path}: ükski funktsioon ei vasta mustrile „{$a->value}“.';
+$string['functionrules_error_json'] = 'Reegel ei ole kehtiv JSON: {$a}';
+$string['functionrules_error_list'] = '{$a->path}: oodati reegli osade mittetühja loendit.';
+$string['functionrules_error_node'] = '{$a->path}: reegli iga osa peab olema objekt, millel on täpselt üks võti: type, tag, component, function, not, all või any.';
+$string['functionrules_error_tag'] = '{$a->path}: ühelgi funktsioonil pole silti „{$a->value}“.';
+$string['functionrules_error_type'] = '{$a->path}: tundmatu tüüp „{$a->value}“. Tüübid on read, safe ja write.';
+$string['functionrules_error_value'] = '{$a->path}: oodati mittetühja stringi või mittetühjade stringide mittetühja loendit.';
+$string['functionrules_path_root'] = 'Kogu reegel';
 $string['functions_intro'] = '<p><b>Kõik veebiteenuse funktsioonid ei sobi AI-agendile.</b> Mõned on loodud kliendi ja serveri vaheliseks suhtluseks (tähistatud AJAX) või autentimata kasutajatele (Autentimata) ning mõnele on olemas paremad alternatiivid. Osa AJAX-funktsioone töötab AI-agendiga hästi, kuid enamik mitte. AI-agendi lisandmoodul annab Moodle\'i põhisüsteemi ja standardsete lisandmoodulite funktsioonidele asjakohasuse hinde (1-10) ning lubab need, mille hinne on 5 või kõrgem. Kolmanda osapoole lisandmoodulite funktsioone ei hinnata; selle asemel lubatakse automaatselt kõik nende funktsioonid, mis pole AJAX-funktsioonid. Sellel lehel saate saadaolevad funktsioonid üle vaadata ning neid ühekaupa lubada või keelata.</p><p>Kui funktsioon nõuab üht või mitut tegevusluba, pole see saadaval kasutajatele, kellel pole vähemalt üht neist tegevuslubadest mõnes õpikeskkonna kontekstis. Põhisüsteemi ja standardsete lisandmoodulite puhul määrab AI-agendi lisandmoodul need tegevusload õigesti. Kolmanda osapoole lisandmoodulite puhul võetakse tegevusload funktsiooni definitsioonist ja kuna Moodle ise seda kontrolli ei jõusta, võivad need olla valed.</p>';
 $string['functions_report'] = 'AI-agendi funktsioonid';
 $string['functionstatus_denied'] = 'Keeldutud';
 $string['functionstatus_failed'] = 'Ebaõnnestus';
+$string['functionstatus_interrupted'] = 'Katkestatud';
+$string['functionstatus_notrun'] = 'Käivitamata';
 $string['functionstatus_pending'] = 'Ootab kinnitust';
 $string['functionstatus_processing'] = 'Käivitatakse...';
 $string['functiontype'] = 'Tüüp';
 $string['functiontype_help'] = 'Veebiteenuse funktsiooni tüüp ja selle omadused:
 
 * **Lugemine**: hangib andmeid, midagi muutmata
+* **Ohutu**: sisseehitatud funktsioon, mis ei muuda õpikeskkonda, vaid ainult vestluse faile, näiteks muudab manuse suurust või loob pildi
 * **Kirjutamine**: loob või muudab andmeid
 * **AJAX**: Moodle kasutab seda sisemiselt kliendi ja serveri vaheliseks suhtluseks, seega sobib see AI-agendi funktsiooniks vähem tõenäoliselt
 * **Autentimata**: on saadaval autentimata kasutajatele, seega sobib samuti AI-agendi funktsiooniks vähem tõenäoliselt';
 $string['functiontype_read'] = 'Lugemine';
+$string['functiontype_safe'] = 'Ohutu';
 $string['functiontype_write'] = 'Kirjutamine';
 $string['gemini_api_generatecontent'] = 'generateContent (stabiilne)';
 $string['gemini_api_interactions'] = 'Interactions API (beeta)';
@@ -213,6 +260,7 @@ $string['gemini_builtin_google_search_desc'] = 'Lubab Geminil tugineda vastustes
 $string['gemini_builtin_url_context'] = 'Luba tööriist URL Context';
 $string['gemini_builtin_url_context_desc'] = 'Lubab Geminil lugeda ja analüüsida kasutaja nimetatud avalike URL-ide sisu. Ainult Gemini 3 ja uuemad mudelid; Gemini 2.5 ja vanemate puhul eiratakse seda vaikimisi, sest need mudelid ei saa ühendada sisseehitatud tööriistu oma funktsioonikutsetega. URL-id peavad olema avalikult kättesaadavad (mitte localhost, ilma autentimiseta).';
 $string['gemini_heading'] = 'Google Gemini';
+$string['hidefunctioncalls'] = 'Peida funktsioonikutsed';
 $string['hint_splitview'] = 'Kas soovite seda vestlust kasutada oma õpikeskkonna kõrval? Lohistage <a href="{$a}">{$a}</a> uude aknasse või tehke sellel paremklõps ja kasutage brauseri poolitatud vaadet.';
 $string['imagedimensions'] = '{$a->width}×{$a->height} px';
 $string['imagepreviewinfo'] = 'Fail {$a->size}, mõõtmed {$a->dimensions}. Eelvaade {$a->preview} ({$a->scale}%).';
@@ -233,6 +281,8 @@ $string['importskill_summaryupdate'] = '{$a} uuendatavat';
 $string['importskill_toolarge'] = 'Oskuse andmed on liiga suured (maksimaalselt {$a}).';
 $string['inlinefilecharlimit'] = 'Põimitud failisisu piirang';
 $string['inlinefilecharlimit_desc'] = 'Suurim tekstifaili osa, mille saab faili reasisesel lugemisel otse vestlusesse põimida. Pikem sisu kärbitakse. Põimimist kasutatakse siis, kui mudel seda soovib, ja varuvariandina nende AI-teenusepakkujate puhul, kes faile vastu ei võta. Põimitud sisu saadetakse igal käigul koos vestluse ajalooga uuesti, seega suur piirmäär kasvatab tokenite kasutust.';
+$string['interruptedbystop'] = 'Katkestatud: te peatasite agendi.';
+$string['interruptedunexpectedly'] = 'Katkestatud: funktsioon peatus ootamatult.';
 $string['invalidparameter'] = 'Tuvastati vigane parameeter: {$a}';
 $string['isajax'] = 'AJAX';
 $string['licenseactivate'] = 'Aktiveeri litsents';
@@ -265,7 +315,6 @@ AI-teenusepakkujad lükkavad niikuinii tagasi failid, mis ületavad nende endi p
 $string['maxfunctionresultsize'] = 'Funktsiooni tulemuse maksimaalne maht';
 $string['maxfunctionresultsize_desc'] = 'Suurim andmehulk, mille üks funktsioon võib AI-mudelile tagastada. Mõnel Moodle\'i funktsioonil pole filtrit ja see tagastab kõik õpikeskkonna kasutajad või kõik kursused, mis ujutab mudeli üle ja kulutab igal järgneval käigul tokeneid. Sellest piirist suurem tulemus jäetakse kõrvale ja mudelile öeldakse, et ta päringut kitsendaks. Piirangu kaotamiseks määrake nulliks. Faili reasisene lugemine on erand; selleks kasutage sätet „Põimitud failisisu piirang“.';
 $string['newchat'] = 'Uus vestlus';
-$string['newchatchooser_blank_sub'] = 'Kontekstita. Üldine assistent.';
 $string['newchatchooser_clone'] = 'Sama mis see vestlus';
 $string['newchatchooser_continue'] = 'Jätkake sealt, kus pooleli jäite';
 $string['newchatchooser_desc_default'] = 'Alustage sellel lehel uut vestlust või jätkake sealt, kus pooleli jäite.';
@@ -277,15 +326,20 @@ $string['newchatchooser_onthispage'] = 'Sellel lehel:';
 $string['newchatchooser_title'] = 'Alusta uut vestlust';
 $string['nfilesattached'] = '{$a} manustatud faili';
 $string['nonauth'] = 'Autentimata';
+$string['notavailable_loginas'] = 'AI-agent ei ole saadaval, kui olete sisse logitud teise kasutajana.';
+$string['notavailable_roleswitch'] = 'AI-agent ei ole saadaval, kui olete rolli vahetanud.';
 $string['numfiles'] = '{$a} faili';
 $string['numimages'] = '{$a} pilti';
 $string['numotherfiles'] = '{$a} muud';
+$string['onefileattached'] = '1 manustatud fail';
 $string['openai_api_chatcompletions'] = 'Chat Completions';
 $string['openai_api_responses'] = 'Responses API';
 $string['openai_api_type'] = 'API tüüp';
 $string['openai_api_type_desc'] = 'Milline OpenAI API-dest võtta kasutusele mitmekäigulistes vestlustes. Responses API hoiab vestluse olekut serveri poolel, seega saadetakse igal käigul ainult uus sisend (väiksem kulu, lihtsam ajalugu). Chat Completions koostab kogu sõnumite loendi igal päringul uuesti (laiem ühilduvus teenusepakkujatega).<br><br>Responses API-t toetavad: <strong>{$a}</strong>. Teised teenusepakkujad kasutavad sellest sättest hoolimata vaikimisi Chat Completionsit.';
 $string['openai_heading'] = 'OpenAI (või ühilduv)';
 $string['openlink'] = 'Ava link';
+$string['pathtophp'] = 'Tee PHP CLI-le taustal töötavate vestluste jaoks';
+$string['pathtophp_desc'] = 'PHP CLI programm, mis käivitab taustal töötavad vestlused, kui see peab erinema õpikeskkonna seadest Tee PHP CLI-le. Jätke tühjaks, et kasutada õpikeskkonna sätet.';
 $string['placeholder'] = 'Kirjutage sõnum...';
 $string['placement_add'] = 'Lisa paigutus';
 $string['placement_confirmdelete'] = 'Kas soovite selle paigutuse kindlasti kustutada?';
@@ -294,9 +348,26 @@ $string['placement_defaultname'] = 'AI-agent';
 $string['placement_deleted'] = 'Paigutus kustutatud.';
 $string['placement_duplicated'] = 'Paigutus dubleeritud.';
 $string['placement_edit'] = 'Muuda paigutust';
+$string['placement_functionrules'] = 'Funktsioonireegel';
+$string['placement_functionrules_help'] = 'Piirab, milliseid funktsioone võib AI-agent kasutada selle paigutuse kaudu alustatud vestlustes. Kõigi funktsioonide lubamiseks jätke tühjaks. Reegli muudatus kehtib ka vestlustele, mis on selle paigutuse kaudu juba alustatud.
+
+Reegel on JSON-vormingus. Selle iga osa on objekt, millel on üks võti:
+
+* {"type": "read"}: funktsiooni tüüp on read (Lugemine), safe (Ohutu) või write (Kirjutamine), nagu vahekaardi „Funktsioonid“ aruandes
+* {"tag": "student"}: funktsioonil on see silt
+* {"component": "mod_quiz"}: funktsioon kuulub sellesse komponenti
+* {"function": "core_course_get_courses"}: funktsioonil on see nimi
+* {"not": osa}, {"all": [osad]}, {"any": [osad]}: ühendavad osi
+
+Komponendi või funktsiooni nimes vastab tärn mis tahes tekstile. Võtmed type, tag, component ja function võtavad vastu ka loendi, mis tähendab ükskõik millist selle väärtustest: {"type": ["read", "safe"]} lubab kõik funktsioonid, mis õpikeskkonda ei muuda.
+
+Paluge AI-agendil reegel kirjutada või seda muuta: enne salvestamist kontrollib ta, milliseid funktsioone reegel lubab.';
+$string['placement_functionrules_preview'] = 'Salvestatud reegel lubab kasutada {$a->count} funktsiooni {$a->total} lubatud funktsioonist';
+$string['placement_functions'] = 'Kasutatavad funktsioonid';
+$string['placement_functions_limited'] = 'Piiratud ({$a})';
 $string['placement_initialskills'] = 'Algsed oskused';
-$string['placement_initialskills_help'] = 'Oskused, mis laaditakse vestluse alustamisel automaatselt. Valikuline; agent saab endiselt vajaduse korral iga oskuse laadida. Määratud oskused juhivad ühtlasi seda paigutust: kasutajad, kellel pole neist ühelegi juurdepääsu, ei näe nuppu ega menüükirjet, ja kui kõik määratud oskused hiljem eemaldatakse või keelatakse, lakkab paigutus ilmumast.';
-$string['placement_intro'] = '<p>Paigutused võimaldavad pakkuda agente, mis on kohandatud kindla tööülesande jaoks. Iga paigutus lisab AI-agendi nupu lehtedele, mille URL vastab mõnele selle maskile, ning võib alustada vestlust ettemääratud algsete oskuste ja tervitustekstiga. Kui algsed oskused on määratud, ei näe nuppu need kasutajad, kellel pole neist ühelegi juurdepääsu.</p><p>Algsed oskused määravad ainult vestluse lähtekoha; agent pääseb endiselt ligi kõigile lubatud funktsioonidele, mitte ainult nendele oskustele kuuluvatele.</p>';
+$string['placement_initialskills_help'] = 'Oskused, mis laaditakse vestluse alustamisel automaatselt. Valikuline; agent saab endiselt vajaduse korral iga oskuse laadida, kui paigutuse funktsioonireegel seda ei takista. Määratud oskused juhivad ühtlasi seda paigutust: kasutajad, kellel pole neist ühelegi juurdepääsu, ei näe nuppu ega menüükirjet, ja kui kõik määratud oskused hiljem eemaldatakse või keelatakse, lakkab paigutus ilmumast.';
+$string['placement_intro'] = '<p>Paigutused võimaldavad pakkuda agente, mis on kohandatud kindla tööülesande jaoks. Iga paigutus lisab AI-agendi nupu lehtedele, mille URL vastab mõnele selle maskile, ning võib alustada vestlust ettemääratud algsete oskuste ja tervitustekstiga. Kui algsed oskused on määratud, ei näe nuppu need kasutajad, kellel pole neist ühelegi juurdepääsu.</p><p>Algsed oskused määravad ainult vestluse lähtekoha; agent pääseb endiselt ligi kõigile lubatud funktsioonidele, mitte ainult nendele oskustele kuuluvatele. Funktsioonireegel piirab, milliseid funktsioone võib agent kasutada paigutuse kaudu alustatud vestlustes.</p>';
 $string['placement_location'] = 'Nupu asukoht';
 $string['placement_location_floating'] = 'Ujuv nupp';
 $string['placement_location_h1'] = 'Lehe pealkiri (H1)';
@@ -307,14 +378,16 @@ $string['placement_name_help'] = 'Kuvatakse kasutajatele: kasutajamenüüs, nupu
 $string['placement_save'] = 'Salvesta paigutus';
 $string['placement_saved'] = 'Paigutus salvestatud.';
 $string['placement_skillmissing'] = 'Oskust ei leitud';
+$string['placement_skillnotinitial'] = 'Ei saa olla algne oskus';
 $string['placement_suggestedprompts'] = 'Soovitatud promptid';
 $string['placement_suggestedprompts_help'] = 'Üks prompt rea kohta; need kuvatakse nuppudena sõnumivälja kohal vestluse avaekraanil. Klõps saadab prompti kohe, näiteks „Tee sellest kursusest kokkuvõte“. Kui kasutaja peab prompti enne ise lõpetama, lisage sellesse ükskõik kuhu ...: siis pannakse prompt saatmise asemel sõnumivälja, näiteks „Tee selle kursuse jaotisest ... kokkuvõte“. Jätke väli tühjaks, kui prompte ei pakuta.';
 $string['placement_urlmask'] = 'URL-maskid';
-$string['placement_urlmask_help'] = 'Üks muster rea kohta. Kasutage metamärgina tärni, näiteks /course/view.php* või /mod/*/view.php*. Märkus: lehtedel, kus samasse asukohta on suunatud täpsem paigutus, peidetakse lai paigutus, mis vastab mustrile /*, nii et kasutajad näevad ainult sobivamat.';
+$string['placement_urlmask_help'] = 'Üks muster rea kohta. Kasutage metamärgina tärni, näiteks /course/view.php* või /mod/*/view.php*.';
 $string['placement_urlmask_invalid'] = 'Iga URL-mask peab algama kaldkriipsuga: „{$a}“ ei alga.';
 $string['placement_welcome'] = 'Kohandatud tervitustekst (valikuline)';
 $string['placement_welcome_help'] = 'Asendab vestluse avaekraanil oleva tavapärase tervitussõnumi. Vaikeväärtuse kasutamiseks jätke tühjaks.';
 $string['pluginname'] = 'AI-agent';
+$string['pluginnotinstalled'] = 'Lisandmoodul pole paigaldatud';
 $string['previouschats'] = 'Varasemad vestlused';
 $string['privacy:metadata:aiprovider'] = 'Vestlused saadetakse õpikeskkonna administraatori valitud AI-teenusepakkujale, näiteks OpenAI-le, Azure OpenAI-le, Google Geminile või Anthropicule, et see saaks luua vastuse. Lisandmoodul saadab iga päringu teenusepakkujale otse, mitte Moodle\'i AI-alamsüsteemi kaudu. See, milline ettevõte andmed saab ja kui kaua neid seal hoitakse, oleneb õpikeskkonnas seadistatud teenusepakkujast ja selle enda tingimustest.';
 $string['privacy:metadata:aiprovider:files'] = 'Failid, mille kasutaja vestlusele manustab, ja failid, mida agent kasutaja nimel õpikeskkonnast loeb, üles laaditud selleks, et mudel saaks nende sisu lugeda.';
@@ -340,12 +413,18 @@ $string['privacy:metadata:tool_aiagent_message:content'] = 'Sõnumi sisu.';
 $string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Ülekattena või külgribana kuvatavast vestlusest saadetud sõnumi puhul selle lehe aadress ja nimi, mida kasutaja tol hetkel luges.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Kes sõnumi saatis: kasutaja, assistent, süsteem või funktsioon.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Aeg, mil sõnum loodi.';
+$string['privacy:metadata:tool_aiagent_run'] = 'Kirje iga kord, kui AI-agent töötas vestluse sõnumi kallal; seda säilitatakse ühe päeva pärast lõppu.';
+$string['privacy:metadata:tool_aiagent_run:ip'] = 'Kasutaja IP-aadress sõnumi saatmise ajal, salvestatud koos toimingutega, mida AI-agent tema eest tegi.';
+$string['privacy:metadata:tool_aiagent_run:payload'] = 'Lehe sisu, mida kasutaja vaatas, kui AI-agent palus seda lugeda.';
+$string['privacy:metadata:tool_aiagent_run:timecreated'] = 'Aeg, mil AI-agent alustas sõnumi kallal tööd.';
+$string['privacy:metadata:tool_aiagent_run:userid'] = 'Kasutaja, kes sõnumi saatis.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Iga AI-päringu kohta salvestatud tokenite kasutus, mida säilitatakse kasutuse jälgimiseks.';
 $string['privacy:metadata:tool_aiagent_usage:completiontokens'] = 'Kasutatud väljundtokenite (completion) arv.';
 $string['privacy:metadata:tool_aiagent_usage:model'] = 'AI-mudel, mis päringu töötles.';
 $string['privacy:metadata:tool_aiagent_usage:prompttokens'] = 'Kasutatud sisendtokenite (prompt) arv.';
 $string['privacy:metadata:tool_aiagent_usage:provider'] = 'AI-teenusepakkuja, kes päringu töötles.';
 $string['privacy:metadata:tool_aiagent_usage:timecreated'] = 'Aeg, mil päring tehti.';
+$string['providers_heading'] = 'Kõik AI-teenusepakkujad';
 $string['relevancescore'] = 'Asjakohasuse hinne';
 $string['relevancescore_help'] = 'Asjakohasuse hinne näitab skaalal 1 kuni 10, kui hästi veebiteenuse funktsioon AI-agendile sobib.
 
@@ -373,6 +452,7 @@ $string['resume_title'] = 'Tere tulemast tagasi';
 $string['sendmessage'] = 'Saada';
 $string['settings'] = 'AI-agendi sätted';
 $string['showallfiles'] = 'Näita kõiki';
+$string['showfunctioncalls'] = 'Näita funktsioonikutseid';
 $string['skill_add'] = 'Lisa oskus';
 $string['skill_edit'] = 'Muuda oskust';
 $string['skill_save_close'] = 'Salvesta ja sulge';
@@ -392,6 +472,7 @@ $string['skilldeleted'] = 'Oskus „{$a}“ kustutatud.';
 $string['skilldescription'] = 'Kirjeldus';
 $string['skilldescription_help'] = 'Milleks oskus on mõeldud, et assistent teaks, millal seda laadida. Kirjeldage ülesannet või tegevust, mida see puudutab, mitte samme, mida see teeb. Kirjeldus ilmub nii oskuste loendis (inimestele) kui ka süsteemipromptis (assistendile).';
 $string['skillexists'] = 'Lühinimega „{$a}“ oskus on juba olemas.';
+$string['skillimport_badloadmode'] = 'Välja „loadmode“ väärtus peab olema üks järgmistest: {$a}.';
 $string['skillimport_badmasks'] = 'Väljad „mainfunctions“ ja „otherfunctions“ peavad mõlemad sisaldama maskide loendit.';
 $string['skillimport_badshortname'] = 'Iga oskus vajab kehtivat lühinime (tähed, numbrid, sidekriips, alakriips).';
 $string['skillimport_invalidjson'] = 'Üleslaaditud fail ei ole kehtiv oskuse JSON.';
@@ -400,6 +481,13 @@ $string['skillimported'] = 'Oskus „{$a}“ imporditud.';
 $string['skillinstructions'] = 'Juhised';
 $string['skillinstructions_help'] = 'Juhised, mis laaditakse vestlusesse koos oskusega. Lisage ainult see, mis pole ilmselge: assistent näeb juba iga laaditud funktsiooni ja selle kirjeldust, seega ärge korrake, mida funktsioon teeb, ega tuletage talle meelde ilmselgeid parameetreid. Pange kirja tööjärjekord, otsused ja lõksud, mida kirjeldused ei kata, ning alustage ainult mõnikord kehtivaid samme sõnaga „Kui ...“.';
 $string['skillloadedevent'] = 'Oskus laaditud · {$a}';
+$string['skillloadmode'] = 'Saab kasutada';
+$string['skillloadmode_dynamic'] = 'Ainult vestluse ajal nõudmisel laadituna';
+$string['skillloadmode_help'] = 'Kui paigutus kasutab oskust algse oskusena, lisatakse oskuse juhised süsteemijuhistele kohe vestluse algusest. Kasutage seda, et muuta, kuidas AI-agent vastab.
+
+Kindla tööülesande jaoks mõeldud oskust, näiteks hinnetelehe seadistamiseks või juurdepääsupiirangute lisamiseks, saab laadida nõudmisel, kui kasutaja palub midagi, mida see hõlmab.';
+$string['skillloadmode_initial'] = 'Ainult algse oskusena';
+$string['skillloadmode_initial_or_dynamic'] = 'Nii algse oskusena kui ka nõudmisel laadituna';
 $string['skillmainfunctions'] = 'Põhifunktsioonid';
 $string['skillmainfunctions_help'] = 'Kitsas maskide kogum, mis valib oskuse kesksed loomise ja uuendamise funktsioonid. Nende funktsioonide tegevusload otsustavad, kellele oskust pakutakse: ainult kasutajatele, kes pääsevad ligi vähemalt ühele neist. Iga mask vastab funktsiooni nimele või komponendi ja nime mustrile („*“ on metamärk; eesliide „~“ eemaldab vasted). Jätke tühjaks, et pakkuda oskust kõigile.';
 $string['skillmatched'] = 'Vasted ({$a})';
@@ -410,7 +498,7 @@ $string['skillnomatch'] = 'Ükski lubatud funktsioon ei vasta nendele mustritele
 $string['skillnotfound'] = 'Oskust ei leitud: {$a}.';
 $string['skillotherfunctions'] = 'Muud funktsioonid';
 $string['skillotherfunctions_help'] = 'Maskid ülejäänud funktsioonidele, mida oskus kaasa toob: lugemised, abifunktsioonid või terve komponent. Sama süntaks nagu põhifunktsioonidel, kuid need ei mõjuta seda, kellele oskust pakutakse. Jätke tühjaks, kui oskus lisafunktsioone ei vaja.';
-$string['skills_intro'] = '<p>Oskus koondab kindla tööülesande jaoks mõeldud erijuhised koos selle jaoks soovitatud funktsioonide loendiga. Kasutage oskusi sagedaste mitmesammuliste ülesannete jaoks, mille puhul AI-agent kipub segadusse minema või ei leia sobivaid funktsioone, või teie organisatsiooni eripäraste ülesannete jaoks.</p><p>Oskuste loend koos kirjeldustega on AI-agendile alati saadaval ja ta laadib oskuse ise, kui otsustab, et see sobib kasutaja sooviga. Oskus on saadaval ainult kasutajatele, kes pääsevad ligi vähemalt ühele selle põhifunktsioonile. Näiteks õpetajatele mõeldud oskust õppijad ei näe.</p>';
+$string['skills_intro'] = '<p>Oskus koondab kindla tööülesande jaoks mõeldud erijuhised koos selle jaoks soovitatud funktsioonide loendiga. Kasutage oskusi sagedaste mitmesammuliste ülesannete jaoks, mille puhul AI-agent kipub segadusse minema või ei leia sobivaid funktsioone, või teie organisatsiooni eripäraste ülesannete jaoks.</p><p>Oskust saab kasutada kahel viisil; viis valitakse selle sättes „Saab kasutada“. Paigutus võib määrata selle algseks oskuseks, nii et oskuse juhised kehtivad kohe vestluse algusest. Teise võimalusena võib AI-agent selle nõudmisel laadida: ta näeb alati nende oskuste nimesid ja kirjeldusi ning laadib oskuse ise, kui otsustab, et see sobib kasutaja sooviga. Oskus on saadaval ainult kasutajatele, kes pääsevad ligi vähemalt ühele selle põhifunktsioonile. Näiteks õpetajatele mõeldud oskust õppijad ei näe.</p>';
 $string['skillshortname'] = 'Lühinimi';
 $string['skillshortname_help'] = 'Püsiv masinnimi, mis on kogu õpikeskkonnas kordumatu: ainult tähed, numbrid, sidekriips ja alakriips. Seda saab hiljem muuta, välja arvatud juhul, kui oskus tuli koos lisandmooduliga.';
 $string['skilltags'] = 'Sildid';
@@ -418,6 +506,11 @@ $string['skilltags_help'] = 'Silte kasutatakse ainult filtreerimiseks ja neid ei
 $string['skilltoobroad'] = 'Vastab {$a} funktsioonile, mis võib olla liiga lai. Kaaluge funktsioonimaskide kitsendamist.';
 $string['skillunavailable'] = 'Pole saadaval';
 $string['skillupdated'] = 'Oskus „{$a}“ uuendatud.';
+$string['stop'] = 'Peata';
+$string['stoppedafter'] = 'Peatati {$a} järel';
+$string['stoppedbyuser'] = 'Te peatasite agendi. Jätkamiseks kirjutage uus sõnum.';
+$string['stopping'] = 'Peatamine...';
+$string['stoppingafterfunction'] = 'Peatub, kui see funktsioon lõpetab';
 $string['suggestedprompt_edit'] = 'Muuda seda sõnumit enne saatmist';
 $string['suggestedprompt_send'] = 'Saada see sõnum';
 $string['switchview'] = 'Vaheta vaadet';
@@ -438,6 +531,9 @@ $string['timecreated'] = 'Loomise aeg';
 $string['timelastactivity'] = 'Viimane tegevus';
 $string['timemodified'] = 'Muutmise aeg';
 $string['tryagain'] = 'Proovi uuesti';
+$string['unavailable_envcheck'] = 'See funktsioon pole saadaval, sest õpikeskkonna säte, millest see sõltub, pole lubatud: {$a}.';
+$string['unavailable_plugindisabled'] = 'See funktsioon pole saadaval, sest lisandmoodul {$a} on selles õpikeskkonnas keelatud.';
+$string['unavailable_pluginnotinstalled'] = 'Seda funktsiooni ei saa kasutada, sest lisandmoodul {$a} pole selles õpikeskkonnas paigaldatud.';
 $string['usage_completiontokens'] = 'Väljundtokenid';
 $string['usage_model'] = 'Mudel';
 $string['usage_prompttokens'] = 'Sisendtokenid';
@@ -455,3 +551,6 @@ $string['welcome_skillsmore'] = '+{$a} veel';
 $string['welcome_tryasking'] = 'Proovige küsida';
 $string['welcomedesc'] = 'Küsige AI-agendilt oma õpikeskkonna, kursuste, kasutajate või sisu kohta. Ta oskab lugeda ja teie kinnitusel ka muudatusi teha.';
 $string['welcometitle'] = 'Tere tulemast, {$a}';
+$string['workedfor'] = 'Töötas {$a}';
+$string['working'] = 'Töötab';
+$string['workingfor'] = 'Töötab juba {$a}';

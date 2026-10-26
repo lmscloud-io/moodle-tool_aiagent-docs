@@ -10,7 +10,7 @@
 
 /**
  * Norwegian language pack for AI agent.
- * Last updated: 2026-10-11
+ * Last updated: 2026-10-25
  *
  * @package    tool_aiagent
  * @category   string
@@ -21,9 +21,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_needsyou'] = 'KI-agent: venter på godkjenning fra deg';
+$string['activity_working'] = 'KI-agent: arbeider';
 $string['addon'] = 'Tillegg';
 $string['aiagent:autoapproveall'] = 'Velge modusen «Alle» for autogodkjenning, som kjører alle funksjonskall uten bekreftelse';
 $string['aiagent:usechat'] = 'Starte chatter med KI-agenten (styrer hvor en chat kan startes; begrenser ikke hvilke data chatten får tilgang til når den først er startet)';
+$string['allfunctions'] = 'Alle';
 $string['allowfeedback'] = 'Tillat tilbakemeldinger';
 $string['allowfeedback_desc'] = 'Når dette er slått på, kan brukerne vurdere svar fra assistenten og melde fra om mislykkede funksjonskall. Innsendingene går til utviklerne av KI-agent-pluginen (ikke til noen LLM), slik at de kan forbedre håndteringen av Moodle-funksjoner. Bare den vurderte utvekslingen sendes, ikke hele chatten, og brukeren kan redigere teksten før innsending. Slå dette av på portaler med strenge regler for utgående trafikk.';
 $string['anthropic_heading'] = 'Anthropic (Claude)';
@@ -44,6 +47,18 @@ $string['autoapprove_readonly_desc'] = 'Godkjenn lesing automatisk, spør ved sk
 $string['autoapprove_safe'] = 'Trygge';
 $string['autoapprove_safe_desc'] = 'Godkjenn handlinger som ikke endrer portalen';
 $string['autoapprove_safe_examples'] = 'Lesing, i tillegg til å endre størrelse på vedlegg, generere bilder, sende filer til LLM-en osv.';
+$string['autoapprovetimelimit'] = 'Tidsgrense for autogodkjenning';
+$string['autoapprovetimelimit_desc'] = 'Hvor lenge KI-agenten kan fortsette å kjøre autogodkjente funksjoner etter brukerens siste handling, for eksempel å sende en melding eller godkjenne funksjoner. Etter dette ber den om godkjenning før neste funksjon. Det hindrer at forlatte chatter bruker serverressurser og KI-tokens. 0 betyr ingen grense.';
+$string['autopaused'] = 'Autogodkjenning er satt på pause etter {$a} uten handling fra deg. Godkjenn for å fortsette.';
+$string['background_heading'] = 'Chatter i bakgrunnen';
+$string['backgroundchats'] = 'Tillat chatter i bakgrunnen';
+$string['backgroundchats_desc'] = 'Kjør hver chat i en egen PHP CLI-prosess på serveren. KI-agenten fortsetter da å arbeide etter at brukeren forlater siden eller lukker fanen, kjører kjeder av funksjoner raskere, og Stopp avbryter agenten med en gang, også mens en funksjon kjører. Når dette er slått av, eller ingen PHP CLI er tilgjengelig, kjører chattene i brukerens nettleserforespørsel.';
+$string['backgroundunavailable_effect'] = 'KI-agenten kjører kjeder av funksjoner gjennom nettleseren, så de går tregere og stopper når brukeren forlater siden eller lukker fanen. Funksjoner som allerede kjører, kan ikke avbrytes.';
+$string['backgroundunavailable_executable'] = 'Sti til PHP CLI for chatter i bakgrunnen er ikke en kjørbar fil.';
+$string['backgroundunavailable_function'] = 'PHP-funksjonen {$a} er slått av på denne serveren.';
+$string['backgroundunavailable_pathtophp'] = 'Sti til PHP CLI er ikke angitt.';
+$string['backgroundunavailable_setpath'] = 'Angi Sti til PHP CLI';
+$string['backgroundunavailable_windows'] = 'Chatter i bakgrunnen er ikke tilgjengelige på Windows-servere.';
 $string['backtoconfiguration'] = 'Tilbake til oppsett av KI-agenten';
 $string['builtinfunction'] = 'Innebygd';
 $string['bulk_disabled'] = '{$a} funksjon(er) deaktivert';
@@ -52,14 +67,17 @@ $string['bulk_enabled'] = '{$a} funksjon(er) aktivert';
 $string['bulk_enableselected'] = 'Aktiver valgte';
 $string['bulk_withselected'] = 'Med valgte funksjoner';
 $string['capabilities'] = 'Kvalifikasjoner';
+$string['chat_heading'] = 'Chatter';
 $string['chat_namelink'] = 'Navn med lenke';
 $string['chatfrozen'] = 'Ferdighetene i denne chatten er ikke lenger tilgjengelige, så den kan ikke fortsettes. Start en ny chat i stedet.';
+$string['chatfrozen_noplacement'] = 'Denne chatten ble startet i en tidligere versjon av KI-agenten, så den kan ikke lenger fortsettes. Start en ny chat i stedet.';
 $string['chathelpcontent'] = '<p>KI-agenten kan lese og endre innhold på denne portalen på dine vegne. De fleste handlinger ber om din godkjenning før de kjøres. Du kan endre modus for autogodkjenning i skrivefeltet for å gjøre den mildere eller strengere.</p>
 <p>Legg ved filer ved å dra og slippe, lime inn eller klikke på binderssymbolet. Skriv så forespørselen din og trykk <strong>Send</strong>. Trykk Enter for å sende, eller Skift og Enter for ny linje.</p><p>KI kan gjøre feil. Kontroller resultatene.</p>';
 $string['chatnopermission'] = 'Denne chatten ble startet i et område av portalen der du ikke lenger har tilgang til KI-agenten, så den kan ikke fortsettes.';
 $string['chatnostartpermission'] = 'Du har ikke tillatelse til å starte en chat her. Åpne KI-agenten fra en side der den tilbys.';
 $string['chatretention'] = 'Behold chatter i';
 $string['chatretention_desc'] = 'Chatter uten aktivitet i så lang tid fjernes fra brukernes chathistorikk, vedlagte filer slettes fra denne portalen, og det bes om sletting av chatdataene som er lagret hos KI-tilbyderen (lagrede svar og opplastede filer). Sletting hos tilbyderen skjer etter beste evne og er ikke garantert; sett opp en tilsvarende oppbevaringspolicy i tilbyderkontoen din også. Meldinger og bruksdata beholdes for rapportering til oppbevaringstiden for chatlogger nedenfor er utløpt. Sett til 0 for å beholde chatter for alltid.';
+$string['closeconfirm_background'] = 'KI-agenten fortsetter å arbeide mens chatten er lukket.';
 $string['closeconfirm_body'] = 'Å lukke vinduet sletter ikke chatten. Du kan åpne den igjen når som helst fra menyen Tidligere chatter. Chatter slettes automatisk etter {$a} dager.';
 $string['closeconfirm_body_noretention'] = 'Å lukke vinduet sletter ikke chatten. Du kan åpne den igjen når som helst fra menyen Tidligere chatter.';
 $string['closeconfirm_close'] = 'Lukk chat';
@@ -95,6 +113,8 @@ $string['entity_skill'] = 'Ferdighet';
 $string['entity_usage'] = 'Tokenbruk';
 $string['error_interrupted_function'] = 'Et funksjonskall ble avbrutt før det var ferdig. Det kan ha gjort endringer delvis; kontroller tilstanden før du prøver på nytt.';
 $string['error_interrupted_llm'] = 'Kommunikasjonen med KI-tilbyderen ble avbrutt. Klikk «Prøv på nytt» for å gjenta forespørselen.';
+$string['errorbackgroundstart'] = 'KI-agenten kunne ikke begynne å arbeide med denne chatten. Be portalens administrator om å kontrollere innstillingene for chatter i bakgrunnen.';
+$string['errorbackgroundstart_admin'] = 'KI-agenten kunne ikke starte bakgrunnsprosessen sin på denne serveren. Rett Sti til PHP CLI, eller slå av chatter i bakgrunnen, under {$a} i innstillingene for KI-agenten.';
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Meldingen kan ikke være tom.';
 $string['errorfullscreendisabled'] = 'Chatvisning i fullskjerm er ikke aktivert på denne portalen.';
@@ -118,6 +138,7 @@ $string['errorresponses_endpoint_invalid_config'] = 'Pluginen forsøkte å bruke
 $string['errorresponses_endpoint_reply'] = 'Tilbyderen svarte: {$a}';
 $string['errorresponses_provider_switch'] = 'Denne chatten kan ikke fortsettes med Responses API fra OpenAI, fordi den ble startet med en annen KI-tilbyder. Start en ny chat, eller bytt tilbake til den opprinnelige tilbyderen (eller til OpenAI Chat Completions) for å fortsette denne.';
 $string['errorrootnotfound'] = 'Fant ikke den første meldingen i denne chatten.';
+$string['errorupdatesstopped'] = 'Denne chatten mottar ikke lenger oppdateringer. Oppdatér for å se siste tilstand.';
 $string['exportskill'] = 'Eksporter';
 $string['feedback_modal_freetextlabel'] = 'Noe annet? (valgfritt)';
 $string['feedback_modal_freetextplaceholder_negative'] = 'Hva gikk galt? Vær så nøyaktig du vil.';
@@ -153,11 +174,23 @@ $string['feedbackthanks'] = 'Takk for tilbakemeldingen!';
 $string['feedbackthumbdown'] = 'Meld fra om et problem med dette svaret';
 $string['feedbackthumbup'] = 'Dette svaret var nyttig';
 $string['feedbackvalidation_categoryrequired'] = 'Velg minst én kategori.';
+$string['functionapprovalneeded'] = 'Godkjenning kreves';
+$string['functionapprovalneededmany'] = '{$a} funksjonskall må godkjennes';
 $string['functionapprovecount'] = 'Godkjenn {$a} kall';
+$string['functionavailable'] = 'Tilgjengelig';
 $string['functioncall_actions'] = 'Godkjenn eller avslå funksjonskall';
 $string['functioncall_chip_action'] = 'Endre modus for autogodkjenning';
 $string['functioncalldetails'] = 'Detaljer om funksjonskallet';
-$string['functioncalldetailscount'] = 'Detaljer om funksjonskallene ({$a})';
+$string['functioncalldetailsof'] = 'Detaljer om funksjonskallet: {$a}';
+$string['functioncalling'] = 'Kaller {$a}';
+$string['functioncallnav'] = '{$a->index} av {$a->total}';
+$string['functioncallnext'] = 'Neste funksjonskall';
+$string['functioncallprevious'] = 'Forrige funksjonskall';
+$string['functioncallscount'] = '{$a} funksjonskall';
+$string['functioncallscountone'] = '1 funksjonskall';
+$string['functiondenied'] = 'Du avslo {$a}';
+$string['functiondeniedmany'] = 'Du avslo {$a->name} og {$a->count} til';
+$string['functiondeniednext'] = 'Agenten stoppet. Skriv en melding for å si hva den skal gjøre nå.';
 $string['functiondeny'] = 'Avslå';
 $string['functiondenyall'] = 'Avslå alle';
 $string['functiondetailscopied'] = 'Kopiert';
@@ -187,20 +220,34 @@ $string['functionname'] = 'Funksjonsnavn';
 $string['functionparameters'] = 'Parametere';
 $string['functionresult'] = 'Resultat';
 $string['functionresultdiscarded'] = 'Resultatet var for stort ({$a}) og ble forkastet. Begrens forespørselen ved å filtrere den, be om færre felter eller bruke en mer spesifikk funksjon. Å gjenta det samme kallet gir samme feil.';
+$string['functionrules_error_component'] = '{$a->path}: ingen funksjon hører til en komponent som passer med «{$a->value}».';
+$string['functionrules_error_depth'] = '{$a->path}: regelen er nøstet i mer enn {$a->max} nivåer.';
+$string['functionrules_error_function'] = '{$a->path}: ingen funksjon passer med «{$a->value}».';
+$string['functionrules_error_json'] = 'Regelen er ikke gyldig JSON: {$a}';
+$string['functionrules_error_list'] = '{$a->path}: her forventes en ikke-tom liste med regeldeler.';
+$string['functionrules_error_node'] = '{$a->path}: hver del av regelen må være et objekt med nøyaktig én nøkkel: type, tag, component, function, not, all eller any.';
+$string['functionrules_error_tag'] = '{$a->path}: ingen funksjon har taggen «{$a->value}».';
+$string['functionrules_error_type'] = '{$a->path}: ukjent type «{$a->value}». Typene er read, safe og write.';
+$string['functionrules_error_value'] = '{$a->path}: her forventes en ikke-tom streng eller en ikke-tom liste med ikke-tomme strenger.';
+$string['functionrules_path_root'] = 'Hele regelen';
 $string['functions_intro'] = '<p><b>Ikke alle webtjenestefunksjoner passer for KI-agenten.</b> Noen ble laget for kommunikasjon mellom klient og tjener (merket AJAX) eller for brukere som ikke er pålogget (Uten pålogging), og for noen finnes det bedre alternativer. Enkelte AJAX-funksjoner fungerer godt sammen med KI-agenten, men de fleste gjør det ikke. KI-agent-pluginen gir funksjoner fra kjernen og fra standardplugins relevanspoeng (1-10) og aktiverer dem som får 5 eller mer. Funksjoner fra tilleggsplugins får ikke poeng; i stedet aktiveres alle funksjonene deres som ikke er AJAX, automatisk. Bruk denne siden til å gå gjennom de tilgjengelige funksjonene og aktivere eller deaktivere enkeltfunksjoner.</p><p>Når en funksjon krever én eller flere kvalifikasjoner, er den ikke tilgjengelig for brukere som mangler minst én av dem i en eller annen kontekst på portalen. For kjernen og for standardplugins setter KI-agent-pluginen disse kvalifikasjonene riktig. For tilleggsplugins hentes kvalifikasjonene fra funksjonsdefinisjonen, og siden Moodle ikke håndhever denne kontrollen selv, kan de være feil.</p>';
 $string['functions_report'] = 'Funksjoner i KI-agenten';
 $string['functionstatus_denied'] = 'Avslått';
 $string['functionstatus_failed'] = 'Mislyktes';
+$string['functionstatus_interrupted'] = 'Avbrutt';
+$string['functionstatus_notrun'] = 'Ikke kjørt';
 $string['functionstatus_pending'] = 'Venter på godkjenning';
 $string['functionstatus_processing'] = 'Kjører...';
 $string['functiontype'] = 'Type';
 $string['functiontype_help'] = 'Typen webtjenestefunksjon og egenskapene dens:
 
 * **Lesing**: henter data uten å endre noe
+* **Trygg**: en innebygd funksjon som ikke endrer portalen, bare filene i chatten, for eksempel å endre størrelse på et vedlegg eller å generere et bilde
 * **Skriving**: oppretter eller endrer data
 * **AJAX**: brukes internt av Moodle for forespørsler mellom klient og tjener, og passer sjeldnere som funksjon for KI-agenten
 * **Uten pålogging**: tilgjengelig for brukere som ikke er pålogget, og passer også sjeldnere som funksjon for KI-agenten';
 $string['functiontype_read'] = 'Lesing';
+$string['functiontype_safe'] = 'Trygg';
 $string['functiontype_write'] = 'Skriving';
 $string['gemini_api_generatecontent'] = 'generateContent (stabil)';
 $string['gemini_api_interactions'] = 'Interactions API (beta)';
@@ -213,6 +260,7 @@ $string['gemini_builtin_google_search_desc'] = 'Lar Gemini forankre svarene i ak
 $string['gemini_builtin_url_context'] = 'Slå på verktøyet URL Context';
 $string['gemini_builtin_url_context_desc'] = 'Lar Gemini lese og analysere innhold fra offentlige URL-er som brukeren nevner. Bare modeller fra Gemini 3 og nyere; innstillingen ignoreres stille på Gemini 2.5 og eldre, fordi de modellene ikke kan kombinere innebygde verktøy med egne funksjonskall. URL-ene må være offentlig tilgjengelige (ingen localhost, ingen pålogging).';
 $string['gemini_heading'] = 'Google Gemini';
+$string['hidefunctioncalls'] = 'Skjul funksjonskall';
 $string['hint_splitview'] = 'Vil du bruke denne chatten side om side med portalen? Dra <a href="{$a}">{$a}</a> til et nytt vindu, eller høyreklikk den og bruk delt visning i nettleseren.';
 $string['imagedimensions'] = '{$a->width}×{$a->height} px';
 $string['imagepreviewinfo'] = 'Fil {$a->size}, mål {$a->dimensions}. Forhåndsvisning {$a->preview} ({$a->scale} %).';
@@ -233,6 +281,8 @@ $string['importskill_summaryupdate'] = '{$a} skal oppdateres';
 $string['importskill_toolarge'] = 'Ferdighetsdataene er for store (maksimalt {$a}).';
 $string['inlinefilecharlimit'] = 'Grense for innebygd filinnhold';
 $string['inlinefilecharlimit_desc'] = 'Hvor mye av en tekstfil som kan bygges direkte inn i chatten når en fil leses innebygd. Lengre innhold kuttes. Innebygging brukes når modellen ber om det, og som reserveløsning for KI-tilbydere som ikke kan ta imot filer. Innebygd innhold sendes på nytt sammen med chathistorikken i hver runde, så en høy grense øker tokenbruken.';
+$string['interruptedbystop'] = 'Avbrutt: du stoppet agenten.';
+$string['interruptedunexpectedly'] = 'Avbrutt: funksjonen stoppet uventet.';
 $string['invalidparameter'] = 'Ugyldig parameter oppdaget: {$a}';
 $string['isajax'] = 'AJAX';
 $string['licenseactivate'] = 'Aktiver lisens';
@@ -265,7 +315,6 @@ KI-tilbydere avviser uansett filer som overskrider deres egne grenser per foresp
 $string['maxfunctionresultsize'] = 'Maksimal størrelse på funksjonsresultat';
 $string['maxfunctionresultsize_desc'] = 'Hvor mye data en enkelt funksjon kan returnere til KI-modellen. Noen Moodle-funksjoner har ingen filtrering og returnerer alle brukere eller alle kurs på portalen, noe som oversvømmer modellen og bruker opp tokener i hver påfølgende runde. Et resultat over denne grensen forkastes, og modellen får beskjed om å begrense forespørselen i stedet. Sett til null for ingen grense. Å lese en fil innebygd er unntatt; bruk «Grense for innebygd filinnhold» til det.';
 $string['newchat'] = 'Ny chat';
-$string['newchatchooser_blank_sub'] = 'Ingen kontekst. Generell assistent.';
 $string['newchatchooser_clone'] = 'Samme som denne chatten';
 $string['newchatchooser_continue'] = 'Fortsett der du slapp';
 $string['newchatchooser_desc_default'] = 'Start en ny chat på denne siden, eller fortsett der du slapp.';
@@ -277,15 +326,20 @@ $string['newchatchooser_onthispage'] = 'På denne siden:';
 $string['newchatchooser_title'] = 'Start en ny chat';
 $string['nfilesattached'] = '{$a} filer vedlagt';
 $string['nonauth'] = 'Uten pålogging';
+$string['notavailable_loginas'] = 'KI-agenten er ikke tilgjengelig mens du er logget inn som en annen bruker.';
+$string['notavailable_roleswitch'] = 'KI-agenten er ikke tilgjengelig mens du har byttet rolle.';
 $string['numfiles'] = '{$a} filer';
 $string['numimages'] = '{$a} bilder';
 $string['numotherfiles'] = '{$a} andre';
+$string['onefileattached'] = '1 fil vedlagt';
 $string['openai_api_chatcompletions'] = 'Chat Completions';
 $string['openai_api_responses'] = 'Responses API';
 $string['openai_api_type'] = 'API-type';
 $string['openai_api_type_desc'] = 'Hvilket OpenAI-API som brukes til chatter med flere runder. Responses API holder chattens tilstand på tjenersiden, så bare ny inndata sendes i hver runde (lavere kostnad, enklere historikk). Chat Completions bygger hele meldingslisten på nytt ved hver forespørsel (bredere støtte blant tilbydere).<br><br>Responses API støttes av: <strong>{$a}</strong>. Andre tilbydere faller stille tilbake til Chat Completions uansett hva denne innstillingen er satt til.';
 $string['openai_heading'] = 'OpenAI (eller kompatibel)';
 $string['openlink'] = 'Åpne lenke';
+$string['pathtophp'] = 'Sti til PHP CLI for chatter i bakgrunnen';
+$string['pathtophp_desc'] = 'PHP CLI-programmet som kjører chatter i bakgrunnen, når det skal være et annet enn portalens Sti til PHP CLI. La feltet stå tomt for å bruke portalens innstilling.';
 $string['placeholder'] = 'Skriv en melding...';
 $string['placement_add'] = 'Legg til plassering';
 $string['placement_confirmdelete'] = 'Er du sikker på at du vil slette denne plasseringen?';
@@ -294,9 +348,26 @@ $string['placement_defaultname'] = 'KI-agent';
 $string['placement_deleted'] = 'Plasseringen er slettet.';
 $string['placement_duplicated'] = 'Plasseringen er duplisert.';
 $string['placement_edit'] = 'Rediger plassering';
+$string['placement_functionrules'] = 'Funksjonsregel';
+$string['placement_functionrules_help'] = 'Begrenser hvilke funksjoner KI-agenten får bruke i chatter som er startet fra denne plasseringen. La feltet stå tomt for å tillate alle funksjoner. Endrer du regelen, endres den også i chattene som allerede er startet fra denne plasseringen.
+
+Regelen skrives i JSON. Hver del av den er et objekt med én nøkkel:
+
+* {"type": "read"}: funksjonstypen er read, safe eller write, som i rapporten «Funksjoner»
+* {"tag": "student"}: funksjonen har denne taggen
+* {"component": "mod_quiz"}: funksjonen hører til denne komponenten
+* {"function": "core_course_get_courses"}: funksjonen har dette navnet
+* {"not": del}, {"all": [deler]}, {"any": [deler]}: kombinerer deler
+
+I et komponent- eller funksjonsnavn passer en stjerne med hvilken som helst tekst. Nøklene type, tag, component og function tar også en liste, og da holder det med én av verdiene: {"type": ["read", "safe"]} tillater alle funksjoner som ikke endrer portalen.
+
+Be KI-agenten skrive eller endre regelen: den kontrollerer hvilke funksjoner regelen tillater, før den lagrer regelen.';
+$string['placement_functionrules_preview'] = 'Den lagrede regelen tillater {$a->count} av {$a->total} aktiverte funksjoner';
+$string['placement_functions'] = 'Tillatte funksjoner';
+$string['placement_functions_limited'] = 'Begrensede ({$a})';
 $string['placement_initialskills'] = 'Startferdigheter';
-$string['placement_initialskills_help'] = 'Ferdigheter som lastes automatisk når chatten starter. Valgfritt; agenten kan fortsatt laste hvilken som helst ferdighet ved behov. Ferdighetene du velger, styrer også denne plasseringen: brukere som ikke har tilgang til noen av dem, ser verken knappen eller menyvalget, og hvis alle valgte ferdigheter senere fjernes eller deaktiveres, vises ikke plasseringen lenger.';
-$string['placement_intro'] = '<p>Med plasseringer kan du tilby agenter som er tilpasset en bestemt oppgave. Hver plassering legger knappen for KI-agenten til på sider der URL-en passer med en av maskene, og kan starte chatten med forhåndsvalgte startferdigheter og velkomsttekst. Er det satt startferdigheter, vises ikke knappen for brukere som mangler tilgang til alle sammen.</p><p>Startferdighetene angir bare utgangspunktet for chatten; agenten har fortsatt tilgang til alle aktiverte funksjoner, ikke bare de som hører til ferdighetene.</p>';
+$string['placement_initialskills_help'] = 'Ferdigheter som lastes automatisk når chatten starter. Valgfritt; agenten kan fortsatt laste hvilken som helst ferdighet ved behov, med mindre funksjonsregelen for plasseringen hindrer det. Ferdighetene du velger, styrer også denne plasseringen: brukere som ikke har tilgang til noen av dem, ser verken knappen eller menyvalget, og hvis alle valgte ferdigheter senere fjernes eller deaktiveres, vises ikke plasseringen lenger.';
+$string['placement_intro'] = '<p>Med plasseringer kan du tilby agenter som er tilpasset en bestemt oppgave. Hver plassering legger knappen for KI-agenten til på sider der URL-en passer med en av maskene, og kan starte chatten med forhåndsvalgte startferdigheter og velkomsttekst. Er det satt startferdigheter, vises ikke knappen for brukere som mangler tilgang til alle sammen.</p><p>Startferdighetene angir bare utgangspunktet for chatten; agenten har fortsatt tilgang til alle aktiverte funksjoner, ikke bare de som hører til ferdighetene. En funksjonsregel begrenser hvilke funksjoner agenten får bruke i chatter som startes fra en plassering.</p>';
 $string['placement_location'] = 'Knappens posisjon';
 $string['placement_location_floating'] = 'Flytende knapp';
 $string['placement_location_h1'] = 'Sideoverskrift (H1)';
@@ -307,14 +378,16 @@ $string['placement_name_help'] = 'Vises for brukerne: i brukermenyen, som verkt�
 $string['placement_save'] = 'Lagre plassering';
 $string['placement_saved'] = 'Plasseringen er lagret.';
 $string['placement_skillmissing'] = 'Ferdigheten ble ikke funnet';
+$string['placement_skillnotinitial'] = 'Kan ikke være startferdighet';
 $string['placement_suggestedprompts'] = 'Foreslåtte ledetekster';
 $string['placement_suggestedprompts_help'] = 'Én ledetekst per linje, som vises som knapper over meldingsfeltet på startskjermen i chatten. Et klikk sender den med en gang, for eksempel «Oppsummer dette emnet». Skal brukeren fullføre en ledetekst først, skriver du ... et sted i den: Ledeteksten legges da i meldingsfeltet i stedet for å bli sendt, for eksempel «Oppsummer seksjonen ... i dette emnet». La feltet stå tomt for ikke å tilby noen ledetekster.';
 $string['placement_urlmask'] = 'URL-masker';
-$string['placement_urlmask_help'] = 'Ett mønster per linje. Bruk * som jokertegn, for eksempel /course/view.php* eller /mod/*/view.php*. Merk: på sider der en mer spesifikk plassering bruker samme posisjon, skjules en bred plassering som passer med /*, slik at brukerne bare ser den mest relevante.';
+$string['placement_urlmask_help'] = 'Ett mønster per linje. Bruk * som jokertegn, for eksempel /course/view.php* eller /mod/*/view.php*.';
 $string['placement_urlmask_invalid'] = 'Hver URL-maske må begynne med en skråstrek: «{$a}» gjør ikke det.';
 $string['placement_welcome'] = 'Egen velkomsttekst (valgfritt)';
 $string['placement_welcome_help'] = 'Erstatter den vanlige velkomstmeldingen på startskjermen i chatten. La stå tom for å bruke standarden.';
 $string['pluginname'] = 'KI-agent';
+$string['pluginnotinstalled'] = 'Plugin ikke installert';
 $string['previouschats'] = 'Tidligere chatter';
 $string['privacy:metadata:aiprovider'] = 'Chatter sendes til KI-tilbyderen som portaladministratoren har valgt, for eksempel OpenAI, Azure OpenAI, Google Gemini eller Anthropic, slik at den kan generere et svar. Pluginen sender hver forespørsel direkte til tilbyderen og ikke via KI-delsystemet i Moodle. Hvilket selskap som mottar dataene, og hvor lenge de oppbevares der, avhenger av tilbyderen portalen har satt opp, og av tilbyderens egne vilkår.';
 $string['privacy:metadata:aiprovider:files'] = 'Filer brukeren legger ved en chat, og filer agenten leser fra portalen på vegne av brukeren, lastet opp slik at modellen kan lese innholdet i dem.';
@@ -340,12 +413,18 @@ $string['privacy:metadata:tool_aiagent_message:content'] = 'Innholdet i meldinge
 $string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'For en melding sendt fra chatten som overlegg eller sidepanel, adressen og navnet på siden brukeren leste på det tidspunktet.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Hvem som sendte meldingen: brukeren, assistenten, systemet eller en funksjon.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Tidspunktet meldingen ble opprettet.';
+$string['privacy:metadata:tool_aiagent_run'] = 'En registrering av hver gang KI-agenten arbeidet med en melding i en chat, som beholdes én dag etter at den er ferdig.';
+$string['privacy:metadata:tool_aiagent_run:ip'] = 'Brukerens IP-adresse da meldingen ble sendt, registrert sammen med handlingene KI-agenten utførte for brukeren.';
+$string['privacy:metadata:tool_aiagent_run:payload'] = 'Innholdet på siden brukeren så på, da KI-agenten ba om å lese den.';
+$string['privacy:metadata:tool_aiagent_run:timecreated'] = 'Tidspunktet da KI-agenten begynte å arbeide med meldingen.';
+$string['privacy:metadata:tool_aiagent_run:userid'] = 'Brukeren som sendte meldingen.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Tokenbruk registrert for hver KI-forespørsel, oppbevart for å spore bruken.';
 $string['privacy:metadata:tool_aiagent_usage:completiontokens'] = 'Antall utdatatokener (fullføringstokener) som ble brukt.';
 $string['privacy:metadata:tool_aiagent_usage:model'] = 'KI-modellen som behandlet forespørselen.';
 $string['privacy:metadata:tool_aiagent_usage:prompttokens'] = 'Antall inndatatokener (ledeteksttokener) som ble brukt.';
 $string['privacy:metadata:tool_aiagent_usage:provider'] = 'KI-tilbyderen som behandlet forespørselen.';
 $string['privacy:metadata:tool_aiagent_usage:timecreated'] = 'Tidspunktet forespørselen ble gjort.';
+$string['providers_heading'] = 'Alle KI-tilbydere';
 $string['relevancescore'] = 'Relevanspoeng';
 $string['relevancescore_help'] = 'Relevanspoengene angir hvor godt en webtjenestefunksjon egner seg for KI-agenten, på en skala fra 1 til 10.
 
@@ -373,6 +452,7 @@ $string['resume_title'] = 'Velkommen tilbake';
 $string['sendmessage'] = 'Send';
 $string['settings'] = 'Innstillinger for KI-agenten';
 $string['showallfiles'] = 'Vis alle';
+$string['showfunctioncalls'] = 'Vis funksjonskall';
 $string['skill_add'] = 'Legg til ferdighet';
 $string['skill_edit'] = 'Rediger ferdighet';
 $string['skill_save_close'] = 'Lagre og lukk';
@@ -392,6 +472,7 @@ $string['skilldeleted'] = 'Ferdigheten «{$a}» er slettet.';
 $string['skilldescription'] = 'Beskrivelse';
 $string['skilldescription_help'] = 'Hva ferdigheten er til for, slik at assistenten vet når den skal lastes. Beskriv oppgaven eller området den gjelder, ikke trinnene den utfører. Teksten vises både i ferdighetslisten (for mennesker) og i systemledeteksten (for assistenten).';
 $string['skillexists'] = 'Det finnes allerede en ferdighet med kortnavnet «{$a}».';
+$string['skillimport_badloadmode'] = 'Feltet «loadmode» må ha en av følgende verdier: {$a}.';
 $string['skillimport_badmasks'] = 'Feltene «mainfunctions» og «otherfunctions» må hvert for seg være en liste med masker.';
 $string['skillimport_badshortname'] = 'Hver ferdighet trenger et gyldig kortnavn (bokstaver, tall, bindestrek, understrek).';
 $string['skillimport_invalidjson'] = 'Den opplastede filen er ikke gyldig ferdighets-JSON.';
@@ -400,6 +481,13 @@ $string['skillimported'] = 'Ferdigheten «{$a}» er importert.';
 $string['skillinstructions'] = 'Instruksjoner';
 $string['skillinstructions_help'] = 'Veiledning som lastes inn i chatten når ferdigheten lastes. Ta bare med det som ikke er opplagt: assistenten ser allerede alle lastede funksjoner og beskrivelsene deres, så ikke gjenta hva en funksjon gjør, og ikke minn den på å sende opplagte parametere. Fang opp rekkefølgen i arbeidsflyten, valgene og fallgruvene som beskrivelsene ikke dekker, og innled trinn som bare gjelder av og til, med «Hvis ...».';
 $string['skillloadedevent'] = 'Ferdighet lastet · {$a}';
+$string['skillloadmode'] = 'Kan brukes';
+$string['skillloadmode_dynamic'] = 'Bare lastet ved behov under chatten';
+$string['skillloadmode_help'] = 'Når en plassering bruker ferdigheten som startferdighet, legges instruksjonene i ferdigheten til systeminstruksjonene fra starten av chatten. Bruk dette til å endre hvordan KI-agenten svarer.
+
+En ferdighet for en bestemt oppgave, for eksempel å sette opp karakterboken eller legge til tilgjengelighetsrestriksjoner, kan lastes ved behov, når brukeren ber om noe den dekker.';
+$string['skillloadmode_initial'] = 'Bare som startferdighet';
+$string['skillloadmode_initial_or_dynamic'] = 'Både som startferdighet og lastet ved behov';
 $string['skillmainfunctions'] = 'Hovedfunksjoner';
 $string['skillmainfunctions_help'] = 'Et snevert sett med masker som velger ut de sentrale funksjonene i ferdigheten for å opprette og endre. Kvalifikasjonene til disse funksjonene avgjør hvem ferdigheten tilbys til: bare brukere som har tilgang til minst én av dem. Hver maske passer med et funksjonsnavn eller et mønster av komponent og navn («*» er jokertegn, en «~» foran fjerner treff). La stå tom for å tilby ferdigheten til alle.';
 $string['skillmatched'] = 'Treff ({$a})';
@@ -410,7 +498,7 @@ $string['skillnomatch'] = 'Ingen aktivert funksjon passer med disse mønstrene.'
 $string['skillnotfound'] = 'Fant ingen ferdighet: {$a}.';
 $string['skillotherfunctions'] = 'Andre funksjoner';
 $string['skillotherfunctions_help'] = 'Masker for resten av funksjonene ferdigheten tar med seg: lesende funksjoner, hjelpefunksjoner eller en hel komponent. Samme skrivemåte som for hovedfunksjonene, men disse påvirker ikke hvem ferdigheten tilbys til. La stå tom hvis ferdigheten ikke trenger flere funksjoner.';
-$string['skills_intro'] = '<p>En ferdighet samler spesialiserte instruksjoner for en bestemt oppgave med en liste over funksjoner som anbefales til den. Bruk ferdigheter til vanlige oppgaver med flere trinn der KI-agenten pleier å bli forvirret eller ikke finner de riktige funksjonene, eller til oppgaver som er spesielle for organisasjonen din.</p><p>Listen over ferdigheter og beskrivelsene deres er alltid tilgjengelig for KI-agenten, som selv laster en ferdighet når den mener at en passer til forespørselen fra brukeren. En ferdighet er bare tilgjengelig for brukere som har tilgang til minst én av hovedfunksjonene. En ferdighet laget for lærere vil for eksempel ikke være synlig for studenter.</p>';
+$string['skills_intro'] = '<p>En ferdighet samler spesialiserte instruksjoner for en bestemt oppgave med en liste over funksjoner som anbefales til den. Bruk ferdigheter til vanlige oppgaver med flere trinn der KI-agenten pleier å bli forvirret eller ikke finner de riktige funksjonene, eller til oppgaver som er spesielle for organisasjonen din.</p><p>En ferdighet kan brukes på to måter, som du velger i innstillingen «Kan brukes» for ferdigheten. En plassering kan velge den som startferdighet, slik at instruksjonene i den gjelder fra starten av chatten. Eller KI-agenten kan laste den ved behov: den ser alltid navnene og beskrivelsene til disse ferdighetene, og laster selv en ferdighet når den mener at en passer til forespørselen fra brukeren. En ferdighet er bare tilgjengelig for brukere som har tilgang til minst én av hovedfunksjonene. En ferdighet laget for lærere vil for eksempel ikke være synlig for studenter.</p>';
 $string['skillshortname'] = 'Kortnavn';
 $string['skillshortname_help'] = 'Et fast maskinnavn, unikt på hele portalen: bare bokstaver, tall, bindestrek og understrek. Det kan endres senere, med mindre ferdigheten fulgte med pluginen.';
 $string['skilltags'] = 'Tagger';
@@ -418,6 +506,11 @@ $string['skilltags_help'] = 'Tagger brukes bare til filtrering og sendes ikke ti
 $string['skilltoobroad'] = 'Passer med {$a} funksjoner, noe som kan være for vidt. Vurder å begrense funksjonsmaskene.';
 $string['skillunavailable'] = 'Utilgjengelig';
 $string['skillupdated'] = 'Ferdigheten «{$a}» er oppdatert.';
+$string['stop'] = 'Stopp';
+$string['stoppedafter'] = 'Stoppet etter {$a}';
+$string['stoppedbyuser'] = 'Du stoppet agenten. Skriv en ny melding for å fortsette.';
+$string['stopping'] = 'Stopper...';
+$string['stoppingafterfunction'] = 'Stopper når denne funksjonen er ferdig';
 $string['suggestedprompt_edit'] = 'Rediger meldingen før den sendes';
 $string['suggestedprompt_send'] = 'Send meldingen';
 $string['switchview'] = 'Bytt visning';
@@ -438,6 +531,9 @@ $string['timecreated'] = 'Opprettet';
 $string['timelastactivity'] = 'Siste aktivitet';
 $string['timemodified'] = 'Sist endret';
 $string['tryagain'] = 'Prøv på nytt';
+$string['unavailable_envcheck'] = 'Denne funksjonen er ikke tilgjengelig fordi en portalinnstilling den avhenger av, ikke er slått på: {$a}.';
+$string['unavailable_plugindisabled'] = 'Denne funksjonen er ikke tilgjengelig fordi pluginen {$a} er slått av i denne portalen.';
+$string['unavailable_pluginnotinstalled'] = 'Denne funksjonen kan ikke brukes fordi pluginen {$a} ikke er installert i denne portalen.';
 $string['usage_completiontokens'] = 'Utdatatokener';
 $string['usage_model'] = 'Modell';
 $string['usage_prompttokens'] = 'Inndatatokener';
@@ -455,3 +551,6 @@ $string['welcome_skillsmore'] = '+{$a} til';
 $string['welcome_tryasking'] = 'Prøv å spørre';
 $string['welcomedesc'] = 'Spør KI-agenten om portalen din, om kurs, brukere eller innhold. Den kan lese og, med din godkjenning, gjøre endringer.';
 $string['welcometitle'] = 'Velkommen, {$a}';
+$string['workedfor'] = 'Arbeidet i {$a}';
+$string['working'] = 'Arbeider';
+$string['workingfor'] = 'Har arbeidet i {$a}';

@@ -10,7 +10,7 @@
 
 /**
  * Finnish language pack for AI agent.
- * Last updated: 2026-10-11
+ * Last updated: 2026-10-25
  *
  * @package    tool_aiagent
  * @category   string
@@ -21,9 +21,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_needsyou'] = 'Tekoälyagentti: odottaa hyväksyntääsi';
+$string['activity_working'] = 'Tekoälyagentti: työskentelee';
 $string['addon'] = 'Lisäosa';
 $string['aiagent:autoapproveall'] = 'Valita automaattisen hyväksynnän tilan "Kaikki", jossa jokainen toimintokutsu suoritetaan ilman vahvistusta';
 $string['aiagent:usechat'] = 'Aloittaa tekoälyagentin chatteja (määrää, missä chatin voi aloittaa; ei rajoita sitä, mihin tietoihin chat pääsee käsiksi aloittamisen jälkeen)';
+$string['allfunctions'] = 'Kaikki';
 $string['allowfeedback'] = 'Salli palaute';
 $string['allowfeedback_desc'] = 'Kun tämä on käytössä, käyttäjät voivat arvioida avustajan vastauksia ja merkitä epäonnistuneita toimintokutsuja. Lähetykset menevät tekoälyagentti-lisäosan kehittäjille (ei millekään LLM:lle), jotta he voivat parantaa Moodlen toimintokutsujen toimivuutta. Lähetettävä sisältö kattaa vain arvioidun viestinvaihdon, ei koko chattia, ja käyttäjä voi muokata tekstiä ennen lähettämistä. Poista tämä käytöstä sivustoilla, joilla on tiukat ulospäin suuntautuvan liikenteen käytännöt.';
 $string['anthropic_heading'] = 'Anthropic (Claude)';
@@ -44,6 +47,18 @@ $string['autoapprove_readonly_desc'] = 'Hyväksy lukutoiminnot, kysy kirjoitusto
 $string['autoapprove_safe'] = 'Turvallinen';
 $string['autoapprove_safe_desc'] = 'Hyväksy toiminnot, jotka eivät muuta sivustoa';
 $string['autoapprove_safe_examples'] = 'Lukeminen sekä liitteiden koon muuttaminen, kuvien luominen, tiedostojen lähettäminen LLM:lle jne.';
+$string['autoapprovetimelimit'] = 'Autom. hyväksynnän aikaraja';
+$string['autoapprovetimelimit_desc'] = 'Kuinka kauan tekoälyagentti saa jatkaa automaattisesti hyväksyttyjen toimintojen suorittamista käyttäjän viimeisen toimenpiteen jälkeen, kuten viestin lähettämisen tai toimintojen hyväksymisen. Sen jälkeen se pyytää hyväksyntää ennen seuraavaa toimintoa. Näin hylätyt chatit eivät kuluta palvelimen resursseja eivätkä tekoälyn tokeneita. 0 tarkoittaa, ettei rajaa ole.';
+$string['autopaused'] = 'Automaattinen hyväksyntä keskeytettiin, kun {$a} kului ilman toimintaasi. Hyväksy jatkaaksesi.';
+$string['background_heading'] = 'Taustalla toimivat chatit';
+$string['backgroundchats'] = 'Salli taustalla toimivat chatit';
+$string['backgroundchats_desc'] = 'Jokainen chatti toimii palvelimella omassa PHP-komentoliittymän prosessissaan. Tekoälyagentti jatkaa silloin työtään, vaikka käyttäjä poistuu sivulta tai sulkee välilehden, suorittaa toimintoketjut nopeammin, ja Pysäytä keskeyttää agentin heti, myös kun toiminto on käynnissä. Kun tämä on pois päältä tai PHP-komentoliittymää ei ole käytettävissä, chatit toimivat käyttäjän selainpyynnössä.';
+$string['backgroundunavailable_effect'] = 'Tekoälyagentti suorittaa toimintoketjut selaimen kautta, joten ne ovat hitaampia ja pysähtyvät, kun käyttäjä poistuu sivulta tai sulkee välilehden. Jo käynnissä olevia toimintoja ei voi keskeyttää.';
+$string['backgroundunavailable_executable'] = 'Polku PHP-komentoliittymään taustalla toimiville chateille ei ole suoritettava tiedosto.';
+$string['backgroundunavailable_function'] = 'PHP-funktio {$a} on poistettu käytöstä tällä palvelimella.';
+$string['backgroundunavailable_pathtophp'] = 'Polkua PHP-komentoliittymään ei ole asetettu.';
+$string['backgroundunavailable_setpath'] = 'Aseta polku PHP-komentoliittymään';
+$string['backgroundunavailable_windows'] = 'Taustalla toimivat chatit eivät ole käytettävissä Windows-palvelimilla.';
 $string['backtoconfiguration'] = 'Takaisin tekoälyagentin määrityksiin';
 $string['builtinfunction'] = 'Vakio';
 $string['bulk_disabled'] = 'Toimintoja poistettu käytöstä: {$a}';
@@ -52,14 +67,17 @@ $string['bulk_enabled'] = 'Toimintoja otettu käyttöön: {$a}';
 $string['bulk_enableselected'] = 'Ota valitut käyttöön';
 $string['bulk_withselected'] = 'Valituille toiminnoille';
 $string['capabilities'] = 'Kyvyt';
+$string['chat_heading'] = 'Chatit';
 $string['chat_namelink'] = 'Nimi linkkinä';
 $string['chatfrozen'] = 'Tämän chatin taidot eivät ole enää käytettävissä, joten sitä ei voi jatkaa. Aloita sen sijaan uusi chat.';
+$string['chatfrozen_noplacement'] = 'Tämä chat aloitettiin tekoälyagentin aiemmassa versiossa, joten sitä ei voi enää jatkaa. Aloita sen sijaan uusi chat.';
 $string['chathelpcontent'] = '<p>Tekoälyagentti voi lukea ja muokata tämän sivuston sisältöä puolestasi. Useimmat toiminnot pyytävät hyväksyntääsi ennen suorittamista. Voit muuttaa automaattisen hyväksynnän tilaa viestikentässä tiukemmaksi tai väljemmäksi.</p>
 <p>Liitä tiedostoja vetämällä ja pudottamalla, liittämällä leikepöydältä tai napsauttamalla paperiliittimen kuvaketta. Kirjoita sitten pyyntösi ja paina <strong>Lähetä</strong>. Enter lähettää viestin, Shift+Enter lisää rivinvaihdon.</p><p>Tekoäly voi tehdä virheitä. Tarkista tulokset.</p>';
 $string['chatnopermission'] = 'Tämä chat aloitettiin sivuston alueella, jolla sinulla ei ole enää pääsyä tekoälyagenttiin, joten sitä ei voi jatkaa.';
 $string['chatnostartpermission'] = 'Sinulla ei ole oikeutta aloittaa chattia täällä. Avaa tekoälyagentti sivulla, jolla se on tarjolla.';
 $string['chatretention'] = 'Chattien säilytysaika';
 $string['chatretention_desc'] = 'Chatit, joissa ei ole ollut toimintaa tämän ajan kuluessa, poistetaan käyttäjien chat-historiasta, niiden liitetiedostot poistetaan tältä sivustolta ja tekoälypalveluntarjoajan tallentamien chat-tietojen (tallennettujen vastausten ja lähetettyjen tiedostojen) poistoa pyydetään. Poisto palveluntarjoajan puolella tehdään parhaan mukaan eikä sitä voida taata; määritä vastaava tietojen säilytyskäytäntö myös palveluntarjoajan tililläsi. Viestit ja käyttötiedot säilytetään raportointia varten, kunnes alla oleva lokien säilytysaika päättyy. Arvo 0 säilyttää chatit ikuisesti.';
+$string['closeconfirm_background'] = 'Tekoälyagentti jatkaa työtään, kun chatti on suljettu.';
 $string['closeconfirm_body'] = 'Ikkunan sulkeminen ei poista chattia. Voit avata sen uudelleen milloin tahansa Aiemmat chatit -valikosta. Chatit poistetaan automaattisesti {$a} päivän kuluttua.';
 $string['closeconfirm_body_noretention'] = 'Ikkunan sulkeminen ei poista chattia. Voit avata sen uudelleen milloin tahansa Aiemmat chatit -valikosta.';
 $string['closeconfirm_close'] = 'Sulje chat';
@@ -95,6 +113,8 @@ $string['entity_skill'] = 'Taito';
 $string['entity_usage'] = 'Tokenien käyttö';
 $string['error_interrupted_function'] = 'Toimintokutsu keskeytyi ennen valmistumista. Se on voinut tehdä muutoksia osittain; tarkista tilanne ennen uutta yritystä.';
 $string['error_interrupted_llm'] = 'Yhteys tekoälypalveluntarjoajaan katkesi. Napsauta "Yritä uudelleen" toistaaksesi pyynnön.';
+$string['errorbackgroundstart'] = 'Tekoälyagentti ei voinut aloittaa työtä tämän chatin parissa. Pyydä sivuston ylläpitäjää tarkistamaan taustalla toimivien chattien asetukset.';
+$string['errorbackgroundstart_admin'] = 'Tekoälyagentti ei voinut käynnistää taustaprosessiaan tällä palvelimella. Korjaa polku PHP-komentoliittymään tai poista taustalla toimivat chatit käytöstä kohdassa {$a} tekoälyagentin asetuksissa.';
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Viesti ei voi olla tyhjä.';
 $string['errorfullscreendisabled'] = 'Koko näytön chat-näkymä ei ole käytössä tällä sivustolla.';
@@ -118,6 +138,7 @@ $string['errorresponses_endpoint_invalid_config'] = 'Lisäosa yritti käyttää 
 $string['errorresponses_endpoint_reply'] = 'Palveluntarjoajan vastaus: {$a}';
 $string['errorresponses_provider_switch'] = 'Tätä chattia ei voi jatkaa OpenAIn Responses APIlla, koska se aloitettiin toisella tekoälypalveluntarjoajalla. Aloita uusi chat tai vaihda takaisin alkuperäiseen palveluntarjoajaan (tai OpenAIn Chat Completions -rajapintaan) jatkaaksesi tätä.';
 $string['errorrootnotfound'] = 'Tämän chatin aloitusviestiä ei löytynyt.';
+$string['errorupdatesstopped'] = 'Tämä chat ei enää saa päivityksiä. Päivitä nähdäksesi uusimman tilan.';
 $string['exportskill'] = 'Vie';
 $string['feedback_modal_freetextlabel'] = 'Vielä jotain? (valinnainen)';
 $string['feedback_modal_freetextplaceholder_negative'] = 'Mikä meni pieleen? Kerro niin tarkasti kuin haluat.';
@@ -153,11 +174,23 @@ $string['feedbackthanks'] = 'Kiitos palautteestasi!';
 $string['feedbackthumbdown'] = 'Ilmoita ongelmasta tässä vastauksessa';
 $string['feedbackthumbup'] = 'Tämä vastaus oli hyödyllinen';
 $string['feedbackvalidation_categoryrequired'] = 'Valitse vähintään yksi luokka.';
+$string['functionapprovalneeded'] = 'Hyväksyntä tarvitaan';
+$string['functionapprovalneededmany'] = 'Hyväksyntää odottavia toimintokutsuja: {$a}';
 $string['functionapprovecount'] = 'Hyväksy {$a} kutsua';
+$string['functionavailable'] = 'Saatavilla';
 $string['functioncall_actions'] = 'Hyväksy tai hylkää toimintokutsu';
 $string['functioncall_chip_action'] = 'Vaihda automaattisen hyväksynnän tilaa';
 $string['functioncalldetails'] = 'Toimintokutsun tiedot';
-$string['functioncalldetailscount'] = 'Toimintokutsujen tiedot ({$a})';
+$string['functioncalldetailsof'] = 'Toimintokutsun tiedot: {$a}';
+$string['functioncalling'] = 'Kutsutaan: {$a}';
+$string['functioncallnav'] = '{$a->index}/{$a->total}';
+$string['functioncallnext'] = 'Seuraava toimintokutsu';
+$string['functioncallprevious'] = 'Edellinen toimintokutsu';
+$string['functioncallscount'] = 'Toimintokutsuja: {$a}';
+$string['functioncallscountone'] = '1 toimintokutsu';
+$string['functiondenied'] = 'Hylkäsit: {$a}';
+$string['functiondeniedmany'] = 'Hylkäsit: {$a->name} ja {$a->count} muuta';
+$string['functiondeniednext'] = 'Agentti pysähtyi. Kirjoita viesti ja kerro, mitä sen pitää tehdä seuraavaksi.';
 $string['functiondeny'] = 'Hylkää';
 $string['functiondenyall'] = 'Hylkää kaikki';
 $string['functiondetailscopied'] = 'Kopioitu';
@@ -187,20 +220,34 @@ $string['functionname'] = 'Toiminnon nimi';
 $string['functionparameters'] = 'Parametrit';
 $string['functionresult'] = 'Tulos';
 $string['functionresultdiscarded'] = 'Tulos oli liian suuri ({$a}) ja se hylättiin. Rajaa pyyntöä suodattamalla, pyytämällä vähemmän kenttiä tai käyttämällä tarkempaa toimintoa. Saman kutsun toistaminen tuottaa saman virheen.';
+$string['functionrules_error_component'] = '{$a->path}: mikään toiminto ei kuulu komponenttiin, joka vastaa kuviota "{$a->value}".';
+$string['functionrules_error_depth'] = '{$a->path}: säännössä on yli {$a->max} sisäkkäistä tasoa.';
+$string['functionrules_error_function'] = '{$a->path}: mikään toiminto ei vastaa kuviota "{$a->value}".';
+$string['functionrules_error_json'] = 'Sääntö ei ole kelvollista JSONia: {$a}';
+$string['functionrules_error_list'] = '{$a->path}: odotettiin ei-tyhjää luetteloa säännön osia.';
+$string['functionrules_error_node'] = '{$a->path}: säännön jokaisen osan on oltava objekti, jossa on täsmälleen yksi avain: type, tag, component, function, not, all tai any.';
+$string['functionrules_error_tag'] = '{$a->path}: millään toiminnolla ei ole tunnistetta "{$a->value}".';
+$string['functionrules_error_type'] = '{$a->path}: tuntematon tyyppi "{$a->value}". Tyypit ovat read, safe ja write.';
+$string['functionrules_error_value'] = '{$a->path}: odotettiin ei-tyhjää merkkijonoa tai ei-tyhjää luetteloa ei-tyhjiä merkkijonoja.';
+$string['functionrules_path_root'] = 'Koko sääntö';
 $string['functions_intro'] = '<p><b>Kaikki verkkopalvelutoiminnot eivät sovi tekoälyagentille.</b> Osa on tehty selaimen ja palvelimen väliseen viestintään (merkitty AJAX) tai kirjautumattomille käyttäjille (Ilman kirjautumista), ja joillekin on parempia vaihtoehtoja. Osa AJAX-toiminnoista toimii tekoälyagentin kanssa hyvin, mutta useimmat eivät. Tekoälyagentti-lisäosa antaa Moodlen ytimen ja vakiolisäosien toiminnoille relevanssipisteet (1-10) ja ottaa käyttöön ne, joiden pistemäärä on vähintään 5. Lisäosien toimintoja ei pisteytetä; sen sijaan kaikki niiden ei-AJAX-toiminnot otetaan käyttöön automaattisesti. Tällä sivulla voit käydä läpi käytettävissä olevat toiminnot ja ottaa yksittäisiä toimintoja käyttöön tai poistaa niitä käytöstä.</p><p>Kun toiminto vaatii yhden tai useamman kyvyn, se ei ole käytettävissä käyttäjille, joilla ei ole vähintään yhtä näistä kyvyistä jossakin sivuston kontekstissa. Ytimen ja vakiolisäosien osalta tekoälyagentti-lisäosa asettaa nämä kyvyt oikein. Lisäosien osalta kyvyt otetaan toiminnon määrittelystä, ja koska Moodle ei itse valvo tätä tarkistusta, ne voivat olla virheellisiä.</p>';
 $string['functions_report'] = 'Tekoälyagentin toiminnot';
 $string['functionstatus_denied'] = 'Hylätty';
 $string['functionstatus_failed'] = 'Epäonnistui';
+$string['functionstatus_interrupted'] = 'Keskeytetty';
+$string['functionstatus_notrun'] = 'Ei suoritettu';
 $string['functionstatus_pending'] = 'Odottaa hyväksyntää';
 $string['functionstatus_processing'] = 'Suoritetaan...';
 $string['functiontype'] = 'Tyyppi';
 $string['functiontype_help'] = 'Verkkopalvelutoiminnon tyyppi ja sen ominaisuudet:
 
 * **Luku**: hakee tietoja muuttamatta mitään
+* **Turvallinen**: sisäänrakennettu toiminto, joka ei muuta sivustoa vaan vain chatin tiedostoja, esimerkiksi muuttaa liitteen kokoa tai luo kuvan
 * **Kirjoitus**: luo tai muuttaa tietoja
 * **AJAX**: Moodlen sisäisessä käytössä selaimen ja palvelimen välisiin pyyntöihin, sopii harvemmin tekoälyagentin toiminnoksi
 * **Ilman kirjautumista**: käytettävissä kirjautumattomille käyttäjille, sopii sekin harvemmin tekoälyagentin toiminnoksi';
 $string['functiontype_read'] = 'Luku';
+$string['functiontype_safe'] = 'Turvallinen';
 $string['functiontype_write'] = 'Kirjoitus';
 $string['gemini_api_generatecontent'] = 'generateContent (vakaa)';
 $string['gemini_api_interactions'] = 'Interactions API (beeta)';
@@ -213,6 +260,7 @@ $string['gemini_builtin_google_search_desc'] = 'Antaa Geminille mahdollisuuden p
 $string['gemini_builtin_url_context'] = 'Ota käyttöön URL Context -työkalu';
 $string['gemini_builtin_url_context_desc'] = 'Antaa Geminille mahdollisuuden lukea ja analysoida sisältöä julkisista URL-osoitteista, jotka käyttäjä mainitsee. Vain Gemini 3 -mallit ja uudemmat; Gemini 2.5:ssä ja sitä vanhemmissa asetus ohitetaan huomautuksetta, koska nämä mallit eivät voi yhdistää sisäänrakennettuja työkaluja omiin toimintokutsuihin. URL-osoitteiden on oltava julkisesti saatavilla (ei localhostia, ei kirjautumista).';
 $string['gemini_heading'] = 'Google Gemini';
+$string['hidefunctioncalls'] = 'Piilota toimintokutsut';
 $string['hint_splitview'] = 'Haluatko käyttää tätä chattia sivustosi rinnalla? Vedä <a href="{$a}">{$a}</a> uuteen ikkunaan tai avaa se hiiren oikealla painikkeella selaimesi jaettuun näkymään.';
 $string['imagedimensions'] = '{$a->width}×{$a->height} px';
 $string['imagepreviewinfo'] = 'Tiedosto {$a->size}, mitat {$a->dimensions}. Esikatselu {$a->preview} ({$a->scale} %).';
@@ -233,6 +281,8 @@ $string['importskill_summaryupdate'] = 'Päivitettäviä: {$a}';
 $string['importskill_toolarge'] = 'Taidon tiedot ovat liian suuret (enintään {$a}).';
 $string['inlinefilecharlimit'] = 'Upotetun tiedostosisällön raja';
 $string['inlinefilecharlimit_desc'] = 'Enimmäismäärä tekstitiedostoa, joka voidaan upottaa suoraan chattiin, kun tiedosto luetaan upotettuna. Pidempi sisältö katkaistaan. Upotusta käytetään, kun malli pyytää sitä, ja varakeinona niille tekoälypalveluntarjoajille, jotka eivät voi ottaa tiedostoja vastaan. Upotettu sisältö lähetetään uudelleen chat-historian mukana joka vuorolla, joten korkea raja kasvattaa tokenien käyttöä.';
+$string['interruptedbystop'] = 'Keskeytetty: pysäytit agentin.';
+$string['interruptedunexpectedly'] = 'Keskeytetty: toiminto pysähtyi odottamatta.';
 $string['invalidparameter'] = 'Virheellinen parametri havaittu: {$a}';
 $string['isajax'] = 'AJAX';
 $string['licenseactivate'] = 'Aktivoi lisenssi';
@@ -265,7 +315,6 @@ Tekoälypalveluntarjoajat hylkäävät joka tapauksessa tiedostot, jotka ylittä
 $string['maxfunctionresultsize'] = 'Toiminnon tuloksen enimmäiskoko';
 $string['maxfunctionresultsize_desc'] = 'Enimmäismäärä tietoa, jonka yksittäinen toiminto saa palauttaa tekoälymallille. Joissakin Moodlen toiminnoissa ei ole suodatinta, ja ne palauttavat sivuston kaikki käyttäjät tai kaikki kurssit, mikä hukuttaa mallin ja kuluttaa tokeneita joka seuraavalla vuorolla. Tämän rajan ylittävä tulos hylätään ja mallia kehotetaan rajaamaan pyyntöä. Arvo nolla poistaa rajan. Tiedoston lukeminen upotettuna on poikkeus; käytä siihen asetusta "Upotetun tiedostosisällön raja".';
 $string['newchat'] = 'Uusi chat';
-$string['newchatchooser_blank_sub'] = 'Ei kontekstia. Yleisavustaja.';
 $string['newchatchooser_clone'] = 'Sama kuin tämä chat';
 $string['newchatchooser_continue'] = 'Jatka siitä mihin jäit';
 $string['newchatchooser_desc_default'] = 'Aloita uusi chat tällä sivulla tai jatka siitä mihin jäit.';
@@ -277,15 +326,20 @@ $string['newchatchooser_onthispage'] = 'Tällä sivulla:';
 $string['newchatchooser_title'] = 'Aloita uusi chat';
 $string['nfilesattached'] = 'Liitetiedostoja: {$a}';
 $string['nonauth'] = 'Ilman kirjautumista';
+$string['notavailable_loginas'] = 'Tekoälyagentti ei ole käytettävissä, kun olet kirjautunut toisena käyttäjänä.';
+$string['notavailable_roleswitch'] = 'Tekoälyagentti ei ole käytettävissä, kun olet vaihtanut roolia.';
 $string['numfiles'] = 'Tiedostoja: {$a}';
 $string['numimages'] = 'Kuvia: {$a}';
 $string['numotherfiles'] = 'Muita tiedostoja: {$a}';
+$string['onefileattached'] = '1 liitetiedosto';
 $string['openai_api_chatcompletions'] = 'Chat Completions';
 $string['openai_api_responses'] = 'Responses API';
 $string['openai_api_type'] = 'API-tyyppi';
 $string['openai_api_type_desc'] = 'Mitä OpenAI-rajapintaa käytetään monivuoroisissa chateissa. Responses API ylläpitää keskustelun tilaa palvelimen puolella, joten joka vuorolla lähetetään vain uusi syöte (pienemmät kustannukset, yksinkertaisempi historia). Chat Completions rakentaa koko viestitaulukon uudelleen jokaisella pyynnöllä (laajempi yhteensopivuus palveluntarjoajien kanssa).<br><br>Responses APIa tukevat: <strong>{$a}</strong>. Muut palveluntarjoajat siirtyvät huomautuksetta Chat Completions -rajapintaan tästä asetuksesta riippumatta.';
 $string['openai_heading'] = 'OpenAI (tai yhteensopiva)';
 $string['openlink'] = 'Avaa linkki';
+$string['pathtophp'] = 'Polku PHP-komentoliittymään taustalla toimiville chateille';
+$string['pathtophp_desc'] = 'PHP-komentoliittymän ohjelma, joka suorittaa taustalla toimivat chatit, jos sen pitää olla eri kuin sivuston asetuksessa Polku PHP-komentoliittymään. Jätä tyhjäksi, jos haluat käyttää sivuston asetusta.';
 $string['placeholder'] = 'Kirjoita viesti...';
 $string['placement_add'] = 'Lisää sijoittelu';
 $string['placement_confirmdelete'] = 'Haluatko varmasti poistaa tämän sijoittelun?';
@@ -294,9 +348,26 @@ $string['placement_defaultname'] = 'Tekoälyagentti';
 $string['placement_deleted'] = 'Sijoittelu poistettu.';
 $string['placement_duplicated'] = 'Sijoittelu monistettu.';
 $string['placement_edit'] = 'Muokkaa sijoittelua';
+$string['placement_functionrules'] = 'Toimintosääntö';
+$string['placement_functionrules_help'] = 'Rajaa, mitä toimintoja tekoälyagentti saa käyttää tästä sijoittelusta aloitetuissa chateissa. Jätä tyhjäksi salliaksesi kaikki toiminnot. Säännön muuttaminen muuttaa sen myös chateissa, jotka on jo aloitettu tästä sijoittelusta.
+
+Sääntö on JSON-muodossa. Sen jokainen osa on objekti, jossa on yksi avain:
+
+* {"type": "read"}: toiminnon tyyppi on read (Luku), safe (Turvallinen) tai write (Kirjoitus), kuten Toiminnot-välilehden raportissa
+* {"tag": "student"}: toiminnolla on tämä tunniste
+* {"component": "mod_quiz"}: toiminto kuuluu tähän komponenttiin
+* {"function": "core_course_get_courses"}: toiminnolla on tämä nimi
+* {"not": osa}, {"all": [osat]}, {"any": [osat]}: yhdistävät osia
+
+Komponentin tai toiminnon nimessä tähti vastaa mitä tahansa tekstiä. Avaimet type, tag, component ja function hyväksyvät myös luettelon, joka tarkoittaa mitä tahansa sen arvoista: {"type": ["read", "safe"]} sallii kaikki toiminnot, jotka eivät muuta sivustoa.
+
+Pyydä tekoälyagenttia kirjoittamaan tai muuttamaan sääntö: se tarkistaa ennen tallentamista, mitä toimintoja sääntö sallii.';
+$string['placement_functionrules_preview'] = 'Tallennettu sääntö sallii käytössä olevista toiminnoista {$a->count}/{$a->total}';
+$string['placement_functions'] = 'Sallitut toiminnot';
+$string['placement_functions_limited'] = 'Rajattu ({$a})';
 $string['placement_initialskills'] = 'Aloitustaidot';
-$string['placement_initialskills_help'] = 'Taidot, jotka ladataan automaattisesti chatin alkaessa. Valinnainen; agentti voi silti ladata minkä tahansa taidon tarvittaessa. Asettamasi taidot ohjaavat myös tätä sijoittelua: käyttäjät, joilla ei ole pääsyä yhteenkään niistä, eivät näe painiketta eivätkä valikkokohtaa, ja jos kaikki asetetut taidot myöhemmin poistetaan tai poistetaan käytöstä, sijoittelu lakkaa näkymästä.';
-$string['placement_intro'] = '<p>Sijoittelujen avulla voit tarjota agentteja, jotka on räätälöity tiettyyn tehtävään. Jokainen sijoittelu lisää tekoälyagentin painikkeen sivuille, joiden URL-osoite vastaa jotakin sen maskia, ja voi aloittaa chatin ennalta määritetyillä aloitustaidoilla ja tervetulotekstillä. Jos aloitustaidot on asetettu, käyttäjät, joilla ei ole pääsyä yhteenkään niistä, eivät näe painiketta.</p><p>Aloitustaidot määrittävät vain chatin lähtökohdan; agentti pääsee edelleen käsiksi kaikkiin käytössä oleviin toimintoihin, ei vain taitojen toimintoihin.</p>';
+$string['placement_initialskills_help'] = 'Taidot, jotka ladataan automaattisesti chatin alkaessa. Valinnainen; agentti voi silti ladata minkä tahansa taidon tarvittaessa, ellei sijoittelun toimintosääntö estä sitä. Asettamasi taidot ohjaavat myös tätä sijoittelua: käyttäjät, joilla ei ole pääsyä yhteenkään niistä, eivät näe painiketta eivätkä valikkokohtaa, ja jos kaikki asetetut taidot myöhemmin poistetaan tai poistetaan käytöstä, sijoittelu lakkaa näkymästä.';
+$string['placement_intro'] = '<p>Sijoittelujen avulla voit tarjota agentteja, jotka on räätälöity tiettyyn tehtävään. Jokainen sijoittelu lisää tekoälyagentin painikkeen sivuille, joiden URL-osoite vastaa jotakin sen maskia, ja voi aloittaa chatin ennalta määritetyillä aloitustaidoilla ja tervetulotekstillä. Jos aloitustaidot on asetettu, käyttäjät, joilla ei ole pääsyä yhteenkään niistä, eivät näe painiketta.</p><p>Aloitustaidot määrittävät vain chatin lähtökohdan; agentti pääsee edelleen käsiksi kaikkiin käytössä oleviin toimintoihin, ei vain taitojen toimintoihin. Toimintosääntö rajaa, mitä toimintoja agentti saa käyttää sijoittelusta aloitetuissa chateissa.</p>';
 $string['placement_location'] = 'Painikkeen sijainti';
 $string['placement_location_floating'] = 'Kelluva painike';
 $string['placement_location_h1'] = 'Sivun otsikko (H1)';
@@ -307,14 +378,16 @@ $string['placement_name_help'] = 'Näytetään käyttäjille: käyttäjävalikos
 $string['placement_save'] = 'Tallenna sijoittelu';
 $string['placement_saved'] = 'Sijoittelu tallennettu.';
 $string['placement_skillmissing'] = 'Taitoa ei löydy';
+$string['placement_skillnotinitial'] = 'Ei voi olla aloitustaito';
 $string['placement_suggestedprompts'] = 'Ehdotetut kehotteet';
 $string['placement_suggestedprompts_help'] = 'Yksi kehote riviä kohden. Kehotteet näytetään painikkeina viestikentän yläpuolella chatin aloitusnäytöllä. Painikkeen napsauttaminen lähettää kehotteen heti, esimerkiksi "Tiivistä tämä kurssi". Jos käyttäjän pitää ensin täydentää kehote, kirjoita siihen jonnekin ...: kehote lisätään silloin viestikenttään lähettämisen sijaan, esimerkiksi "Tiivistä tämän kurssin osio ...". Jätä kenttä tyhjäksi, jos kehotteita ei tarjota.';
 $string['placement_urlmask'] = 'URL-maskit';
-$string['placement_urlmask_help'] = 'Yksi kuvio riviä kohden. Käytä *-merkkiä jokerimerkkinä, esimerkiksi /course/view.php* tai /mod/*/view.php*. Huomaa: sivuilla, joilla tarkempi sijoittelu kohdistuu samaan sijaintiin, laaja /*-sijoittelu piilotetaan, jotta käyttäjät näkevät vain osuvamman.';
+$string['placement_urlmask_help'] = 'Yksi kuvio riviä kohden. Käytä *-merkkiä jokerimerkkinä, esimerkiksi /course/view.php* tai /mod/*/view.php*.';
 $string['placement_urlmask_invalid'] = 'Jokaisen URL-maskin on alettava vinoviivalla: "{$a}" ei ala.';
 $string['placement_welcome'] = 'Oma tervetuloteksti (valinnainen)';
 $string['placement_welcome_help'] = 'Korvaa tavallisen tervetuloviestin chatin aloitusnäytöllä. Jätä tyhjäksi käyttääksesi oletusta.';
 $string['pluginname'] = 'Tekoälyagentti';
+$string['pluginnotinstalled'] = 'Lisäosaa ei ole asennettu';
 $string['previouschats'] = 'Aiemmat chatit';
 $string['privacy:metadata:aiprovider'] = 'Chatit lähetetään sivuston ylläpitäjän valitsemalle tekoälypalveluntarjoajalle, kuten OpenAIlle, Azure OpenAIlle, Google Geminille tai Anthropicille, jotta se voi luoda vastauksen. Lisäosa lähettää jokaisen pyynnön suoraan palveluntarjoajalle eikä Moodlen tekoälyalijärjestelmän kautta. Se, mikä yritys tiedot vastaanottaa ja kuinka kauan niitä siellä säilytetään, riippuu sivustolle määritetystä palveluntarjoajasta ja sen omista ehdoista.';
 $string['privacy:metadata:aiprovider:files'] = 'Tiedostot, jotka käyttäjä liittää chattiin, sekä tiedostot, jotka agentti lukee sivustolta käyttäjän puolesta, lähetetään jotta malli voi lukea niiden sisällön.';
@@ -340,12 +413,18 @@ $string['privacy:metadata:tool_aiagent_message:content'] = 'Viestin sisältö.';
 $string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Kelluvasta chat-ikkunasta tai chatin sivupalkista lähetetyn viestin kohdalla sen sivun osoite ja nimi, jota käyttäjä luki sillä hetkellä.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Kuka viestin lähetti: käyttäjä, avustaja, järjestelmä vai toiminto.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Aika, jolloin viesti luotiin.';
+$string['privacy:metadata:tool_aiagent_run'] = 'Merkintä jokaisesta kerrasta, jolloin tekoälyagentti työskenteli chatin viestin parissa; säilytetään vuorokauden ajan sen päättymisestä.';
+$string['privacy:metadata:tool_aiagent_run:ip'] = 'Käyttäjän IP-osoite viestin lähetyshetkellä, tallennettuna niiden toimintojen kanssa, jotka tekoälyagentti teki käyttäjän puolesta.';
+$string['privacy:metadata:tool_aiagent_run:payload'] = 'Sen sivun sisältö, jota käyttäjä katsoi, kun tekoälyagentti pyysi saada lukea sen.';
+$string['privacy:metadata:tool_aiagent_run:timecreated'] = 'Aika, jolloin tekoälyagentti aloitti työn viestin parissa.';
+$string['privacy:metadata:tool_aiagent_run:userid'] = 'Käyttäjä, joka lähetti viestin.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Kunkin tekoälypyynnön tokenien käyttö, säilytetään käytön seurantaa varten.';
 $string['privacy:metadata:tool_aiagent_usage:completiontokens'] = 'Käytettyjen tulostokenien määrä.';
 $string['privacy:metadata:tool_aiagent_usage:model'] = 'Tekoälymalli, joka käsitteli pyynnön.';
 $string['privacy:metadata:tool_aiagent_usage:prompttokens'] = 'Käytettyjen syötetokenien määrä.';
 $string['privacy:metadata:tool_aiagent_usage:provider'] = 'Tekoälypalveluntarjoaja, joka käsitteli pyynnön.';
 $string['privacy:metadata:tool_aiagent_usage:timecreated'] = 'Aika, jolloin pyyntö tehtiin.';
+$string['providers_heading'] = 'Kaikki tekoälypalveluntarjoajat';
 $string['relevancescore'] = 'Relevanssipisteet';
 $string['relevancescore_help'] = 'Relevanssipisteet kertovat asteikolla 1-10, kuinka hyvin verkkopalvelutoiminto sopii tekoälyagentille.
 
@@ -373,6 +452,7 @@ $string['resume_title'] = 'Tervetuloa takaisin';
 $string['sendmessage'] = 'Lähetä';
 $string['settings'] = 'Tekoälyagentin asetukset';
 $string['showallfiles'] = 'Näytä kaikki';
+$string['showfunctioncalls'] = 'Näytä toimintokutsut';
 $string['skill_add'] = 'Lisää taito';
 $string['skill_edit'] = 'Muokkaa taitoa';
 $string['skill_save_close'] = 'Tallenna ja sulje';
@@ -392,6 +472,7 @@ $string['skilldeleted'] = 'Taito "{$a}" poistettu.';
 $string['skilldescription'] = 'Kuvaus';
 $string['skilldescription_help'] = 'Mihin taito on tarkoitettu, jotta avustaja tietää milloin se kannattaa ladata. Kuvaa tehtävä tai toiminta, jota se koskee, älä sen vaiheita. Kuvaus näkyy sekä taitojen luettelossa (ihmisille) että järjestelmäkehotteessa (avustajalle).';
 $string['skillexists'] = 'Taito, jonka lyhytnimi on "{$a}", on jo olemassa.';
+$string['skillimport_badloadmode'] = 'Kentän "loadmode" arvon on oltava jokin seuraavista: {$a}.';
 $string['skillimport_badmasks'] = 'Kenttien "mainfunctions" ja "otherfunctions" on kummankin oltava luettelo maskimerkkijonoja.';
 $string['skillimport_badshortname'] = 'Jokainen taito tarvitsee kelvollisen lyhytnimen (kirjaimia, numeroita, väliviiva, alaviiva).';
 $string['skillimport_invalidjson'] = 'Lähetetty tiedosto ei ole kelvollista taito-JSONia.';
@@ -400,6 +481,13 @@ $string['skillimported'] = 'Taito "{$a}" tuotu.';
 $string['skillinstructions'] = 'Ohjeet';
 $string['skillinstructions_help'] = 'Ohjeistus, joka ladataan chattiin taidon mukana. Sisällytä vain se, mikä ei ole itsestään selvää: avustaja näkee jo jokaisen ladatun toiminnon ja sen kuvauksen, joten älä toista sitä mitä toiminto tekee äläkä muistuta ilmeisistä parametreista. Kirjaa työnkulun järjestys, päätökset ja sudenkuopat, joita kuvaukset eivät kata, ja aloita vain joskus pätevät vaiheet sanoilla "Jos ...".';
 $string['skillloadedevent'] = 'Taito ladattu · {$a}';
+$string['skillloadmode'] = 'Voidaan käyttää';
+$string['skillloadmode_dynamic'] = 'Vain chatin aikana tarvittaessa ladattuna';
+$string['skillloadmode_help'] = 'Kun sijoittelu käyttää taitoa aloitustaitona, taidon ohjeet lisätään järjestelmäohjeisiin heti chatin alusta. Käytä tätä muuttaaksesi sitä, miten tekoälyagentti vastaa.
+
+Tiettyyn tehtävään tarkoitettu taito, esimerkiksi arviointikirjan määrittämiseen tai pääsyn rajoitusten lisäämiseen, voidaan ladata tarvittaessa, kun käyttäjä pyytää jotain, mitä se kattaa.';
+$string['skillloadmode_initial'] = 'Vain aloitustaitona';
+$string['skillloadmode_initial_or_dynamic'] = 'Sekä aloitustaitona että tarvittaessa ladattuna';
 $string['skillmainfunctions'] = 'Päätoiminnot';
 $string['skillmainfunctions_help'] = 'Suppea joukko maskeja, jotka valitsevat taidon keskeiset luonti- ja päivitystoiminnot. Näiden toimintojen kyvyt ratkaisevat, kenelle taito tarjotaan: vain käyttäjille, jotka pääsevät käsiksi vähintään yhteen niistä. Kukin maski vastaa toiminnon nimeä tai komponentti/nimi-kuviota ("*" on jokerimerkki; alussa oleva "~" poistaa osumia). Jätä tyhjäksi tarjotaksesi taitoa kaikille.';
 $string['skillmatched'] = 'Osumat ({$a})';
@@ -410,7 +498,7 @@ $string['skillnomatch'] = 'Yksikään käytössä oleva toiminto ei vastaa näit
 $string['skillnotfound'] = 'Taitoa ei löytynyt: {$a}.';
 $string['skillotherfunctions'] = 'Muut toiminnot';
 $string['skillotherfunctions_help'] = 'Maskit muille toiminnoille, jotka taito tuo mukanaan: lukutoiminnot, aputoiminnot tai kokonainen komponentti. Sama syntaksi kuin päätoiminnoissa, mutta nämä eivät vaikuta siihen, kenelle taito tarjotaan. Jätä tyhjäksi, jos taito ei tarvitse lisätoimintoja.';
-$string['skills_intro'] = '<p>Taito yhdistää tiettyyn tehtävään erikoistuneet ohjeet ja siihen suositeltujen toimintojen luettelon. Käytä taitoja tavallisissa monivaiheisissa tehtävissä, joissa tekoälyagentti menee helposti sekaisin tai ei löydä oikeita toimintoja, tai organisaatiollesi ominaisissa tehtävissä.</p><p>Taitojen luettelo ja niiden kuvaukset ovat aina tekoälyagentin käytettävissä, ja se lataa taidon omatoimisesti aina kun se katsoo jonkin sopivan käyttäjän pyyntöön. Taito on vain niiden käyttäjien käytettävissä, jotka pääsevät käsiksi vähintään yhteen sen päätoiminnoista. Esimerkiksi opettajille tehty taito ei näy opiskelijoille.</p>';
+$string['skills_intro'] = '<p>Taito yhdistää tiettyyn tehtävään erikoistuneet ohjeet ja siihen suositeltujen toimintojen luettelon. Käytä taitoja tavallisissa monivaiheisissa tehtävissä, joissa tekoälyagentti menee helposti sekaisin tai ei löydä oikeita toimintoja, tai organisaatiollesi ominaisissa tehtävissä.</p><p>Taitoa voidaan käyttää kahdella tavalla; tapa valitaan sen asetuksessa "Voidaan käyttää". Sijoittelu voi asettaa sen aloitustaidoksi, jolloin taidon ohjeet ovat voimassa heti chatin alusta. Vaihtoehtoisesti tekoälyagentti voi ladata sen tarvittaessa: se näkee aina näiden taitojen nimet ja kuvaukset, ja se lataa taidon omatoimisesti aina kun se katsoo jonkin sopivan käyttäjän pyyntöön. Taito on vain niiden käyttäjien käytettävissä, jotka pääsevät käsiksi vähintään yhteen sen päätoiminnoista. Esimerkiksi opettajille tehty taito ei näy opiskelijoille.</p>';
 $string['skillshortname'] = 'Lyhytnimi';
 $string['skillshortname_help'] = 'Pysyvä koneluettava nimi, joka on yksilöllinen koko sivustolla: vain kirjaimia, numeroita, väliviiva ja alaviiva. Sitä voi muuttaa myöhemmin, paitsi jos taito tuli lisäosan mukana.';
 $string['skilltags'] = 'Tunnisteet';
@@ -418,6 +506,11 @@ $string['skilltags_help'] = 'Tunnisteita käytetään vain suodatukseen, eikä n
 $string['skilltoobroad'] = 'Vastaa {$a} toimintoa, mikä voi olla liian laaja. Harkitse toimintomaskien rajaamista.';
 $string['skillunavailable'] = 'Ei käytettävissä';
 $string['skillupdated'] = 'Taito "{$a}" päivitetty.';
+$string['stop'] = 'Pysäytä';
+$string['stoppedafter'] = 'Pysäytetty {$a} jälkeen';
+$string['stoppedbyuser'] = 'Pysäytit agentin. Jatka kirjoittamalla uusi viesti.';
+$string['stopping'] = 'Pysäytetään...';
+$string['stoppingafterfunction'] = 'Pysähtyy, kun tämä toiminto valmistuu';
 $string['suggestedprompt_edit'] = 'Muokkaa viestiä ennen lähettämistä';
 $string['suggestedprompt_send'] = 'Lähetä tämä viesti';
 $string['switchview'] = 'Vaihda näkymää';
@@ -438,6 +531,9 @@ $string['timecreated'] = 'Luontiaika';
 $string['timelastactivity'] = 'Viimeisin toiminta';
 $string['timemodified'] = 'Muokkausaika';
 $string['tryagain'] = 'Yritä uudelleen';
+$string['unavailable_envcheck'] = 'Tämä toiminto ei ole käytettävissä, koska sivuston asetus, josta se riippuu, ei ole käytössä: {$a}.';
+$string['unavailable_plugindisabled'] = 'Tämä toiminto ei ole käytettävissä, koska lisäosa {$a} on poistettu käytöstä tällä sivustolla.';
+$string['unavailable_pluginnotinstalled'] = 'Tätä toimintoa ei voi käyttää, koska lisäosaa {$a} ei ole asennettu tälle sivustolle.';
 $string['usage_completiontokens'] = 'Tulostokenit';
 $string['usage_model'] = 'Malli';
 $string['usage_prompttokens'] = 'Syötetokenit';
@@ -455,3 +551,6 @@ $string['welcome_skillsmore'] = '+{$a} muuta';
 $string['welcome_tryasking'] = 'Kokeile kysyä';
 $string['welcomedesc'] = 'Kysy tekoälyagentilta sivustostasi, kursseista, käyttäjistä tai sisällöstä. Se voi lukea tietoja ja luvallasi myös tehdä muutoksia.';
 $string['welcometitle'] = 'Tervetuloa, {$a}';
+$string['workedfor'] = 'Työskenteli {$a}';
+$string['working'] = 'Työskentelee';
+$string['workingfor'] = 'Työskennellyt {$a}';

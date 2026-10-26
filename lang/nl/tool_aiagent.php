@@ -10,7 +10,7 @@
 
 /**
  * Dutch language pack for AI agent.
- * Last updated: 2026-10-11
+ * Last updated: 2026-10-25
  *
  * @package    tool_aiagent
  * @category   string
@@ -21,9 +21,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_needsyou'] = 'AI-agent: wacht op je goedkeuring';
+$string['activity_working'] = 'AI-agent: bezig';
 $string['addon'] = 'Extra plugin';
 $string['aiagent:autoapproveall'] = 'De modus "Alle" voor automatisch goedkeuren kiezen, waarbij elke functieaanroep zonder bevestiging wordt uitgevoerd';
 $string['aiagent:usechat'] = 'Chats met de AI-agent starten (bepaalt waar een chat gestart kan worden; het beperkt niet welke gegevens de chat daarna kan benaderen)';
+$string['allfunctions'] = 'Alle';
 $string['allowfeedback'] = 'Feedback toestaan';
 $string['allowfeedback_desc'] = 'Als dit is ingeschakeld, kunnen gebruikers antwoorden van de assistent beoordelen en mislukte functieaanroepen melden. De inzendingen gaan naar de ontwikkelaars van de AI-agentplugin (niet naar een LLM), zodat zij het aanroepen van Moodle-functies kunnen verbeteren. Alleen de beoordeelde uitwisseling wordt verstuurd, niet de hele chat, en de gebruiker kan de tekst voor het versturen aanpassen. Schakel dit uit op sites met een streng beleid voor uitgaand verkeer.';
 $string['anthropic_heading'] = 'Anthropic (Claude)';
@@ -44,6 +47,18 @@ $string['autoapprove_readonly_desc'] = 'Lezen automatisch goedkeuren, voor schri
 $string['autoapprove_safe'] = 'Veilig';
 $string['autoapprove_safe_desc'] = 'Acties die de site niet wijzigen automatisch goedkeuren';
 $string['autoapprove_safe_examples'] = 'Lezen, plus het verkleinen van bijlagen, afbeeldingen genereren, bestanden naar het LLM sturen, enzovoort.';
+$string['autoapprovetimelimit'] = 'Tijdslimiet voor autom. goedkeuren';
+$string['autoapprovetimelimit_desc'] = 'Hoe lang de AI-agent automatisch goedgekeurde functies mag blijven uitvoeren na de laatste actie van de gebruiker, zoals een bericht versturen of functies goedkeuren. Daarna vraagt hij om goedkeuring vóór de volgende functie. Zo gebruiken verlaten chats geen serverbronnen en AI-tokens. 0 betekent geen limiet.';
+$string['autopaused'] = 'Automatisch goedkeuren is gepauzeerd na {$a} zonder actie van jou. Keur goed om door te gaan.';
+$string['background_heading'] = 'Achtergrondchats';
+$string['backgroundchats'] = 'Achtergrondchats toestaan';
+$string['backgroundchats_desc'] = 'Voert elke chat uit in een eigen PHP CLI-proces op de server. De AI-agent blijft dan werken nadat de gebruiker de pagina verlaat of het tabblad sluit, voert reeksen functies sneller uit, en Stoppen onderbreekt de agent meteen, ook terwijl er een functie loopt. Als dit uitgeschakeld is, of er geen PHP CLI beschikbaar is, draaien chats in het browserverzoek van de gebruiker.';
+$string['backgroundunavailable_effect'] = 'De AI-agent voert reeksen functies uit via de browser. Ze zijn daardoor trager en stoppen wanneer de gebruiker de pagina verlaat of het tabblad sluit. Functies die al lopen, kunnen niet worden onderbroken.';
+$string['backgroundunavailable_executable'] = 'Het Pad naar PHP CLI voor achtergrondchats is geen uitvoerbaar bestand.';
+$string['backgroundunavailable_function'] = 'De PHP-functie {$a} is uitgeschakeld op deze server.';
+$string['backgroundunavailable_pathtophp'] = 'Het Pad naar PHP CLI is niet ingesteld.';
+$string['backgroundunavailable_setpath'] = 'Pad naar PHP CLI instellen';
+$string['backgroundunavailable_windows'] = 'Achtergrondchats zijn niet beschikbaar op Windows-servers.';
 $string['backtoconfiguration'] = 'Terug naar de configuratie van de AI-agent';
 $string['builtinfunction'] = 'Meegeleverd';
 $string['bulk_disabled'] = '{$a} functie(s) uitgeschakeld';
@@ -52,14 +67,17 @@ $string['bulk_enabled'] = '{$a} functie(s) ingeschakeld';
 $string['bulk_enableselected'] = 'Selectie inschakelen';
 $string['bulk_withselected'] = 'Met geselecteerde functies';
 $string['capabilities'] = 'Mogelijkheden';
+$string['chat_heading'] = 'Chats';
 $string['chat_namelink'] = 'Naam met link';
 $string['chatfrozen'] = 'De vaardigheden van deze chat zijn niet meer beschikbaar, daarom kan hij niet worden voortgezet. Start in plaats daarvan een nieuwe chat.';
+$string['chatfrozen_noplacement'] = 'Deze chat is gestart in een eerdere versie van de AI-agent, daarom kan hij niet meer worden voortgezet. Start in plaats daarvan een nieuwe chat.';
 $string['chathelpcontent'] = '<p>De AI-agent kan namens jou inhoud op deze site lezen en wijzigen. Voor de meeste acties wordt eerst je goedkeuring gevraagd. In het invoerveld kun je de modus voor automatisch goedkeuren soepeler of strenger zetten.</p>
 <p>Voeg bestanden toe door ze te slepen, te plakken of op het paperclip-icoon te klikken. Typ daarna je verzoek en klik op <strong>Verzenden</strong>. Druk op Enter om te verzenden, of op Shift en Enter voor een nieuwe regel.</p><p>AI kan fouten maken. Controleer de resultaten.</p>';
 $string['chatnopermission'] = 'Deze chat is gestart in een deel van de site waar je geen toegang meer hebt tot de AI-agent, daarom kan hij niet worden voortgezet.';
 $string['chatnostartpermission'] = 'Je hebt geen rechten om hier een chat te starten. Open de AI-agent op een pagina waar hij wordt aangeboden.';
 $string['chatretention'] = 'Chats bewaren gedurende';
 $string['chatretention_desc'] = 'Chats zonder activiteit gedurende deze periode worden uit de chatgeschiedenis van gebruikers verwijderd, hun bijgevoegde bestanden worden van deze site verwijderd en er wordt verzocht om verwijdering van de chatgegevens die bij de AI-provider zijn opgeslagen (bewaarde antwoorden en geüploade bestanden). Verwijdering aan de kant van de provider gebeurt naar beste vermogen en is niet gegarandeerd; stel ook in je account bij de provider een passend bewaarbeleid in. Berichten en gebruiksgegevens blijven voor rapportages bewaard totdat de hieronder ingestelde bewaartermijn voor chatlogs verstrijkt. Stel in op 0 om chats onbeperkt te bewaren.';
+$string['closeconfirm_background'] = 'De AI-agent blijft werken terwijl de chat gesloten is.';
 $string['closeconfirm_body'] = 'Het sluiten van het venster verwijdert de chat niet. Je kunt hem op elk moment opnieuw openen via het menu Vorige chats. Chats worden na {$a} dagen automatisch verwijderd.';
 $string['closeconfirm_body_noretention'] = 'Het sluiten van het venster verwijdert de chat niet. Je kunt hem op elk moment opnieuw openen via het menu Vorige chats.';
 $string['closeconfirm_close'] = 'Chat sluiten';
@@ -95,6 +113,8 @@ $string['entity_skill'] = 'Vaardigheid';
 $string['entity_usage'] = 'Tokengebruik';
 $string['error_interrupted_function'] = 'Een functieaanroep is onderbroken voordat hij klaar was. Mogelijk zijn er wijzigingen gedeeltelijk doorgevoerd; controleer de toestand voordat je het opnieuw probeert.';
 $string['error_interrupted_llm'] = 'De communicatie met de AI-provider is onderbroken. Klik op "Opnieuw proberen" om het verzoek te herhalen.';
+$string['errorbackgroundstart'] = 'De AI-agent kon niet aan deze chat beginnen. Vraag de sitebeheerder om de instellingen voor achtergrondchats te controleren.';
+$string['errorbackgroundstart_admin'] = 'De AI-agent kon zijn achtergrondproces op deze server niet starten. Corrigeer het Pad naar PHP CLI, of schakel achtergrondchats uit, onder {$a} in de instellingen van de AI-agent.';
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'Het bericht mag niet leeg zijn.';
 $string['errorfullscreendisabled'] = 'De chatweergave op volledig scherm is niet ingeschakeld op deze site.';
@@ -118,6 +138,7 @@ $string['errorresponses_endpoint_invalid_config'] = 'De plugin heeft geprobeerd 
 $string['errorresponses_endpoint_reply'] = 'Antwoord van de provider: {$a}';
 $string['errorresponses_provider_switch'] = 'Deze chat kan niet worden voortgezet onder de Responses API van OpenAI, omdat hij met een andere AI-provider is gestart. Start een nieuwe chat, of schakel terug naar de oorspronkelijke provider (of naar OpenAI Chat Completions) om deze voort te zetten.';
 $string['errorrootnotfound'] = 'Het eerste bericht van deze chat is niet gevonden.';
+$string['errorupdatesstopped'] = 'Deze chat ontvangt geen updates meer. Vernieuw om de laatste stand te zien.';
 $string['exportskill'] = 'Exporteren';
 $string['feedback_modal_freetextlabel'] = 'Nog iets anders? (optioneel)';
 $string['feedback_modal_freetextplaceholder_negative'] = 'Wat ging er mis? Zo gedetailleerd als je wilt.';
@@ -153,11 +174,23 @@ $string['feedbackthanks'] = 'Bedankt voor je feedback!';
 $string['feedbackthumbdown'] = 'Een probleem met dit antwoord melden';
 $string['feedbackthumbup'] = 'Dit antwoord was nuttig';
 $string['feedbackvalidation_categoryrequired'] = 'Selecteer minstens één categorie.';
+$string['functionapprovalneeded'] = 'Goedkeuring nodig';
+$string['functionapprovalneededmany'] = '{$a} functieaanroepen wachten op goedkeuring';
 $string['functionapprovecount'] = 'Keur {$a} aanroepen goed';
+$string['functionavailable'] = 'Beschikbaar';
 $string['functioncall_actions'] = 'Functieaanroep goedkeuren of afkeuren';
 $string['functioncall_chip_action'] = 'Modus voor automatisch goedkeuren wijzigen';
 $string['functioncalldetails'] = 'Details van de functieaanroep';
-$string['functioncalldetailscount'] = 'Details van de functieaanroepen ({$a})';
+$string['functioncalldetailsof'] = 'Details van de functieaanroep: {$a}';
+$string['functioncalling'] = '{$a} wordt aangeroepen';
+$string['functioncallnav'] = '{$a->index} van {$a->total}';
+$string['functioncallnext'] = 'Volgende functieaanroep';
+$string['functioncallprevious'] = 'Vorige functieaanroep';
+$string['functioncallscount'] = '{$a} functieaanroepen';
+$string['functioncallscountone'] = '1 functieaanroep';
+$string['functiondenied'] = 'Je hebt {$a} afgekeurd';
+$string['functiondeniedmany'] = 'Je hebt {$a->name} en nog {$a->count} afgekeurd';
+$string['functiondeniednext'] = 'De agent is gestopt. Typ een bericht om te zeggen wat hij nu moet doen.';
 $string['functiondeny'] = 'Keur af';
 $string['functiondenyall'] = 'Keur alles af';
 $string['functiondetailscopied'] = 'Gekopieerd';
@@ -187,20 +220,34 @@ $string['functionname'] = 'Functienaam';
 $string['functionparameters'] = 'Parameters';
 $string['functionresult'] = 'Resultaat';
 $string['functionresultdiscarded'] = 'Het resultaat was te groot ({$a}) en is weggegooid. Beperk de aanvraag door te filteren, minder velden op te vragen of een specifiekere functie te gebruiken. Dezelfde aanroep herhalen levert dezelfde fout op.';
+$string['functionrules_error_component'] = '{$a->path}: geen enkele functie hoort bij een component die past op "{$a->value}".';
+$string['functionrules_error_depth'] = '{$a->path}: de regel is meer dan {$a->max} niveaus diep genest.';
+$string['functionrules_error_function'] = '{$a->path}: geen enkele functie past op "{$a->value}".';
+$string['functionrules_error_json'] = 'De regel is geen geldige JSON: {$a}';
+$string['functionrules_error_list'] = '{$a->path}: hier wordt een niet-lege lijst met regeldelen verwacht.';
+$string['functionrules_error_node'] = '{$a->path}: elk deel van de regel moet een object zijn met precies één sleutel: type, tag, component, function, not, all of any.';
+$string['functionrules_error_tag'] = '{$a->path}: geen enkele functie heeft de tag "{$a->value}".';
+$string['functionrules_error_type'] = '{$a->path}: onbekend type "{$a->value}". De types zijn read, safe en write.';
+$string['functionrules_error_value'] = '{$a->path}: hier wordt een niet-lege tekenreeks of een niet-lege lijst met niet-lege tekenreeksen verwacht.';
+$string['functionrules_path_root'] = 'De hele regel';
 $string['functions_intro'] = '<p><b>Niet elke webservicefunctie past goed bij de AI-agent.</b> Sommige zijn gemaakt voor communicatie tussen client en server (gemarkeerd met AJAX) of voor niet-ingelogde gebruikers (Zonder login), en voor sommige bestaan er betere alternatieven. Een deel van de AJAX-functies werkt prima met de AI-agent, maar de meeste niet. De AI-agentplugin kent aan functies uit de kern en uit standaardplugins een relevantiescore (1-10) toe en schakelt de functies met een score van 5 of hoger in. Functies uit extra plugins krijgen geen score; in plaats daarvan worden al hun niet-AJAX-functies automatisch ingeschakeld. Gebruik deze pagina om de beschikbare functies te bekijken en ze afzonderlijk in of uit te schakelen.</p><p>Als een functie een of meer mogelijkheden vereist, is ze niet beschikbaar voor gebruikers die er in geen enkele context op de site minstens één van hebben. Voor de kern en voor standaardplugins stelt de AI-agentplugin deze mogelijkheden correct in. Bij extra plugins worden ze uit de functiedefinitie overgenomen, en omdat Moodle deze controle zelf niet afdwingt, kunnen ze onjuist zijn.</p>';
 $string['functions_report'] = 'Functies van de AI-agent';
 $string['functionstatus_denied'] = 'Afgekeurd';
 $string['functionstatus_failed'] = 'Mislukt';
+$string['functionstatus_interrupted'] = 'Onderbroken';
+$string['functionstatus_notrun'] = 'Niet uitgevoerd';
 $string['functionstatus_pending'] = 'Wacht op goedkeuring';
 $string['functionstatus_processing'] = 'Wordt uitgevoerd...';
 $string['functiontype'] = 'Type';
 $string['functiontype_help'] = 'Het type webservicefunctie en de eigenschappen ervan:
 
 * **Lezen**: haalt gegevens op zonder iets te wijzigen
+* **Veilig**: een meegeleverde functie die de site niet wijzigt, alleen de bestanden in de chat, bijvoorbeeld een bijlage verkleinen of een afbeelding genereren
 * **Schrijven**: maakt gegevens aan of wijzigt ze
 * **AJAX**: wordt intern door Moodle gebruikt voor verzoeken tussen client en server, minder geschikt als functie voor de AI-agent
 * **Zonder login**: beschikbaar voor niet-ingelogde gebruikers, eveneens minder geschikt als functie voor de AI-agent';
 $string['functiontype_read'] = 'Lezen';
+$string['functiontype_safe'] = 'Veilig';
 $string['functiontype_write'] = 'Schrijven';
 $string['gemini_api_generatecontent'] = 'generateContent (stabiel)';
 $string['gemini_api_interactions'] = 'Interactions API (bèta)';
@@ -213,6 +260,7 @@ $string['gemini_builtin_google_search_desc'] = 'Laat Gemini antwoorden onderbouw
 $string['gemini_builtin_url_context'] = 'Tool "URL Context" inschakelen';
 $string['gemini_builtin_url_context_desc'] = 'Laat Gemini de inhoud lezen en analyseren van openbare URL\'s die de gebruiker noemt. Alleen voor modellen vanaf Gemini 3; bij Gemini 2.5 en ouder wordt dit stilzwijgend genegeerd, omdat die modellen ingebouwde tools niet kunnen combineren met eigen functieaanroepen. De URL\'s moeten openbaar toegankelijk zijn (geen localhost, geen authenticatie).';
 $string['gemini_heading'] = 'Google Gemini';
+$string['hidefunctioncalls'] = 'Functieaanroepen verbergen';
 $string['hint_splitview'] = 'Wil je deze chat naast je site gebruiken? Sleep <a href="{$a}">{$a}</a> naar een nieuw venster, of klik er met de rechtermuisknop op en gebruik de gesplitste weergave van je browser.';
 $string['imagedimensions'] = '{$a->width}×{$a->height} px';
 $string['imagepreviewinfo'] = 'Bestand {$a->size}, afmetingen {$a->dimensions}. Voorbeeld {$a->preview} ({$a->scale}%).';
@@ -233,6 +281,8 @@ $string['importskill_summaryupdate'] = '{$a} bij te werken';
 $string['importskill_toolarge'] = 'De vaardigheidsgegevens zijn te groot (maximaal {$a}).';
 $string['inlinefilecharlimit'] = 'Limiet voor ingesloten bestandsinhoud';
 $string['inlinefilecharlimit_desc'] = 'Maximale hoeveelheid van een tekstbestand die rechtstreeks in de chat kan worden ingesloten wanneer een bestand inline wordt gelezen. Langere inhoud wordt afgekapt. Inline meesturen wordt gebruikt wanneer het model erom vraagt, en als terugval voor AI-providers die geen bestanden kunnen ontvangen. Ingesloten inhoud wordt elke beurt opnieuw met de chatgeschiedenis meegestuurd, een hoge limiet verhoogt dus het tokengebruik.';
+$string['interruptedbystop'] = 'Onderbroken: je hebt de agent gestopt.';
+$string['interruptedunexpectedly'] = 'Onderbroken: de functie is onverwacht gestopt.';
 $string['invalidparameter'] = 'Ongeldige parameter gevonden: {$a}';
 $string['isajax'] = 'AJAX';
 $string['licenseactivate'] = 'Licentie activeren';
@@ -265,7 +315,6 @@ AI-providers weigeren bestanden die hun eigen limiet per verzoek overschrijden s
 $string['maxfunctionresultsize'] = 'Maximale grootte van een functieresultaat';
 $string['maxfunctionresultsize_desc'] = 'Maximale hoeveelheid gegevens die één functie aan het AI-model mag teruggeven. Sommige Moodle-functies hebben geen filter en geven alle gebruikers of alle cursussen van de site terug, wat het model overspoelt en elke volgende beurt tokens kost. Een resultaat boven deze limiet wordt weggegooid en het model krijgt te horen dat het de aanvraag moet beperken. Nul betekent geen limiet. Een bestand inline lezen valt hierbuiten; gebruik daarvoor "Limiet voor ingesloten bestandsinhoud".';
 $string['newchat'] = 'Nieuwe chat';
-$string['newchatchooser_blank_sub'] = 'Geen context. Algemene assistent.';
 $string['newchatchooser_clone'] = 'Hetzelfde als deze chat';
 $string['newchatchooser_continue'] = 'Verder waar je gebleven was';
 $string['newchatchooser_desc_default'] = 'Start een nieuwe chat op deze pagina, of ga verder waar je gebleven was.';
@@ -277,15 +326,20 @@ $string['newchatchooser_onthispage'] = 'Op deze pagina:';
 $string['newchatchooser_title'] = 'Een nieuwe chat starten';
 $string['nfilesattached'] = '{$a} bestanden bijgevoegd';
 $string['nonauth'] = 'Zonder login';
+$string['notavailable_loginas'] = 'De AI-agent is niet beschikbaar terwijl je bent ingelogd als een andere gebruiker.';
+$string['notavailable_roleswitch'] = 'De AI-agent is niet beschikbaar terwijl je van rol bent gewisseld.';
 $string['numfiles'] = '{$a} bestanden';
 $string['numimages'] = '{$a} afbeeldingen';
 $string['numotherfiles'] = '{$a} overige bestanden';
+$string['onefileattached'] = '1 bestand bijgevoegd';
 $string['openai_api_chatcompletions'] = 'Chat Completions';
 $string['openai_api_responses'] = 'Responses API';
 $string['openai_api_type'] = 'API-type';
 $string['openai_api_type_desc'] = 'Welke OpenAI-API wordt gebruikt voor chats met meerdere beurten. De Responses API bewaart de status van de chat aan de serverkant, er wordt dus per beurt alleen nieuwe invoer verstuurd (lagere kosten, eenvoudiger geschiedenis). Chat Completions bouwt de volledige berichtenlijst bij elk verzoek opnieuw op (bredere compatibiliteit met providers).<br><br>De Responses API wordt ondersteund door: <strong>{$a}</strong>. Andere providers vallen ongeacht deze instelling stilzwijgend terug op Chat Completions.';
 $string['openai_heading'] = 'OpenAI (of compatibel)';
 $string['openlink'] = 'Link openen';
+$string['pathtophp'] = 'Pad naar PHP CLI voor achtergrondchats';
+$string['pathtophp_desc'] = 'Het PHP CLI-programma dat de achtergrondchats uitvoert, als dat een ander moet zijn dan het Pad naar PHP CLI van de site. Laat leeg om de instelling van de site te gebruiken.';
 $string['placeholder'] = 'Typ een bericht...';
 $string['placement_add'] = 'Plaatsing toevoegen';
 $string['placement_confirmdelete'] = 'Weet je zeker dat je deze plaatsing wilt verwijderen?';
@@ -294,9 +348,26 @@ $string['placement_defaultname'] = 'AI-agent';
 $string['placement_deleted'] = 'Plaatsing verwijderd.';
 $string['placement_duplicated'] = 'Plaatsing gedupliceerd.';
 $string['placement_edit'] = 'Plaatsing bewerken';
+$string['placement_functionrules'] = 'Functieregel';
+$string['placement_functionrules_help'] = 'Beperkt welke functies de AI-agent mag gebruiken in chats die vanuit deze plaatsing zijn gestart. Laat leeg om elke functie toe te staan. Als je de regel wijzigt, verandert hij ook in de chats die al vanuit deze plaatsing zijn gestart.
+
+De regel is JSON. Elk deel ervan is een object met één sleutel:
+
+* {"type": "read"}: het type van de functie is read, safe of write, zoals in het rapport "Functies"
+* {"tag": "student"}: de functie heeft deze tag
+* {"component": "mod_quiz"}: de functie hoort bij deze component
+* {"function": "core_course_get_courses"}: de functie heeft deze naam
+* {"not": deel}, {"all": [delen]}, {"any": [delen]}: delen combineren
+
+In een component- of functienaam staat een sterretje voor willekeurige tekst. De sleutels type, tag, component en function accepteren ook een lijst, en dan volstaat een van de waarden: {"type": ["read", "safe"]} staat elke functie toe die de site niet wijzigt.
+
+Vraag de AI-agent om de regel te schrijven of te wijzigen: hij controleert welke functies de regel toestaat voordat hij hem opslaat.';
+$string['placement_functionrules_preview'] = 'De opgeslagen regel staat {$a->count} van de {$a->total} ingeschakelde functies toe';
+$string['placement_functions'] = 'Toegestane functies';
+$string['placement_functions_limited'] = 'Beperkt ({$a})';
 $string['placement_initialskills'] = 'Initiële vaardigheden';
-$string['placement_initialskills_help'] = 'Vaardigheden die automatisch worden geladen wanneer de chat start. Optioneel; de agent kan elke vaardigheid alsnog laden wanneer dat nodig is. De ingestelde vaardigheden sturen ook deze plaatsing aan: gebruikers die tot geen enkele ervan toegang hebben, zien de knop of het menu-item niet, en als later alle ingestelde vaardigheden worden verwijderd of uitgeschakeld, verschijnt de plaatsing niet meer.';
-$string['placement_intro'] = '<p>Met plaatsingen bied je agenten aan die op een bepaalde taak zijn toegesneden. Elke plaatsing zet de knop van de AI-agent op pagina\'s waarvan de URL overeenkomt met een van haar maskers, en kan de chat starten met vooraf ingestelde initiële vaardigheden en welkomsttekst. Als er initiële vaardigheden zijn ingesteld, zien gebruikers die tot geen enkele ervan toegang hebben de knop niet.</p><p>De initiële vaardigheden bepalen alleen het startpunt van de chat; de agent heeft nog steeds toegang tot alle ingeschakelde functies, niet alleen tot die van de vaardigheden.</p>';
+$string['placement_initialskills_help'] = 'Vaardigheden die automatisch worden geladen wanneer de chat start. Optioneel; de agent kan elke vaardigheid alsnog laden wanneer dat nodig is, tenzij de functieregel van de plaatsing dat verhindert. De ingestelde vaardigheden sturen ook deze plaatsing aan: gebruikers die tot geen enkele ervan toegang hebben, zien de knop of het menu-item niet, en als later alle ingestelde vaardigheden worden verwijderd of uitgeschakeld, verschijnt de plaatsing niet meer.';
+$string['placement_intro'] = '<p>Met plaatsingen bied je agenten aan die op een bepaalde taak zijn toegesneden. Elke plaatsing zet de knop van de AI-agent op pagina\'s waarvan de URL overeenkomt met een van haar maskers, en kan de chat starten met vooraf ingestelde initiële vaardigheden en welkomsttekst. Als er initiële vaardigheden zijn ingesteld, zien gebruikers die tot geen enkele ervan toegang hebben de knop niet.</p><p>De initiële vaardigheden bepalen alleen het startpunt van de chat; de agent heeft nog steeds toegang tot alle ingeschakelde functies, niet alleen tot die van de vaardigheden. Een functieregel beperkt welke functies de agent mag gebruiken in de chats die vanuit een plaatsing zijn gestart.</p>';
 $string['placement_location'] = 'Knoppositie';
 $string['placement_location_floating'] = 'Zwevende knop';
 $string['placement_location_h1'] = 'Paginakop (H1)';
@@ -307,14 +378,16 @@ $string['placement_name_help'] = 'Wordt aan gebruikers getoond: in het gebruiker
 $string['placement_save'] = 'Plaatsing opslaan';
 $string['placement_saved'] = 'Plaatsing opgeslagen.';
 $string['placement_skillmissing'] = 'Vaardigheid niet gevonden';
+$string['placement_skillnotinitial'] = 'Kan geen initiële vaardigheid zijn';
 $string['placement_suggestedprompts'] = 'Voorgestelde prompts';
 $string['placement_suggestedprompts_help'] = 'Eén prompt per regel, aangeboden als knoppen boven het berichtvak op het startscherm van de chat. Met een klik wordt de prompt meteen verstuurd, bijvoorbeeld "Vat deze cursus samen". Wil je een prompt aanbieden die de gebruiker eerst moet aanvullen, zet dan ergens ... in de prompt: die wordt dan in het berichtvak gezet in plaats van verstuurd, bijvoorbeeld "Vat de sectie ... van deze cursus samen". Laat het veld leeg om geen prompts aan te bieden.';
 $string['placement_urlmask'] = 'URL-maskers';
-$string['placement_urlmask_help'] = 'Eén patroon per regel. Gebruik * als jokerteken, bijvoorbeeld /course/view.php* of /mod/*/view.php*. Let op: op pagina\'s waar een specifiekere plaatsing dezelfde positie inneemt, wordt een brede plaatsing die op /* past verborgen, zodat gebruikers alleen de meest relevante zien.';
+$string['placement_urlmask_help'] = 'Eén patroon per regel. Gebruik * als jokerteken, bijvoorbeeld /course/view.php* of /mod/*/view.php*.';
 $string['placement_urlmask_invalid'] = 'Elk URL-masker moet met een schuine streep beginnen: "{$a}" doet dat niet.';
 $string['placement_welcome'] = 'Eigen welkomsttekst (optioneel)';
 $string['placement_welcome_help'] = 'Vervangt het standaard welkomstbericht op het startscherm van de chat. Laat leeg om de standaardtekst te gebruiken.';
 $string['pluginname'] = 'AI-agent';
+$string['pluginnotinstalled'] = 'Plugin niet geïnstalleerd';
 $string['previouschats'] = 'Vorige chats';
 $string['privacy:metadata:aiprovider'] = 'Chats worden verstuurd naar de AI-provider die de sitebeheerder heeft gekozen, zoals OpenAI, Azure OpenAI, Google Gemini of Anthropic, zodat die een antwoord kan genereren. De plugin stuurt elk verzoek rechtstreeks naar de provider en niet via het AI-subsysteem van Moodle. Welk bedrijf de gegevens ontvangt, en hoe lang ze daar bewaard worden, hangt af van de provider die de site heeft ingesteld en van de voorwaarden van die provider zelf.';
 $string['privacy:metadata:aiprovider:files'] = 'Bestanden die de gebruiker aan een chat toevoegt, en bestanden die de agent namens de gebruiker van de site leest, geüpload zodat het model de inhoud ervan kan lezen.';
@@ -340,12 +413,18 @@ $string['privacy:metadata:tool_aiagent_message:content'] = 'De inhoud van het be
 $string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Voor een bericht dat vanuit de chat als overlay of zijbalk is verstuurd, het adres en de naam van de pagina die de gebruiker op dat moment las.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Wie het bericht heeft verstuurd: de gebruiker, de assistent, het systeem of een functie.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'Het tijdstip waarop het bericht is aangemaakt.';
+$string['privacy:metadata:tool_aiagent_run'] = 'Een registratie van elke keer dat de AI-agent aan een bericht in een chat werkte, bewaard tot een dag na afloop.';
+$string['privacy:metadata:tool_aiagent_run:ip'] = 'Het IP-adres van de gebruiker bij het versturen van het bericht, vastgelegd bij de acties die de AI-agent voor hem uitvoerde.';
+$string['privacy:metadata:tool_aiagent_run:payload'] = 'De inhoud van de pagina die de gebruiker bekeek, wanneer de AI-agent vroeg die te lezen.';
+$string['privacy:metadata:tool_aiagent_run:timecreated'] = 'Het moment waarop de AI-agent aan het bericht begon te werken.';
+$string['privacy:metadata:tool_aiagent_run:userid'] = 'De gebruiker die het bericht verstuurde.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Het tokengebruik dat voor elk AI-verzoek wordt vastgelegd, bewaard om het gebruik te kunnen volgen.';
 $string['privacy:metadata:tool_aiagent_usage:completiontokens'] = 'Het aantal gebruikte uitvoertokens (completion).';
 $string['privacy:metadata:tool_aiagent_usage:model'] = 'Het AI-model dat het verzoek heeft afgehandeld.';
 $string['privacy:metadata:tool_aiagent_usage:prompttokens'] = 'Het aantal gebruikte invoertokens (prompt).';
 $string['privacy:metadata:tool_aiagent_usage:provider'] = 'De AI-provider die het verzoek heeft afgehandeld.';
 $string['privacy:metadata:tool_aiagent_usage:timecreated'] = 'Het tijdstip waarop het verzoek is gedaan.';
+$string['providers_heading'] = 'Alle AI-providers';
 $string['relevancescore'] = 'Relevantie';
 $string['relevancescore_help'] = 'De relevantiescore geeft op een schaal van 1 tot 10 aan hoe geschikt een webservicefunctie is voor de AI-agent.
 
@@ -373,6 +452,7 @@ $string['resume_title'] = 'Welkom terug';
 $string['sendmessage'] = 'Verzenden';
 $string['settings'] = 'Instellingen van de AI-agent';
 $string['showallfiles'] = 'Alles tonen';
+$string['showfunctioncalls'] = 'Functieaanroepen tonen';
 $string['skill_add'] = 'Vaardigheid toevoegen';
 $string['skill_edit'] = 'Vaardigheid bewerken';
 $string['skill_save_close'] = 'Opslaan en sluiten';
@@ -392,6 +472,7 @@ $string['skilldeleted'] = 'Vaardigheid "{$a}" verwijderd.';
 $string['skilldescription'] = 'Beschrijving';
 $string['skilldescription_help'] = 'Waar de vaardigheid voor bedoeld is, zodat de assistent weet wanneer hij haar moet laden. Beschrijf de taak of het onderwerp waar het om gaat, niet de stappen die worden uitgevoerd. De tekst verschijnt zowel in de lijst met vaardigheden (voor mensen) als in de systeemprompt (voor de assistent).';
 $string['skillexists'] = 'Er bestaat al een vaardigheid met de korte naam "{$a}".';
+$string['skillimport_badloadmode'] = 'Het veld "loadmode" moet een van de volgende waarden hebben: {$a}.';
 $string['skillimport_badmasks'] = 'De velden "mainfunctions" en "otherfunctions" moeten elk een lijst met maskers bevatten.';
 $string['skillimport_badshortname'] = 'Elke vaardigheid heeft een geldige shortname nodig (letters, cijfers, koppelteken, underscore).';
 $string['skillimport_invalidjson'] = 'Het geüploade bestand bevat geen geldige JSON voor een vaardigheid.';
@@ -400,6 +481,13 @@ $string['skillimported'] = 'Vaardigheid "{$a}" geïmporteerd.';
 $string['skillinstructions'] = 'Instructies';
 $string['skillinstructions_help'] = 'Aanwijzingen die met de vaardigheid in de chat worden geladen. Neem alleen op wat niet vanzelf spreekt: de assistent ziet elke geladen functie met haar beschrijving, herhaal dus niet wat een functie doet en herinner hem niet aan voor de hand liggende parameters. Leg de volgorde van de werkwijze vast, de keuzes en de valkuilen die de beschrijvingen niet dekken, en begin stappen die maar soms gelden met "Als ...".';
 $string['skillloadedevent'] = 'Vaardigheid geladen · {$a}';
+$string['skillloadmode'] = 'Kan worden gebruikt';
+$string['skillloadmode_dynamic'] = 'Alleen naar behoefte geladen tijdens de chat';
+$string['skillloadmode_help'] = 'Wanneer een plaatsing de vaardigheid als initiële vaardigheid gebruikt, worden haar instructies vanaf het begin van de chat aan de systeeminstructies toegevoegd. Gebruik dit om te veranderen hoe de AI-agent antwoordt.
+
+Een vaardigheid voor een specifieke taak, zoals de cijferlijst instellen of toegangsbeperkingen toevoegen, kan naar behoefte worden geladen, wanneer de gebruiker vraagt om iets waar ze over gaat.';
+$string['skillloadmode_initial'] = 'Alleen als initiële vaardigheid';
+$string['skillloadmode_initial_or_dynamic'] = 'Zowel als initiële vaardigheid als naar behoefte geladen';
 $string['skillmainfunctions'] = 'Hoofdfuncties';
 $string['skillmainfunctions_help'] = 'Een beperkte set maskers die de belangrijkste aanmaak- en wijzigingsfuncties van de vaardigheid selecteert. De mogelijkheden van deze functies bepalen aan wie de vaardigheid wordt aangeboden: alleen aan gebruikers die tot minstens één ervan toegang hebben. Elk masker past op een functienaam of op een patroon van component en naam ("*" is een jokerteken; een voorgezet "~" haalt treffers weg). Laat leeg om de vaardigheid aan iedereen aan te bieden.';
 $string['skillmatched'] = 'Treffers ({$a})';
@@ -410,7 +498,7 @@ $string['skillnomatch'] = 'Geen enkele ingeschakelde functie past bij deze patro
 $string['skillnotfound'] = 'Geen vaardigheid gevonden: {$a}.';
 $string['skillotherfunctions'] = 'Overige functies';
 $string['skillotherfunctions_help'] = 'Maskers voor de overige functies die de vaardigheid meebrengt: leesfuncties, hulpfuncties of een hele component. Dezelfde schrijfwijze als bij de hoofdfuncties, maar ze bepalen niet aan wie de vaardigheid wordt aangeboden. Laat leeg als de vaardigheid geen extra functies nodig heeft.';
-$string['skills_intro'] = '<p>Een vaardigheid bundelt gespecialiseerde instructies voor een bepaalde taak met een lijst van functies die daarvoor worden aanbevolen. Gebruik vaardigheden voor veelvoorkomende taken met meerdere stappen waarbij de AI-agent in de war raakt of de juiste functies niet vindt, of voor taken die eigen zijn aan jouw organisatie.</p><p>De lijst met vaardigheden en hun beschrijvingen is altijd beschikbaar voor de AI-agent, die zelf een vaardigheid laadt zodra hij vindt dat er een bij het verzoek van de gebruiker past. Een vaardigheid is alleen beschikbaar voor gebruikers die tot minstens één van haar hoofdfuncties toegang hebben. Een vaardigheid die voor docenten is gemaakt, is bijvoorbeeld niet zichtbaar voor studenten.</p>';
+$string['skills_intro'] = '<p>Een vaardigheid bundelt gespecialiseerde instructies voor een bepaalde taak met een lijst van functies die daarvoor worden aanbevolen. Gebruik vaardigheden voor veelvoorkomende taken met meerdere stappen waarbij de AI-agent in de war raakt of de juiste functies niet vindt, of voor taken die eigen zijn aan jouw organisatie.</p><p>Een vaardigheid kan op twee manieren worden gebruikt; welke, kies je in haar instelling "Kan worden gebruikt". Een plaatsing kan haar instellen als initiële vaardigheid, zodat haar instructies vanaf het begin van de chat gelden. Of de AI-agent kan haar naar behoefte laden: hij ziet altijd de namen en beschrijvingen van deze vaardigheden, en laadt zelf een vaardigheid zodra hij vindt dat er een bij het verzoek van de gebruiker past. Een vaardigheid is alleen beschikbaar voor gebruikers die tot minstens één van haar hoofdfuncties toegang hebben. Een vaardigheid die voor docenten is gemaakt, is bijvoorbeeld niet zichtbaar voor studenten.</p>';
 $string['skillshortname'] = 'Korte naam';
 $string['skillshortname_help'] = 'Een vaste machinenaam, uniek binnen de site: alleen letters, cijfers, koppelteken en underscore. Hij kan later worden gewijzigd, behalve als de vaardigheid met de plugin is meegeleverd.';
 $string['skilltags'] = 'Tags';
@@ -418,6 +506,11 @@ $string['skilltags_help'] = 'Tags worden alleen gebruikt om te filteren en niet 
 $string['skilltoobroad'] = 'Past op {$a} functies, dat is mogelijk te breed. Overweeg de functiemaskers te versmallen.';
 $string['skillunavailable'] = 'Niet beschikbaar';
 $string['skillupdated'] = 'Vaardigheid "{$a}" bijgewerkt.';
+$string['stop'] = 'Stoppen';
+$string['stoppedafter'] = 'Gestopt na {$a}';
+$string['stoppedbyuser'] = 'Je hebt de agent gestopt. Typ een nieuw bericht om verder te gaan.';
+$string['stopping'] = 'Bezig met stoppen...';
+$string['stoppingafterfunction'] = 'Stopt zodra deze functie klaar is';
 $string['suggestedprompt_edit'] = 'Dit bericht bewerken voor het versturen';
 $string['suggestedprompt_send'] = 'Dit bericht versturen';
 $string['switchview'] = 'Weergave wisselen';
@@ -438,6 +531,9 @@ $string['timecreated'] = 'Aangemaakt op';
 $string['timelastactivity'] = 'Laatste activiteit';
 $string['timemodified'] = 'Laatst gewijzigd';
 $string['tryagain'] = 'Opnieuw proberen';
+$string['unavailable_envcheck'] = 'Deze functie is niet beschikbaar omdat een site-instelling waarvan ze afhangt niet is ingeschakeld: {$a}.';
+$string['unavailable_plugindisabled'] = 'Deze functie is niet beschikbaar omdat de plugin {$a} op deze site is uitgeschakeld.';
+$string['unavailable_pluginnotinstalled'] = 'Deze functie kan niet worden gebruikt omdat de plugin {$a} niet op deze site is geïnstalleerd.';
 $string['usage_completiontokens'] = 'Uitvoertokens';
 $string['usage_model'] = 'Model';
 $string['usage_prompttokens'] = 'Invoertokens';
@@ -455,3 +551,6 @@ $string['welcome_skillsmore'] = '+{$a} meer';
 $string['welcome_tryasking'] = 'Vraag bijvoorbeeld';
 $string['welcomedesc'] = 'Vraag de AI-agent naar je site, cursussen, gebruikers of inhoud. Hij kan lezen en, met jouw goedkeuring, wijzigingen aanbrengen.';
 $string['welcometitle'] = 'Welkom, {$a}';
+$string['workedfor'] = '{$a} gewerkt';
+$string['working'] = 'Bezig';
+$string['workingfor'] = 'Al {$a} bezig';

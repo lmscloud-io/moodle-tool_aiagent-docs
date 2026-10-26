@@ -1,9 +1,64 @@
 # Changelog
 
 All notable changes to the tool_aiagent plugin are documented here. The format is based on
-[Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project uses Moodle-style
-`major.minor.patch` releases mirrored by the `$plugin->release` in `version.php`. The top entry must
-match the release being cut (the deploy preflight enforces this).
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+## [4.5.9] - 2026-10-26
+
+### Added
+
+- **Background chats**: the AI agent keeps working after the user leaves the page or closes the
+  tab, and runs chains of functions faster. This needs the Path to PHP CLI to be set.
+- **Stop button**: stops the AI agent while it thinks or runs functions.
+- **Function rules for placements**: placements can now limit which functions are available.
+- **Availability and capabilities in all reports**: the Functions, Skills and Placements reports
+  show what this site cannot use and which capabilities a user needs, and now look the same.
+- **File support for third-party web services**: web service functions of other plugins can now
+  return files to the chat, see [AIAGENT_WS_GUIDE.md](AIAGENT_WS_GUIDE.md).
+- **Catalan translation**: the interface, settings and privacy descriptions are now available in
+  Català (ca).
+
+### Changed
+
+- More compact presentation of the function calls in the chat.
+- New chats start in the "Read-only" auto-approve mode.
+- The AI agent is not available while logged in as another user or with a switched role.
+- Performance improvements when loading a big list of functions.
+- A placement that matches every page now shows on all of them, also on pages where a more specific
+  placement uses the same button location.
+- Calls to `search_tools` are no longer shown in the chat.
+- A skill can now be limited to being an initial skill of a placement, or to being loaded on demand
+  by the AI agent during a chat.
+- Loading a skill no longer asks for approval.
+- The Functions report shows built-in functions that change only the files in the chat as "Safe".
+
+### Fixed
+
+- Fixed medium and low-severity issues reported by
+  [MDL Shield](https://mdlshield.com); details are withheld until sites have had time to upgrade.
+- A chat that lost its connection to the server kept showing the AI agent at work. It now says it
+  stopped receiving updates, offers Refresh, and catches up by itself once the connection is back.
+- With OpenAI, the AI agent could not read images. With the Chat Completions API, it could read only
+  PDF files.
+- With Google Gemini's Interactions API, the AI agent lost its instructions after its first reply or
+  function call in a chat, so it could not load skills during the chat.
+- Duplicating a course through the AI agent could fail with "setting_by_name_not_found".
+- In a chat started with a skill, the AI agent sometimes tried to load that skill again under a
+  made-up name.
+- A placement whose initial skills a user cannot use is now hidden from that user, as its help text
+  says, instead of starting a chat without them.
+- When an extracted archive had files with the same name in different folders, the AI agent could
+  read the wrong one.
+- The image and file functions could sometimes fail with "Call to undefined function
+  file_get_unused_draft_itemid()".
+- Auto-approve no longer pauses with "Repeated call" when the AI agent checks its work again after
+  each change, for example previewing a certificate after every edit.
+- In the AI agent's replies, line breaks inside a table showed as "<br>", and headings were as large
+  as the page's own.
+- A chat title with "&" showed "&amp;" in Previous chats and in the offer to resume the last chat.
+- Improved display in right-to-left languages such as Arabic.
+- On Moodle 5.3, the floating AI agent button jumped into the page content on narrower windows or
+  zoomed pages with the block drawer open, such as a book or a quiz attempt.
 
 ## [4.5.8] - 2026-10-12
 

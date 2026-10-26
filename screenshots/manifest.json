@@ -1,13 +1,13 @@
 {
-  "release": "4.5.8",
-  "version": 2026101200,
-  "commit": "144246cd3520fa645ce6cc58348025e9984e8f81",
-  "generated": "2026-10-12T10:57:04Z",
+  "release": "4.5.9",
+  "version": 2026102600,
+  "commit": "d1dea7323b6563cc0868a36ada35cbeea548cd61",
+  "generated": "2026-10-26T03:27:22Z",
   "versions": {
-    "405": {"moodle": "4.5", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
-    "500": {"moodle": "5.0", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
-    "501": {"moodle": "5.1", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
-    "502": {"moodle": "5.2", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
-    "503": {"moodle": "5.3", "shots": 31, "languages": ["ar", "da", "de", "el", "en", "en__dark", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]}
+    "405": {"moodle": "4.5", "shots": 43, "languages": ["ar", "ca", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
+    "500": {"moodle": "5.0", "shots": 43, "languages": ["ar", "ca", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
+    "501": {"moodle": "5.1", "shots": 43, "languages": ["ar", "ca", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
+    "502": {"moodle": "5.2", "shots": 43, "languages": ["ar", "ca", "da", "de", "el", "en", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]},
+    "503": {"moodle": "5.3", "shots": 43, "languages": ["ar", "ca", "da", "de", "el", "en", "en__dark", "en_us", "es", "es_co", "es_mx", "et", "fi", "fr", "he", "it", "ja", "nl", "no", "pt_br", "ru", "sv", "uk"]}
   }
 }

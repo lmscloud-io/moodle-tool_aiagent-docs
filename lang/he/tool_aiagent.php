@@ -10,7 +10,7 @@
 
 /**
  * Hebrew language pack for AI agent.
- * Last updated: 2026-10-11
+ * Last updated: 2026-10-25
  *
  * @package    tool_aiagent
  * @category   string
@@ -21,9 +21,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_needsyou'] = 'סוכן AI: ממתין לאישור שלך';
+$string['activity_working'] = 'סוכן AI: עובד';
 $string['addon'] = 'תוסף';
 $string['aiagent:autoapproveall'] = 'בחירת מצב האישור האוטומטי "הכל", שבו כל קריאה לפונקציה מתבצעת ללא בקשת אישור';
 $string['aiagent:usechat'] = 'פתיחת שיחות עם סוכן AI (קובע היכן ניתן לפתוח שיחה; אינו מגביל לאילו נתונים השיחה יכולה לגשת לאחר שנפתחה)';
+$string['allfunctions'] = 'הכל';
 $string['allowfeedback'] = 'איפשור משוב';
 $string['allowfeedback_desc'] = 'כאשר האפשרות מופעלת, משתמשים יכולים לדרג תשובות של העוזר ולדווח על קריאות לפונקציות שנכשלו. המשוב נשלח למפתחי התוסף סוכן AI (ולא ל-LLM כלשהו), כדי שיוכלו לשפר את העבודה עם הפונקציות של מוודל. נשלח רק חילופי הדברים שדורגו, ולא כל השיחה, והמשתמש יכול לערוך את הטקסט לפני השליחה. מומלץ לבטל אפשרות זו במערכות שבהן קיימת מדיניות מחמירה לגבי תעבורה יוצאת.';
 $string['anthropic_heading'] = 'Anthropic (Claude)';
@@ -44,6 +47,18 @@ $string['autoapprove_readonly_desc'] = 'אישור אוטומטי לקריאה, 
 $string['autoapprove_safe'] = 'בטוח';
 $string['autoapprove_safe_desc'] = 'אישור אוטומטי לפעולות שאינן משנות את המערכת';
 $string['autoapprove_safe_examples'] = 'קריאה, וכן שינוי גודל של קבצים מצורפים, יצירת תמונות, שליחת קבצים ל-LLM וכדומה.';
+$string['autoapprovetimelimit'] = 'מגבלת זמן לאישור אוטומטי';
+$string['autoapprovetimelimit_desc'] = 'כמה זמן סוכן ה-AI רשאי להמשיך להפעיל פונקציות שאושרו אוטומטית אחרי הפעולה האחרונה של המשתמש, כמו שליחת הודעה או אישור פונקציות. אחרי זמן זה הוא מבקש אישור לפני הפונקציה הבאה. כך שיחות נטושות אינן צורכות משאבי שרת וטוקנים של AI. ‏0 פירושו ללא מגבלה.';
+$string['autopaused'] = 'האישור האוטומטי הושהה אחרי {$a} ללא פעולה מצדך. יש לאשר כדי להמשיך.';
+$string['background_heading'] = 'שיחות ברקע';
+$string['backgroundchats'] = 'איפשור שיחות ברקע';
+$string['backgroundchats_desc'] = 'כל שיחה פועלת בתהליך PHP CLI משלה בשרת. כך סוכן ה-AI ממשיך לעבוד גם אחרי שהמשתמש עוזב את הדף או סוגר את הלשונית, מפעיל שרשראות של פונקציות מהר יותר, ולחיצה על עצירה קוטעת את הסוכן מיד, גם בזמן שפונקציה פועלת. כשהאפשרות כבויה, או כשאין PHP CLI זמין, השיחות פועלות בתוך בקשת הדפדפן של המשתמש.';
+$string['backgroundunavailable_effect'] = 'סוכן ה-AI מפעיל שרשראות של פונקציות דרך הדפדפן, ולכן הן איטיות יותר ונעצרות כשהמשתמש עוזב את הדף או סוגר את הלשונית. לא ניתן לעצור פונקציות שכבר פועלות.';
+$string['backgroundunavailable_executable'] = 'הנתיב לממשק שורת פקודה של PHP עבור שיחות ברקע אינו קובץ בר הרצה.';
+$string['backgroundunavailable_function'] = 'פונקציית ה-PHP ‏{$a} מושבתת בשרת זה.';
+$string['backgroundunavailable_pathtophp'] = 'הנתיב לממשק שורת פקודה של PHP לא הוגדר.';
+$string['backgroundunavailable_setpath'] = 'הגדרת הנתיב לממשק שורת פקודה של PHP';
+$string['backgroundunavailable_windows'] = 'שיחות ברקע אינן זמינות בשרתי Windows.';
 $string['backtoconfiguration'] = 'חזרה לתצורת סוכן AI';
 $string['builtinfunction'] = 'מובנית';
 $string['bulk_disabled'] = 'הושבתו {$a} פונקציות';
@@ -52,14 +67,17 @@ $string['bulk_enabled'] = 'הופעלו {$a} פונקציות';
 $string['bulk_enableselected'] = 'הפעלת הנבחרות';
 $string['bulk_withselected'] = 'עם הפונקציות שנבחרו';
 $string['capabilities'] = 'יכולות';
+$string['chat_heading'] = 'שיחות';
 $string['chat_namelink'] = 'שם עם קישור';
 $string['chatfrozen'] = 'הכישורים של שיחה זו אינם זמינים עוד, ולכן לא ניתן להמשיך אותה. יש לפתוח שיחה חדשה במקומה.';
+$string['chatfrozen_noplacement'] = 'שיחה זו נפתחה בגרסה קודמת של סוכן AI, ולכן לא ניתן להמשיך אותה. יש לפתוח שיחה חדשה במקומה.';
 $string['chathelpcontent'] = '<p>סוכן AI יכול לקרוא ולשנות תכנים במערכת זו בשמך. רוב הפעולות מבקשות את אישורך לפני ביצוען. ניתן לשנות את מצב האישור האוטומטי בתיבת ההודעה כדי להקל או להחמיר.</p>
 <p>ניתן לצרף קבצים בגרירה, בהדבקה או בלחיצה על סמל האטב. לאחר מכן יש להקליד את הבקשה וללחוץ על <strong>שליחה</strong>. מקש Enter שולח את ההודעה, ו-Shift יחד עם Enter מוסיפים שורה חדשה.</p><p>AI עלול לטעות. מומלץ לבדוק את התוצאות.</p>';
 $string['chatnopermission'] = 'שיחה זו נפתחה באזור במערכת שבו אין לך עוד גישה לסוכן AI, ולכן לא ניתן להמשיך אותה.';
 $string['chatnostartpermission'] = 'אין לך הרשאה לפתוח כאן שיחה. יש לפתוח את סוכן AI מעמוד שבו הוא מוצע.';
 $string['chatretention'] = 'משך שמירת השיחות';
 $string['chatretention_desc'] = 'שיחות שלא הייתה בהן פעילות במשך פרק זמן זה מוסרות מהיסטוריית השיחות של המשתמשים, הקבצים המצורפים אליהן נמחקים ממערכת זו, ונשלחת בקשה למחיקת נתוני השיחה השמורים אצל ספק ה-AI (תשובות שמורות וקבצים שהועלו). המחיקה בצד הספק נעשית כמיטב היכולת ואינה מובטחת; מומלץ להגדיר מדיניות שמירת נתונים תואמת גם בחשבון אצל הספק. הודעות ורשומות שימוש נשמרות לצורכי דוחות עד שיפוג משך שמירת היומנים שלהלן. הערך 0 שומר את השיחות ללא הגבלת זמן.';
+$string['closeconfirm_background'] = 'סוכן ה-AI ממשיך לעבוד בזמן שהשיחה סגורה.';
 $string['closeconfirm_body'] = 'סגירת החלון אינה מוחקת את השיחה. ניתן לפתוח אותה מחדש בכל עת מתוך התפריט "שיחות קודמות". שיחות נמחקות אוטומטית לאחר {$a} ימים.';
 $string['closeconfirm_body_noretention'] = 'סגירת החלון אינה מוחקת את השיחה. ניתן לפתוח אותה מחדש בכל עת מתוך התפריט "שיחות קודמות".';
 $string['closeconfirm_close'] = 'סגירת השיחה';
@@ -95,6 +113,8 @@ $string['entity_skill'] = 'כישור';
 $string['entity_usage'] = 'שימוש בטוקנים';
 $string['error_interrupted_function'] = 'קריאה לפונקציה נקטעה לפני שהסתיימה. ייתכן ששינויים הוחלו באופן חלקי; מומלץ לבדוק את המצב לפני ניסיון נוסף.';
 $string['error_interrupted_llm'] = 'התקשורת עם ספק ה-AI נקטעה. יש ללחוץ על "ניסיון נוסף" כדי לשלוח את הבקשה שוב.';
+$string['errorbackgroundstart'] = 'סוכן ה-AI לא הצליח להתחיל לעבוד על השיחה הזו. יש לבקש ממנהל המערכת לבדוק את ההגדרות של שיחות ברקע.';
+$string['errorbackgroundstart_admin'] = 'סוכן ה-AI לא הצליח להפעיל את התהליך שלו ברקע בשרת זה. יש לתקן את הנתיב לממשק שורת פקודה של PHP, או לכבות את השיחות ברקע, תחת {$a} בהגדרות סוכן ה-AI.';
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'ההודעה אינה יכולה להיות ריקה.';
 $string['errorfullscreendisabled'] = 'תצוגת השיחה במסך מלא אינה מופעלת במערכת זו.';
@@ -118,6 +138,7 @@ $string['errorresponses_endpoint_invalid_config'] = 'התוסף ניסה להש�
 $string['errorresponses_endpoint_reply'] = 'תשובת הספק: {$a}';
 $string['errorresponses_provider_switch'] = 'לא ניתן להמשיך שיחה זו באמצעות Responses API של OpenAI, מכיוון שהיא נפתחה עם ספק AI אחר. יש לפתוח שיחה חדשה, או לחזור לספק המקורי (או ל-Chat Completions של OpenAI) כדי להמשיך אותה.';
 $string['errorrootnotfound'] = 'הודעת הפתיחה של השיחה לא נמצאה.';
+$string['errorupdatesstopped'] = 'השיחה הפסיקה לקבל עדכונים. יש לרענן כדי לראות את המצב העדכני.';
 $string['exportskill'] = 'ייצוא';
 $string['feedback_modal_freetextlabel'] = 'משהו נוסף? (רשות)';
 $string['feedback_modal_freetextplaceholder_negative'] = 'מה השתבש? ניתן לפרט כרצונך.';
@@ -153,11 +174,23 @@ $string['feedbackthanks'] = 'תודה על המשוב!';
 $string['feedbackthumbdown'] = 'דיווח על בעיה בתשובה זו';
 $string['feedbackthumbup'] = 'התשובה הזו הייתה מועילה';
 $string['feedbackvalidation_categoryrequired'] = 'יש לבחור לפחות קטגוריה אחת.';
+$string['functionapprovalneeded'] = 'נדרש אישור';
+$string['functionapprovalneededmany'] = 'קריאות לפונקציות שממתינות לאישור: {$a}';
 $string['functionapprovecount'] = 'אישור {$a} קריאות';
+$string['functionavailable'] = 'זמינה';
 $string['functioncall_actions'] = 'אישור או דחייה של הקריאה לפונקציה';
 $string['functioncall_chip_action'] = 'שינוי מצב האישור האוטומטי';
 $string['functioncalldetails'] = 'פרטי הקריאה לפונקציה';
-$string['functioncalldetailscount'] = 'פרטי הקריאות לפונקציות ({$a})';
+$string['functioncalldetailsof'] = 'פרטי הקריאה לפונקציה: {$a}';
+$string['functioncalling'] = 'מתבצעת קריאה ל־{$a}';
+$string['functioncallnav'] = '{$a->index} מתוך {$a->total}';
+$string['functioncallnext'] = 'הקריאה הבאה לפונקציה';
+$string['functioncallprevious'] = 'הקריאה הקודמת לפונקציה';
+$string['functioncallscount'] = 'קריאות לפונקציות: {$a}';
+$string['functioncallscountone'] = 'קריאה אחת לפונקציה';
+$string['functiondenied'] = 'דחית את {$a}';
+$string['functiondeniedmany'] = 'דחית את {$a->name} ועוד {$a->count}';
+$string['functiondeniednext'] = 'הסוכן נעצר. יש לכתוב הודעה כדי להנחות אותו מה לעשות עכשיו.';
 $string['functiondeny'] = 'דחייה';
 $string['functiondenyall'] = 'דחיית הכל';
 $string['functiondetailscopied'] = 'הועתק';
@@ -187,20 +220,34 @@ $string['functionname'] = 'שם הפונקציה';
 $string['functionparameters'] = 'פרמטרים';
 $string['functionresult'] = 'תוצאה';
 $string['functionresultdiscarded'] = 'התוצאה הייתה גדולה מדי ({$a}) ולכן הושלכה. יש לצמצם את הבקשה על ידי סינון, בקשת פחות שדות או שימוש בפונקציה ממוקדת יותר. חזרה על אותה קריאה תפיק את אותה שגיאה.';
+$string['functionrules_error_component'] = '{$a->path}: אף פונקציה אינה שייכת לרכיב התואם ל-"‎{$a->value}‎".';
+$string['functionrules_error_depth'] = '{$a->path}: עומק הקינון של הכלל חורג מהמספר המרבי של רמות ({$a->max}).';
+$string['functionrules_error_function'] = '{$a->path}: אף פונקציה אינה תואמת ל-"‎{$a->value}‎".';
+$string['functionrules_error_json'] = 'הכלל אינו JSON תקין: {$a}';
+$string['functionrules_error_list'] = '{$a->path}: נדרשת רשימה לא ריקה של חלקי כלל.';
+$string['functionrules_error_node'] = '{$a->path}: כל חלק של הכלל חייב להיות אובייקט עם מפתח אחד בדיוק: type, tag, component, function, not, all או any.';
+$string['functionrules_error_tag'] = '{$a->path}: לאף פונקציה אין את התג "‎{$a->value}‎".';
+$string['functionrules_error_type'] = '{$a->path}: הסוג "‎{$a->value}‎" אינו מוכר. הסוגים הם read, safe ו-write.';
+$string['functionrules_error_value'] = '{$a->path}: נדרשת מחרוזת לא ריקה או רשימה לא ריקה של מחרוזות לא ריקות.';
+$string['functionrules_path_root'] = 'הכלל כולו';
 $string['functions_intro'] = '<p><b>לא כל פונקציה של שירות מקוון מתאימה לסוכן AI.</b> חלקן נבנו לתקשורת בין הדפדפן לשרת (מסומנות ב-AJAX) או עבור משתמשים שאינם מחוברים (ללא התחברות), ולחלקן קיימות חלופות טובות יותר. חלק מפונקציות ה-AJAX עובדות היטב עם סוכן AI, אך רובן לא. התוסף סוכן AI מעניק לפונקציות של הליבה ושל תוספים סטנדרטיים ציון התאמה בסולם שבין 1 ל-10, ומפעיל את אלה שציונן 5 ומעלה. פונקציות של תוספים חיצוניים אינן מקבלות ציון; במקומן מופעלות אוטומטית כל הפונקציות שאינן AJAX. בעמוד זה ניתן לסקור את הפונקציות הזמינות ולהפעיל או להשבית כל אחת מהן.</p><p>כאשר פונקציה דורשת יכולת אחת או יותר, היא אינה זמינה למשתמשים שאין להם לפחות אחת מהן באיזשהו הקשר במערכת. עבור הליבה ותוספים סטנדרטיים התוסף סוכן AI מגדיר את היכולות הללו נכון. עבור תוספים חיצוניים היכולות נלקחות מהגדרת הפונקציה, ומכיוון שמוודל אינה אוכפת בדיקה זו בעצמה, ייתכן שהן שגויות.</p>';
 $string['functions_report'] = 'פונקציות של סוכן AI';
 $string['functionstatus_denied'] = 'נדחתה';
 $string['functionstatus_failed'] = 'נכשלה';
+$string['functionstatus_interrupted'] = 'נקטעה';
+$string['functionstatus_notrun'] = 'לא הופעלה';
 $string['functionstatus_pending'] = 'ממתינה לאישור';
 $string['functionstatus_processing'] = 'בביצוע...';
 $string['functiontype'] = 'סוג';
 $string['functiontype_help'] = 'סוג הפונקציה של השירות המקוון והמאפיינים שלה:
 
 * **קריאה**: שולפת נתונים בלי לשנות דבר
+* **בטוחה**: פונקציה מובנית שאינה משנה את המערכת אלא רק את הקבצים שבשיחה, למשל שינוי גודל של קובץ מצורף או יצירת תמונה
 * **כתיבה**: יוצרת או משנה נתונים
 * **AJAX**: משמשת את מוודל באופן פנימי לבקשות בין הדפדפן לשרת, ולכן פחות מתאימה כפונקציה של סוכן AI
 * **ללא התחברות**: זמינה למשתמשים שאינם מחוברים, ולכן אף היא פחות מתאימה כפונקציה של סוכן AI';
 $string['functiontype_read'] = 'קריאה';
+$string['functiontype_safe'] = 'בטוחה';
 $string['functiontype_write'] = 'כתיבה';
 $string['gemini_api_generatecontent'] = 'generateContent (יציב)';
 $string['gemini_api_interactions'] = 'Interactions API (בטא)';
@@ -213,6 +260,7 @@ $string['gemini_builtin_google_search_desc'] = 'מאפשר ל-Gemini לבסס ת
 $string['gemini_builtin_url_context'] = 'הפעלת הכלי URL Context';
 $string['gemini_builtin_url_context_desc'] = 'מאפשר ל-Gemini לקרוא ולנתח תוכן מכתובות אינטרנט ציבוריות שהמשתמש מזכיר. במודלים מגרסה 3 של Gemini בלבד; ב-Gemini 2.5 ובגרסאות קודמות ההגדרה מתעלמת בשקט, מכיוון שמודלים אלה אינם יכולים לשלב כלים מובנים עם קריאות לפונקציות מותאמות. הכתובות חייבות להיות נגישות לכולם (ללא localhost וללא התחברות).';
 $string['gemini_heading'] = 'Google Gemini';
+$string['hidefunctioncalls'] = 'הסתרת הקריאות לפונקציות';
 $string['hint_splitview'] = 'רוצה להשתמש בשיחה זו לצד המערכת? ניתן לגרור את <a href="{$a}">{$a}</a> לחלון חדש, או ללחוץ עליו לחיצה ימנית ולהשתמש בתצוגה המפוצלת של הדפדפן.';
 $string['imagedimensions'] = '{$a->width}×{$a->height} פיקסלים';
 $string['imagepreviewinfo'] = 'קובץ {$a->size}, מידות {$a->dimensions}. תצוגה מקדימה {$a->preview} ({$a->scale}%).';
@@ -233,6 +281,8 @@ $string['importskill_summaryupdate'] = '{$a} לעדכון';
 $string['importskill_toolarge'] = 'נתוני הכישור גדולים מדי (המרב {$a}).';
 $string['inlinefilecharlimit'] = 'מגבלה לתוכן קובץ מוטמע';
 $string['inlinefilecharlimit_desc'] = 'הכמות המרבית מתוך קובץ טקסט שניתן להטמיע ישירות בשיחה כאשר קובץ נקרא בהטמעה. תוכן ארוך יותר ייחתך. ההטמעה משמשת כאשר המודל מבקש זאת, וכחלופה עבור ספקי AI שאינם יכולים לקבל קבצים. תוכן מוטמע נשלח מחדש עם היסטוריית השיחה בכל תור, ולכן ערך גבוה מגדיל את השימוש בטוקנים.';
+$string['interruptedbystop'] = 'נקטעה: עצרת את הסוכן.';
+$string['interruptedunexpectedly'] = 'נקטעה: הפונקציה נעצרה באופן בלתי צפוי.';
 $string['invalidparameter'] = 'זוהה פרמטר שגוי: {$a}';
 $string['isajax'] = 'AJAX';
 $string['licenseactivate'] = 'הפעלת רישיון';
@@ -265,7 +315,6 @@ $string['maxfilesize_desc'] = 'מונע ממשתמשים לשלוח ל-LLM קב�
 $string['maxfunctionresultsize'] = 'גודל מרבי לתוצאת פונקציה';
 $string['maxfunctionresultsize_desc'] = 'כמות הנתונים המרבית שפונקציה בודדת יכולה להחזיר למודל ה-AI. לחלק מפונקציות Moodle אין סינון והן מחזירות את כל המשתמשים או את כל הקורסים באתר, מה שמציף את המודל ומבזבז טוקנים בכל תור שלאחר מכן. תוצאה החורגת ממגבלה זו מושלכת, והמודל מתבקש לצמצם את הבקשה. אפס פירושו ללא מגבלה. קריאת קובץ בהטמעה פטורה מכך; לשם כך יש להשתמש ב"מגבלה לתוכן קובץ מוטמע".';
 $string['newchat'] = 'שיחה חדשה';
-$string['newchatchooser_blank_sub'] = 'ללא הקשר. עוזר כללי.';
 $string['newchatchooser_clone'] = 'כמו השיחה הזו';
 $string['newchatchooser_continue'] = 'המשך מהמקום שבו הפסקת';
 $string['newchatchooser_desc_default'] = 'ניתן לפתוח שיחה חדשה בעמוד זה, או להמשיך מהמקום שבו הפסקת.';
@@ -277,15 +326,20 @@ $string['newchatchooser_onthispage'] = 'בעמוד זה:';
 $string['newchatchooser_title'] = 'פתיחת שיחה חדשה';
 $string['nfilesattached'] = '{$a} קבצים מצורפים';
 $string['nonauth'] = 'ללא התחברות';
+$string['notavailable_loginas'] = 'סוכן ה-AI אינו זמין בזמן התחברות כמשתמש אחר.';
+$string['notavailable_roleswitch'] = 'סוכן ה-AI אינו זמין בזמן החלפת תפקיד.';
 $string['numfiles'] = '{$a} קבצים';
 $string['numimages'] = '{$a} תמונות';
 $string['numotherfiles'] = '{$a} אחרים';
+$string['onefileattached'] = 'קובץ אחד מצורף';
 $string['openai_api_chatcompletions'] = 'Chat Completions';
 $string['openai_api_responses'] = 'Responses API';
 $string['openai_api_type'] = 'סוג ה-API';
 $string['openai_api_type_desc'] = 'באיזה API של OpenAI להשתמש בשיחות מרובות תורות. ה-Responses API שומר את מצב השיחה בצד השרת, ולכן בכל תור נשלח רק הקלט החדש (עלות נמוכה יותר, היסטוריה פשוטה יותר). Chat Completions בונה מחדש את רשימת ההודעות המלאה בכל בקשה (תאימות רחבה יותר לספקים).<br><br>ה-Responses API נתמך על ידי: <strong>{$a}</strong>. ספקים אחרים יעברו בשקט ל-Chat Completions ללא קשר להגדרה זו.';
 $string['openai_heading'] = 'OpenAI (או תואם)';
 $string['openlink'] = 'פתיחת הקישור';
+$string['pathtophp'] = 'הנתיב לממשק שורת פקודה של PHP עבור שיחות ברקע';
+$string['pathtophp_desc'] = 'קובץ ה-PHP CLI שמפעיל את השיחות ברקע, כאשר הוא צריך להיות שונה מזה שבהגדרת המערכת "הנתיב לממשק שורת פקודה של PHP". יש להשאיר ריק כדי להשתמש בהגדרת המערכת.';
 $string['placeholder'] = 'הקלדת הודעה...';
 $string['placement_add'] = 'הוספת שיבוץ';
 $string['placement_confirmdelete'] = 'האם למחוק את השיבוץ?';
@@ -294,9 +348,26 @@ $string['placement_defaultname'] = 'סוכן AI';
 $string['placement_deleted'] = 'השיבוץ נמחק.';
 $string['placement_duplicated'] = 'השיבוץ שוכפל.';
 $string['placement_edit'] = 'עריכת השיבוץ';
+$string['placement_functionrules'] = 'כלל פונקציות';
+$string['placement_functionrules_help'] = 'מגביל באילו פונקציות סוכן AI רשאי להשתמש בשיחות שנפתחו מתוך שיבוץ זה. יש להשאיר ריק כדי לאפשר את כל הפונקציות. שינוי הכלל משנה אותו גם בשיחות שכבר נפתחו מתוך שיבוץ זה.
+
+הכלל נכתב ב-JSON. כל חלק בו הוא אובייקט עם מפתח אחד:
+
+* ‎{"type": "read"}‎: סוג הפונקציה הוא read, safe או write, כלומר קריאה, בטוחה או כתיבה בדוח הפונקציות
+* ‎{"tag": "student"}‎: לפונקציה יש את התג הזה
+* ‎{"component": "mod_quiz"}‎: הפונקציה שייכת לרכיב הזה
+* ‎{"function": "core_course_get_courses"}‎: זה שם הפונקציה
+* ⁦{"not": חלק}⁩, ⁦{"all": [חלקים]}⁩, ⁦{"any": [חלקים]}⁩: שילוב של חלקים
+
+בשם של רכיב או של פונקציה, כוכבית תואמת לכל טקסט. גם המפתחות type, tag, component ו-function יכולים לקבל רשימה, שמשמעותה כל אחד מהערכים: ‎{"type": ["read", "safe"]}‎ מאפשר כל פונקציה שאינה משנה את המערכת.
+
+ניתן לבקש מסוכן AI לכתוב את הכלל או לשנות אותו: הוא בודק אילו פונקציות הכלל מאפשר לפני שהוא שומר אותו.';
+$string['placement_functionrules_preview'] = 'פונקציות מופעלות שהכלל השמור מאפשר: {$a->count} מתוך {$a->total}';
+$string['placement_functions'] = 'פונקציות מותרות';
+$string['placement_functions_limited'] = 'מוגבלות ({$a})';
 $string['placement_initialskills'] = 'כישורים התחלתיים';
-$string['placement_initialskills_help'] = 'כישורים שנטענים אוטומטית עם פתיחת השיחה. רשות; הסוכן עדיין יכול לטעון כל כישור בעת הצורך. הכישורים שנבחרו שולטים גם בשיבוץ עצמו: משתמשים שאין להם גישה לאף אחד מהם לא יראו את הכפתור או את פריט התפריט, ואם כל הכישורים שנבחרו יוסרו או יושבתו בהמשך, השיבוץ יפסיק להופיע.';
-$string['placement_intro'] = '<p>שיבוצים מאפשרים להציע סוכנים המותאמים למשימה מסוימת. כל שיבוץ מוסיף את הכפתור של סוכן AI בעמודים שכתובתם תואמת לאחת המסכות שלו, ויכול לפתוח את השיחה עם כישורים התחלתיים ועם טקסט פתיחה מוגדרים מראש. אם נבחרו כישורים התחלתיים, משתמשים שאין להם גישה לאף אחד מהם לא יראו את הכפתור.</p><p>הכישורים ההתחלתיים קובעים רק את נקודת הפתיחה של השיחה; הסוכן עדיין יכול לגשת לכל הפונקציות המופעלות, ולא רק לאלה של הכישורים.</p>';
+$string['placement_initialskills_help'] = 'כישורים שנטענים אוטומטית עם פתיחת השיחה. רשות; הסוכן עדיין יכול לטעון כל כישור בעת הצורך, אלא אם כלל הפונקציות של השיבוץ מונע זאת. הכישורים שנבחרו שולטים גם בשיבוץ עצמו: משתמשים שאין להם גישה לאף אחד מהם לא יראו את הכפתור או את פריט התפריט, ואם כל הכישורים שנבחרו יוסרו או יושבתו בהמשך, השיבוץ יפסיק להופיע.';
+$string['placement_intro'] = '<p>שיבוצים מאפשרים להציע סוכנים המותאמים למשימה מסוימת. כל שיבוץ מוסיף את הכפתור של סוכן AI בעמודים שכתובתם תואמת לאחת המסכות שלו, ויכול לפתוח את השיחה עם כישורים התחלתיים ועם טקסט פתיחה מוגדרים מראש. אם נבחרו כישורים התחלתיים, משתמשים שאין להם גישה לאף אחד מהם לא יראו את הכפתור.</p><p>הכישורים ההתחלתיים קובעים רק את נקודת הפתיחה של השיחה; הסוכן עדיין יכול לגשת לכל הפונקציות המופעלות, ולא רק לאלה של הכישורים. כלל פונקציות מגביל באילו פונקציות הסוכן רשאי להשתמש בשיחות שנפתחו מתוך שיבוץ.</p>';
 $string['placement_location'] = 'מיקום הכפתור';
 $string['placement_location_floating'] = 'כפתור צף';
 $string['placement_location_h1'] = 'כותרת העמוד (H1)';
@@ -307,14 +378,16 @@ $string['placement_name_help'] = 'מוצג למשתמשים: בתפריט המש
 $string['placement_save'] = 'שמירת השיבוץ';
 $string['placement_saved'] = 'השיבוץ נשמר.';
 $string['placement_skillmissing'] = 'הכישור לא נמצא';
+$string['placement_skillnotinitial'] = 'לא יכול להיות כישור התחלתי';
 $string['placement_suggestedprompts'] = 'הנחיות מוצעות';
 $string['placement_suggestedprompts_help'] = 'הנחיה אחת בכל שורה. ההנחיות מוצגות ככפתורים מעל תיבת ההודעה במסך הפתיחה של השיחה. לחיצה על כפתור שולחת את ההנחיה מיד, לדוגמה "סכם את הקורס הזה". כדי להציע הנחיה שהמשתמש צריך להשלים קודם, יש להוסיף בה ... בכל מקום: ההנחיה תוכנס אז לתיבת ההודעה במקום להישלח, לדוגמה "סכם את הנושא ... בקורס הזה". יש להשאיר את השדה ריק כדי לא להציע הנחיות.';
 $string['placement_urlmask'] = 'מסכות כתובת';
-$string['placement_urlmask_help'] = 'תבנית אחת בכל שורה. ניתן להשתמש בתו * כתו כללי, למשל /course/view.php* או /mod/*/view.php*. לתשומת לבך: בעמודים שבהם שיבוץ ממוקד יותר תופס את אותו מיקום, שיבוץ רחב המתאים ל-/* מוסתר, כך שהמשתמשים יראו רק את הרלוונטי יותר.';
+$string['placement_urlmask_help'] = 'תבנית אחת בכל שורה. ניתן להשתמש בתו * כתו כללי, למשל ‎/course/view.php*‎ או ‎/mod/*/view.php*‎.';
 $string['placement_urlmask_invalid'] = 'כל מסכת כתובת חייבת להתחיל בקו נטוי: "{$a}" אינה מתחילה בו.';
 $string['placement_welcome'] = 'טקסט פתיחה מותאם (רשות)';
 $string['placement_welcome_help'] = 'מחליף את הודעת הפתיחה הרגילה במסך הפתיחה של השיחה. יש להשאיר ריק כדי להשתמש בברירת המחדל.';
 $string['pluginname'] = 'סוכן AI';
+$string['pluginnotinstalled'] = 'התוסף אינו מותקן';
 $string['previouschats'] = 'שיחות קודמות';
 $string['privacy:metadata:aiprovider'] = 'השיחות נשלחות לספק ה-AI שנבחר על ידי מנהל המערכת, כגון OpenAI, Azure OpenAI,‏ Google Gemini או Anthropic, כדי שיוכל להפיק תשובה. התוסף שולח כל בקשה ישירות לספק ולא דרך מערכת ה-AI של מוודל. זהות החברה המקבלת את הנתונים ומשך שמירתם אצלה תלויים בספק שהוגדר במערכת ובתנאי השימוש שלו.';
 $string['privacy:metadata:aiprovider:files'] = 'קבצים שהמשתמש מצרף לשיחה, וקבצים שהסוכן קורא מהמערכת בשמו, המועלים כדי שהמודל יוכל לקרוא את תוכנם.';
@@ -340,12 +413,18 @@ $string['privacy:metadata:tool_aiagent_message:content'] = 'תוכן ההודע�
 $string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'עבור הודעה שנשלחה מחלון השיחה הצף או מסרגל הצד של השיחה, הכתובת והשם של העמוד שהמשתמש קרא באותה עת.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'מי שלח את ההודעה: המשתמש, העוזר, המערכת או פונקציה.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'המועד שבו ההודעה נוצרה.';
+$string['privacy:metadata:tool_aiagent_run'] = 'רישום של כל פעם שסוכן ה-AI עבד על הודעה בשיחה, הנשמר יום אחד לאחר הסיום.';
+$string['privacy:metadata:tool_aiagent_run:ip'] = 'כתובת ה-IP של המשתמש בעת שליחת ההודעה, הנרשמת יחד עם הפעולות שסוכן ה-AI ביצע עבורו.';
+$string['privacy:metadata:tool_aiagent_run:payload'] = 'תוכן הדף שהמשתמש צפה בו, כאשר סוכן ה-AI ביקש לקרוא אותו.';
+$string['privacy:metadata:tool_aiagent_run:timecreated'] = 'המועד שבו סוכן ה-AI התחיל לעבוד על ההודעה.';
+$string['privacy:metadata:tool_aiagent_run:userid'] = 'המשתמש ששלח את ההודעה.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'השימוש בטוקנים הנרשם עבור כל בקשת AI, נשמר למעקב אחר השימוש.';
 $string['privacy:metadata:tool_aiagent_usage:completiontokens'] = 'מספר הטוקנים ביציאה שנוצלו.';
 $string['privacy:metadata:tool_aiagent_usage:model'] = 'מודל ה-AI שטיפל בבקשה.';
 $string['privacy:metadata:tool_aiagent_usage:prompttokens'] = 'מספר הטוקנים בכניסה שנוצלו.';
 $string['privacy:metadata:tool_aiagent_usage:provider'] = 'ספק ה-AI שטיפל בבקשה.';
 $string['privacy:metadata:tool_aiagent_usage:timecreated'] = 'המועד שבו הבקשה נשלחה.';
+$string['providers_heading'] = 'כל ספקי ה-AI';
 $string['relevancescore'] = 'ציון התאמה';
 $string['relevancescore_help'] = 'ציון ההתאמה מציין עד כמה פונקציה של שירות מקוון מתאימה לסוכן AI, בסולם שבין 1 ל-10.
 
@@ -373,6 +452,7 @@ $string['resume_title'] = 'שמחים לראותך שוב';
 $string['sendmessage'] = 'שליחה';
 $string['settings'] = 'הגדרות סוכן AI';
 $string['showallfiles'] = 'הצגת הכל';
+$string['showfunctioncalls'] = 'הצגת הקריאות לפונקציות';
 $string['skill_add'] = 'הוספת כישור';
 $string['skill_edit'] = 'עריכת הכישור';
 $string['skill_save_close'] = 'שמירה וסגירה';
@@ -392,6 +472,7 @@ $string['skilldeleted'] = 'הכישור "{$a}" נמחק.';
 $string['skilldescription'] = 'תיאור';
 $string['skilldescription_help'] = 'למה נועד הכישור, כדי שהעוזר יידע מתי לטעון אותו. יש לתאר את המשימה או את התחום שבו מדובר, ולא את השלבים שהוא מבצע. התיאור מופיע גם ברשימת הכישורים (עבור אנשים) וגם בהנחיית המערכת (עבור העוזר).';
 $string['skillexists'] = 'כבר קיים כישור עם השם המקוצר "{$a}".';
+$string['skillimport_badloadmode'] = 'השדה "loadmode" חייב להכיל אחד מהערכים הבאים: {$a}.';
 $string['skillimport_badmasks'] = 'השדות "mainfunctions" ו-"otherfunctions" חייבים להכיל רשימה של מסכות.';
 $string['skillimport_badshortname'] = 'לכל כישור נדרש שם מקוצר תקין (אותיות לועזיות, ספרות, מקף ומקף תחתון).';
 $string['skillimport_invalidjson'] = 'הקובץ שהועלה אינו קובץ JSON תקין של כישור.';
@@ -400,6 +481,13 @@ $string['skillimported'] = 'הכישור "{$a}" יובא.';
 $string['skillinstructions'] = 'הנחיות';
 $string['skillinstructions_help'] = 'הנחיות הנטענות לשיחה יחד עם הכישור. יש לכלול רק הנחיות שאינן מובנות מאליהן: העוזר כבר רואה כל פונקציה שנטענה ואת התיאור שלה, ולכן אין לחזור על מה שפונקציה עושה או להזכיר לו להעביר פרמטרים מובנים מאליהם. יש לתעד את סדר הפעולות, את ההכרעות ואת המכשולים שהתיאורים אינם מכסים, ולפתוח שלבים שרלוונטיים רק לעתים במילה "אם...".';
 $string['skillloadedevent'] = 'כישור נטען · {$a}';
+$string['skillloadmode'] = 'ניתן להשתמש בו';
+$string['skillloadmode_dynamic'] = 'רק בטעינה בעת הצורך במהלך השיחה';
+$string['skillloadmode_help'] = 'כאשר שיבוץ משתמש בכישור ככישור התחלתי, ההנחיות של הכישור מתווספות להנחיות המערכת כבר מתחילת השיחה. יש להשתמש באפשרות זו כדי לשנות את האופן שבו סוכן AI עונה.
+
+כישור למשימה מסוימת, כגון הגדרת גיליון הציונים או הוספת הגבלות גישה, ניתן לטעון בעת הצורך, כשהמשתמש מבקש משהו שהכישור מכסה.';
+$string['skillloadmode_initial'] = 'רק ככישור התחלתי';
+$string['skillloadmode_initial_or_dynamic'] = 'גם ככישור התחלתי וגם בטעינה בעת הצורך';
 $string['skillmainfunctions'] = 'פונקציות עיקריות';
 $string['skillmainfunctions_help'] = 'קבוצה מצומצמת של מסכות הבוחרת את פונקציות היצירה והעדכון המרכזיות של הכישור. היכולות של פונקציות אלה קובעות למי הכישור מוצע: רק למשתמשים שיכולים לגשת לפחות לאחת מהן. כל מסכה מתאימה לשם של פונקציה או לתבנית של רכיב ושם (התו "*" הוא תו כללי, והקידומת "~" מסירה התאמות). יש להשאיר ריק כדי להציע את הכישור לכולם.';
 $string['skillmatched'] = 'התאמות ({$a})';
@@ -410,7 +498,7 @@ $string['skillnomatch'] = 'אף פונקציה מופעלת אינה מתאימ�
 $string['skillnotfound'] = 'לא נמצא כישור: {$a}.';
 $string['skillotherfunctions'] = 'פונקציות נוספות';
 $string['skillotherfunctions_help'] = 'מסכות עבור שאר הפונקציות שהכישור מביא עמו: פונקציות קריאה, פונקציות עזר או רכיב שלם. אותה תחביר כמו בפונקציות העיקריות, אך אלה אינן משפיעות על השאלה למי הכישור מוצע. יש להשאיר ריק אם הכישור אינו זקוק לפונקציות נוספות.';
-$string['skills_intro'] = '<p>כישור מאגד הנחיות ייעודיות למשימה מסוימת יחד עם רשימת הפונקציות המומלצות עבורה. מומלץ להשתמש בכישורים למשימות נפוצות מרובות שלבים שבהן סוכן AI נוטה להתבלבל או אינו מוצא את הפונקציות המתאימות, או למשימות הייחודיות לארגון שלך.</p><p>רשימת הכישורים והתיאורים שלהם זמינה תמיד לסוכן AI, והוא טוען כישור מיוזמתו בכל פעם שהוא מחליט שהכישור מתאים לבקשת המשתמש. כישור זמין רק למשתמשים שיכולים לגשת לפחות לאחת מהפונקציות העיקריות שלו. כך למשל, כישור שנבנה עבור מורים לא יהיה גלוי לתלמידים.</p>';
+$string['skills_intro'] = '<p>כישור מאגד הנחיות ייעודיות למשימה מסוימת יחד עם רשימת הפונקציות המומלצות עבורה. מומלץ להשתמש בכישורים למשימות נפוצות מרובות שלבים שבהן סוכן AI נוטה להתבלבל או אינו מוצא את הפונקציות המתאימות, או למשימות הייחודיות לארגון שלך.</p><p>ניתן להשתמש בכישור בשתי דרכים, לפי הבחירה בהגדרה "ניתן להשתמש בו" שלו. שיבוץ יכול להגדיר אותו ככישור התחלתי, כך שההנחיות שלו חלות כבר מתחילת השיחה. לחלופין, סוכן AI יכול לטעון אותו בעת הצורך: הוא רואה תמיד את השמות והתיאורים של כישורים אלה, וטוען כישור בכל פעם שהוא מחליט שהכישור מתאים לבקשת המשתמש. כישור זמין רק למשתמשים שיכולים לגשת לפחות לאחת מהפונקציות העיקריות שלו. כך למשל, כישור שנבנה עבור מורים לא יהיה גלוי לתלמידים.</p>';
 $string['skillshortname'] = 'שם מקוצר';
 $string['skillshortname_help'] = 'שם מזהה יציב, ייחודי בכל המערכת: אותיות לועזיות, ספרות, מקף ומקף תחתון בלבד. אפשר לשנות אותו בהמשך, אלא אם הכישור הגיע עם התוסף.';
 $string['skilltags'] = 'תגים';
@@ -418,6 +506,11 @@ $string['skilltags_help'] = 'התגים משמשים לסינון בלבד וא�
 $string['skilltoobroad'] = 'מתאים ל-{$a} פונקציות, וייתכן שזה רחב מדי. מומלץ לצמצם את מסכות הפונקציות.';
 $string['skillunavailable'] = 'אינו זמין';
 $string['skillupdated'] = 'הכישור "{$a}" עודכן.';
+$string['stop'] = 'עצירה';
+$string['stoppedafter'] = 'נעצר אחרי {$a}';
+$string['stoppedbyuser'] = 'עצרת את הסוכן. יש להקליד הודעה חדשה כדי להמשיך.';
+$string['stopping'] = 'בעצירה...';
+$string['stoppingafterfunction'] = 'ייעצר כשפונקציה זו תסתיים';
 $string['suggestedprompt_edit'] = 'עריכת ההודעה לפני השליחה';
 $string['suggestedprompt_send'] = 'שליחת ההודעה';
 $string['switchview'] = 'החלפת תצוגה';
@@ -438,6 +531,9 @@ $string['timecreated'] = 'מועד יצירה';
 $string['timelastactivity'] = 'פעילות אחרונה';
 $string['timemodified'] = 'עדכון אחרון';
 $string['tryagain'] = 'ניסיון נוסף';
+$string['unavailable_envcheck'] = 'פונקציה זו אינה זמינה כי הגדרת מערכת שהיא תלויה בה אינה מופעלת: {$a}.';
+$string['unavailable_plugindisabled'] = 'פונקציה זו אינה זמינה כי התוסף {$a} מושבת במערכת זו.';
+$string['unavailable_pluginnotinstalled'] = 'לא ניתן להשתמש בפונקציה זו כי התוסף {$a} אינו מותקן במערכת זו.';
 $string['usage_completiontokens'] = 'טוקנים ביציאה';
 $string['usage_model'] = 'מודל';
 $string['usage_prompttokens'] = 'טוקנים בכניסה';
@@ -455,3 +551,6 @@ $string['welcome_skillsmore'] = '+{$a} נוספים';
 $string['welcome_tryasking'] = 'אפשר לשאול, למשל';
 $string['welcomedesc'] = 'ניתן לשאול את סוכן AI על המערכת, על הקורסים, על המשתמשים או על התכנים שלך. הוא יכול לקרוא, ובאישורך גם לבצע שינויים.';
 $string['welcometitle'] = 'שלום, {$a}';
+$string['workedfor'] = 'זמן עבודה: {$a}';
+$string['working'] = 'בעבודה';
+$string['workingfor'] = 'עובד כבר {$a}';

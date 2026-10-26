@@ -100,7 +100,7 @@ anything you need.
   pass straight on to Moodle.
 - **Your AI provider.** OpenAI, Azure OpenAI, Google Gemini, Claude (Anthropic) and OpenAI-compatible
   endpoints, through Moodle's own AI subsystem. You pay your provider directly; no per-message fees from us.
-- **Translated into 20 languages**, with right-to-left support and Moodle 5.3 dark mode. Browse
+- **Translated into 21 languages**, with right-to-left support and Moodle 5.3 dark mode. Browse
   [every screen in every language](https://github.com/lmscloud-io/moodle-tool_aiagent-docs/tree/main/screenshots)
   before you install.
 - **You stay in control.** Approve each action, or choose an auto-approve level (read-only, safe, all).
@@ -122,12 +122,21 @@ Workplace team.
 3. Visit *Site administration > Plugins > AI Agent settings* and enter your license key.
 4. Visit *Site administration > AI > AI Agent configuration* and review skills, button placements, and enable functions.
 5. Grant the `tool/aiagent:usechat` capability to the desired roles.
-6. Open the chat with the **AI agent** button in the bottom right corner of any page (bottom left in right-to-left languages) and start asking! It comes from the default placement, which you can change in *AI Agent configuration*, for example to show the chat in the user menu instead.
+6. Set *Site administration > Server > System paths > Path to PHP CLI*. Chats then run in a background process on the server: they keep going when the user moves to another page or closes the tab, function chains run faster, and **Stop** can interrupt a function while it runs. Without it (or on Windows, or with `proc_open` disabled), chats run inside the browser's request, and the AI agent settings page says so. The AI agent's own settings, under *Background chats*, can switch this off or name a different PHP CLI binary for it.
+7. Open the chat with the **AI agent** button in the bottom right corner of any page (bottom left in right-to-left languages) and start asking! It comes from the default placement, which you can change in *AI Agent configuration*, for example to show the chat in the user menu instead.
 
-The agent's longer tasks run for several minutes inside one request. If a reverse proxy, load
-balancer or application gateway sits in front of Moodle, allow requests to `admin/tool/aiagent/ajax.php`
-to run for at least 10 minutes (600 seconds). The chat survives a shorter timeout, but the reply
-then arrives through the page's live updates instead of the request itself.
+Without the Path to PHP CLI, the agent's longer tasks run for several minutes inside one request. If
+a reverse proxy, load balancer or application gateway sits in front of Moodle, allow requests to
+`admin/tool/aiagent/ajax.php` to run for at least 10 minutes (600 seconds). The chat survives a
+shorter timeout, but the reply then arrives through the page's live updates instead of the request
+itself.
+
+The chat does not show the agent searching its own catalogue of functions. To see those calls, for
+example while tuning skills, add this line to `config.php`:
+
+```php
+$CFG->forced_plugin_settings['tool_aiagent']['show_search_tools_calls'] = 1;
+```
 
 ## Model support
 

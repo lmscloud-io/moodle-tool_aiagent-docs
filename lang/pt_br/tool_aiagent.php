@@ -10,7 +10,7 @@
 
 /**
  * Brazilian Portuguese language pack for AI agent.
- * Last updated: 2026-10-11
+ * Last updated: 2026-10-25
  *
  * @package    tool_aiagent
  * @category   string
@@ -21,9 +21,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['activity_needsyou'] = 'Agente de IA: aguardando sua aprovação';
+$string['activity_working'] = 'Agente de IA: trabalhando';
 $string['addon'] = 'Adicional';
 $string['aiagent:autoapproveall'] = 'Escolher o modo de auto-aprovação "Todas", que executa todas as chamadas de função sem confirmação';
 $string['aiagent:usechat'] = 'Iniciar chats com o agente de IA (controla onde um chat pode ser iniciado; não restringe quais dados o chat pode acessar depois de iniciado)';
+$string['allfunctions'] = 'Todas';
 $string['allowfeedback'] = 'Permitir feedback';
 $string['allowfeedback_desc'] = 'Quando habilitado, os usuários podem avaliar as respostas do assistente e sinalizar chamadas de função que falharam. Os envios vão para os desenvolvedores do plugin do agente de IA (não para nenhum LLM), para que eles possam melhorar o comportamento das chamadas de função do Moodle. Somente o trecho avaliado é enviado, não o chat inteiro, e o usuário pode editar o texto antes de enviar. Desabilite esta opção em sites com políticas rígidas de tráfego de saída.';
 $string['anthropic_heading'] = 'Anthropic (Claude)';
@@ -44,6 +47,18 @@ $string['autoapprove_readonly_desc'] = 'Aprovar as leituras, perguntar nas escri
 $string['autoapprove_safe'] = 'Seguras';
 $string['autoapprove_safe_desc'] = 'Aprovar as ações que não modificam o site';
 $string['autoapprove_safe_examples'] = 'Leituras, além de redimensionar anexos, gerar imagens, enviar arquivos ao LLM etc.';
+$string['autoapprovetimelimit'] = 'Limite de tempo da auto-aprovação';
+$string['autoapprovetimelimit_desc'] = 'Por quanto tempo o agente de IA pode continuar executando funções auto-aprovadas após a última ação do usuário, como enviar uma mensagem ou aprovar funções. Depois desse tempo, ele pede aprovação antes da próxima função. Isso evita que chats abandonados consumam recursos do servidor e tokens de IA. 0 significa sem limite.';
+$string['autopaused'] = 'A auto-aprovação foi pausada após {$a} sem ação sua. Aprove para continuar.';
+$string['background_heading'] = 'Chats em segundo plano';
+$string['backgroundchats'] = 'Permitir chats em segundo plano';
+$string['backgroundchats_desc'] = 'Executa cada chat em um processo PHP CLI próprio no servidor. Assim o agente de IA continua trabalhando depois que o usuário sai da página ou fecha a aba, executa as cadeias de funções mais rápido, e clicar em Parar interrompe o agente na hora, mesmo durante a execução de uma função. Quando isto está desativado, ou nenhum PHP CLI está disponível, os chats são executados na requisição do navegador do usuário.';
+$string['backgroundunavailable_effect'] = 'O agente de IA executa as cadeias de funções pelo navegador, por isso elas são mais lentas e param quando o usuário sai da página ou fecha a aba. Funções que já estão em execução não podem ser interrompidas.';
+$string['backgroundunavailable_executable'] = 'O Caminho para o PHP CLI dos chats em segundo plano não é um arquivo executável.';
+$string['backgroundunavailable_function'] = 'A função PHP {$a} está desativada neste servidor.';
+$string['backgroundunavailable_pathtophp'] = 'O Caminho para o PHP CLI não está definido.';
+$string['backgroundunavailable_setpath'] = 'Definir o Caminho para o PHP CLI';
+$string['backgroundunavailable_windows'] = 'Chats em segundo plano não estão disponíveis em servidores Windows.';
 $string['backtoconfiguration'] = 'Voltar à configuração do agente de IA';
 $string['builtinfunction'] = 'Incluída';
 $string['bulk_disabled'] = '{$a} função(ões) desabilitada(s)';
@@ -52,14 +67,17 @@ $string['bulk_enabled'] = '{$a} função(ões) habilitada(s)';
 $string['bulk_enableselected'] = 'Habilitar selecionadas';
 $string['bulk_withselected'] = 'Com as funções selecionadas';
 $string['capabilities'] = 'Ações autorizadas';
+$string['chat_heading'] = 'Chats';
 $string['chat_namelink'] = 'Nome com link';
 $string['chatfrozen'] = 'As habilidades deste chat não estão mais disponíveis, por isso ele não pode ser continuado. Inicie um novo chat.';
+$string['chatfrozen_noplacement'] = 'Este chat foi iniciado em uma versão anterior do agente de IA, por isso ele não pode mais ser continuado. Inicie um novo chat.';
 $string['chathelpcontent'] = '<p>O agente de IA pode ler e modificar conteúdo deste site em seu nome. A maioria das ações pede sua aprovação antes de ser executada. Você pode mudar o modo de auto-aprovação no campo de mensagem para afrouxar ou restringir isso.</p>
 <p>Anexe arquivos arrastando e soltando, colando ou clicando no ícone de clipe. Depois digite seu pedido e pressione <strong>Enviar</strong>. Pressione Enter para enviar, ou Shift e Enter para uma nova linha.</p><p>A IA pode cometer erros. Verifique os resultados.</p>';
 $string['chatnopermission'] = 'Este chat foi iniciado em uma área do site onde você não tem mais acesso ao agente de IA, por isso ele não pode ser continuado.';
 $string['chatnostartpermission'] = 'Você não tem permissão para iniciar um chat aqui. Abra o agente de IA em uma página onde ele seja oferecido.';
 $string['chatretention'] = 'Manter os chats por';
 $string['chatretention_desc'] = 'Os chats sem atividade por este período são removidos do histórico de chats dos usuários, seus arquivos anexados são excluídos deste site e a exclusão dos dados do chat armazenados pelo provedor de IA (respostas armazenadas e arquivos enviados) é solicitada. A exclusão do lado do provedor é feita da melhor forma possível e não é garantida; configure também uma política de retenção de dados equivalente na sua conta do provedor. As mensagens e os registros de uso são mantidos para os relatórios até o período de retenção dos registros abaixo expirar. Defina como 0 para manter os chats para sempre.';
+$string['closeconfirm_background'] = 'O agente de IA continua trabalhando enquanto o chat está fechado.';
 $string['closeconfirm_body'] = 'Fechar a janela não exclui o chat. Você pode reabri-lo a qualquer momento pelo menu Chats anteriores. Os chats são excluídos automaticamente após {$a} dias.';
 $string['closeconfirm_body_noretention'] = 'Fechar a janela não exclui o chat. Você pode reabri-lo a qualquer momento pelo menu Chats anteriores.';
 $string['closeconfirm_close'] = 'Fechar chat';
@@ -95,6 +113,8 @@ $string['entity_skill'] = 'Habilidade';
 $string['entity_usage'] = 'Uso de tokens';
 $string['error_interrupted_function'] = 'Uma chamada de função foi interrompida antes de terminar. Ela pode ter aplicado alterações parciais; verifique o estado antes de tentar de novo.';
 $string['error_interrupted_llm'] = 'A comunicação com o provedor de IA foi interrompida. Clique em "Tentar novamente" para repetir a solicitação.';
+$string['errorbackgroundstart'] = 'O agente de IA não conseguiu começar a trabalhar neste chat. Peça ao administrador do site para verificar as configurações dos chats em segundo plano.';
+$string['errorbackgroundstart_admin'] = 'O agente de IA não conseguiu iniciar seu processo em segundo plano neste servidor. Corrija o Caminho para o PHP CLI, ou desative os chats em segundo plano, em {$a} nas configurações do agente de IA.';
 $string['errordetail'] = '{$a}';
 $string['erroremptymessage'] = 'A mensagem não pode estar vazia.';
 $string['errorfullscreendisabled'] = 'A visualização do chat em tela cheia não está habilitada neste site.';
@@ -118,6 +138,7 @@ $string['errorresponses_endpoint_invalid_config'] = 'O plugin tentou usar {$a->e
 $string['errorresponses_endpoint_reply'] = 'O provedor respondeu: {$a}';
 $string['errorresponses_provider_switch'] = 'Este chat não pode ser continuado com a Responses API da OpenAI porque foi iniciado com outro provedor de IA. Inicie um novo chat ou volte ao provedor original (ou ao Chat Completions da OpenAI) para continuar este.';
 $string['errorrootnotfound'] = 'Mensagem raiz não encontrada para este chat.';
+$string['errorupdatesstopped'] = 'Este chat parou de receber atualizações. Atualize para ver o estado mais recente.';
 $string['exportskill'] = 'Exportar';
 $string['feedback_modal_freetextlabel'] = 'Mais alguma coisa? (opcional)';
 $string['feedback_modal_freetextplaceholder_negative'] = 'O que deu errado? Seja tão específico quanto quiser.';
@@ -153,11 +174,23 @@ $string['feedbackthanks'] = 'Obrigado pelo seu feedback!';
 $string['feedbackthumbdown'] = 'Relatar um problema com esta resposta';
 $string['feedbackthumbup'] = 'Esta resposta foi útil';
 $string['feedbackvalidation_categoryrequired'] = 'Selecione pelo menos uma categoria.';
+$string['functionapprovalneeded'] = 'Aprovação necessária';
+$string['functionapprovalneededmany'] = '{$a} chamadas de função precisam de aprovação';
 $string['functionapprovecount'] = 'Aprovar {$a} chamadas';
+$string['functionavailable'] = 'Disponível';
 $string['functioncall_actions'] = 'Aprovar ou negar a chamada de função';
 $string['functioncall_chip_action'] = 'Alterar o modo de auto-aprovação';
 $string['functioncalldetails'] = 'Detalhes da chamada de função';
-$string['functioncalldetailscount'] = 'Detalhes das chamadas de função ({$a})';
+$string['functioncalldetailsof'] = 'Detalhes da chamada de função: {$a}';
+$string['functioncalling'] = 'Chamando {$a}';
+$string['functioncallnav'] = '{$a->index} de {$a->total}';
+$string['functioncallnext'] = 'Próxima chamada de função';
+$string['functioncallprevious'] = 'Chamada de função anterior';
+$string['functioncallscount'] = '{$a} chamadas de função';
+$string['functioncallscountone'] = '1 chamada de função';
+$string['functiondenied'] = 'Você negou {$a}';
+$string['functiondeniedmany'] = 'Você negou {$a->name} e mais {$a->count}';
+$string['functiondeniednext'] = 'O agente parou. Digite uma mensagem para dizer o que ele deve fazer a seguir.';
 $string['functiondeny'] = 'Negar';
 $string['functiondenyall'] = 'Negar todas';
 $string['functiondetailscopied'] = 'Copiado';
@@ -187,20 +220,34 @@ $string['functionname'] = 'Nome da função';
 $string['functionparameters'] = 'Parâmetros';
 $string['functionresult'] = 'Resultado';
 $string['functionresultdiscarded'] = 'O resultado era grande demais ({$a}) e foi descartado. Restrinja a solicitação filtrando-a, pedindo menos campos ou usando uma função mais específica. Repetir a mesma chamada produzirá o mesmo erro.';
+$string['functionrules_error_component'] = '{$a->path}: nenhuma função pertence a um componente que corresponda a "{$a->value}".';
+$string['functionrules_error_depth'] = '{$a->path}: a regra tem mais de {$a->max} níveis de aninhamento.';
+$string['functionrules_error_function'] = '{$a->path}: nenhuma função corresponde a "{$a->value}".';
+$string['functionrules_error_json'] = 'A regra não é um JSON válido: {$a}';
+$string['functionrules_error_list'] = '{$a->path}: era esperada uma lista não vazia de partes da regra.';
+$string['functionrules_error_node'] = '{$a->path}: cada parte da regra deve ser um objeto com exatamente uma chave: type, tag, component, function, not, all ou any.';
+$string['functionrules_error_tag'] = '{$a->path}: nenhuma função tem a tag "{$a->value}".';
+$string['functionrules_error_type'] = '{$a->path}: tipo desconhecido "{$a->value}". Os tipos são read, safe e write.';
+$string['functionrules_error_value'] = '{$a->path}: era esperada uma string não vazia ou uma lista não vazia de strings não vazias.';
+$string['functionrules_path_root'] = 'A regra inteira';
 $string['functions_intro'] = '<p><b>Nem toda função de web service é adequada para o agente de IA.</b> Algumas foram criadas para a comunicação cliente-servidor (marcadas com AJAX) ou para usuários não autenticados (Sem autenticação), e algumas têm alternativas melhores. Algumas funções AJAX ainda funcionam bem com o agente de IA, mas a maioria não. O plugin do agente de IA atribui uma pontuação de relevância (1-10) às funções do núcleo e dos plugins padrão e habilita as que atingem 5 ou mais. As funções de plugins adicionais não recebem pontuação; em vez disso, todas as funções não AJAX delas são habilitadas automaticamente. Use esta página para revisar as funções disponíveis e habilitar ou desabilitar cada uma delas.</p><p>Quando uma função exige uma ou mais ações autorizadas, ela não fica disponível para os usuários que não tenham pelo menos uma delas em algum contexto do site. Para os plugins do núcleo e padrão, o plugin do agente de IA define essas ações autorizadas corretamente. Para os plugins adicionais, elas são obtidas da definição da função e, como o Moodle não faz essa verificação por conta própria, podem estar erradas.</p>';
 $string['functions_report'] = 'Funções do agente de IA';
 $string['functionstatus_denied'] = 'Negada';
 $string['functionstatus_failed'] = 'Falhou';
+$string['functionstatus_interrupted'] = 'Interrompida';
+$string['functionstatus_notrun'] = 'Não executada';
 $string['functionstatus_pending'] = 'Aguardando aprovação';
 $string['functionstatus_processing'] = 'Executando...';
 $string['functiontype'] = 'Tipo';
 $string['functiontype_help'] = 'O tipo da função de web service e suas propriedades:
 
 * **Leitura**: obtém dados sem modificar nada
+* **Segura**: uma função integrada que não modifica o site, apenas os arquivos do chat, por exemplo redimensionar um anexo ou gerar uma imagem
 * **Escrita**: cria ou modifica dados
 * **AJAX**: usada internamente pelo Moodle para as solicitações entre cliente e servidor, com menor probabilidade de ser adequada como função do agente de IA
 * **Sem autenticação**: disponível para usuários não autenticados, também com menor probabilidade de ser adequada como função do agente de IA';
 $string['functiontype_read'] = 'Leitura';
+$string['functiontype_safe'] = 'Segura';
 $string['functiontype_write'] = 'Escrita';
 $string['gemini_api_generatecontent'] = 'generateContent (estável)';
 $string['gemini_api_interactions'] = 'Interactions API (beta)';
@@ -213,6 +260,7 @@ $string['gemini_builtin_google_search_desc'] = 'Permite que o Gemini embase as r
 $string['gemini_builtin_url_context'] = 'Habilitar a ferramenta URL Context';
 $string['gemini_builtin_url_context_desc'] = 'Permite que o Gemini leia e analise o conteúdo de URLs públicas mencionadas pelo usuário. Somente modelos Gemini 3 ou mais recentes; é ignorado silenciosamente no Gemini 2.5 e anteriores, porque esses modelos não conseguem combinar ferramentas integradas com chamadas de função personalizadas. As URLs precisam ser publicamente acessíveis (sem localhost, sem autenticação).';
 $string['gemini_heading'] = 'Google Gemini';
+$string['hidefunctioncalls'] = 'Ocultar chamadas de função';
 $string['hint_splitview'] = 'Quer usar este chat lado a lado com o seu site? Arraste <a href="{$a}">{$a}</a> para uma nova janela ou clique nele com o botão direito e use a visualização dividida do seu navegador.';
 $string['imagedimensions'] = '{$a->width}×{$a->height} px';
 $string['imagepreviewinfo'] = 'Arquivo {$a->size}, dimensões {$a->dimensions}. Prévia {$a->preview} ({$a->scale}%).';
@@ -233,6 +281,8 @@ $string['importskill_summaryupdate'] = '{$a} para atualizar';
 $string['importskill_toolarge'] = 'Os dados da habilidade são grandes demais (máximo {$a}).';
 $string['inlinefilecharlimit'] = 'Limite de conteúdo de arquivo embutido';
 $string['inlinefilecharlimit_desc'] = 'Quantidade máxima de um arquivo de texto que pode ser embutida diretamente no chat quando um arquivo é lido de forma embutida. Conteúdos mais longos são truncados. A entrega embutida é usada quando o modelo a solicita e como alternativa para os provedores de IA que não aceitam arquivos. O conteúdo embutido é reenviado com o histórico do chat a cada turno, então um limite alto aumenta o uso de tokens.';
+$string['interruptedbystop'] = 'Interrompida: você parou o agente.';
+$string['interruptedunexpectedly'] = 'Interrompida: a função parou inesperadamente.';
 $string['invalidparameter'] = 'Parâmetro inválido detectado: {$a}';
 $string['isajax'] = 'AJAX';
 $string['licenseactivate'] = 'Ativar a licença';
@@ -265,7 +315,6 @@ Os provedores de IA recusam de qualquer forma os arquivos que ultrapassam seus p
 $string['maxfunctionresultsize'] = 'Tamanho máximo do resultado de uma função';
 $string['maxfunctionresultsize_desc'] = 'Quantidade máxima de dados que uma única função pode devolver ao modelo de IA. Algumas funções do Moodle não têm filtro e devolvem todos os usuários ou todos os cursos do site, o que inunda o modelo e consome tokens a cada turno seguinte. Um resultado acima deste limite é descartado e o modelo é instruído a restringir a solicitação. Zero significa sem limite. A leitura embutida de um arquivo está isenta; para isso, use "Limite de conteúdo de arquivo embutido".';
 $string['newchat'] = 'Novo chat';
-$string['newchatchooser_blank_sub'] = 'Sem contexto. Assistente geral.';
 $string['newchatchooser_clone'] = 'Igual a este chat';
 $string['newchatchooser_continue'] = 'Continuar de onde parou';
 $string['newchatchooser_desc_default'] = 'Inicie um novo chat nesta página ou continue de onde parou.';
@@ -277,15 +326,20 @@ $string['newchatchooser_onthispage'] = 'Nesta página:';
 $string['newchatchooser_title'] = 'Iniciar um novo chat';
 $string['nfilesattached'] = '{$a} arquivos anexados';
 $string['nonauth'] = 'Sem login';
+$string['notavailable_loginas'] = 'O agente de IA não está disponível enquanto você acessa como outro usuário.';
+$string['notavailable_roleswitch'] = 'O agente de IA não está disponível enquanto você mudou de papel.';
 $string['numfiles'] = '{$a} arquivos';
 $string['numimages'] = '{$a} imagens';
 $string['numotherfiles'] = '{$a} outros';
+$string['onefileattached'] = '1 arquivo anexado';
 $string['openai_api_chatcompletions'] = 'Chat Completions';
 $string['openai_api_responses'] = 'Responses API';
 $string['openai_api_type'] = 'Tipo de API';
 $string['openai_api_type_desc'] = 'Qual API da OpenAI usar em chats com vários turnos. A Responses API mantém o estado do chat no servidor, então só a nova entrada é enviada a cada turno (custo menor, histórico mais simples). O Chat Completions reconstrói toda a lista de mensagens em cada solicitação (compatibilidade maior com outros provedores).<br><br>A Responses API é aceita por: <strong>{$a}</strong>. Os demais provedores voltam silenciosamente ao Chat Completions, independentemente desta configuração.';
 $string['openai_heading'] = 'OpenAI (ou compatível)';
 $string['openlink'] = 'Abrir o link';
+$string['pathtophp'] = 'Caminho para o PHP CLI dos chats em segundo plano';
+$string['pathtophp_desc'] = 'O programa PHP CLI que executa os chats em segundo plano, quando ele deve ser diferente do definido no Caminho para o PHP CLI do site. Deixe vazio para usar a configuração do site.';
 $string['placeholder'] = 'Digite uma mensagem...';
 $string['placement_add'] = 'Adicionar posicionamento';
 $string['placement_confirmdelete'] = 'Tem certeza de que deseja excluir este posicionamento?';
@@ -294,9 +348,26 @@ $string['placement_defaultname'] = 'Agente de IA';
 $string['placement_deleted'] = 'Posicionamento excluído.';
 $string['placement_duplicated'] = 'Posicionamento duplicado.';
 $string['placement_edit'] = 'Editar posicionamento';
+$string['placement_functionrules'] = 'Regra de funções';
+$string['placement_functionrules_help'] = 'Limita quais funções o agente de IA pode usar nos chats iniciados a partir deste posicionamento. Deixe em branco para permitir todas as funções. Alterar a regra também a altera nos chats já iniciados a partir deste posicionamento.
+
+A regra é escrita em JSON. Cada parte dela é um objeto com uma única chave:
+
+* {"type": "read"}: o tipo da função é read, safe ou write, como na aba Funções
+* {"tag": "student"}: a função tem esta tag
+* {"component": "mod_quiz"}: a função pertence a este componente
+* {"function": "core_course_get_courses"}: a função tem este nome
+* {"not": parte}, {"all": [partes]}, {"any": [partes]}: combinam partes
+
+Em um componente ou nome de função, um asterisco corresponde a qualquer texto. As chaves type, tag, component e function também aceitam uma lista, que significa qualquer um dos valores: {"type": ["read", "safe"]} permite todas as funções que não modificam o site.
+
+Peça ao agente de IA para escrever ou alterar a regra: ele verifica quais funções a regra permite antes de salvá-la.';
+$string['placement_functionrules_preview'] = 'A regra salva permite {$a->count} das {$a->total} funções habilitadas';
+$string['placement_functions'] = 'Funções permitidas';
+$string['placement_functions_limited'] = 'Limitadas ({$a})';
 $string['placement_initialskills'] = 'Habilidades iniciais';
-$string['placement_initialskills_help'] = 'Habilidades carregadas automaticamente quando o chat começa. Opcional; o agente ainda pode carregar qualquer habilidade quando precisar. As habilidades definidas também controlam este posicionamento: os usuários sem acesso a nenhuma delas não verão o botão nem o item de menu e, se todas as habilidades definidas forem removidas ou desabilitadas depois, o posicionamento deixa de aparecer.';
-$string['placement_intro'] = '<p>Os posicionamentos permitem oferecer agentes adaptados a uma tarefa específica. Cada posicionamento adiciona o botão do agente de IA às páginas cuja URL corresponde a uma de suas máscaras e pode iniciar o chat com habilidades iniciais e um texto de boas-vindas predefinidos. Se houver habilidades iniciais definidas, os usuários que não tiverem acesso a nenhuma delas não verão o botão.</p><p>As habilidades iniciais definem apenas o ponto de partida do chat; o agente continua podendo acessar todas as funções habilitadas, não só as das habilidades.</p>';
+$string['placement_initialskills_help'] = 'Habilidades carregadas automaticamente quando o chat começa. Opcional; o agente ainda pode carregar qualquer habilidade quando precisar, a menos que a regra de funções do posicionamento o impeça. As habilidades definidas também controlam este posicionamento: os usuários sem acesso a nenhuma delas não verão o botão nem o item de menu e, se todas as habilidades definidas forem removidas ou desabilitadas depois, o posicionamento deixa de aparecer.';
+$string['placement_intro'] = '<p>Os posicionamentos permitem oferecer agentes adaptados a uma tarefa específica. Cada posicionamento adiciona o botão do agente de IA às páginas cuja URL corresponde a uma de suas máscaras e pode iniciar o chat com habilidades iniciais e um texto de boas-vindas predefinidos. Se houver habilidades iniciais definidas, os usuários que não tiverem acesso a nenhuma delas não verão o botão.</p><p>As habilidades iniciais definem apenas o ponto de partida do chat; o agente continua podendo acessar todas as funções habilitadas, não só as das habilidades. Uma regra de funções limita quais funções o agente pode usar nos chats iniciados a partir de um posicionamento.</p>';
 $string['placement_location'] = 'Localização do botão';
 $string['placement_location_floating'] = 'Botão flutuante';
 $string['placement_location_h1'] = 'Título da página (H1)';
@@ -307,14 +378,16 @@ $string['placement_name_help'] = 'Mostrado aos usuários: no menu do usuário, c
 $string['placement_save'] = 'Salvar posicionamento';
 $string['placement_saved'] = 'Posicionamento salvo.';
 $string['placement_skillmissing'] = 'Habilidade não encontrada';
+$string['placement_skillnotinitial'] = 'Não pode ser uma habilidade inicial';
 $string['placement_suggestedprompts'] = 'Prompts sugeridos';
 $string['placement_suggestedprompts_help'] = 'Um prompt por linha, oferecido como botão acima da caixa de mensagem na tela inicial do chat. Clicar em um deles o envia imediatamente, por exemplo "Resuma este curso". Para oferecer um prompt que o usuário precise completar antes, coloque ... em qualquer parte dele: o prompt é então colocado na caixa de mensagem em vez de ser enviado, por exemplo "Resuma a seção ... deste curso". Deixe o campo em branco para não oferecer prompts.';
 $string['placement_urlmask'] = 'Máscaras de URL';
-$string['placement_urlmask_help'] = 'Um padrão por linha. Use * como curinga, por exemplo /course/view.php* ou /mod/*/view.php*. Observação: nas páginas em que um posicionamento mais específico ocupa a mesma localização, um posicionamento amplo que corresponde a /* fica oculto, de modo que os usuários veem apenas o mais relevante.';
+$string['placement_urlmask_help'] = 'Um padrão por linha. Use * como curinga, por exemplo /course/view.php* ou /mod/*/view.php*.';
 $string['placement_urlmask_invalid'] = 'Cada máscara de URL deve começar com uma barra: "{$a}" não começa.';
 $string['placement_welcome'] = 'Texto de boas-vindas personalizado (opcional)';
 $string['placement_welcome_help'] = 'Substitui a mensagem de boas-vindas padrão na tela inicial do chat. Deixe em branco para usar a padrão.';
 $string['pluginname'] = 'Agente de IA';
+$string['pluginnotinstalled'] = 'Plugin não instalado';
 $string['previouschats'] = 'Chats anteriores';
 $string['privacy:metadata:aiprovider'] = 'Os chats são enviados ao provedor de IA escolhido pelo administrador do site, como OpenAI, Azure OpenAI, Google Gemini ou Anthropic, para que ele possa gerar uma resposta. O plugin envia cada solicitação diretamente ao provedor, e não pelo subsistema de IA do Moodle. Qual empresa recebe os dados, e por quanto tempo eles são mantidos lá, depende do provedor configurado no site e dos termos desse provedor.';
 $string['privacy:metadata:aiprovider:files'] = 'Arquivos que o usuário anexa a um chat e arquivos que o agente lê do site em nome do usuário, enviados para que o modelo possa ler seu conteúdo.';
@@ -340,12 +413,18 @@ $string['privacy:metadata:tool_aiagent_message:content'] = 'O conteúdo da mensa
 $string['privacy:metadata:tool_aiagent_message:pagecontext'] = 'Para uma mensagem enviada do chat em sobreposição ou barra lateral, o endereço e o nome da página que o usuário estava lendo naquele momento.';
 $string['privacy:metadata:tool_aiagent_message:role'] = 'Quem enviou a mensagem: o usuário, o assistente, o sistema ou uma função.';
 $string['privacy:metadata:tool_aiagent_message:timecreated'] = 'O momento em que a mensagem foi criada.';
+$string['privacy:metadata:tool_aiagent_run'] = 'Um registro de cada vez que o agente de IA trabalhou em uma mensagem de um chat, mantido por um dia após o término.';
+$string['privacy:metadata:tool_aiagent_run:ip'] = 'O endereço IP do usuário ao enviar a mensagem, registrado junto com as ações que o agente de IA realizou por ele.';
+$string['privacy:metadata:tool_aiagent_run:payload'] = 'O conteúdo da página que o usuário estava vendo, quando o agente de IA pediu para lê-la.';
+$string['privacy:metadata:tool_aiagent_run:timecreated'] = 'O momento em que o agente de IA começou a trabalhar na mensagem.';
+$string['privacy:metadata:tool_aiagent_run:userid'] = 'O usuário que enviou a mensagem.';
 $string['privacy:metadata:tool_aiagent_usage'] = 'Uso de tokens registrado para cada solicitação de IA, mantido para o acompanhamento de uso.';
 $string['privacy:metadata:tool_aiagent_usage:completiontokens'] = 'O número de tokens de saída (completion) usados.';
 $string['privacy:metadata:tool_aiagent_usage:model'] = 'O modelo de IA que processou a solicitação.';
 $string['privacy:metadata:tool_aiagent_usage:prompttokens'] = 'O número de tokens de entrada (prompt) usados.';
 $string['privacy:metadata:tool_aiagent_usage:provider'] = 'O provedor de IA que processou a solicitação.';
 $string['privacy:metadata:tool_aiagent_usage:timecreated'] = 'O momento em que a solicitação foi feita.';
+$string['providers_heading'] = 'Todos os provedores de IA';
 $string['relevancescore'] = 'Pontuação de relevância';
 $string['relevancescore_help'] = 'A pontuação de relevância indica o quanto uma função de web service é adequada para o agente de IA, em uma escala de 1 a 10.
 
@@ -373,6 +452,7 @@ $string['resume_title'] = 'Bem-vindo de volta';
 $string['sendmessage'] = 'Enviar';
 $string['settings'] = 'Configurações do agente de IA';
 $string['showallfiles'] = 'Mostrar todos';
+$string['showfunctioncalls'] = 'Mostrar chamadas de função';
 $string['skill_add'] = 'Adicionar habilidade';
 $string['skill_edit'] = 'Editar habilidade';
 $string['skill_save_close'] = 'Salvar e fechar';
@@ -392,6 +472,7 @@ $string['skilldeleted'] = 'Habilidade "{$a}" excluída.';
 $string['skilldescription'] = 'Descrição';
 $string['skilldescription_help'] = 'Para que serve a habilidade, de modo que o assistente saiba quando carregá-la. Descreva a tarefa ou atividade a que ela se refere, não os passos que ela executa. Aparece tanto na lista de habilidades (para as pessoas) quanto no prompt do sistema (para o assistente).';
 $string['skillexists'] = 'Já existe uma habilidade com o nome breve "{$a}".';
+$string['skillimport_badloadmode'] = 'O campo "loadmode" deve ter um destes valores: {$a}.';
 $string['skillimport_badmasks'] = 'Os campos "mainfunctions" e "otherfunctions" devem ser, cada um, uma lista de máscaras de texto.';
 $string['skillimport_badshortname'] = 'Cada habilidade precisa de um shortname válido (letras, números, hífen, sublinhado).';
 $string['skillimport_invalidjson'] = 'O arquivo enviado não é um JSON de habilidade válido.';
@@ -400,6 +481,13 @@ $string['skillimported'] = 'Habilidade "{$a}" importada.';
 $string['skillinstructions'] = 'Instruções';
 $string['skillinstructions_help'] = 'Orientações carregadas no chat quando a habilidade é carregada. Inclua apenas orientações não óbvias: o assistente já vê todas as funções carregadas e suas descrições, então não repita o que uma função faz nem o lembre de passar parâmetros óbvios. Registre a ordem do fluxo de trabalho, as decisões e as pegadinhas que as descrições não cobrem, e comece com "Se ..." os passos que só se aplicam às vezes.';
 $string['skillloadedevent'] = 'Habilidade carregada · {$a}';
+$string['skillloadmode'] = 'Pode ser usada';
+$string['skillloadmode_dynamic'] = 'Somente carregada sob demanda durante o chat';
+$string['skillloadmode_help'] = 'Quando um posicionamento usa a habilidade como habilidade inicial, as instruções da habilidade são adicionadas às instruções de sistema desde o início do chat. Use esta opção para mudar a forma como o agente de IA responde.
+
+Uma habilidade para uma tarefa específica, como configurar o livro de notas ou adicionar restrições de acesso, pode ser carregada sob demanda, quando o usuário pede algo que ela cobre.';
+$string['skillloadmode_initial'] = 'Somente como habilidade inicial';
+$string['skillloadmode_initial_or_dynamic'] = 'Tanto como habilidade inicial quanto carregada sob demanda';
 $string['skillmainfunctions'] = 'Funções principais';
 $string['skillmainfunctions_help'] = 'Um conjunto restrito de máscaras que seleciona as funções centrais de criação e atualização da habilidade. As ações autorizadas dessas funções decidem a quem a habilidade é oferecida: somente aos usuários que possam acessar pelo menos uma delas. Cada máscara corresponde a um nome de função ou a um glob componente/nome ("*" é curinga; um prefixo "~" remove as correspondências). Deixe em branco para oferecer a habilidade a todos.';
 $string['skillmatched'] = 'Correspondentes ({$a})';
@@ -410,7 +498,7 @@ $string['skillnomatch'] = 'Nenhuma função habilitada corresponde a estes padr�
 $string['skillnotfound'] = 'Habilidade não encontrada: {$a}.';
 $string['skillotherfunctions'] = 'Outras funções';
 $string['skillotherfunctions_help'] = 'Máscaras para as demais funções que a habilidade traz: leituras, auxiliares ou um componente inteiro. Mesma sintaxe das funções principais, mas estas não afetam a quem a habilidade é oferecida. Deixe em branco se a habilidade não precisar de funções extras.';
-$string['skills_intro'] = '<p>Uma habilidade reúne instruções especializadas para uma tarefa específica com uma lista de funções recomendadas para ela. Use habilidades para tarefas comuns de várias etapas em que o agente de IA costuma se confundir ou não encontra as funções certas, ou para tarefas específicas da sua organização.</p><p>A lista de habilidades e suas descrições está sempre disponível para o agente de IA, que carrega uma habilidade por conta própria sempre que julga que ela serve ao pedido do usuário. Uma habilidade só está disponível para os usuários que possam acessar pelo menos uma de suas funções principais. Por exemplo, uma habilidade criada para professores não será visível para os estudantes.</p>';
+$string['skills_intro'] = '<p>Uma habilidade reúne instruções especializadas para uma tarefa específica com uma lista de funções recomendadas para ela. Use habilidades para tarefas comuns de várias etapas em que o agente de IA costuma se confundir ou não encontra as funções certas, ou para tarefas específicas da sua organização.</p><p>Uma habilidade pode ser usada de duas formas, escolhidas na sua configuração "Pode ser usada". Um posicionamento pode defini-la como habilidade inicial, para que suas instruções valham desde o início do chat. Ou o agente de IA pode carregá-la sob demanda: ele sempre vê os nomes e as descrições dessas habilidades e carrega uma sempre que julga que ela serve ao pedido do usuário. Uma habilidade só está disponível para os usuários que possam acessar pelo menos uma de suas funções principais. Por exemplo, uma habilidade criada para professores não será visível para os estudantes.</p>';
 $string['skillshortname'] = 'Nome breve';
 $string['skillshortname_help'] = 'Um nome de máquina estável, único no site: apenas letras, números, hífen e sublinhado. Pode ser alterado depois, a menos que a habilidade tenha vindo com o plugin.';
 $string['skilltags'] = 'Tags';
@@ -418,6 +506,11 @@ $string['skilltags_help'] = 'As tags são usadas apenas para filtrar e não são
 $string['skilltoobroad'] = 'Corresponde a {$a} funções, o que pode ser abrangente demais. Considere restringir as máscaras de função.';
 $string['skillunavailable'] = 'Indisponível';
 $string['skillupdated'] = 'Habilidade "{$a}" atualizada.';
+$string['stop'] = 'Parar';
+$string['stoppedafter'] = 'Parado após {$a}';
+$string['stoppedbyuser'] = 'Você parou o agente. Digite uma nova mensagem para continuar.';
+$string['stopping'] = 'Parando...';
+$string['stoppingafterfunction'] = 'Vai parar quando esta função terminar';
 $string['suggestedprompt_edit'] = 'Editar esta mensagem antes de enviar';
 $string['suggestedprompt_send'] = 'Enviar esta mensagem';
 $string['switchview'] = 'Alternar a visualização';
@@ -438,6 +531,9 @@ $string['timecreated'] = 'Hora de criação';
 $string['timelastactivity'] = 'Última atividade';
 $string['timemodified'] = 'Hora de modificação';
 $string['tryagain'] = 'Tentar novamente';
+$string['unavailable_envcheck'] = 'Esta função não está disponível porque uma configuração do site da qual ela depende não está ativada: {$a}.';
+$string['unavailable_plugindisabled'] = 'Esta função não está disponível porque o plugin {$a} está desativado neste site.';
+$string['unavailable_pluginnotinstalled'] = 'Esta função não pode ser usada porque o plugin {$a} não está instalado neste site.';
 $string['usage_completiontokens'] = 'Tokens de saída';
 $string['usage_model'] = 'Modelo';
 $string['usage_prompttokens'] = 'Tokens de entrada';
@@ -455,3 +551,6 @@ $string['welcome_skillsmore'] = '+{$a} mais';
 $string['welcome_tryasking'] = 'Experimente perguntar';
 $string['welcomedesc'] = 'Pergunte ao agente de IA sobre seu site, cursos, usuários ou conteúdo. Ele pode ler e, com sua aprovação, fazer alterações.';
 $string['welcometitle'] = 'Bem-vindo, {$a}';
+$string['workedfor'] = 'Trabalhou por {$a}';
+$string['working'] = 'Trabalhando';
+$string['workingfor'] = 'Trabalhando há {$a}';
